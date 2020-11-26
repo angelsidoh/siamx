@@ -1,21 +1,20 @@
 <?php include_once 'includes/templates/header.php' ?>
   <section class="seccion contenedor">
     <h2>Sociedad Intelectual del Aguacate Mexicano A.C</h2>
-    <p> Es un organismo que conjunta a Ingenieros, Técnicos y Profesionistas que estudian el cultivo del aguacate en la República Mexicana; Y permiten dar a conocer las novedades técnicas científicas a toda la comunidad del presente frutal. Busca en todo momento fortalecer los principios básicos para mejorar la producción, fito-sanidad, inocuidad y de las buenas prácticas del cultivo. De no contaminación al medio ambiente por el uso de Agro-Insumos para el combate de plagas y enfermedades. Busca realizar un Congreso Mexicano del Aguacate cada dos años. Así como Diplomados, Cursos de Actualización y la difusión de novedades científicas Nacionales y Mundiales del Aguacate. 
+    <p> Es un organismo que conjunta a Ingenieros, Técnicos y Profesionistas que estudian el cultivo del aguacate en la República Mexicana; Y permiten dar a conocer las novedades técnicas científicas a toda la comunidad del presente frutal. Busca en todo momento fortalecer los principios básicos para mejorar la producción, fito-sanidad, inocuidad y de las buenas prácticas del cultivo. De no contaminación al medio ambiente por el uso de agro-insumos para el combate de plagas y enfermedades. Busca realizar un congreso mexicano del Aguacate cada dos años. Así como diplomados, cursos de actualización y la difusión de novedades científicas nacionales y mundiales del Aguacate. 
     </p>
   </section><!--Seccion-->
   <section class="programa">
     <div class="contenedor-video">
-      <video autoplay loop poster="img/bg-talleres.jpg">
-        <source src="video/video.mp4" type="video/mp4">
-        <source src="video/video.webm" type="video/webm">
-        <source src="video/video.ogv" type="video/ogv">
+      <video autoplay loop poster="img/terceros/academicEdit.png">
+        <source src="video/AthensEdit.mp4" type="video/mp4">
+        
       </video>
     </div><!--contenedor-video-->
     <div class="contenido-programa">
       <div class="contenedor">
         <div class="programa-evento">
-          <h2>Programa de Congreso</h2>
+          <h2>Programa</h2>
           <?php
             
           ?>
@@ -62,7 +61,7 @@
               <li>Derecho al examen final de conocimintos si se cumplio con la asistencia aprovatoria</li>
               <li>Opción de titulación</li>
             </ul>
-            <a href="registro.php#hola" class="button hollow">Comprar</a>
+            <a href="#" class="button hollow">Comprar</a>
           </div>
         </li>
         <li>

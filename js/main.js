@@ -317,6 +317,31 @@ $("#mapps").click(function(){
     $('#mapps').addClass('mapsss');
     $('#btonmaps').addClass('btonmaps');
     $('#btonmaps').css({'display': 'none'});
-    
-
   });
+  $("#logo_barra").click(function(){
+    location.hash = "#" + 'hero';
+  });
+
+$('input:checkbox').removeAttr('checked');
+$('input[type=checkbox]').prop('checked', false);
+$("#check").click(function () {
+  if ($(this).is(":checked")) {
+    $("#btn").hide();
+    $("#clc").show();
+  } else {
+    $("#btn").show();
+    $("#clc").hide();
+  }
+});
+
+$('input:checkbox').removeAttr('checked');
+$('input[type=checkbox]').prop('checked', false);
+$("#check-hotcall").click(function () {
+  if ($(this).is(":checked")) {
+    $("#flechaup").hide();
+    $("#flechadown").show();
+  } else {
+    $("#flechaup").show();
+    $("#flechadown").hide();
+  }
+});

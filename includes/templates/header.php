@@ -66,7 +66,7 @@
     
   </header>
   
-  <div class="hero">
+  <div id="hero" class="hero">
       <div class="contenido-header">
          <nav class="redes-sociales">
           <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -89,6 +89,25 @@
   
   <div class="barra">
     <div class="elementos__barra">
+      <div id= "logo_barra" class="logo_barra">
+
+      </div>
+      
+        <div class = "menu-hambur">
+          <input type = "checkbox" id = "check" name = "menu">
+            <label for = "check">
+              <i class = "fas fa-bars" id = "btn"></i>
+              <i class = "fas fa-window-close" id = "clc" style = "display:none"></i>
+            </label>
+        </div>
+        <div class="hotcall">
+        <input type = "checkbox" id = "check-hotcall" name = "menu1">
+            <label for = "check-hotcall">
+              <i class="fas fa-chevron-down" id = "flechaup"> Contacto Rápido</i>
+              <i class="fas fa-chevron-up" id = "flechadown" style = "display:none"> Contacto Rápido</i>
+              </label>
+         
+      </div>
       
     </div>    
   </div><!--.Barra-->
