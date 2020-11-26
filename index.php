@@ -1,7 +1,7 @@
 <?php include_once 'includes/templates/header.php' ?>
   <section class="seccion contenedor">
-    <h2>El Mejor Congreso del Aguacate del Mundo</h2>
-    <p>La Facultad de Agrobiología “Presidente Juárez” UMSNH, El Colegio de Postgraduados, Instituto Mexicano de Investigaciones Forestales, Agrícolas y Pecuarias INIFAP y La Fundación Sánchez Colín CICTAMEX. Tienen el gusto de celebrar el Segundo Congreso Mexicano del Aguacate 2020 en la Facultad de Agrobiología “Presidente Juárez” UMSNH. Y  de ésta manera reunir a los expertos del aguacate de la República Mexicana; a través de la Comunidad Científica, Medios Oficiales, Organizaciones Tecnológicos, Industriales, Empresariales, Área Estudiantil y Prestadores de Servicios; para exponer y compartir conocimientos innovadores de mejoras en los procesos productivos del frutal aguacate de nuestro país, durante los días 29, 30 y 31 de Octubre del 2020.   
+    <h2>Sociedad Intelectual del Aguacate Mexicano A.C</h2>
+    <p> Es un organismo que conjunta a Ingenieros, Técnicos y Profesionistas que estudian el cultivo del aguacate en la República Mexicana; Y permiten dar a conocer las novedades técnicas científicas a toda la comunidad del presente frutal. Busca en todo momento fortalecer los principios básicos para mejorar la producción, fito-sanidad, inocuidad y de las buenas prácticas del cultivo. De no contaminación al medio ambiente por el uso de Agro-Insumos para el combate de plagas y enfermedades. Busca realizar un Congreso Mexicano del Aguacate cada dos años. Así como Diplomados, Cursos de Actualización y la difusión de novedades científicas Nacionales y Mundiales del Aguacate. 
     </p>
   </section><!--Seccion-->
   <section class="programa">
@@ -53,24 +53,28 @@
       <ul class="lista-precios clearfix">
         <li>
           <div class="tabla-precios">
-            <h3>Estudiantes</h3>
-            <p class="numero">$2,600 pesos MXN</p>
+            <h3>Estudiantes Diplomado</h3>
+            
+            <p class="numero">$5,500 MXN</p>
             <ul>
-              <li>Entrada a la Practica de Campo</li>
-              <li>Entrada a todas las Conferencias</li>
-              <li>Entrada a todos los Simposios</li>
+              <li>Acceso al contenido de aprendizaje de la plataforma</li>
+              <li>Acceso a la sala de reunion en Meet</li>
+              <li>Derecho al examen final de conocimintos si se cumplio con la asistencia aprovatoria</li>
+              <li>Opción de titulación</li>
             </ul>
             <a href="registro.php#hola" class="button hollow">Comprar</a>
           </div>
         </li>
         <li>
           <div class="tabla-precios">
-            <h3>General</h3>
-            <p class="numero">$3,600 pesos MXN</p>
+            <h3>Público General</h3><br>
+            <h3>Diplomado</h3>
+            <p class="numero">$5,500 MXN</p>
             <ul>
-              <li>Entrada a la Practica de Campo</li>
-              <li>Entrada a todas las Conferencias</li>
-              <li>Entrada a todos los Simposios</li>
+              <li>Acceso al contenido de aprendizaje de la plataforma</li>
+              <li>Acceso a la sala de reunion en Meet</li>
+              <li>Derecho al examen final de conocimintos si se cumplio con la asistencia aprovatoria</li>
+              
             </ul>
             <a href="#" class="button">Comprar</a>
            
@@ -83,8 +87,18 @@
   <!-- Add your site or application content here -->
   
   <div id="map" class="mapa">
-
+    
   </div>
+  <div id="mapps" class="mapsss">
+      
+  </div>
+  <div class="contenedorbtn">
+    <div id="btonmaps" class="salirmapps">
+        <a href="#newsletter">Salir del Mapa</a>
+    </div>
+  </div>
+  
+  
   <!-- <section class="seccion">
     <h2>Testimoniales</h2>
     <div class="testimoniales contenedor clearfix">
@@ -117,10 +131,10 @@
       </div>
     </div>
   </section> -->
-  <div class="newsletter parallax">
+  <div id= "newslatter"class="newsletter parallax">
     <div class="contenido contenedor">
       <p>Regístrate al newsletter:</p>
-      <h3>2° Congreso Méxicano del Aguacate</h3>
+      <h3>SIAM A.C.</h3>
       <a href="#mc_embed_signup" class="btn_newletter button transparente">Registro</a>
     </div><!--.contenido-->
   </div>

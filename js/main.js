@@ -9,7 +9,7 @@
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
         L.marker([19.395662, -102.057533]).addTo(map)
-        .bindPopup('Facultad de Agrobiología <br> "Presidente Juárez" <br>2° Congreso Mexicano del Aguacate<br>  29 a 31 de Octubre 2020.')
+        .bindPopup('Facultad de Agrobiología <br> "Presidente Juárez" <br>.')
         .openPopup(); 
 
         }
@@ -294,7 +294,7 @@ $(function(){
 
     
 
-    $('.cuenta-regresiva').countdown('2021/10/29 8:00:00', function(event){
+    $('.cuenta-regresiva').countdown('2021/01/08 8:00:00', function(event){
         $('#dias').html(event.strftime('%D'));
         $('#horas').html(event.strftime('%H'));
         $('#minutos').html(event.strftime('%M'));
@@ -304,3 +304,19 @@ $(function(){
     //Colorbox
     $('.invitado-info').colorbox({inline:true, width:"100%"});
 });
+$('#btonmaps').addClass('btonmaps');
+$('#btonmaps').css({'display': 'none'});
+$("#mapps").click(function(){
+    
+        $('#mapps').removeClass('mapsss');
+        $('#btonmaps').removeClass('btonmaps');
+        
+        $('#btonmaps').css({'display': 'inline'});
+  });
+  $("#btonmaps").click(function(){
+    $('#mapps').addClass('mapsss');
+    $('#btonmaps').addClass('btonmaps');
+    $('#btonmaps').css({'display': 'none'});
+    
+
+  });

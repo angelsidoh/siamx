@@ -79,7 +79,7 @@
             <p class="fecha"><i class="fas fa-calendar-alt"></i>&nbsp;Inicio 8 de Enero del 2021</p>
             <p class="ciudad"><i class="fas fa-map-marked-alt"></i>&nbsp;Uruapan, MX.</p>
           </div>
-          <h1 class="nombre-sitio">Sociedad Intelectual del Aguacate</h1>
+          <h1 class="nombre-sitio">Sociedad Intelectual del Aguacate Mexicano</h1>
           <h1 class="nombre-sitio">SIAM A.C</h1>
         </div> 
         
@@ -88,25 +88,7 @@
     </div><!--.hero-->
   
   <div class="barra">
-    <div class="contenedor clearfix">
-      <div class="logo">
-        <a href="index.php"><img src="img/siam/lo.png" alt="Logo Congreso 2020"></a>
-      </div>
-      <div class="menu-movil">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <nav class="navegacion-principal clearfix">
-        <a href="conferencia.php">Conferencias</a>
-        <a href="calendario.php">Calendario</a>
-        <a href="invitados.php">Invitados</a>
-        
-        <a href="#">Reservaciones</a>
-        <a href="#">Iniciar Sesión</a>
-        <!-- <a href="registro.php#registro">Reservaciones</a> -->
-      </nav>
+    <div class="elementos__barra">
       
-    </div>
-    
+    </div>    
   </div><!--.Barra-->
