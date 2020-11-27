@@ -203,26 +203,7 @@
     //
     // Validando codigo para gafete curso feb2020
     
-    var botoncodigo = document.querySelector('#btncodigo');
-        
-    var codigo = document.getElementById('codigo');
-    codigo.addEventListener('blur', validarcodigo);
-    function validarcodigo(){
-    if(this.value == ''){
-        errorDiv.style.display = 'block';
-            errorDiv.innerHTML = '*este campo es obligatorio';
-            this.style.border = '1px dashed red';
-            errorDiv.style.border = '1px dashed red';
-            
-                botoncodigo.disabled=true; //Deshabilitamos botón de pagar
-             
-        //console.log("hola");
-    }else{
-        botoncodigo.disabled=false; //Deshabilitamos botón de pagar
-        errorDiv.style.display = 'none';
-        this.style.border = '1px solid #cccccc';
-    }
-    }
+    
 
     
     });
@@ -345,3 +326,28 @@ $("#check-hotcall").click(function () {
     $("#flechadown").hide();
   }
 });
+
+/*-----
+Spanizer
+- Wraps letters with spans, for css animations
+-----*/
+(function($) {
+    var s,
+    spanizeLetters = {
+      settings: {
+        letters: $('.js-spanize'),
+      },
+      init: function() {
+        s = this.settings;
+        this.bindEvents();
+      },
+      bindEvents: function(){
+        s.letters.html(function (i, el) {
+          //spanizeLetters.joinChars();
+          var spanizer = $.trim(el).split("");
+          return '<span>' + spanizer.join('</span><span>') + '</span>';
+        });
+      },
+    };
+    spanizeLetters.init();
+  })(jQuery);

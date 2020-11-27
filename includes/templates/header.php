@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="manifest" href="site.webmanifest">
-  <link rel="shortcut icon" type="image/png" href="favicon1.png"/>
+  <link rel="apple-touch-icon" href="icon.png">
   <!-- Place favicon.ico in the root directory -->
   <meta http-equiv="Expires" content="0">
   <meta http-equiv="Last-Modified" content="0">
@@ -76,11 +76,13 @@
         </nav>
         <div class="informacion-evento">
           <div class="clearfix">
-            <p class="fecha"><i class="fas fa-calendar-alt"></i>&nbsp;Inicio 8 de Enero del 2021</p>
-            <p class="ciudad"><i class="fas fa-map-marked-alt"></i>&nbsp;Uruapan, MX.</p>
+        <p class="fecha">  &nbsp;<i class="fas fa-calendar-alt"></i>&nbsp;Inicio 8 de Enero del 2021</p>
+            <p class="ciudad"><i class="fas fa-map-marked-alt"></i>&nbsp;Uruapan, MX.&nbsp;</p>
           </div>
           <h1 class="nombre-sitio">Sociedad Intelectual del Aguacate Mexicano</h1>
           <h1 class="nombre-sitio">SIAM A.C</h1>
+          <div class="evento-sitio">
+            <?php include_once 'evento.php' ?></div>
         </div> 
         
        
