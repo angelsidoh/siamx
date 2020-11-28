@@ -62,9 +62,7 @@
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
   
-  <header class="site-header">
-    
-  </header>
+  
   
   <div id="hero" class="hero">
       <div class="contenido-header">
@@ -79,10 +77,15 @@
         <p class="fecha">  &nbsp;<i class="fas fa-calendar-alt"></i>&nbsp;Inicio 8 de Enero del 2021</p>
             <p class="ciudad"><i class="fas fa-map-marked-alt"></i>&nbsp;Uruapan, MX.&nbsp;</p>
           </div>
-          <h1 class="nombre-sitio">Sociedad Intelectual del Aguacate Mexicano</h1>
-          <h1 class="nombre-sitio">SIAM A.C</h1>
           <div class="evento-sitio">
-            <?php include_once 'evento.php' ?></div>
+            <?php include_once 'evento.php' ?>
+          </div>
+          <div class="sitio">
+            <h1 class="nombre-sitio">Sociedad Intelectual del Aguacate Mexicano</h1>
+            <h1 class="nombre-sitio">SIAM A.C.</h1>
+          </div>
+          
+          
         </div> 
         
        
@@ -109,7 +112,16 @@
               <i class="fas fa-chevron-up" id = "flechadown" style = "display:none"> Contacto Rápido</i>
               </label>
          
-      </div>
+        </div>
+        
       
-    </div>    
+    </div>  
+     
   </div><!--.Barra-->
+  <div class="contenedor_menu"  style = "display: none;">
+  <?php for ($i=1; $i < (12*12)+1; $i++) { 
+    ?><div class="page_menu"><?php echo $i;?></div><?php
+  }?>
+    
+    
+  </div> 

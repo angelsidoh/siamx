@@ -6,8 +6,8 @@
   </section><!--Seccion-->
   <section class="programa">
     <div class="contenedor-video">
-      <video autoplay muted loop poster="img/terceros/academicEdit.png">
-        <source id="center" src="video/AthensEdit1.mp4" type="video/mp4">
+      <video autoplay muted loop poster="img/books-min.jpg">
+        <source id="center" src="video/AthensEdit2.mp4" type="video/mp4">
         
         
       </video>

@@ -223,12 +223,13 @@ $(function(){
 
     var windowHeight = $(window).height();
     var barraAltura = $('.barra').innerHeight();
-    
-
+    var sitioAltura = $('.hero').innerHeight();
+    console.log(sitioAltura+"-"+barraAltura);
+    var suma = sitioAltura ;
     $(window).scroll(function(){
         var scroll = $(window).scrollTop();
 
-        if(scroll > windowHeight){
+        if(scroll > suma){
             $('.barra').addClass('fixed');
             $('body').css({'margin-top':   barraAltura+'px'});
         }else{
@@ -309,9 +310,15 @@ $("#check").click(function () {
   if ($(this).is(":checked")) {
     $("#btn").hide();
     $("#clc").show();
+    $('.barra').addClass('fixed2');
+    $('.contenedor_menu').addClass('fixed2');
+    $('body').css({'overflow': 'hidden'});
   } else {
     $("#btn").show();
     $("#clc").hide();
+    $('.barra').removeClass('fixed2');
+    $('.contenedor_menu').removeClass('fixed2');
+    $('body').css({'overflow': 'visible'});
   }
 });
 
@@ -351,3 +358,17 @@ Spanizer
     };
     spanizeLetters.init();
   })(jQuery);
+
+  
+    $(".contenedor_menu").hide();
+    $("#check").click(function () {
+        if ($(this).is(":checked")) {
+            $("#btn").hide();
+            $("#clc").show();
+            $(".contenedor_menu").show();  
+        } else {
+            $("#btn").show();
+            $("#clc").hide();
+            $(".contenedor_menu").hide();
+        }
+    });
