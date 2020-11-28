@@ -48,27 +48,14 @@
   </div><!--contenedorparallax-->
 
   <section class="precios seccion">
-    <h2>Precios</h2>
+    <h2>Precio</h2>
     <div class="contenedor">
       <ul class="lista-precios clearfix">
         <li>
+          
           <div class="tabla-precios">
-            <h3>Estudiantes Diplomado</h3>
+            <h2>Público General</h2><br>
             
-            <p class="numero">$5,500 MXN</p>
-            <ul>
-              <li>Acceso al contenido de aprendizaje de la plataforma</li>
-              <li>Acceso a la sala de reunion en Meet</li>
-              <li>Derecho al examen final de conocimintos si se cumplio con la asistencia aprovatoria</li>
-              <li>Opción de titulación</li>
-            </ul>
-            <a href="#" class="button hollow">Comprar</a>
-          </div>
-        </li>
-        <li>
-          <div class="tabla-precios">
-            <h3>Público General</h3><br>
-            <h3>Diplomado</h3>
             <p class="numero">$5,500 MXN</p>
             <ul>
               <li>Acceso al contenido de aprendizaje de la plataforma</li>
@@ -76,7 +63,7 @@
               <li>Derecho al examen final de conocimintos si se cumplio con la asistencia aprovatoria</li>
               
             </ul>
-            <a href="#" class="button">Comprar</a>
+            <a href="#" class="button">Inscripciones</a>
            
           </div>
         </li>

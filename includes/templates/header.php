@@ -118,10 +118,52 @@
     </div>  
      
   </div><!--.Barra-->
-  <div class="contenedor_menu"  style = "display: none;">
-  <?php for ($i=1; $i < (12*12)+1; $i++) { 
-    ?><div class="page_menu"><?php echo $i;?></div><?php
-  }?>
-    
-    
+  
+  <div class="contenedor_menu " id = "global" style = "display: none;">
+    <div class="infosiam">
+      <h1>Información</h1>
+      <p><a href="#"> Sobre SIAM A.C.</a></p>
+      <p><a href="#">Privacidad</a></p>
+      <p><a href="#">Modo de pago</a></p>
+      <p><a href="#">Preguntas Frecuentes</a></p>
+    </div>
+    <div class="mision">
+      <h1>Misión</h1>
+      <p>Promover la realización de Congresos Méxicano del Aguacate cada dos años, Cursos y Diplomados afines con el frutal aguacate. Crear un sitio web y banco de información de investigaciones del aguacate en México y el Mundo, para su consulta.</p>
+    </div>
+    <div class="vision">
+      <h1>Visión</h1>
+      <p>Ser una asociacion que brinde el desarrollo, conocimiento cientifico e intelectual a la comunidad agronoma del frutal aguacate de México.
+
+      </p>
+    </div>
+    <div class="eventos">
+      <h1>Eventos</h1>
+      <p>Diplomado para Profesionalización del Cultivo del Aguacate</p>
+    </div>
+    <div class="contacto">
+      <h1>Cuenta</h1>
+      <p><a href="#">Iniciar Sesión</a></p>
+      <p><a href="#">Registrase</a></p>
+      <p><a href="#">NewsLetter</a></p>
+      <p><a href="#">Contacto</a></p>
+    </div>
+    <div class="tel">
+      <h1>Teléfono:</h1>
+      <a href="tel:+524521146696"><p>+52(452)114 6696</p></a><p>Ing. y M.C Heladio Santacruz Ulibarri</p>
+      
+    </div>
+    <div class="redes">
+      <h1>Siguenos en:</h1> <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        
+    </div>
+    <div class="logocreador">
+        <a href="https://ingeangel.com/"><img src="img/creador/logow2.png" alt="ingeangel"></a>
+    </div>
+
+    <!-- <?php for ($i=1; $i < (15*12)+1; $i++) { 
+      ?><div class="page_menu"><?php echo $i;?></div><?php }?> -->
   </div> 
