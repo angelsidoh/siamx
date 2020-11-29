@@ -1283,8 +1283,8 @@
     /*Footer*/
     footer{
       background-color: #353535;
-      padding-top: 40px;
-      margin-top: 20px;
+      padding-top: 0px;
+      margin-top: 0px;
     }
     footer .contenedor > div{
       color: #ffffff;
