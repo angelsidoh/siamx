@@ -163,12 +163,19 @@
        text-transform: uppercase;
        font-weight: bold;
        text-decoration: none;
-       font-size: 1vw;
+       font-size: 4vw!important;
        margin-top: 20px;
        display: inline-block;
        transition: all .1s ease;
        border: 2px solid #fe4918;
      }
+     
+     @media only screen and (min-width: 768px) {
+      .button{
+        font-size: 1.2vw!important;
+      }
+     }
+     
      .button.hollow{
       background-color: #ffffff;
       color: #fe4918;
@@ -255,6 +262,14 @@
        color:  #fe4918;
        font-size: 1.8rem;
      }
+     div.informacion-evento a{
+      color: #ffffff;
+      font-size: 28px;
+    }
+    
+   
+    
+    
      @media only screen and (min-width:768px){
       div.informacion-evento{
         width: 70%;
@@ -499,10 +514,12 @@
      .infosiam{
       
       grid-row: 1 / 2;
-        grid-column: 1 / 1;
+      grid-column: 1 / 1;
       color: white;
       width: 100%;
       height: 100%;
+      
+      text-align: center;
     }
     .mision{
       grid-row: 2 / 3;
@@ -511,6 +528,8 @@
       width: 100%;
       height: 100%;
       color: white;
+      
+      text-align: center;
     
     }
     .vision{
@@ -520,6 +539,8 @@
       width: 100%;
       height: 100%;
       color: white;
+      
+      text-align: center;
     
     }
     .eventos{
@@ -529,6 +550,8 @@
       width: 100%;
       height: 100%;
       color: white;
+      
+      text-align: center;
     
     }
     .contacto{
@@ -538,6 +561,8 @@
       width: 100%;
       height: 100%;
       color: white;
+      
+      text-align: center;
     
     }
     .logocreador{
@@ -548,6 +573,8 @@
       height: 90%;
       color: white;
       text-align: right;
+      
+      text-align: center;
     
     }
     .logocreador img{
@@ -560,7 +587,8 @@
 
     }
     .logocreador img:hover{
-      filter: invert(75%);
+      filter: contrast(200%);
+      filter: invert(100%);
     }
     .tel{
       grid-row: 6 / 7;
@@ -570,10 +598,20 @@
       height: 100%;
       color: white;
       text-align: center;
+      
+      text-align: center;
     }
     .tel a{
       font-size: 22px;
+      text-align: center;
     }
+    .tel h1{
+      text-align: center;
+    }
+    .tel p{
+      text-align: center;
+    }
+
     .redes{
       grid-row: 7 / 8;
       grid-column: 1 / 1;
@@ -582,10 +620,18 @@
       height: 100%;
       color: white;
       text-align: center;
+      
+      
     
     }
     .redes a{
       font-size: 35px;
+    }
+    .contacto a:hover,.infosiam a:hover, .redes a:hover{
+      color:#fe4918;
+    }
+    .tel a:hover{
+      color: white;
     }
     #global {
       
@@ -646,6 +692,14 @@
         color: white;
       
       }
+      .eventos{
+        grid-row: 2 / 10;
+        grid-column: 11 / 12;
+        
+        width: 100%;
+        height: 100%;
+        color: white;
+      }
       .logocreador{
         grid-row: 12 / 13;
         grid-column: 14 / 15;
@@ -657,7 +711,7 @@
       
       }
       .logocreador img{
-        max-width: 120px;
+        max-width: 320px;
         width: 100%;
         height: auto;
         margin-top: 50%;
@@ -977,18 +1031,44 @@
       padding: 120px 0;
     }
     ul.resumen-evento li{
-      width: 50%;
+      width: 100%;
       float: left;
       text-align: center;
       color: #ffffff;
       text-transform: uppercase;
       font-family: 'Oswald', sans-serif;
-      font-size: 24px; 
+      font-size: 24px!important; 
     }
+    .resumen-evento a{
+      
+      width: 100%;
+      margin: 0 auto;
+      margin-top: 80px;
+      text-align: center;
+    }
+    .resumen-evento h3{
+      color: #ffffff;
+    }
+    
+    
+
+    
     @media only screen and (min-width:768px){
-      ul.resumen-evento li{
-        width: 25%;
+      ul.resumen-evento li:nth-child(1){
+        width: 100%;
       }
+      ul.resumen-evento li{
+        width: 20%;
+      }
+      .resumen-evento a{
+      max-width: 320px;
+        width: 100%;
+        
+        margin-left: calc(50% - 160px);
+        text-align: center;
+      }
+      
+      
     }
     p.numero{
       color: #fe4918;

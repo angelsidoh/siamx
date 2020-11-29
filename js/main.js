@@ -264,11 +264,11 @@ $(function(){
     var resumenLista = jQuery('.resumen-evento');
     if(resumenLista.length > 0 ){
         $('.resumen-evento').waypoint(function(){
-            $('.resumen-evento li:nth-child(1) p').animateNumber({number: 6}, 1200);
-            $('.resumen-evento li:nth-child(2) p').animateNumber({number: 15}, 1200);
-            $('.resumen-evento li:nth-child(3) p').animateNumber({number: 3}, 1400);
-            $('.resumen-evento li:nth-child(4) p').animateNumber({number: 2}, 1400);
-            $('.resumen-evento li:nth-child(5) p').animateNumber({number: 3}, 1200);
+            $('.resumen-evento li:nth-child(2) p').animateNumber({number: 6}, 1200);
+            $('.resumen-evento li:nth-child(3) p').animateNumber({number: 26}, 1200);
+            $('.resumen-evento li:nth-child(4) p').animateNumber({number: 160}, 1400);
+            $('.resumen-evento li:nth-child(5) p').animateNumber({number: 1}, 1400);
+            $('.resumen-evento li:nth-child(6) p').animateNumber({number: 31}, 1200);
         },{
         offset:'90%'
         });

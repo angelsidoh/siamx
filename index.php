@@ -4,6 +4,22 @@
     <p> Es un organismo que conjunta a Ingenieros, Técnicos y Profesionistas que estudian el cultivo del aguacate en la República Mexicana; Y permiten dar a conocer las novedades técnicas científicas a toda la comunidad del presente frutal. Busca en todo momento fortalecer los principios básicos para mejorar la producción, fito-sanidad, inocuidad y de las buenas prácticas del cultivo. De no contaminación al medio ambiente por el uso de agro-insumos para el combate de plagas y enfermedades. Busca realizar un congreso mexicano del Aguacate cada dos años. Así como diplomados, cursos de actualización y la difusión de novedades científicas nacionales y mundiales del Aguacate. 
     </p>
   </section><!--Seccion-->
+  <div class="contador parallax">
+    <div class="contenedor">
+      
+      <ul id="infodiplomado" class="resumen-evento clearfix">
+      <li><h3 class="evento_r">Diplomado para Profesionalización Del cultivo del Aguacate</h3></li>
+        <li><p class="numero"></p>Modulos de Aprendizaje</li>
+        <li><p class="numero"></p>Conferencias</li>
+        <li><p class="numero"></p>Horas</li>
+        <li><p class="numero"></p>Exámen de Concimiento</li>
+        <li><p class="numero"></p>Ponentes Invitados</li>
+        <!-- <a href="#" class="button">Ver Detalles</a> -->
+      </ul><!--Resumen-Evento-->
+      
+    </div>
+    
+  </div><!--contenedorparallax-->
   <section class="programa">
     <div class="contenedor-video">
       <video autoplay muted loop poster="img/books-min.jpg">
@@ -33,21 +49,7 @@
     </div><!--.contenido-programa-->
   </section><!--Programa-->
 
- 
-  
-  <div class="contador parallax">
-    <div class="contenedor">
-      <ul class="resumen-evento clearfix">
-        <li><p class="numero"></p>Invitados</li>
-        <li><p class="numero"></p>Conferencias</li>
-        <!-- <li><p class="numero"></p>Simposios</li> -->
-        <li><p class="numero"></p>Practica de Campo</li>
-        <li><p class="numero"></p>Días</li>
-      </ul><!--Resumen-Evento-->
-    </div>
-  </div><!--contenedorparallax-->
-
-  <section class="precios seccion">
+  <section  class="precios seccion">
     <h2>Precio</h2>
     <div class="contenedor">
       <ul class="lista-precios clearfix">
@@ -58,12 +60,12 @@
             
             <p class="numero">$5,500 MXN</p>
             <ul>
-              <li>Acceso al contenido de aprendizaje de la plataforma</li>
-              <li>Acceso a la sala de reunion en Meet</li>
-              <li>Derecho al examen final de conocimintos si se cumplio con la asistencia aprovatoria</li>
+              <li>Acceso al contenido de aprendizaje del diplomado</li>
+              <li>Acceso a la sala de reunión en Meet</li>
+              <li>Derecho al examen final de conocimintos</li>
               
             </ul>
-            <a href="#" class="button">Inscripciones</a>
+            <a href="#" id="irmapa"  class="button">Inscripciones</a>
            
           </div>
         </li>
@@ -120,7 +122,7 @@
   </section> -->
   <div id= "newslatter"class="newsletter parallax">
     <div class="contenido contenedor">
-      <p>Regístrate al newsletter:</p>
+      <p>Subscripción a Noticias</p>
       <h3>SIAM A.C.</h3>
       <a href="#mc_embed_signup" class="btn_newletter button transparente">Registro</a>
     </div><!--.contenido-->

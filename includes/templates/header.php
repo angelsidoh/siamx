@@ -75,7 +75,7 @@
         <div class="informacion-evento">
           <div class="clearfix">
         <p class="fecha">  &nbsp;<i class="fas fa-calendar-alt"></i>&nbsp;Inicio 8 de Enero del 2021</p>
-            <p class="ciudad"><i class="fas fa-map-marked-alt"></i>&nbsp;Uruapan, MX.&nbsp;</p>
+            <a href="#irmapa"><p class="ciudad"><i class="fas fa-map-marked-alt"></i>&nbsp;Uruapan, MX.&nbsp;</p></a>
           </div>
           <div class="evento-sitio">
             <?php include_once 'evento.php' ?>
@@ -145,7 +145,7 @@
       <h1>Cuenta</h1>
       <p><a href="#">Iniciar Sesión</a></p>
       <p><a href="#">Registrase</a></p>
-      <p><a href="#">NewsLetter</a></p>
+      <p><a href="#">Subscripción a Noticias</a></p>
       <p><a href="#">Contacto</a></p>
     </div>
     <div class="tel">

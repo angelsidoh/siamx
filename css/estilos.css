@@ -19,6 +19,9 @@ body {
 .evento-evento{
   height: auto;
 }
+.evento-evento a{
+  margin-bottom: 20px;
+}
 
 .sep {
   border: 0;
