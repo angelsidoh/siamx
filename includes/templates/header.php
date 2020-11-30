@@ -39,13 +39,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" />
 
   <?php 
-    $archivo = basename($_SERVER['PHP_SELF']);
-    $pagina = str_replace(".php", "", $archivo);
-    if($pagina == 'invitados' || $pagina=='index'){
-      echo '<link rel="stylesheet" href="css/colorbox.css">';
-    }elseif($pagina == 'conferencia'){
-      echo '<link rel="stylesheet" href="css/lightbox.css">';
-    }
+    
   ?>
 
   
@@ -57,7 +51,7 @@
 </head>
 
 
-<body class="<?php echo $pagina;?>">
+<body class="cuerpo">
   <!--[if IE]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
@@ -144,7 +138,7 @@
     <div class="contacto">
       <h1>Cuenta</h1>
       <p><a href="#">Iniciar Sesión</a></p>
-      <p><a href="#">Registrase</a></p>
+      <p><a href="registro.php#reg45821">Registrase</a></p>
       <p><a href="#">Subscripción a Noticias</a></p>
       <p><a href="#">Contacto</a></p>
     </div>

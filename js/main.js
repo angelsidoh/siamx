@@ -224,17 +224,39 @@ $(function(){
     var windowHeight = $(window).height();
     var barraAltura = $('.barra').innerHeight();
     var sitioAltura = $('.hero').innerHeight();
+    var global = $('global').innerHeight();
+    var header  = $('.contenido-header').innerHeight();
+    var cuerpo = $('.cuerpo').innerHeight();
+    var footer = $('.site-footer').innerHeight();
+    
+    console.log(cuerpo);
+    console.log(header)
     console.log(sitioAltura+"-"+barraAltura);
+    
+    console.log(window.innerHeight+">>-<<"+window.innerWidth);
+    let muestra = 0;
     var suma = sitioAltura ;
     $(window).scroll(function(){
         var scroll = $(window).scrollTop();
-
+        // console.log(scroll);
+     
         if(scroll > suma){
             $('.barra').addClass('fixed');
             $('body').css({'margin-top':   barraAltura+'px'});
         }else{
             $('.barra').removeClass('fixed');
             $('body').css({'margin-top': '0px'});
+        }
+        if(scroll <= 1700 && scroll >= 900){
+            console.log(muestra)
+            if(muestra > 2 && muestra < 30){
+            $('.tarjeta_registro').addClass('animacion');
+            }
+            
+        }
+        if(scroll >= 1954 || scroll <= 290){
+            muestra=muestra+1;
+            $('.tarjeta_registro').removeClass('animacion');
         }
         
     });
@@ -371,4 +393,24 @@ Spanizer
             $("#clc").hide();
             $(".contenedor_menu").hide();
         }
+        
+      
     });
+
+window.addEventListener("orientationchange", function() {
+    console.log("the orientation of the device is now " + screen.orientation.angle);
+});
+
+window.addEventListener("orientationchange", function() {
+if (window.orientation == 90 || window.orientation == -90) {
+    console.log('landscape mode');
+} else {
+    console.log('portrait mode');
+    location.reload();
+}
+});
+
+ 
+       
+        // Haz cosas con los datos de orientación nuevos
+     

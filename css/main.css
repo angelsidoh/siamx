@@ -201,13 +201,242 @@
      input[disabled].button { /**Dar efecto de deshabilitado al boton, codigo sacado de las preguntas, seccion 47, clase 384**/
       opacity: .5;
     }
-
      /* lettering */
      h1.nombre-sitio span{
        position: relative;
        text-shadow: 0 0 8px black;
      }
+
+
+     /* seccion registro */
+    .tarjeta{
+      max-width: 800px;
+      width: 100%;
+      height: auto;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(1 , auto);
+      
+      margin-bottom: 50px;
+    }
+    .tarjeta_registro{
+      width: 100%;
+      height: 800px;
+      
+      border-radius: 25px;
      
+      grid-row: 1 / 1;
+      grid-column: 1 / 13;
+      
+      position: relative;
+      
+    }
+    .sub_tarjetaregistro{
+      width: 98%;
+      height: 98%;
+      box-shadow: 10px 10px 20px rgba(250, 4, 4, 0.1),
+        2px 2px 10px #353535,
+        inset 10px 15px 20px rgb(255, 255, 255, 0.1),
+        inset 2px 2px 5px #353535;
+      position: absolute;
+      top: 1%;
+      left: 1%;
+      overflow: hidden;
+      transition: 0.1s ease-in-out;
+    }
+    
+    .animacion{
+      animation: animate 1.2s alternate-reverse 1;
+    }
+    svg,rect{
+      top:0;
+      left:0;
+      width: 100%;
+      height: 100%;
+      fill: transparent;
+      
+      
+    }
+    rect{
+      stroke: #353535;
+      stroke-linecap: round;
+      
+      
+      stroke-width: 12;
+      stroke-dasharray: 700;
+      animation: animate 1.8s alternate-reverse 1;
+    }
+    
+    @keyframes animate{
+      0%{
+        stroke-dashoffset: 0;
+        stroke: #353535;
+        stroke-linecap: round;
+      }
+      50%{ 
+        
+        stroke: #fe4918;
+        stroke-dashoffset: 250;
+      }
+      100%{
+        stroke: #353535;
+        stroke-dashoffset: 0;
+        stroke-linecap: round;
+      }
+  }
+    
+  .hr{
+      position: relative;
+        margin: 0 0;
+        padding: 20px;
+    }
+    .hr::before{
+      width: 100%;
+      background-color: red;
+    }
+    .hr span{
+      position: absolute;
+        top: 50%;
+        left: 50%;
+        display: block;
+        padding: 5px 10px;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        color: #353535;
+    }
+    .hr::before{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: block;
+      width: 80%;
+      height: 1px;
+      background-color:#353535;
+      transform: translate(-50%, -50%);
+      content: '';
+    }
+    .icono{
+      width: 100%;
+      height: 220px;
+      font-size: 100px;
+      text-align: center;
+      margin: 0 0;
+      padding: 0 0;
+    } 
+    .icono i{
+      margin: 0 0;
+      padding: 0 0;
+      color: #000000;
+    }
+    .text_tarjeta{
+      width: 100%;
+      height: auto;
+      margin: 0 0;
+      margin-top: -120px;
+      padding: 0 0;
+      color: #000000;
+      text-align: center;
+      
+    }
+    
+    .iconosredes_tarjeta{
+      width: 100%;
+      height: auto;
+      
+      font-size: 58px;
+      display: flex;
+      justify-content: space-evenly;
+    }
+    .iconosredes_tarjeta i{
+      text-decoration: none;
+      color: #fe4918;
+    }
+    .iconosredes_tarjeta i:hover{
+      color: #e33000;
+    }
+    form{
+      width: 100%;
+      
+      padding: 0 0 !important;
+    }
+    .normal_tarjeta{
+      max-width: 650px;
+      width: 100%;
+      height: auto;
+      margin: 0 auto;
+      
+    }
+    
+    .contenedorinputs_normaltarjeta{
+      width: 100%;
+      height: 70%;
+      margin-top: 30px;
+      display: grid;
+      grid-template-rows: repeat(1, 1fr 1fr 1fr 30px);
+      grid-template-columns: repeat(1 ,1fr);
+      grid-gap: 5px;
+      
+    }
+    .input_normaltarjeta{
+      width: 90%;
+      height: 50px;
+      margin: 0px auto;
+      background-color: transparent;
+      display: grid;
+      grid-template-columns: repeat(1, 20% 80%);
+    }
+    .input_normaltarjeta i{
+      grid-row: 1 / 2;
+      grid-column: 1 / 2;
+      
+      font-size: 36px;
+      text-align: center;
+      color: var(--ColorOpacByL);
+      
+    }
+    .icono__input1{
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+      box-shadow: -1px -1px 5px rgb(255, 255, 255, 0.1),
+        1px 1px 5px rgba(0,0,0,0.7),
+        inset 1px -1px 5px rgb(255, 255, 255, 0.1),
+        inset 1px 1px 5px rgba(0,0,0,0.7);
+      background-color: transparent;
+      position: relative;
+    }
+    .icono__input1 i{
+      position: absolute;
+      width: 100%;
+      height: auto;
+      top: 5px;
+      left: 0;
+    }
+    .input_normaltarjeta input{
+      grid-row: 1 / 2;
+      grid-column: 2 / 3;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      border: none;
+      box-shadow: -1px -1px 5px rgb(255, 255, 255, 0.1),
+        1px 1px 5px rgba(0,0,0,0.7),
+        inset 1px -1px 5px rgb(255, 255, 255, 0.1),
+        inset 1px 1px 5px rgba(0,0,0,0.7);
+      font-size: 24px;
+      color: var(--ColorDescrip);
+      text-align: center;
+      border: 1px solid var(--ColorBackgroundPal);
+    }
+    .input_normaltarjeta input:hover{
+      border: 1px solid var(--ColorByL);
+    }
+    .contenedornew__boton{
+      text-align: center;
+      
+    }
+    
+    
+     /* FIN seccion registro */
 
      /**header**/
      
@@ -737,20 +966,16 @@
       .redes{
         grid-row: 12 / 13;
         grid-column: 7 / 13;
-        
         width: 100%;
         height: 100%;
         color: white;
         text-align: center;
-      
       }
     }
      .page_menu{
        border: 1px solid black;
        font-size: 8px;
       }
-      
-    
     .infosiam a, .contacto a, .redes a, .tel a{
       text-decoration: none;
       color: white;
@@ -765,24 +990,14 @@
       text-transform: uppercase;
     }
     .redes a i, .tel a i{
-     
       margin-left: 10px;
       text-align: center;
     }
-    
     @keyframes blink-animation {
       0% {color: #ffffff}
 
       50%{color: #fe4918;}
-  
-  
     }
-    
-    
-    
-    
-    
-    
      /*Navegacion principal*/
      nav.navegacion-principal{
        display: none; 
