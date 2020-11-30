@@ -604,6 +604,8 @@
     .tel a{
       font-size: 22px;
       text-align: center;
+      animation: blink-animation 1.5s 1;
+      -webkit-animation: blink-animation 1.5s 1;
     }
     .tel h1{
       text-align: center;
@@ -626,13 +628,19 @@
     }
     .redes a{
       font-size: 35px;
+      animation: blink-animation 1.5s 1;
+      -webkit-animation: blink-animation 1.5s 1;
     }
     .contacto a:hover,.infosiam a:hover, .redes a:hover{
       color:#fe4918;
     }
     .tel a:hover{
-      color: white;
+      color: #fe4918;
     }
+    
+      
+    
+    
     #global {
       
       overflow-y: scroll;
@@ -746,8 +754,11 @@
     .infosiam a, .contacto a, .redes a, .tel a{
       text-decoration: none;
       color: white;
+      text-decoration: underline;
+      animation: blink-animation 1.5s 1;
+      -webkit-animation: blink-animation 1.5s 1;
     }
-    .tel a,.contenedor_menu h1{
+    .contenedor_menu h1{
       color: #fe4918;
       text-decoration: underline;
       font-size: 34px;
@@ -759,7 +770,13 @@
       text-align: center;
     }
     
-    
+    @keyframes blink-animation {
+      0% {color: #ffffff}
+
+      50%{color: #fe4918;}
+  
+  
+    }
     
     
     
@@ -1045,6 +1062,7 @@
       margin: 0 auto;
       margin-top: 80px;
       text-align: center;
+      
     }
     .resumen-evento h3{
       color: #ffffff;

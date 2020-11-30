@@ -12,7 +12,7 @@
         <li><p class="numero"></p>Modulos de Aprendizaje</li>
         <li><p class="numero"></p>Conferencias</li>
         <li><p class="numero"></p>Horas</li>
-        <li><p class="numero"></p>Exámen de Concimiento</li>
+        <li><p class="numero"></p>Examen de Conocimiento</li>
         <li><p class="numero"></p>Ponentes Invitados</li>
         <!-- <a href="#" class="button">Ver Detalles</a> -->
       </ul><!--Resumen-Evento-->
@@ -62,7 +62,7 @@
             <ul>
               <li>Acceso al contenido de aprendizaje del diplomado</li>
               <li>Acceso a la sala de reunión en Meet</li>
-              <li>Derecho al examen final de conocimintos</li>
+              <li>Derecho al examen final de conociminto</li>
               
             </ul>
             <a href="#" id="irmapa"  class="button">Inscripciones</a>
