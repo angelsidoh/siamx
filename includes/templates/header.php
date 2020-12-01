@@ -123,11 +123,11 @@
     </div>
     <div class="mision">
       <h1>Misión</h1>
-      <p>Promover la realización de Congresos Méxicano del Aguacate cada dos años, Cursos y Diplomados afines con el frutal aguacate. Crear un sitio web y banco de información de investigaciones del aguacate en México y el Mundo, para su consulta.</p>
+      <p>Promover la realización de Congresos Mexicano del Aguacate cada dos años, Cursos y Diplomados afines con el frutal aguacate. Crear un sitio web y banco de información de investigaciones del aguacate en México y el Mundo, para su consulta.</p>
     </div>
     <div class="vision">
       <h1>Visión</h1>
-      <p>Ser una asociacion que brinde el desarrollo, conocimiento cientifico e intelectual a la comunidad agronoma del frutal aguacate de México.
+      <p>Ser una asociación que brinde el desarrollo, conocimiento científico e intelectual a la comunidad agrónoma del frutal aguacate de México.
 
       </p>
     </div>
@@ -138,7 +138,7 @@
     <div class="contacto">
       <h1>Cuenta</h1>
       <p><a href="#">Iniciar Sesión</a></p>
-      <p><a href="registro.php#reg45821">Registrase</a></p>
+      <p><a href="registro.php#reg45821">Registrarse</a></p>
       <p><a href="#">Subscripción a Noticias</a></p>
       <p><a href="#">Contacto</a></p>
     </div>

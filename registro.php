@@ -59,17 +59,11 @@
                             </div>
                         </div> <!-- rnormal__tarjeta -->
 
-                       
-
                             <div class="contenedornew__boton">
                                 <input id="btnform" type="submit" value="Crear cuenta SIAM" class="button">
                             </div>
-                        
 
                     </form>
-
-
-                
             </div>
             <svg>
                 <rect></rect>
@@ -80,6 +74,7 @@
 
     </div>
 </section>
+
 
 
 

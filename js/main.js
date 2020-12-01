@@ -234,31 +234,76 @@ $(function(){
     console.log(sitioAltura+"-"+barraAltura);
     
     console.log(window.innerHeight+">>-<<"+window.innerWidth);
-    let muestra = 0;
+    var muestra = 0;
+    var muestrabefore = 0;
     var suma = sitioAltura ;
+    var scrollbefore  = 0;
+    var scrollafter= 0;
+
     $(window).scroll(function(){
         var scroll = $(window).scrollTop();
-        // console.log(scroll);
-     
+        if(scroll-(header+barraAltura) > scrollbefore ){
+            
+            scrollbefore = scroll-(header+barraAltura);
+            if(scrollbefore < 0){
+                scrollbefore = 0;
+            }
+        } 
+        var scrolldesdeheader=scroll-(header+barraAltura);
+        if(scrolldesdeheader < 0 ){
+            scrolldesdeheader = 0;
+        }
+       scrollafter = scrollbefore - scrolldesdeheader;
+      
+        // if(scroll-(header+barraAltura) < scrollbefore && scrollafter > scroll-(header+barraAltura)){
+        //     scrollafter = scroll-(header+barraAltura);
+        //     if(scrollafter< 0){
+        //         scrollafter= 0;
+                
+        //     }
+            
+        // }
+        
         if(scroll > suma){
+            
             $('.barra').addClass('fixed');
             $('body').css({'margin-top':   barraAltura+'px'});
+            
+            
+           
+            
+            
         }else{
+           
             $('.barra').removeClass('fixed');
             $('body').css({'margin-top': '0px'});
+            
         }
+        if(muestra == 1){
         if(scroll <= 1700 && scroll >= 900){
-            console.log(muestra)
-            if(muestra > 2 && muestra < 30){
+            // console.log(muestra)
+           
             $('.tarjeta_registro').addClass('animacion');
+             muestra = 2;
             }
             
         }
         if(scroll >= 1954 || scroll <= 290){
-            muestra=muestra+1;
+            if(muestra == 2)
+            {
             $('.tarjeta_registro').removeClass('animacion');
+            }
         }
+        if(muestra == 0){
+            if(scroll >= 1954 || scroll <= 290){
+                muestra=muestra + 1;
+                }
+                
+            }
+            console.log(scroll+"->"+muestra);
+
         
+        // console.log(scrolldesdeheader+"<->"+scrollafter+"<->"+scrollbefore);
     });
 
     //menu reponsive
@@ -410,6 +455,9 @@ if (window.orientation == 90 || window.orientation == -90) {
 }
 });
 
+if($("#miTexto").focus()){
+    alert("hiso focus en el elemtento");
+}
  
        
         // Haz cosas con los datos de orientación nuevos
