@@ -455,10 +455,7 @@ if (window.orientation == 90 || window.orientation == -90) {
 }
 });
 
-if($("#miTexto").focus()){
-    alert("hiso focus en el elemtento");
-}
- 
+
        
         // Haz cosas con los datos de orientación nuevos
      
