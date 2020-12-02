@@ -108,6 +108,34 @@
        font-family: 'Open Sans', sans-serif;
        
      }
+     
+     /* Fin socialbotones */
+     .container{
+       width: 100%;
+       font-size: 10px;
+     }
+     .row{
+       width: 70%;
+       margin: 0 auto;
+     }
+     @media only screen and (min-width:768px){
+      .row{
+        width: 70%;
+      }
+     }
+     .row a{
+       font-size: 20px;
+       margin: 0 auto;
+     }
+     .row a span{
+       margin-top: 5px;
+     }
+     .botonregistro{
+       margin: 0 auto;
+     }
+     .botonregistro a{
+       margin-top: 0;
+     }
      /*Global*/
      .swal-modal{
       border-radius: 25px;
@@ -184,10 +212,10 @@
      .button{
        background-color: #fe4918;
        padding: 10px 40px;
-       color: #ffffff;
+       color: #ffffff!important;
        text-transform: uppercase;
        font-weight: bold;
-       text-decoration: none;
+       text-decoration: none!important;
        font-size: 4vw!important;
        margin-top: 20px;
        display: inline-block;
@@ -234,6 +262,7 @@
 
 
      /* seccion registro */
+    
     .tarjeta{
       max-width: 800px;
       width: 100%;
@@ -256,6 +285,10 @@
       
       position: relative;
       
+    }
+    .mensaje{
+      width: 800px;
+      height: auto;
     }
     .sub_tarjetaregistro{
       width: 98%;
@@ -676,7 +709,7 @@
      @media only screen and (min-width: 621px) {  
       .logo_barra{
         grid-row: 1 / 1;
-        grid-column: 3 / 7;
+        grid-column: 2 / 5;
        
       }
     }

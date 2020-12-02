@@ -15,60 +15,50 @@
                     <h1>Bienvenido</h1>
                     <p>Registrarme con</p>
                 </div>
+                <div class="cuadro">
+                    <h1>Sign in</h1>
+                    <ul>
 
-                <div class="redes_tarjeta">
-                    <div class="iconosredes_tarjeta">
-                        <i class="fab fa-google"></i>
-                        <i class="fab fa-facebook-square"></i>
-                    </div>
+                        <?php foreach ($hybridauth->getProviders() as $name) : ?>
+                            <?php if (!isset($adapters[$name])) : ?>
+                                <li>
+                                    <a href="#" onclick="javascript:auth_popup('<?php print $name ?>');">
+                                        Sign in with <?php print $name  ?>
+                                    </a>
+                                </li>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+
+                    </ul>
+
+                    <?php if ($adapters) : ?>
+                        <h1>You are logged in:</h1>
+                        <ul>
+                            <?php foreach ($adapters as $name => $adapter) : ?>
+                                <li>
+                                    <strong><?php print $adapter->getUserProfile()->displayName;
+                                            print '<br>' . $adapter->getUserProfile()->email;
+                                            print '<br>' . $adapter->getUserProfile()->photoURL;
+                                            ?></strong> from
+                                    <i><?php print $name; ?></i>
+                                    <span>(<a href="<?php print $config['callback'] . "?logout={$name}"; ?>">Log Out</a>)</span>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php endif; ?>
                 </div>
+                
+
+
                 <br>
                 <br>
                 <div class="hr">
                     <span><i class="fas fa-sort"></i></span>
                 </div>
-                
-                    <form id="registro" action="#">
-                        
-                        <div class="normal_tarjeta">
-                        
-                           
-                            <div class="contenedorinputs_normaltarjeta">
-                                
-                                <div class="input_normaltarjeta">
-                                    <div class="icono__input1">
-                                        <i class="far fa-user"></i>
-                                    </div>
-                                    
-                                    <input type="text" id="user" name="user" placeholder="Nombre Completo">
-                                </div>
-                                <div class="input_normaltarjeta">
-                                    <div class="icono__input1">
-                                        <i class="fas fa-envelope"></i>
-                                    </div>
-                                    <input type="text" id="correo" name="correo" placeholder="Ingresa tu Correo">
-                                </div>
-                                <div class="input_normaltarjeta">
-                                    <div class="icono__input1">
-                                        <i class="fas fa-envelope"></i>
-                                    </div>
-                                    <input type="text" id="correo1" name="correo1" placeholder="Repite tu Correo">
-                                </div>
-                                <?php if (!empty($errores)) : ?>
-                                    <div class="error">
-                                        <ul>
-                                            <?php echo $errores; ?>
-                                        </ul>
-                                    </div>
-                                <?php endif; ?>
-                            </div>
-                        </div> <!-- rnormal__tarjeta -->
 
-                            <div class="contenedornew__boton">
-                                <input id="btnform" type="submit" value="Crear cuenta SIAM" class="button">
-                            </div>
-
-                    </form>
+                <div class="botonregistro">
+                    <a id="nodisponible" href="#reg45821" class="button"><span><i class="fas fa-user"></i></span> Registrarse con SIAM</a>
+                </div>
             </div>
             <svg>
                 <rect></rect>
@@ -78,6 +68,16 @@
         </div>
 
     </div>
+    <div class="mensaje">
+                    <?php
+
+                    var_dump($_SESSION['data']);
+                    echo '<br><br>';
+                    var_dump($_SESSION['user']);
+                    echo '<br><br>';
+                    var_dump($_SESSION['name']);
+                    ?>
+                </div>
 </section>
 
 

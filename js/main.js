@@ -658,7 +658,25 @@ if (window.orientation == 90 || window.orientation == -90) {
 }
 });
 
+// tamaños de elemetos
+var tamaniobotony = $('.botonregistro a').innerHeight();
+var tamaniobotonx = $('.botonregistro a').innerWidth();
+tamaniobotonx = tamaniobotonx+40;
 
+console.log(tamaniobotonx+"-aaaaa"+tamaniobotony);
+
+$('.botonregistro').css({'width': tamaniobotonx});
+
+$(document).ready(function(){
+	$("#nodisponible").click(function(){
+        swal({        
+            content: "",
+            text: 'Por el momento no está disponible esta opción ¡Por favor Intenta con las otras opciones!',
+            icon: "info"
+        });
+    });
+});
+	
        
         // Haz cosas con los datos de orientación nuevos
      
