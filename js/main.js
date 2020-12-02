@@ -1,3 +1,185 @@
+// Notificaiones Programadas
+function mostrarNotificacion(mensaje, clase){
+    
+    const notificacion = document.createElement('div');
+    notificacion.classList.add(clase, 'notificacion', 'sombra');
+    $(".notificacion").prepend("<br>");
+    notificacion.textContent = mensaje;
+    
+
+    var currentDiv = document.getElementById("notificacion");
+    document.body.insertBefore(notificacion, currentDiv);
+    setTimeout(() => {
+        notificacion.classList.add('visible');
+        $("notificacionx").addClass('visible')
+        setTimeout(() => {
+            notificacion.classList.remove('visible');
+            $("notificacionx").removeClass('visible')
+            setTimeout(() => {
+                notificacion.remove();
+                
+            }, 1000);
+        }, 3000);
+    }, 100);
+    }
+function validarString (dato) {
+    iaux= dato.length;
+    for (var i = 0; i<iaux; i++) {
+          var caracter = dato.charAt(i);
+          
+          var acentos = "áéíóúÁÉÍÓÚ<>´";
+          
+        for (var a = 0; a<acentos.length; a++){
+            
+            if(caracter == acentos.charAt(a)){
+                // alert("Caracter no permitido:\n" + acentos.charAt(a) + 
+                // "\n Por favor corrija el correo o intente con uno diferente");
+                
+                swal({
+                    
+                    content: "",
+                    text: 'Hay caracteres en tu correo, no válidos\n'+ 'El siguiente caracter: " ' + acentos.charAt(a) +' " No es válido\n Revisa que tu correo sea correcto \n o intenta con otro',
+                    //icon: "success",
+                    icon: "error",
+                    button: {
+                      text: "Continuar",
+                      closeModal: true,
+                    },
+                  });
+                  
+                  
+                  
+                mostrarNotificacion('áéíóúÁÉÍÓÚ<>','Error');
+                mostrarNotificacion('Correo no permite estos símbolos:' , 'Error');   
+                $('#correo').css({'color':'red'});
+                $('#correo1').css({'color':'red'});
+                return;
+            }else{
+                $('#correo').css({'color':'var(--ColorDescrip)'});
+                $('#correo1').css({'color':'var(--ColorDescrip)'}); 
+            }
+        }   
+     }
+ } 
+//Validar tipo Correo
+function caracteresCorreoValido(mail){
+    var caract = new RegExp(/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/);
+    if (caract.test(mail) === false){
+        return false;
+    }else{ 
+        return true;
+    }
+}
+//Quitar acentos
+function quitarAcentos(cadena){
+	const acentos = {'Ñ':'N','ñ':'n','á':'a','é':'e','í':'i','ó':'o','ú':'u','Á':'A','É':'E','Í':'I','Ó':'O','Ú':'U'};
+	return cadena.split('').map( letra => acentos[letra] || letra).join('').toString();	
+}
+
+const text =  'Aquí Acción Sesión Ángel';
+const texto = quitarAcentos(text);
+// Sesiones
+
+const formRegistroUser=document.querySelector('#registro');
+if($("#registro").length ){ 
+    eventListeners4();
+    function eventListeners4(){
+        formRegistroUser.addEventListener('submit', leerRegistro);
+    }
+} 
+function leerRegistro(e){
+    e.preventDefault();
+    
+    const user = document.querySelector('#user').value;
+    const usuario= quitarAcentos(user);
+    
+    const mail = document.querySelector('#correo').value;
+    
+    validarString(mail);
+    console.log(usuario, mail);
+    if(caracteresCorreoValido(mail) === false){
+        swal({        
+            content: "",
+            text: 'El correo es inválido',
+            icon: "error",
+            button: {
+              text: "Continuar",
+              closeModal: true,
+            },
+          });  
+    }
+    const mail1 = document.querySelector('#correo1').value;
+    validarString(mail1);
+    const accion = document.querySelector('#btnform').value;
+    const accionrep = quitarAcentos(accion);
+    
+    
+    if(mail === ''){
+        $('#correo').css({'border':'1px dashed red'});
+        mostrarNotificacion('¡Este campo es obligatorio!' , 'Error');
+    }else{
+        if(mail !== mail1){
+            $('#correo').css({'border':'1px dashed red'});
+            $('#correo1').css({'border':'1px dashed red'});
+            mostrarNotificacion('Correos Electrónicos no coinciden' , 'Error');
+        }
+        else{
+            $('#correo').css({'border':'1px dashed #ffffff'});  
+            $('#correo1').css({'border':'1px dashed #ffffff'});   
+        }
+        // $('#correo').css({'border':'1px dashed #ffffff'});
+    }
+    if(mail1 === ''){
+        $('#correo1').css({'border':'1px dashed red'});
+        mostrarNotificacion('¡Este campo es obligatorio!' , 'Error');
+    }else{
+        if(mail !== mail1){
+            $('#correo').css({'border':'1px dashed red'});
+            $('#correo1').css({'border':'1px dashed red'});
+            mostrarNotificacion('Correos Electrónicos no coinciden' , 'Error');
+        }
+        else{
+            $('#correo').css({'border':'1px dashed #ffffff'});  
+            $('#correo1').css({'border':'1px dashed #ffffff'});   
+        }
+        // $('#correo1').css({'border':'1px dashed #ffffff'});
+    }
+    if(usuario === ''){
+        $('#user').css({'border':'1px dashed red'});
+        mostrarNotificacion('El campo de usuario está vacío' , 'Error');  
+    }else{
+        $('#user').css({'border':'1px dashed #ffffff'});
+    }
+     
+    if(mail === mail1 && caracteresCorreoValido(mail)===true){
+        if(mail != ''){
+        const ifouser = new FormData();
+            ifouser.append('usuario', usuario);
+            ifouser.append('correo', mail);
+            ifouser.append('accion', accionrep);
+            if(accion === 'Crear cuenta SIAM'){
+                insertarDB(ifouser);
+            }
+        }
+    }
+} 
+function insertarDB(dato){
+    // llamado de ajax
+        // crear objeto
+        const xhr = new XMLHttpRequest();
+        // abrir conexion
+            xhr.open('POST', 'includes/modelos/jsonregistro.php', true);
+        // pasar datos
+            xhr.onload = function(){
+                if(this.status === 200){
+                    const respuesta = JSON.parse(xhr.responseText);
+                    console.log(respuesta); 
+                }
+            }
+        // enviar datos
+            xhr.send(dato);
+    }
+
 (function(){
     "use strict";
     document.addEventListener('DOMContentLoaded', function(){

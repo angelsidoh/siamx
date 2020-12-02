@@ -13,6 +13,7 @@
                 </div>
                 <div class="text_tarjeta">
                     <h1>Bienvenido</h1>
+                    <p>Registrarme con</p>
                 </div>
 
                 <div class="redes_tarjeta">
@@ -28,24 +29,28 @@
                 </div>
                 
                     <form id="registro" action="#">
+                        
                         <div class="normal_tarjeta">
+                        
                            
                             <div class="contenedorinputs_normaltarjeta">
+                                
                                 <div class="input_normaltarjeta">
                                     <div class="icono__input1">
                                         <i class="far fa-user"></i>
                                     </div>
-                                    <input type="text" id="user" name="user" placeholder="Usuario">
+                                    
+                                    <input type="text" id="user" name="user" placeholder="Nombre Completo">
                                 </div>
                                 <div class="input_normaltarjeta">
                                     <div class="icono__input1">
-                                        <i class="fas fa-unlock-alt"></i>
+                                        <i class="fas fa-envelope"></i>
                                     </div>
-                                    <input type="text" id="correo" name="correo" placeholder="Correo">
+                                    <input type="text" id="correo" name="correo" placeholder="Ingresa tu Correo">
                                 </div>
                                 <div class="input_normaltarjeta">
                                     <div class="icono__input1">
-                                        <i class="fas fa-unlock-alt"></i>
+                                        <i class="fas fa-envelope"></i>
                                     </div>
                                     <input type="text" id="correo1" name="correo1" placeholder="Repite tu Correo">
                                 </div>
