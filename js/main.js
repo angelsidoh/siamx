@@ -173,7 +173,28 @@ function insertarDB(dato){
             xhr.onload = function(){
                 if(this.status === 200){
                     const respuesta = JSON.parse(xhr.responseText);
-                    console.log(respuesta); 
+                    console.log(respuesta);
+                    if(respuesta.estado === 'disponible'){
+                        swal({        
+                            content: "",
+                            text: '¡Has crado una cuenta SIAM',
+                            icon: "success"
+                        });
+                    }
+                    if(respuesta.estado === 'correoexiste'){
+                        swal({        
+                            content: "",
+                            text: 'Este correo ya está en uso, ¡Intenta con Otro!',
+                            icon: "error"
+                        });
+                    }  
+                    if(respuesta.estado === 'errorINSERTARenBD'){
+                        swal({        
+                            content: "",
+                            text: 'Error BD no existe',
+                            icon: "error"
+                        });
+                    }
                 }
             }
         // enviar datos

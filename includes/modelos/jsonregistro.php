@@ -21,10 +21,27 @@
                     'estado'=>'correoexiste'
                 );
             }else{
-                $respuesta = array(
-                    'estado' => 'correcto',
-                    'correo' => $mail
-                );
+                if($errores == ''){
+                
+                    $stmt = $conn->prepare('INSERT INTO usuarios (id_usuario, nombre_usuario, pass_usuario, correo_usuario, fecha_usuario) VALUES (null, :nombre_usuario, :pass_usuario, :correo_usuario, :fecha_usuario)');
+                    $stmt->execute(array(':nombre_usuario' => $usuario,
+                                    ':pass_usuario' => $pass,
+                                    ':correo_usuario' => $mail,
+                                    ':fecha_usuario' => $fecha));
+                    $LAST_ID = $conn->lastInsertId();
+                    // firstimereglog($mail, $imguserdefaut);
+                }
+                
+                    $respuesta = array(
+                        'estado' => 'disponible',
+                        'datos' => $LAST_ID
+                    );
+                    if($LAST_ID == 0){
+                        $respuesta = array(
+                            'estado' => 'errorINSERTARenBD'
+                        );  
+                    }
+                
             }
                 echo json_encode($respuesta); 
             }catch(PDOException $e){
