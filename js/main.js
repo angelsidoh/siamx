@@ -173,28 +173,7 @@ function insertarDB(dato){
             xhr.onload = function(){
                 if(this.status === 200){
                     const respuesta = JSON.parse(xhr.responseText);
-                    console.log(respuesta);
-                    if(respuesta.estado === 'disponible'){
-                        swal({        
-                            content: "",
-                            text: '¡Has crado una cuenta SIAM',
-                            icon: "success"
-                        });
-                    }
-                    if(respuesta.estado === 'correoexiste'){
-                        swal({        
-                            content: "",
-                            text: 'Este correo ya está en uso, ¡Intenta con Otro!',
-                            icon: "error"
-                        });
-                    }  
-                    if(respuesta.estado === 'errorINSERTARenBD'){
-                        swal({        
-                            content: "",
-                            text: 'Error BD no existe',
-                            icon: "error"
-                        });
-                    }
+                    console.log(respuesta); 
                 }
             }
         // enviar datos
@@ -658,25 +637,7 @@ if (window.orientation == 90 || window.orientation == -90) {
 }
 });
 
-// tamaños de elemetos
-var tamaniobotony = $('.botonregistro a').innerHeight();
-var tamaniobotonx = $('.botonregistro a').innerWidth();
-tamaniobotonx = tamaniobotonx+40;
 
-console.log(tamaniobotonx+"-aaaaa"+tamaniobotony);
-
-$('.botonregistro').css({'width': tamaniobotonx});
-
-$(document).ready(function(){
-	$("#nodisponible").click(function(){
-        swal({        
-            content: "",
-            text: 'Por el momento no está disponible esta opción ¡Por favor Intenta con las otras opciones!',
-            icon: "info"
-        });
-    });
-});
-	
        
         // Haz cosas con los datos de orientación nuevos
      

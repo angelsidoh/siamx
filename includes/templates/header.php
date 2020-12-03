@@ -1,20 +1,3 @@
-<?php
-/**
- * Build a simple HTML page with multiple providers, opening provider authentication in a pop-up.
- */
-session_start();
-
-require 'vendor/autoload.php';
-require 'App/Auth/config.php';
-
-use Hybridauth\Hybridauth;
-
-$hybridauth = new Hybridauth($config);
-$adapters = $hybridauth->getConnectedAdapters();
-
-
-
-?>
 <!doctype html>
 <html class="no-js" lang="">
 
@@ -53,13 +36,6 @@ $adapters = $hybridauth->getConnectedAdapters();
   <link rel="stylesheet" href="css/all.min.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans|Oswald|PT+Sans&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script>
-        function auth_popup( provider ){
-            // replace 'path/to/hybridauth' with the real path to this script
-            var authWindow = window.open('http://localhost/0SIAM/hydridauth.php?provider='+provider, 'authWindow', 'width=600,height=400,scrollbars=yes');
-            return false;
-        }
-    </script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" />
 
   <?php 
@@ -68,10 +44,7 @@ $adapters = $hybridauth->getConnectedAdapters();
 
   
   
-  
-  <link rel="stylesheet" href="socialauth/archivos/socialauthphp/socialauthphp/assets/css/font-awesome.css">
-  <link rel="stylesheet" href="socialauth/archivos/socialauthphp/socialauthphp/assets/css/bootstrap-social.css">
-  <link rel="stylesheet" href="socialauth/archivos/socialauthphp/socialauthphp/assets/css/bootstrap.css">
+
   <link rel="stylesheet" href="css/main.css?v=<?php echo time(); ?>">
   
   <meta name="theme-color" content="#fafafa">
@@ -126,14 +99,14 @@ $adapters = $hybridauth->getConnectedAdapters();
               <i class = "fas fa-window-close" id = "clc" style = "display:none"></i>
             </label>
         </div>
-        <!-- <div class="hotcall">
+        <div class="hotcall">
         <input type = "checkbox" id = "check-hotcall" name = "menu1">
             <label for = "check-hotcall">
               <i class="fas fa-chevron-down" id = "flechaup"> Contacto Rápido</i>
               <i class="fas fa-chevron-up" id = "flechadown" style = "display:none"> Contacto Rápido</i>
               </label>
          
-        </div> -->
+        </div>
         
       
     </div>  
