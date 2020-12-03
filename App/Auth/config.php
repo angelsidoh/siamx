@@ -7,7 +7,7 @@
  * Understandably, you need to replace 'path/to/hybridauth' with the real path to this script.
  */
 $config = [
-    'callback' => 'http://localhost/0SIAM/hydridauth.php',
+    'callback' => 'https://sociedadintelectualdelaguacatemexicano.com/hydridauth.php',
     'providers' => [
 
         'Google' => [

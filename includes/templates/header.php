@@ -3,6 +3,7 @@
  * Build a simple HTML page with multiple providers, opening provider authentication in a pop-up.
  */
 session_start();
+
 require 'vendor/autoload.php';
 require 'App/Auth/config.php';
 
