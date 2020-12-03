@@ -1,6 +1,10 @@
 <?php
+
+
     if ($_POST['accion'] == 'Crear cuenta SIAM'){
         $usuario = filter_var($_POST['usuario'],FILTER_SANITIZE_STRING);
+        $apellido = filter_var($_POST['apellido'],FILTER_SANITIZE_STRING);
+        $tel = filter_var($_POST['tel'],FILTER_SANITIZE_STRING);
         $mail = filter_var($_POST['correo'],FILTER_SANITIZE_EMAIL);
         $fecha = date('Y-m-d H:i:s');
         $str = ("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!#$%&/()=+-~1234567890");
@@ -16,15 +20,32 @@
             $stmt->execute(array(':correo_usuario' => $mail));
             $resultado = $stmt->fetch();
             if($resultado != false){
-              
                 $respuesta = array(
                     'estado'=>'correoexiste'
                 );
             }else{
-                $respuesta = array(
-                    'estado' => 'correcto',
-                    'correo' => $mail
-                );
+              
+                    $stmt = $conn->prepare('INSERT INTO usuarios (id_usuario, nombre_usuario, apellido_usuario, pass_usuario, correo_usuario, telefono_usuario, fecha_usuario) VALUES (null, :nombre_usuario, :apellido_usuario, :pass_usuario, :correo_usuario, :telefono_usuario, :fecha_usuario)');
+                    $stmt->execute(array(':nombre_usuario' => $usuario,
+                                    ':apellido_usuario'=>$apellido,
+                                    ':pass_usuario' => $pass,
+                                    ':correo_usuario' => $mail,
+                                    ':telefono_usuario' => $tel,
+                                    ':fecha_usuario' => $fecha));
+                    $LAST_ID = $conn->lastInsertId();
+                    // firstimereglog($mail, $imguserdefaut);
+                
+                
+                    $respuesta = array(
+                        'estado' => 'disponible',
+                        'datos' => $LAST_ID
+                    );
+                    if($LAST_ID == 0){
+                        $respuesta = array(
+                            'estado' => 'errorINSERTARenBD'
+                        );  
+                    }
+                
             }
                 echo json_encode($respuesta); 
             }catch(PDOException $e){
