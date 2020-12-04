@@ -1,3 +1,8 @@
+<?php
+session_start()
+
+
+?>
 <!doctype html>
 <html class="no-js" lang="">
 
@@ -69,7 +74,7 @@
         <div class="informacion-evento">
           <div class="clearfix">
         <p class="fecha">  &nbsp;<i class="fas fa-calendar-alt"></i>&nbsp;Inicio 8 de Enero del 2021</p>
-            <a href="#irmapa"><p class="ciudad"><i class="fas fa-map-marked-alt"></i>&nbsp;Uruapan, MX.&nbsp;</p></a>
+            <a href="index.php#irmapa"><p class="ciudad"><i class="fas fa-map-marked-alt"></i>&nbsp;Uruapan, MX.&nbsp;</p></a>
           </div>
           <div class="evento-sitio">
             <?php include_once 'evento.php' ?>
@@ -100,15 +105,14 @@
             </label>
         </div>
         <div class="hotcall">
-        <input type = "checkbox" id = "check-hotcall" name = "menu1">
-            <label for = "check-hotcall">
-              <i class="fas fa-chevron-down" id = "flechaup"> Contacto Rápido</i>
-              <i class="fas fa-chevron-up" id = "flechadown" style = "display:none"> Contacto Rápido</i>
-              </label>
-         
+        <?php if(isset($_SESSION['usuario'])){
+              echo $_SESSION['usuario'];
+              ?> <a href="logout.php">Cerrar Sesión</a><?php
+            }else{
+              ?> <a href="login.php#ini">Iniciar Sesión</a><?php
+
+            }?>
         </div>
-        
-      
     </div>  
      
   </div><!--.Barra-->
@@ -137,7 +141,14 @@
     </div>
     <div class="contacto">
       <h1>Cuenta</h1>
-      <p><a href="#">Iniciar Sesión</a></p>
+      <p><a href="bienvenida.php">Tu Sección de Usuario</a> </p>
+      <p><?php if(isset($_SESSION['usuario'])){
+              echo $_SESSION['usuario'];
+              ?> <br><a href="logout.php">Cerrar Sesión</a><?php
+            }else{
+              ?> <a href="login.php#ini">Iniciar Sesión</a><?php
+
+            }?></p>
       <p><a href="registro.php#reg45821">Registrarse</a></p>
       <p><a href="#">Subscripción a Noticias</a></p>
       <p><a href="#">Contacto</a></p>

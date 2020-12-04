@@ -1,7 +1,15 @@
 <!-- registro -->
-<?php include_once 'includes/templates/header.php' ?>
+
+<?php include_once 'includes/templates/header.php';
+if(isset($_SESSION['usuario'])){
+    ?>
+    <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=http://localhost/0SIAM/bienvenida.php">
+    
+    <?php
+}
+?>
 <section class="global">
-    <div id="reg45821" class="contenedor">
+    <div id="reg" class="contenedor">
         <h2>registro</h2>
     </div>
     <div class="tarjeta">
@@ -36,7 +44,7 @@
                                     <div class="icono__input1">
                                     <i class="fas fa-phone-alt"></i>
                                     </div>
-                                    <input type="tel" id="number" name="number"  onkeypress='return event.charCode >= 48 && event.charCode <= 57' placeholder="Número de teléfono"/>
+                                    <input type="tel" id="number" name="number"  onkeypress='return event.charCode >= 48 && event.charCode <= 57' placeholder="Ingresa tu Teléfono"/>
                                     
                                 </div>
                                 <div class="input_normaltarjeta">
@@ -45,6 +53,10 @@
                                     </div>
                                     <input type="text" id="correo" name="correo" placeholder="Ingresa tu Correo">
                                 </div>
+                                <div class="recordatorio">
+                                    <p>Tu contraseña será generada automáticamente, asegúrate que tengas acceso al correo que Ingreses. </p>
+                                    
+                                    </div>
                                 <?php if (!empty($errores)) : ?>
                                     <div class="error">
                                         <ul>

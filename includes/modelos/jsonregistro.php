@@ -1,4 +1,5 @@
 <?php
+    session_start();
 
 
     if ($_POST['accion'] == 'Crear cuenta SIAM'){
@@ -40,10 +41,13 @@
                         'estado' => 'disponible',
                         'datos' => $LAST_ID
                     );
+                    $_SESSION['usuario'] = $usuario;
                     if($LAST_ID == 0){
                         $respuesta = array(
                             'estado' => 'errorINSERTARenBD'
+                            
                         );  
+                        session_destroy();
                     }
                 
             }

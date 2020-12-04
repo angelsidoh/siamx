@@ -101,26 +101,164 @@ function quitarAcentos(cadena) {
 const text = 'Aquí Acción Sesión Ángel';
 const texto = quitarAcentos(text);
 // Sesiones
+const formLoginUser = document.querySelector('#login');
+if ($("#login").length){
+    eventListeners();
+    function eventListeners() {
+        formLoginUser.addEventListener('submit', leerLogin);
+    }
+}
+function leerLogin(e) {
+    e.preventDefault();
+    const mail = document.querySelector('#correo').value;
+    const pass = document.querySelector('#pass').value;
+    
+    validarString(mail);
+    if (caracteresCorreoValido(mail) === false) {
+        swal({
+            content: "",
+            text: 'El correo es inválido',
+            icon: "error",
+            button: {
+                text: "Continuar",
+                closeModal: true,
+            },
+        });
+    }
+    const accion = document.querySelector('#btnlogin').value;
+    const accionrep = quitarAcentos(accion);
+    let cadena = mail;
+    // esta es la palabra a buscar
+    let termino = "@gmail";
+    // para buscar la palabra hacemos
+    let posicion = cadena.indexOf(termino);
+    if (posicion !== -1){
+        //console.log("La palabra está en la posición " + posicion);
+        $('#correo').css({
+            'background': '#ffffff'
+        });
+    }
+    else{
+        $('#correo').css({
+            'background': 'yellow'
+        });
+        swal({
+            content: "",
+            text: '¡Por favor! Usa una cuenta de Google',
+            icon: "error",
+            button: {
+                text: "Continuar",
+                closeModal: true,
+            },
+        });}
+    if (mail === '') {
+        $('#correo').css({
+            'background': 'red'
+        });
+        swal({
+            content: "",
+            text: 'Hay campos vacíos.',
+            icon: "error",
+            button: {
+                text: "Continuar",
+                closeModal: true,
+            },
+        });
+    }
+    if (pass === '') {
+        $('#pass').css({
+            'background': 'red'
+        });
+        swal({
+            content: "",
+            text: 'Hay campos vacíos.',
+            icon: "error",
+            button: {
+                text: "Continuar",
+                closeModal: true,
+            },
+        });
+    } else {
+        $('#pass').css({'background': '#ffffff'});
+    }
+    if (posicion !== -1) {
+        if (mail != '') {
+            const ifouser = new FormData();
+            
+            ifouser.append('correo', mail);
+            ifouser.append('pass', pass);
+            ifouser.append('accion', accionrep);
+            if (accion === 'Iniciar Sesión'){
+                consultaBD(ifouser);
+            }
+        }
+    }
+    
+}
+function consultaBD(dato) {
+    // llamado de ajax
+    // crear objeto
+    
+    const xhr = new XMLHttpRequest();
+    // abrir conexion
+    xhr.open('POST', 'includes/modelos/jsonlogin.php', true);
+    // pasar datos
+    xhr.onload = function () {
+        if (this.status === 200) {
+            const respuesta = JSON.parse(xhr.responseText);
+            console.log(respuesta);
+            if(respuesta.Estado === 'Incorrecto'){
+                swal({
+                    content: "",
+                    text: 'Los datos son incorrectos.¡Por favor Verificalos!',
+                    icon: "error",
+                    button: {
+                        text: "Continuar",
+                        closeModal: true,
+                    },
+                });
+            }
+            if(respuesta.Estado === 'Correcto'){
+                let nombre = respuesta.Usuario;
+                swal({        
+                    content: "",
+                    text: '¡Bienvenido ' +nombre + '!',
+                    icon: "success",
+                    buttons: {
+                        defeat: "¡Continuar!",
+                      },
+                })
+                .then((value) => {
+                    switch (value) {
+                      default:
+                        window.location.href = 'bienvenida.php';
+                    }
+                  });
+                setTimeout(() => {
+                    window.location.href = 'Bienvenida.php';
+                 }, 3200);
+            }
+        }
+    }
+    // enviar datos
+    xhr.send(dato);
+}
 
 const formRegistroUser = document.querySelector('#registro');
 if ($("#registro").length) {
-    eventListeners4();
+    eventListeners1();
 
-    function eventListeners4() {
+    function eventListeners1() {
         formRegistroUser.addEventListener('submit', leerRegistro);
     }
 }
 
 function leerRegistro(e) {
     e.preventDefault();
-
     const user = document.querySelector('#user').value;
-
     const apellido = document.querySelector('#apellido').value;
     const number = document.querySelector('#number').value;
-
     const mail = document.querySelector('#correo').value;
-
     validarString(mail);
     console.log(user, apellido, number, mail);
     if (caracteresCorreoValido(mail) === false) {
@@ -244,7 +382,7 @@ function leerRegistro(e) {
     }
 
 }
-console.log('insertarDB');
+// 
 function insertarDB(dato) {
     // llamado de ajax
     // crear objeto
@@ -256,7 +394,37 @@ function insertarDB(dato) {
     xhr.onload = function () {
         if (this.status === 200) {
             const respuesta = JSON.parse(xhr.responseText);
-            console.log(respuesta);
+            
+            if(respuesta.estado === 'correoexiste'){
+                swal({
+                    content: "",
+                    text: 'El correo que Ingresaste, ¡Ya está en uso! Por favor, Intenta con otro correo.',
+                    icon: "error",
+                    button: {
+                        text: "Continuar",
+                        closeModal: true,
+                    },
+                });
+            }
+            if(respuesta.estado === 'disponible'){
+                swal({        
+                    content: "",
+                    text: '¡Registro Exitoso!',
+                    icon: "success",
+                    buttons: {
+                        defeat: "¡Continuar!",
+                      },
+                })
+                .then((value) => {
+                    switch (value) {
+                      default:
+                        window.location.href = 'bienvenida.php';
+                    }
+                  });
+                setTimeout(() => {
+                    window.location.href = 'Bienvenida.php';
+                 }, 3200);
+            }
         }
     }
     // enviar datos
@@ -284,7 +452,7 @@ function insertarDB(dato) {
         var apellido = document.getElementById('apellido');
         var email = document.getElementById('email');
         var email2 = document.getElementById('email2');
-        console.log(nombre);
+        
         //Campos boletos
         var estudiante = document.getElementById('estudiante');
         var general = document.getElementById('general');
@@ -406,8 +574,7 @@ function insertarDB(dato) {
 
                 botonRegistro.disabled = false; //Deshabilitamos botón de pagar
                 document.getElementById('total_pedido').value = totalPagar;
-                console.log(totalPagar);
-                console.log(listadoProductos);
+                
             }
         }
         //Generar Gafete Curso feb2020
@@ -498,11 +665,11 @@ $(function () {
     var cuerpo = $('.cuerpo').innerHeight();
     var footer = $('.site-footer').innerHeight();
 
-    console.log(cuerpo);
-    console.log(header)
-    console.log(sitioAltura + "-" + barraAltura);
+    // console.log(cuerpo);
+    // console.log(header)
+    // console.log(sitioAltura + "-" + barraAltura);
 
-    console.log(window.innerHeight + ">>-<<" + window.innerWidth);
+    // console.log(window.innerHeight + ">>-<<" + window.innerWidth);
     var muestra = 0;
     var muestrabefore = 0;
     var suma = sitioAltura;
@@ -572,7 +739,7 @@ $(function () {
             }
 
         }
-        console.log(scroll + "->" + muestra);
+        // console.log(scroll + "->" + muestra);
 
 
         // console.log(scrolldesdeheader+"<->"+scrollafter+"<->"+scrollbefore);
@@ -633,10 +800,10 @@ $(function () {
     });
 
     //Colorbox
-    $('.invitado-info').colorbox({
-        inline: true,
-        width: "100%"
-    });
+    // $('.invitado-info').colorbox({
+    //     inline: true,
+    //     width: "100%"
+    // });
 });
 $('#btonmaps').addClass('btonmaps');
 $('#btonmaps').css({
@@ -761,6 +928,6 @@ function validaNumericos(event) {
 }
 var input=  document.getElementById('number');
 input.addEventListener('input',function(){
-  if (this.value.length > 10) 
-     this.value = this.value.slice(0,10); 
+  if (this.value.length > 12) 
+     this.value = this.value.slice(0,12); 
 })

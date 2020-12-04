@@ -352,6 +352,7 @@
       text-align: center;
       margin: 0 0;
       padding: 0 0;
+      margin-top: 50px;
       
     } 
     .icono i{
@@ -363,7 +364,7 @@
       width: 100%;
       height: auto;
       margin: 0 0;
-      margin-top: -120px;
+      margin-top: -80px;
       padding: 0 0;
       color: #000000;
       text-align: center;
@@ -396,6 +397,23 @@
       height: auto;
       margin: 0 auto;
       
+    }
+    .recordatorio{
+      text-align: center;
+      width: 60%;
+
+      height: auto;
+      margin: 0 auto;
+      margin-top: 30px;
+      font-size: 12px;
+      color: #fe4918;
+    }
+    .recordatorio a{
+      
+      color:#000000;
+    }
+    .recordatorio a:hover{
+      color: #fe4918;
     }
     
     .contenedorinputs_normaltarjeta{
@@ -720,6 +738,10 @@
     .hotcall{
       
       display: none;
+      color: #ffffff;
+    }
+    .hotcall a{
+      color: #ffffff;
     }
     @media only screen and (min-width: 621px) {
       .hotcall{  
@@ -927,7 +949,7 @@
       }
       .infosiam{
         grid-row: 2 / 10;
-        grid-column: 2 / 3;
+        grid-column: 14 / 15;
         color: white;
         width: 100%;
         height: 100%;
@@ -952,7 +974,7 @@
       }
       .contacto{
         grid-row: 2 / 10;
-        grid-column: 14 / 15;
+        grid-column: 2 / 3;
         
         width: 100%;
         height: 100%;
