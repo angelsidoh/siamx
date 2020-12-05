@@ -18,7 +18,11 @@
 
 // try{
     //  $conn = new PDO('mysql:host=localhost;dbname=trackpc_reg_log1', 'root', '');
-     $conn = new mysqli("localhost", "root", "", "trackpc_reg_log1");
+    $username="uvq976vkwkacr";
+$password="josehyo2002k5angelruiz";
+    $database="dbkwkacrwe84ac";
+    $connf = new mysqli("localhost",$username, $password, $database);
+     //echo $connf->ping();
 //     echo "OK";
 // }catch(PDOException $e){
 //     echo "Error: " .$e->getMessage();

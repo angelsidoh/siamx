@@ -21,15 +21,15 @@
 //     echo "Error: " .$e->getMessage();
 // }
 
-// $username="uvq976vkwkacr";
-// $password="josehyo2002k5angelruiz";
+$username="uvq976vkwkacr";
+$password="josehyo2002k5angelruiz";
 // $database="dbkwkacrwe84ac";
 // $conn = new mysqli("localhost",$username, $password, $database);
 // echo "autenticabd";
-$username="root";
-$password="";
-// $database="dbkwkacrwe84ac";
-// $conn = new mysqli("localhost",$username, $password, $database);
+// $username="root";
+// $password="";
+$database="dbkwkacrwe84ac";
+// $connf = new mysqli("localhost",$username, $password, $database);
 $conn = new PDO('mysql:host=localhost;dbname=dbkwkacrwe84ac', $username, $password);
 // echo $conn->ping();
 

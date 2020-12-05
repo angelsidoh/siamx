@@ -3,36 +3,34 @@ session_start();
 
 
 if($_POST['accion'] == 'editar'){
-    require_once('../funciones/bd.php');
-
+   
+    require_once('../../basedatos/bdsqli.php');
+    // echo json_encode($_POST);
     //validar entradas
-    $nombre = filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);
-    $apellido = filter_var($_POST['apellido'], FILTER_SANITIZE_STRING);
-    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-    $telefono = filter_var($_POST['numerotel'], FILTER_SANITIZE_NUMBER_INT);
-    $boleto = filter_var($_POST['boleto'], FILTER_SANITIZE_NUMBER_INT);
+    
+    $tiket = filter_var($_POST['tiket'], FILTER_SANITIZE_STRING);
+    $pago = filter_var($_POST['pago'],FILTER_SANITIZE_NUMBER_INT);
     $id = filter_var($_POST['id'],FILTER_SANITIZE_NUMBER_INT);
+    // echo json_encode($tiket.$pago.$id);
     
     try{
-        $stmt = $conn->prepare("UPDATE eventocursofeb2020 SET nombre_usercurfeb = ?, apellido_usercurfeb = ?, correo_usercurfeb = ?, tel_usercurfeb = ?, numbolet_usercurfeb = ? WHERE id_usercurfeb = ?");
-
-        $stmt->bind_param("ssssii", $nombre, $apellido, $email, $telefono, $boleto, $id);
+        
+        $stmt = $connf->prepare("UPDATE usuarios SET tiked_usuario = ?, estado_usuario = ? WHERE id_usuario = ?");
+        
+        $stmt->bind_param("sii", $tiket, $pago, $id);
         
         $stmt->execute();
-
+        
         if($stmt->affected_rows == 1){
             $respuesta = array(
                 'respuesta' => 'correcto'
             );
             
-        }else{
-            $respuesta = array(
-                'respuesta' => 'error'
-            );
-            
         }
+        
         $stmt->close();
-        $conn->close();
+        $connf->close();
+        
 
     }catch(Exception $e){
             $respuesta = array(

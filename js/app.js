@@ -31,51 +31,33 @@ function leerFormulario(e){
     const nombre = document.querySelector('#nombre').value,
           apellido = document.querySelector('#apellido').value,
           email = document.querySelector('#email').value,
-          email2 = document.querySelector('#email2').value,
-          numerotel = document.querySelector('#numerotel').value,
-          boleto = document.querySelector('#numboleto').value,
+          
+          telefono = document.querySelector('#telefono').value,
+          tiket = document.querySelector('#tiket').value,
+          pago = document.querySelector('#pago').value,
           accion = document.querySelector('#accion').value;
-         
-          
-
-    if(email === email2){
-        if(nombre === '' || apellido === '' || email === '' || numerotel === '' || boleto === ''){
-          
-            mostrarNotificacion('Todos los campos son Obligatorios', 'error');
+           
             
-            //console.log(...infoPDF);
             
-        }else{
-            // console.log(nombre);
-            // console.log(apellido);
-            // console.log(email);
-            // console.log(email2);
-            // console.log(numerotel);
-            // console.log(boleto);
-            //pasa la validacion, crear  llamado ajax
             const infoContacto = new FormData();
             infoContacto.append('nombre', nombre);
             infoContacto.append('apellido', apellido);
             infoContacto.append('email', email);
-            infoContacto.append('numerotel', numerotel);
-            infoContacto.append('boleto', boleto);
+            infoContacto.append('telefono', telefono);
+            infoContacto.append('tiket', tiket);
+            infoContacto.append('pago', pago);
             infoContacto.append('accion', accion);
             console.log(...infoContacto);
            
-            if(accion === 'crear'){
-                //crear nuevo contacto
-                insertarBD(infoContacto);
-            }else{
+            if(accion === 'editar'){
                 //editar contacto
                 const idRegistro = document.querySelector('#id').value;
                       infoContacto.append('id', idRegistro);
                 actulizarRegistro(infoContacto);
             }
 
-        } 
-    }else{
-        mostrarNotificacion('Los correos no coinciden', 'error');
-    }
+        
+    
     
 }
 
@@ -182,17 +164,27 @@ function actulizarRegistro(datos){
     xhr.onload = function(){
         if(this.status === 200){
             const respuesta = JSON.parse(xhr.responseText);
+           
             console.log(respuesta);
             if(respuesta.respuesta === 'correcto'){
-                //Mostrar notificación de Correcto
-                mostrarNotificacion('Contacto editado correctamente', 'correcto');
-            }else{
-                //Moestrar Hubo un error
-                mostrarNotificacion('Hubo un error..', 'error');
+                swal({        
+                    content: "",
+                    text: '¡Estado de pago Actualizado',
+                    icon: "success",
+                    buttons: {
+                        defeat: "¡Continuar!",
+                      },
+                })
+                .then((value) => {
+                    switch (value) {
+                      default:
+                        window.location.href = 'adminpagos.php#listado-contacto';
+                    }
+                  });
+                setTimeout(() => {
+                    window.location.href = 'adminpagos.php#listado-contacto';
+                 }, 3200);
             }
-            setTimeout(() => {
-               window.location.href = 'admin.php';
-            }, 3000);
         }
     }
     //enviar la petición

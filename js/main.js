@@ -220,6 +220,10 @@ function consultaBD(dato) {
             }
             if(respuesta.Estado === 'Correcto'){
                 let nombre = respuesta.Usuario;
+                let tipo = respuesta.Tipo;
+                
+                if(tipo === '0'){
+                    
                 swal({        
                     content: "",
                     text: '¡Bienvenido ' +nombre + '!',
@@ -237,6 +241,64 @@ function consultaBD(dato) {
                 setTimeout(() => {
                     window.location.href = 'Bienvenida.php';
                  }, 3200);
+                }
+                if(tipo === '99'){
+                    swal({        
+                        content: "",
+                        text: '¡Bienvenido Admin ' +nombre + '!',
+                        icon: "success",
+                        buttons: {
+                            defeat: "¡Continuar!",
+                          },
+                    })
+                    .then((value) => {
+                        switch (value) {
+                          default:
+                            window.location.href = 'admin.php';
+                        }
+                      });
+                    setTimeout(() => {
+                        window.location.href = 'admin.php';
+                     }, 3200);
+                }
+                if(tipo === '1'){
+                    swal({        
+                        content: "",
+                        text: '¡Bienvenido a Pagos ' +nombre + '!',
+                        icon: "success",
+                        buttons: {
+                            defeat: "¡Continuar!",
+                          },
+                    })
+                    .then((value) => {
+                        switch (value) {
+                          default:
+                            window.location.href = 'adminpagos.php';
+                        }
+                      });
+                    setTimeout(() => {
+                        window.location.href = 'adminpagos.php';
+                     }, 3200);
+                }
+                if(tipo === '2'){
+                    swal({        
+                        content: "",
+                        text: '¡Bienvenido a Ponente: ' +nombre + '!',
+                        icon: "success",
+                        buttons: {
+                            defeat: "¡Continuar!",
+                          },
+                    })
+                    .then((value) => {
+                        switch (value) {
+                          default:
+                            window.location.href = 'ponentes.php';
+                        }
+                      });
+                    setTimeout(() => {
+                        window.location.href = 'ponentes.php';
+                     }, 3200);
+                }
             }
         }
     }
@@ -418,11 +480,11 @@ function insertarDB(dato) {
                 .then((value) => {
                     switch (value) {
                       default:
-                        window.location.href = 'bienvenida.php';
+                        window.location.href = 'logout.php';
                     }
                   });
                 setTimeout(() => {
-                    window.location.href = 'Bienvenida.php';
+                    window.location.href = 'logout.php';
                  }, 3200);
             }
         }

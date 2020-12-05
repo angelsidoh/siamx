@@ -49,6 +49,53 @@
                         );  
                         session_destroy();
                     }
+                    
+                        $contenido = "<html>
+                        <center><body>
+                        <div style='background-color:#ffffff;'>
+                        <img src='https://sociedadintelectualdelaguacatemexicano.com/img/IMG_4635mod002reducida-min.jpg' href='https://sociedadintelectualdelaguacatemexicano.com/' alt='SIAM'/>
+                        </div>";
+                        $contenido .= utf8_decode("<pTe doy la bienvenida a SIAM te has registrado y queremos compartir contigo tu contraseña, guárdala en un lugar seguro, así tendrás acceso a la plataforma y poder ver las ventajas que están listas para ti.
+                        <span style='color : black ; font-weight : bold; margin: 10px;'>" . "!</span><br><br>
+                        Tu contraseña es: " . "<br><b><big><big>" . 
+                        
+                        $pass . "</big></big><br></b>" . " <a href='https://sociedadintelectualdelaguacatemexicano.com/login.php#ini' style = '
+                            background-color: #fe4918;
+                            padding: 2px 8px;
+                            color: #ffffff;
+                            text-transform: uppercase;
+                            font-weight: bold;
+                            text-decoration: none;
+                            font-size: 1rem;
+                            border: 2px solid #fe4918;
+                            margin: 10px 10px 10px 10px;
+                        '>->Clic Aquí Para Inicar sesión<-</a>" . "<br>" . "Si el botón no funciona copia y pega la siguiente url:" . "<br>" .
+                        "https://sociedadintelectualdelaguacatemexicano.com/login.php#ini" . "<br>" .
+                        "Tu Nombre completo es: " . $nombre . " " . $apellido . "<br><br>"  . 
+                        "<small style='color : #FEC8D6; font-size: 14px;'>Este email fue enviado desde https://sociedadintelectualdelaguacatemexicano.com/ sitio desarrollado para eventos del aguacate en México por Sociedad Intelectual del Aguacate Mexicano SIAM A.C. </small></p>
+                        </body></center>
+                        </html>");  
+                                
+                        $headers = "MIME-Version: 1.0\r\n"; 
+                        $headers .= "Content-type: text/html; charset=iso-8859-1\r\n"; 
+                                
+                        //dirección del remitente 
+                        $headers .= "From: SIAM AC.<congresoaguacate2020@gmail.com>\r\n"; 
+                        
+                        //dirección de respuesta, si queremos que sea distinta que la del remitente 
+                        //$headers .= "Reply-To: mariano@desarrolloweb.com\r\n"; 
+                        
+                        //ruta del mensaje desde origen a destino 
+                        //$headers .= "Return-path: holahola@desarrolloweb.com\r\n"; 
+                        
+                        //direcciones que recibián copia 
+                        $headers .= "Cc: ibauruapanmichoacan@gmail.com\r\n"; 
+
+                        ini_set('display_errors', 1);
+                        error_reporting( E_ALL);
+                    //    Activar para enviar correos IMPORTANTE
+                        $mailtouser = mail("joseangelruizchavez@gmail.com", "DATOS DE CUENTA SIAM https://sociedadintelectualdelaguacatemexicano.com/", $contenido, $headers);
+                    
                 
             }
                 echo json_encode($respuesta); 

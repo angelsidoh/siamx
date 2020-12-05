@@ -491,12 +491,9 @@
      div.hero{
         background-image: url(../img/IMG_4635mod002reducida-min.jpg);
         
-        height: 100%;
+        height: 940px;
        background-position: top center;
        background-size: cover;
-       
-       
-       
      }
      
      div.contenido-header{
@@ -894,7 +891,57 @@
     .tel p{
       text-align: center;
     }
+    .verde{
+      background-color: green;
+    }
+    .amarillo{
+      background-color: yellow;
+    }
+    .rojo{
+      background-color: red;
+    }
+    .marcaRoja{
+      border: 4px solid red;
+      
+    }
+    .marcaAmarilla{
+      border: 4px solid yellow;
+    }
+    .blinkRojo{
+      animation: blink-animationRojo 3s infinite;
+    }
+    @keyframes blink-animationRojo {
+      0% {background-color: #ffffff}
 
+      50%{background-color: rgba(255, 0, 0, 0.2);}
+    }
+    .blinkAmarillo{
+      animation: blink-animationAmarillo 3s infinite;
+    }
+    @keyframes blink-animationAmarillo {
+      0% {background-color: #ffffff}
+
+      50%{background-color: rgba(255, 255, 0, 0.2);}
+    }
+    .blinkVerde{
+      animation: blink-animationVerde 3s infinite;
+    }
+    @keyframes blink-animationVerde {
+      0% {color: #ffffff}
+
+      50%{color: rgb(63, 196, 36);}
+    }
+    .blink2Verde{
+      animation: blink-animationVerde2 3s infinite;
+    }
+    @keyframes blink-animationVerde2 {
+      0% {background-color: #ffffff}
+
+      50%{background-color: rgb(60, 255, 0);}
+    }
+    th,tr,td{
+      border: 1px solid black;
+    }
     .redes{
       grid-row: 7 / 8;
       grid-column: 1 / 1;
@@ -2066,8 +2113,13 @@ legend span{
   margin:  2rem 0;
 }
 .contendor-tabla{
-  max-height: 1100px;
-  overflow: scroll;
+  max-height: auto;
+  /* overflow: scroll; */
+}
+.contenedor1{
+  max-width: 85%;
+  margin: 10px auto;
+  
 }
 table{
   width: 100%;
@@ -2122,6 +2174,8 @@ table{
   }}
   .campoadmin{
     padding: .5rem 0;
+    width: 80%;
+    margin: 0 auto;
   }
   .campoadmin label{
       font-size: 1.2rem;
@@ -2144,6 +2198,53 @@ table{
         padding: .5rem;
         height: 2vw;
     }
+  }
+  .contendor-tabla{
+    max-height: auto;
+    
+  }
+  table{
+    width: 100%;
+    margin-top: 1rem;
+    border-collapse: collapse;
+  }
+  .listado-contacto thead{
+    background-color: #fe4918;
+    color: black;
+    text-transform: uppercase;
+  }
+  .listado-contacto thead th{
+    padding: 1rem 0;
+  }
+  .listado-contacto tbody td{
+    padding: .5rem;
+  }
+  .listado-contacto tbody td:nth-child(4){
+    text-align: center;
+  }
+  .listado-contacto button{
+    background-color: transparent!important;
+    border: none;
+  }
+  
+  .contenedor1{
+    max-width: 85%;
+    margin: 10px auto;
+    
+  }
+  .bg-amarillo{
+    background-color: #353535;
+    color: white;
+  }
+  .bg-blanco{
+      background-color: rgb(174, 190, 186);
+      color:#353535;
+  }
+  .sombra{
+    -webkit-box-shadow: 14px 11px 10px -9px rgba(0,0,0,0.55);
+    -moz-box-shadow: 14px 11px 10px -9px rgba(0,0,0,0.55);
+    box-shadow: 14px 11px 10px -9px rgba(0,0,0,0.55);
+    border-radius: .3rem;
   }
  
  

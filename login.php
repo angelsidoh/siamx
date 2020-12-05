@@ -33,7 +33,7 @@ if(isset($_SESSION['usuario'])){?>
                                     <div class="icono__input1">
                                         <i class="fas fa-unlock"></i>
                                     </div>
-                                    <input type="text" id="pass" name="pass" placeholder="Contraseña">
+                                    <input type="password" id="pass" name="pass" placeholder="Contraseña">
                                 </div>
                                 <?php if (!empty($errores)) : ?>
                                     <div class="error">

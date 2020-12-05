@@ -42,14 +42,8 @@ session_start()
   <link href="https://fonts.googleapis.com/css?family=Open+Sans|Oswald|PT+Sans&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" />
-
   <?php 
-    
   ?>
-
-  
-  
-
   <link rel="stylesheet" href="css/main.css?v=<?php echo time(); ?>">
   
   <meta name="theme-color" content="#fafafa">
@@ -141,7 +135,36 @@ session_start()
     </div>
     <div class="contacto">
       <h1>Cuenta</h1>
-      <p><a href="bienvenida.php">Tu Sección de Usuario</a> </p>
+      <p><?php
+           if(isset($_SESSION['usuario'])){
+            if ($_SESSION['tipo']== 0){
+              ?> <a href="bienvenida.php">Tu Sección Usaurio SIAM</a><?php
+              
+              
+
+            }
+            if ($_SESSION['tipo']== 99){
+              ?> <a href="admin.php">Tu Sección Rey SIAM</a><?php
+              
+              
+
+            }
+            if ($_SESSION['tipo']== 1){
+              ?> <a href="adminpagos.php">Tu Sección Admin-Pagos SIAM</a><?php
+              
+              
+
+            }
+            if ($_SESSION['tipo']== 2){
+              ?> <a href="ponentes.php">Tu Sección Ponente SIAM</a><?php
+              
+              
+
+            }}else{?> <a href="login.php#ini">Tu Sección SIAM</a><?php
+
+            }
+          
+      ?> </p>
       <p><?php if(isset($_SESSION['usuario'])){
               echo $_SESSION['usuario'];
               ?> <br><a href="logout.php">Cerrar Sesión</a><?php

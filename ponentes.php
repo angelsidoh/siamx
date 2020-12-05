@@ -7,17 +7,18 @@ if(!isset($_SESSION['usuario'])){
     <?php
 }
 if($_SESSION['tipo'] != 99){
-if($_SESSION['tipo'] != 0){
-    ?>
-    <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=http://localhost/0SIAM/logout.php">
-    
-    <?php
-}
+    if($_SESSION['tipo'] != 2){
+        ?>
+        <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=http://localhost/0SIAM/logout.php">
+        
+        <?php
+    }
 }
 ?>
+
 <section class="global">
     <div class="contenedor">
-        <h1>hola Cliente</h1>
+        <h1>Ponentes</h1>
     </div>
 </section>
 <?php  

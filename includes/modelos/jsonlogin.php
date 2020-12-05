@@ -17,9 +17,11 @@
                
                 $respuesta = array(
                     'Estado'=> 'Correcto',
-                    'Usuario' => $resultado['nombre_usuario']
+                    'Usuario' => $resultado['nombre_usuario'],
+                    'Tipo'=> $resultado['tipo_usuario']
                 );
                 $_SESSION['usuario'] = $resultado['nombre_usuario'];
+                $_SESSION['tipo'] = $resultado['tipo_usuario'];
             }else{
                 $respuesta = array(
                     'Estado'=> 'Incorrecto'
