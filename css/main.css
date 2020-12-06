@@ -206,7 +206,7 @@
      
      .button.hollow{
       background-color: #ffffff;
-      color: #fe4918;
+      color: #f5d108;
      }
      .button.hollow:hover{
        background-color: #fe4918;
@@ -461,6 +461,7 @@
       left: 0;
     }
     .input_normaltarjeta input{
+      
       grid-row: 1 / 2;
       grid-column: 2 / 3;
       border-top-right-radius: 10px;

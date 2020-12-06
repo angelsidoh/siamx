@@ -42,12 +42,14 @@ if($_SESSION['tipo'] != 99){
                     ?>
                        
                     <tr class="<?php
-                    if($contacto['estado_usuario'] == '0' || $contacto['tiked_usuario']=='' || $contacto['tiked_usuario']==0){
+                    if($contacto['estado_usuario'] == '0' || $contacto['tiked_usuario']==''){
                         echo 'blinkRojo';
                     }elseif($contacto['estado_usuario'] == '2'){
                         echo 'blinkAmarillo';
                     }
-                    else{
+                    elseif($contacto['estado_usuario']== '3' && $contacto['tiked_usuario'] != '' || $contacto['estado_usuario'] == '3'){
+                        echo 'verde';
+                    }else{
                         echo 'verde';
                     }
                     ?>">
@@ -64,7 +66,7 @@ if($_SESSION['tipo'] != 99){
                         
                         <td class="<?php 
                                        
-                                        if($contacto['tiked_usuario'] == "" ||$contacto['tiked_usuario'] == 0){
+                                        if($contacto['tiked_usuario'] == ""){
                                         echo "marcaRoja";
                                         }
                                         
@@ -79,7 +81,11 @@ if($_SESSION['tipo'] != 99){
                             echo 'Pagado';
                         }elseif($contacto['estado_usuario'] == 2){
                             echo 'Pendiente Por Factura';
-                        }else{
+                        }
+                        elseif($contacto['estado_usuario'] == 3){
+                            echo 'Factura Enviada';
+                        }
+                        else{
                             echo 'No hay registro de Pago';
                         } 
                         

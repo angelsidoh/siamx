@@ -18,8 +18,10 @@
 
 // try{
     //  $conn = new PDO('mysql:host=localhost;dbname=trackpc_reg_log1', 'root', '');
-    $username="uvq976vkwkacr";
-$password="josehyo2002k5angelruiz";
+    $username="root";
+$password="";
+//     $username="uvq976vkwkacr";
+// $password="josehyo2002k5angelruiz";
     $database="dbkwkacrwe84ac";
     $connf = new mysqli("localhost",$username, $password, $database);
      //echo $connf->ping();

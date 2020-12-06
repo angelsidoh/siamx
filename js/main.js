@@ -340,7 +340,7 @@ function leerRegistro(e) {
 
     let cadena = mail;
     // esta es la palabra a buscar
-    let termino = "@gmail";
+    let termino = "@gmail.com";
     // para buscar la palabra hacemos
     let posicion = cadena.indexOf(termino);
     if (posicion !== -1){
@@ -469,6 +469,7 @@ function insertarDB(dato) {
                 });
             }
             if(respuesta.estado === 'disponible'){
+                
                 swal({        
                     content: "",
                     text: '¡Registro Exitoso!',
@@ -492,6 +493,7 @@ function insertarDB(dato) {
     // enviar datos
     xhr.send(dato);
 }
+
 
 (function () {
     "use strict";

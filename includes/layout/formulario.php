@@ -61,7 +61,7 @@
        
          <select name="pago" id="pago" 
          class="<?php
-                if($contacto['estado_usuario']==1){
+                if($contacto['estado_usuario']==1||$contacto['estado_usuario']==3){
                     echo 'verde';
                 }
                 elseif($contacto['estado_usuario']==2){
@@ -78,6 +78,9 @@
   <option value="2"<?php if($contacto['estado_usuario']== 2){
                             ?> selected <?php }
                             ?>>Requiere Factura</option>
+                            <option value="3"<?php if($contacto['estado_usuario']== 3){
+                            ?> selected <?php }
+                            ?>>Factura Enviada</option>
 
          </select>
     </div>
