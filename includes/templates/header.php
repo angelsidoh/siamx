@@ -1,7 +1,5 @@
 <?php
-
-
-
+  session_start();
 ?>
 <!doctype html>
 <html class="no-js" lang="">
@@ -97,7 +95,10 @@
         <div class="hotcalluser">
           <p>
           <?php 
+          
+          if(isset($_SESSION['usuario'])){
             echo $_SESSION['usuario'];
+          }
           ?>
           </p>
         </div>

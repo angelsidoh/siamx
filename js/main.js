@@ -739,9 +739,13 @@ $(function () {
     var suma = sitioAltura;
     var scrollbefore = 0;
     var scrollafter = 0;
-
-    $(window).scroll(function () {
+        scroling();
+    function scroling(){
         var scroll = $(window).scrollTop();
+        var scrollLeft = $(window).scrollLeft();
+        var scrollTop = $(window).scrollTop();
+        console.log("Vertical "+scrollTop);
+        console.log("Horizontal "+scrollLeft);
         if (scroll - (header + barraAltura) > scrollbefore) {
 
             scrollbefore = scroll - (header + barraAltura);
@@ -755,28 +759,13 @@ $(function () {
         }
         scrollafter = scrollbefore - scrolldesdeheader;
 
-        // if(scroll-(header+barraAltura) < scrollbefore && scrollafter > scroll-(header+barraAltura)){
-        //     scrollafter = scroll-(header+barraAltura);
-        //     if(scrollafter< 0){
-        //         scrollafter= 0;
-
-        //     }
-
-        // }
-
         if (scroll > suma) {
 
             $('.barra').addClass('fixed');
             $('body').css({
                 'margin-top': barraAltura + 'px'
             });
-
-
-
-
-
         } else {
-
             $('.barra').removeClass('fixed');
             $('body').css({
                 'margin-top': '0px'
@@ -803,10 +792,60 @@ $(function () {
             }
 
         }
-        // console.log(scroll + "->" + muestra);
+    }
+    $(window).scroll(function () {
+        var scroll = $(window).scrollTop();
+        var scrollLeft = $(window).scrollLeft();
+        var scrollTop = $(window).scrollTop();
+        console.log("Vertical "+scrollTop);
+        console.log("Horizontal "+scrollLeft);
+        if (scroll - (header + barraAltura) > scrollbefore) {
 
+            scrollbefore = scroll - (header + barraAltura);
+            if (scrollbefore < 0) {
+                scrollbefore = 0;
+            }
+        }
+        var scrolldesdeheader = scroll - (header + barraAltura);
+        if (scrolldesdeheader < 0) {
+            scrolldesdeheader = 0;
+        }
+        scrollafter = scrollbefore - scrolldesdeheader;
 
-        // console.log(scrolldesdeheader+"<->"+scrollafter+"<->"+scrollbefore);
+        if (scroll > suma) {
+
+            $('.barra').addClass('fixed');
+            $('body').css({
+                'margin-top': barraAltura + 'px'
+            });
+        } else {
+            $('.barra').removeClass('fixed');
+            $('body').css({
+                'margin-top': '0px'
+            });
+
+        }
+        if (muestra == 1) {
+            if (scroll <= 1700 && scroll >= 900) {
+                // console.log(muestra)
+
+                $('.tarjeta_registro').addClass('animacion');
+                muestra = 2;
+            }
+
+        }
+        if (scroll >= 1954 || scroll <= 290) {
+            if (muestra == 2) {
+                $('.tarjeta_registro').removeClass('animacion');
+            }
+        }
+        if (muestra == 0) {
+            if (scroll >= 1954 || scroll <= 290) {
+                muestra = muestra + 1;
+            }
+
+        }
+       
     });
 
     //menu reponsive
@@ -995,3 +1034,5 @@ input.addEventListener('input',function(){
   if (this.value.length > 12) 
      this.value = this.value.slice(0,12); 
 })
+
+   

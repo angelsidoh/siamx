@@ -1,12 +1,17 @@
 <!-- registro -->
 
-<?php include_once 'includes/templates/header.php';
-if(isset($_SESSION['usuario'])){
-    ?>
-    <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=http://localhost/0SIAM/bienvenida.php">
-    
-    <?php
-}
+<?php 
+include_once 'includes/templates/header.php';
+
+
+if (isset($_SESSION['usuario'])) {
+
+    session_destroy();
+  
+    // header('location:logout.php');
+    ?><META HTTP-EQUIV="REFRESH" CONTENT=".1;URL=https://sociedadintelectualdelaguacatemexicano.com/logout.php"><?php
+} else {
+  
 ?>
 <section class="global">
     <div id="reg" class="contenedor">
@@ -84,4 +89,4 @@ if(isset($_SESSION['usuario'])){
 
 
 
-<?php include_once 'includes/templates/footer.php' ?>
+                                <?php }include_once 'includes/templates/footer.php' ?>

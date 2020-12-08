@@ -2284,15 +2284,14 @@ table{
    width: 100%;
    margin: 0 auto;
    text-align: center;
-   background-color: rgb(111, 111, 121);
+   
    border-radius: 10px;
  }
- .botoncliente p{
-   max-width: 1200px;
-   width: 100%;
+ .botoncliente ul li{
    margin: 0 auto;
-   color: #fe4918;
-   font-size: 18px;
+   margin-top: 0;
+   color: #000000;
+   text-decoration: underline;
  }
  .text_inicia{
    text-align: center;
@@ -2302,8 +2301,34 @@ table{
  }
  #inscripcion i{
    color :#fe4918!important;
-
  }
+ .recuadro{
+   width: 90%;
+   height: 180px;
+   margin: 0 auto;
+   margin: 20px;
+   display: grid;
+   grid-template-columns: repeat(1, 50% 10% 30% 10%);
+   grid-template-rows: repeat(4, 1fr);
+ }
+ .recuadro .a{
+   background-color: red;
+   border: 1px solid #000000;
+ }
+ .recuadro .b{
+  background-color: rgb(238, 148, 166);
+  color: #fe4918;
+  font-size: 28px;
+  border: 1px solid #000000;
+ }
+ .recuadro .c{
+   background-color: rgb(2, 173, 3);
+   border: 1px solid #000000;
+ }
+ .recuadro .d{
+  background-color: rgb(2, 48, 173);
+  border: 1px solid #000000;
+}
 /*fin programaevento */
 
  

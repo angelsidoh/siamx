@@ -1,13 +1,15 @@
-<?php 
-   session_start();
+<?php
+    include_once 'includes/templates/header.php';
+   
     
     if(isset($_SESSION['usuario'])){
     
-        header('location:logout.php');
-        
-die();
+        session_destroy();
+  
+        // header('location:logout.php');
+        ?><META HTTP-EQUIV="REFRESH" CONTENT=".1;URL=https://sociedadintelectualdelaguacatemexicano.com/logout.php"><?php
     }else{
-        include_once 'includes/templates/header.php'    
+         
 ?>
 <section class="global">
     <div id="ini" class="contenedor">

@@ -1,13 +1,16 @@
 <?php 
-   session_start();
+   include_once 'includes/templates/header.php';
    require_once('includes/funciones/funcionestwo.php');
     if(!isset($_SESSION['usuario']) || $_SESSION['tipo'] != '1'){
     
-        header('location:logout.php');
+        session_destroy();
+  
+        // header('location:logout.php');
+        ?><META HTTP-EQUIV="REFRESH" CONTENT=".1;URL=https://sociedadintelectualdelaguacatemexicano.com/logout.php"><?php
         
 die();
     }else{
-        include_once 'includes/templates/header.php';
+        
 
         $id = filter_var($_GET['id'], FILTER_VALIDATE_INT);
 
