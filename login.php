@@ -1,10 +1,13 @@
-<?php include_once 'includes/templates/header.php';
-if(isset($_SESSION['usuario'])){?>
-    <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=http://localhost/0SIAM/bienvenida.php">
+<?php 
+   session_start();
     
-    <?php
-    // header('Location: bienvenida.php'); 
-}else{
+    if(isset($_SESSION['usuario'])){
+    
+        header('location:logout.php');
+        
+die();
+    }else{
+        include_once 'includes/templates/header.php'    
 ?>
 <section class="global">
     <div id="ini" class="contenedor">
@@ -71,5 +74,5 @@ if(isset($_SESSION['usuario'])){?>
 
 
 <?php
- }
+    }
 include_once 'includes/templates/footer.php' ?>

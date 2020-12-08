@@ -8,8 +8,9 @@
     <div class="contenedor">
       
       <ul id="infodiplomado" class="resumen-evento clearfix">
-      <li><h3 class="evento_r">Diplomado para Profesionalización Del cultivo del Aguacate</h3></li>
-        <li><p class="numero"></p>Modulos de Aprendizaje</li>
+      <li><h3 class="evento_r">Diplomado para Profesionalización Del cultivo del Aguacate
+      <br><p style="color:red; font-size :24px;">IMPARTIDO EN LINEA</p> </h3></li>
+      <li><p class="numero"></p>Modulos de Aprendizaje</li>
         <li><p class="numero"></p>Conferencias</li>
         <li><p class="numero"></p>Horas</li>
         <li><p class="numero"></p>Examen de Conocimiento</li>
@@ -65,7 +66,7 @@
               <li>Derecho al examen final de conociminto</li>
               
             </ul>
-            <a href="#" id="irmapa"  class="button">Inscripciones</a>
+            <a href="bienvenida.php#verenmicuenta" id="irmapa"  class="button">Ver en mi cuenta</a>
            
           </div>
         </li>

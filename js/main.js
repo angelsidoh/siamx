@@ -815,7 +815,7 @@ $(function () {
         $('.navegacion-principal').slideToggle();
 
     });
-
+    
     //programa de conferencias
     $('.programa-evento .info-curso:first').show();
     $('.menu-programa a:first').addClass('activo');
@@ -847,7 +847,7 @@ $(function () {
                 number: 1
             }, 1400);
             $('.resumen-evento li:nth-child(6) p').animateNumber({
-                number: 31
+                number: 30
             }, 1200);
         }, {
             offset: '90%'
@@ -890,7 +890,7 @@ $("#btonmaps").click(function () {
     });
 });
 $("#logo_barra").click(function () {
-    location.hash = "#" + 'hero';
+    window.location.href = 'index.php';
 });
 
 $('input:checkbox').removeAttr('checked');

@@ -1,19 +1,16 @@
 <?php  
 require_once('includes/funciones/funcionestwo.php');
-require_once('includes/templates/header.php');
-if(!isset($_SESSION['usuario'])){
-    ?>
-    <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=http://localhost/0SIAM/login.php#ini">
+
+session_start();
+if(!isset($_SESSION['usuario']) || $_SESSION['tipo'] != '99'){
     
-    <?php
-}
-if($_SESSION['tipo'] != 99){
-    ?>
-    <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=http://localhost/0SIAM/logout.php">
-    
-    <?php
-}
+        header('location: logout.php');
+        
+   die();
+    }else{
+        include_once 'includes/templates/header.php'
 ?>
+
 <section class="global">
     <div class="contenedor">
     
@@ -106,6 +103,6 @@ if($_SESSION['tipo'] != 99){
         </div>
     </div>
 </section>
-<?php  
+                    <?php  }
 require_once('includes/templates/footer.php');
 ?>

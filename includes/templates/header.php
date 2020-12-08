@@ -1,5 +1,5 @@
 <?php
-session_start()
+
 
 
 ?>
@@ -77,11 +77,7 @@ session_start()
             <h1 class="nombre-sitio">Sociedad Intelectual del Aguacate Mexicano</h1>
             <h1 class="nombre-sitio">SIAM A.C.</h1>
           </div>
-          
-          
         </div> 
-        
-       
       </div>
     </div><!--.hero-->
   
@@ -98,9 +94,16 @@ session_start()
               <i class = "fas fa-window-close" id = "clc" style = "display:none"></i>
             </label>
         </div>
+        <div class="hotcalluser">
+          <p>
+          <?php 
+            echo $_SESSION['usuario'];
+          ?>
+          </p>
+        </div>
         <div class="hotcall">
         <?php if(isset($_SESSION['usuario'])){
-              echo $_SESSION['usuario'];
+             
               ?> <a href="logout.php">Cerrar Sesión</a><?php
             }else{
               ?> <a href="login.php#ini">Iniciar Sesión</a><?php
