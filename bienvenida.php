@@ -165,7 +165,7 @@ if (!isset($_SESSION['usuario']) || $_SESSION['tipo'] != '0') {
                     <span class="checkmark"></span>
                   </div>
                   <input type="text" name="boton22" class="form-control" id="boton22" value="0" style="display: none;">
-                  <div class="a">¡Quiero <span>Factura</span>  de mi pago!</div>
+                  <div class="a">¡Quiero <span>Factura</span> de mi pago!</div>
                   
                   <div class="c">
                     <div class="boton1x">
@@ -213,7 +213,10 @@ if (!isset($_SESSION['usuario']) || $_SESSION['tipo'] != '0') {
                   <label for="">Sube una foto <br>
                   Requisito: ¡Foto formal tamaño infantil!, escaneada con impresora/escáner o dispositivo móvil.   
                 </label>
-                  <input type="file">
+                  <input type="file" id="foto1file" name= "foto1file">
+                  <progress id="progressBar" value="0" max="100" style="width:100%;"></progress>
+                  <h3 id="status"></h3>
+	                <p id="loaded_n_total"></p>
                 </div>
                 <div class="contenedornew__boton">
                   <input id="btninscripcion" type="submit" value="Inscribirme al diplomado" class="button">

@@ -11,6 +11,6 @@ if ($_POST['accionx'] == 'Inscribirme al diplomado'){
 
     
     
-    echo json_encode($_POST);
+    echo json_encode('correcto');
 }
 ?>

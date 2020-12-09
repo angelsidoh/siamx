@@ -100,6 +100,17 @@ function quitarAcentos(cadena) {
 
 const text = 'Aquí Acción Sesión Ángel';
 const texto = quitarAcentos(text);
+// upload fotos
+// esta instruccion te brienda los datos esenciales de la foto que estoy
+// tratatndo de subir por lo que asi funciona en todas las paginas donde
+// quiera subir un archivo ;D
+
+function up(el){
+	return document.getElementById(el);
+}
+
+
+// fin upload fotos
 // formulario inscripción
 const formInscripcion = document.querySelector('#inscripcion');
 if ($("#inscripcion").length){
@@ -109,7 +120,7 @@ if ($("#inscripcion").length){
     }
 }
 function leerInscripcion(e) {
-     e.preventDefault();
+    e.preventDefault();
      
 
     $(document).ready(function(){
@@ -122,14 +133,17 @@ function leerInscripcion(e) {
                 $('.valor3').val($(this).val());
         });
     });
-     const inscripcion = document.querySelector('#boton11').value;
-     const deposito = document.querySelector('#boton33').value;
-     const trasnferencia = document.querySelector('#boton22').value;
-     const factura = document.querySelector('#boton44').value;
-     const rfc = document.querySelector('#rfc').value;
-     const cfdi = document.querySelector('#cfdi').value;
-     const domiciliof = document.querySelector('#domiciliof').value;
-     const accionx = document.querySelector('#btninscripcion').value;
+    const inscripcion = document.querySelector('#boton11').value;
+    const deposito = document.querySelector('#boton33').value;
+    const trasnferencia = document.querySelector('#boton22').value;
+    const factura = document.querySelector('#boton44').value;
+    const rfc = document.querySelector('#rfc').value;
+    const cfdi = document.querySelector('#cfdi').value;
+    const domiciliof = document.querySelector('#domiciliof').value;
+    const accionx = document.querySelector('#btninscripcion').value;
+
+    
+
      if(inscripcion === '1'){
         if(factura === '1'){
             console.log(
@@ -200,11 +214,52 @@ function leerInscripcion(e) {
             if (this.status === 200) {
                 const respuesta = JSON.parse(xhr.responseText); 
                 console.log(respuesta);
+                if(respuesta === 'correcto'){
+                    // upload
+                    var file = up("foto1file").files[0];
+                    // alert(file.name+" | "+file.size+" | "+file.type);
+                    var formdata = new FormData();
+                    formdata.append("foto1file", file);
+                    var ajax = new XMLHttpRequest();
+                    ajax.upload.addEventListener("progress", progressHandler, false);
+                    ajax.addEventListener("load", completeHandler, false);
+                    ajax.addEventListener("error", errorHandler, false);
+                    ajax.addEventListener("abort", abortHandler, false);
+                    ajax.open("POST", "upload4.php");
+                    ajax.onload = function(){
+                        if(this.status === 200){
+                            // console.log(JSON.parse(ajax.responseText));
+                            const respuesta = JSON.parse(ajax.responseText);
+                            console.log('->->'+respuesta);
+                        }
+                    }
+                    ajax.send(formdata);
+                    // 
+                }
             }
         }
         // enviar datos
         xhr.send(dato);
     }
+// 
+
+function progressHandler(event){
+	up("loaded_n_total").innerHTML = "Subiendo Foto del Boleto "+event.loaded+" bytes of "+event.total;
+	var percent = (event.loaded / event.total) * 100;
+	up("progressBar").value = Math.round(percent);
+	up("status").innerHTML = Math.round(percent)+"% Subiendo foto Boleto... ¡Espera hasta que el proceso termine!";
+}
+function completeHandler(event){
+	up("status").innerHTML = event.target.responseText;
+	up("progressBar").value = 0;
+}
+function errorHandler(event){
+	up("status").innerHTML = "Upload Failed";
+}
+function abortHandler(event){
+	up("status").innerHTML = "Upload Aborted";
+}
+// 
 $('#boton11').val("1");
 $('#boton22').val("0");
 $('#boton33').val("1");
