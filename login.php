@@ -7,7 +7,7 @@
         session_destroy();
   
         // header('location:logout.php');
-        ?><META HTTP-EQUIV="REFRESH" CONTENT=".1;URL=https://sociedadintelectualdelaguacatemexicano.com/logout.php"><?php
+        ?><META HTTP-EQUIV="REFRESH" CONTENT="1;URL=http://localhost/0SIAM/logout.php"><?php
     }else{
          
 ?>

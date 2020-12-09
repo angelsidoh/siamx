@@ -100,6 +100,152 @@ function quitarAcentos(cadena) {
 
 const text = 'Aquí Acción Sesión Ángel';
 const texto = quitarAcentos(text);
+// formulario inscripción
+const formInscripcion = document.querySelector('#inscripcion');
+if ($("#inscripcion").length){
+    eventListeners2();
+    function eventListeners2() {
+        formInscripcion.addEventListener('submit', leerInscripcion);
+    }
+}
+function leerInscripcion(e) {
+     e.preventDefault();
+     
+
+    $(document).ready(function(){
+       
+        $("#boton1").change(function(){
+                alert
+        });
+        $(".ejemplo3").change(function(){
+                alert($('select[class=ejemplo3]').val());
+                $('.valor3').val($(this).val());
+        });
+    });
+     const inscripcion = document.querySelector('#boton11').value;
+     const deposito = document.querySelector('#boton33').value;
+     const trasnferencia = document.querySelector('#boton22').value;
+     const factura = document.querySelector('#boton44').value;
+     const rfc = document.querySelector('#rfc').value;
+     const cfdi = document.querySelector('#cfdi').value;
+     const domiciliof = document.querySelector('#domiciliof').value;
+     const accionx = document.querySelector('#btninscripcion').value;
+     if(inscripcion === '1'){
+        if(factura === '1'){
+            console.log(
+               "rfc= "+rfc,
+               "cfdi=" + cfdi,
+               "domicilio= " + domiciliof
+            );
+            if (rfc === '') {
+               $('#correo').css({
+                   'background': 'red'
+               });
+               swal({
+                   content: "",
+                   text: 'Hay campos vacios en los datos para factura.',
+                   icon: "error",
+                   button: {
+                       text: "Continuar",
+                       closeModal: true,
+                   },
+               });
+            }else{
+                // cuando requieres llenar todos los datos con factura
+                const infoinscrip = new FormData();
+                    infoinscrip.append('inscripcion', inscripcion);
+                    infoinscrip.append('deposito', deposito);
+                    infoinscrip.append('trasnferencia', trasnferencia);
+                    infoinscrip.append('factura', factura);
+                    infoinscrip.append('rfc', rfc);
+                    infoinscrip.append('cfdi', cfdi);
+                    infoinscrip.append('domiciliof', domiciliof);
+                    infoinscrip.append('accionx', accionx);
+                    if (accionx === 'Inscribirme al diplomado') {
+                        inscripcionDip(infoinscrip);
+                    }
+            }
+        }else{
+            // cuando requieres llenar solo los datos sin factura
+        }
+     }else{
+        swal({
+            content: "",
+            text: 'Es necesario que marques la casilla de: ¡Quiero inscribirme al Diplomado!',
+            icon: "error",
+            button: {
+                text: "Continuar",
+                closeModal: true,
+            },
+        });
+        
+     }
+     console.log(
+         "inscripcion= "+inscripcion,
+         "deposito= "+deposito,
+         "trasferencia= "+trasnferencia,
+         "factura= "+factura,
+         "accion= " +accionx
+         );  
+    }
+    function inscripcionDip(dato) {
+        // llamado de ajax
+        // crear objeto
+        
+        const xhr = new XMLHttpRequest();
+        // abrir conexion
+        xhr.open('POST', 'includes/modelos/inscripciondiplomado.php', true);
+        // pasar datos
+        xhr.onload = function () {
+            if (this.status === 200) {
+                const respuesta = JSON.parse(xhr.responseText); 
+                console.log(respuesta);
+            }
+        }
+        // enviar datos
+        xhr.send(dato);
+    }
+$('#boton11').val("1");
+$('#boton22').val("0");
+$('#boton33').val("1");
+$('#boton44').val("0");
+
+$(document).on('change','input[type="checkbox"]' ,function(e) {
+    if(this.id=="boton1") {
+        if(this.checked) $('#boton11').val(this.value);
+        else $('#boton11').val("0");
+    }
+    if(this.id=="boton3") {
+        if(this.checked){ 
+            $('#boton33').val(this.value);
+            $('#boton22').val("0");
+        }else {
+        $('#boton33').val("0");
+        $('#boton22').val("1");
+        }
+    }
+    if(this.id=="boton2") {
+        if(this.checked){
+             $('#boton22').val(this.value);
+             $('#boton33').val("0");
+        }
+        else {
+            $('#boton22').val("0");
+            $('#boton33').val("1");
+        }
+    }
+    if(this.id=="boton4") {
+        if(this.checked){
+             $('#boton44').val(this.value);
+             
+        }
+        else {
+            $('#boton44').val("0");
+           
+        }
+    }
+   
+});
 // Sesiones
 const formLoginUser = document.querySelector('#login');
 if ($("#login").length){
@@ -797,8 +943,8 @@ $(function () {
         var scroll = $(window).scrollTop();
         var scrollLeft = $(window).scrollLeft();
         var scrollTop = $(window).scrollTop();
-        console.log("Vertical "+scrollTop);
-        console.log("Horizontal "+scrollLeft);
+        // console.log("Vertical "+scrollTop);
+        // console.log("Horizontal "+scrollLeft);
         if (scroll - (header + barraAltura) > scrollbefore) {
 
             scrollbefore = scroll - (header + barraAltura);
@@ -963,6 +1109,33 @@ $("#check-hotcall").click(function () {
     } else {
         $("#flechaup").show();
         $("#flechadown").hide();
+    }
+});
+$('input:checkbox').removeAttr('checked');
+$('input[type=checkbox]').prop('checked', false);
+$("#boton3").prop("checked", true);
+$("#boton1").prop("checked", true);
+
+$("#boton2").click(function () {
+    if ($(this).is(":checked")) {
+        $("#boton3").prop("checked", false);
+    } else {
+        $("#boton3").prop("checked", true);
+    }
+});
+$("#boton3").click(function () {
+    if ($(this).is(":checked")) {
+        $("#boton2").prop("checked", false);
+    } else {
+        $("#boton2").prop("checked", true);
+    }
+});
+$(".menufactura").hide();
+$("#boton4").click(function () {
+    if ($(this).is(":checked")) {
+        $(".menufactura").show();
+    } else {
+        $(".menufactura").hide();
     }
 });
 

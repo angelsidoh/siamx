@@ -8,7 +8,7 @@ if (!isset($_SESSION['usuario']) || $_SESSION['tipo'] != '0') {
   session_destroy();
   
   // header('location:logout.php');
-  ?><META HTTP-EQUIV="REFRESH" CONTENT=".1;URL=https://sociedadintelectualdelaguacatemexicano.com/logout.php"><?php
+  ?><META HTTP-EQUIV="REFRESH" CONTENT=".1;URL=http://localhost/0SIAM/logout.php"><?php
 
   
 } else {
@@ -98,8 +98,8 @@ if (!isset($_SESSION['usuario']) || $_SESSION['tipo'] != '0') {
         </div>
       </section>
       <div class="tarjeta">
-        <div class="tarjeta_registro">
-          <div class="sub_tarjetaregistro">
+        <div class="tarjeta_registrox">
+          <div class="sub_tarjetaregistroxx">
             <div class="botoncliente">
               <h2>Formulario de Inscripción <br>
                 <h3> Diplomado para Profesionalización Del cultivo del Aguacate</h3>
@@ -107,65 +107,116 @@ if (!isset($_SESSION['usuario']) || $_SESSION['tipo'] != '0') {
               <form id="inscripcion" action="#">
                 <ul>
                   <h4>Instrucciones:</h4>
-                  <li>1.- Llena las casillas siguientes dando clic en el botón indicado.</li>
+                  <li>1.- Llene las casillas siguientes dando clic en el botón indicado.</li>
                   <li>2.- Asegúrese, que los datos estén correctos antes de enviar el formulario.</li>
+                  <li>3.- Puede marcar la casilla de pago por transferencia o depósito en ventanilla, en automático se desmarca la opción si decides cambiar a la otra.</li>
                 </ul>
                 <div class="recuadro">
-                  <div class="a">Deseo inscribirme al Diplomado</div>
-                  <div class="b"><i class="fas fa-arrow-right"></i></div>
+                  <div class="a">¡Quiero <span>inscribirme</span>  al Diplomado!</div>
+                 
                   <div class="c">
-                    <div class="boton1">
+                    <div class="boton1x">
                       
-                      <label for="boton1">
-                      <i class="fas fa-flushed"></i>
+                      <label  for="boton1" class="container button">Clic Aqui
+                      <!-- <input type="checkbox" checked="checked">
+                      <span class="checkmark"></span> -->
                       </label>
                     </div>
                   </div>
-                  <div class="d">
-                  <input type="checkbox" id="boton1" name="menuadsasd">
-                  </div>
-                  <div class="a">Deseo hacer una transferencia Bancaria</div>
                   <div class="b"><i class="fas fa-arrow-right"></i></div>
+                  <div class="container">
+                    <input type="checkbox" id="boton1" checked="checked" name="Inscripción" value = "1">
+                    
+                    <span class="checkmark"></span>
+                  </div>
+                  <input type="text" name="boton11" class="form-control" id="boton11" value="1" style="display: none;">
+                  <div class="a">¡Quiero hacer mi pago por: <br><span>Depósito en ventanilla Bancaria!</span> </div>
+                 
                   <div class="c">
-                    <div class="boton1">
+                    <div class="boton1x">
                       
-                      <label for="boton2">
-                      <i class="fas fa-flushed"></i>
+                      <label  for="boton3" class="container button">Clic Aqui
+                      <!-- <input type="checkbox" checked="checked">
+                      <span class="checkmark"></span> -->
                       </label>
                     </div>
                   </div>
-                  <div class="d">
-                  <input type="checkbox" id="boton2" name="menuadsasd">
-                  </div>
-                  <div class="a">Deseo hacer un depocito en Ventanilla Bancaria</div>
                   <div class="b"><i class="fas fa-arrow-right"></i></div>
+                  <div class="container">
+                    <input  type="checkbox" id="boton3" checked="checked" name="Depocito" value = "1">
+                    <span class="checkmark"></span>
+                   
+                  </div>
+                  <input type="text" name="boton33" class="form-control" id="boton33" value="1" style="display: none;">
+                  <div class="a">¡Quiero hacer mi pago por: <br> <span> Transferencia Bancaria!</span></div>
+                 
                   <div class="c">
-                    <div class="boton1">
+                    <div class="boton1x">
                       
-                      <label for="boton3">
-                      <i class="fas fa-flushed"></i>
+                       <label  for="boton2" class="container button">Clic Aqui
+                      <!-- <input type="checkbox" checked="checked">
+                      <span class="checkmark"></span> -->
                       </label>
                     </div>
                   </div>
-                  <div class="d">
-                  <input type="checkbox" id="boton3" name="menuadsasd">
-                  </div>
-                  <div class="a">Deseo factura de mi pago</div>
                   <div class="b"><i class="fas fa-arrow-right"></i></div>
+                  <div class="container">
+                  <input  type="checkbox" id="boton2" name="Transferencia" value = "1" checked="checked">
+                    <span class="checkmark"></span>
+                  </div>
+                  <input type="text" name="boton22" class="form-control" id="boton22" value="0" style="display: none;">
+                  <div class="a">¡Quiero <span>Factura</span>  de mi pago!</div>
+                  
                   <div class="c">
-                    <div class="boton1">
+                    <div class="boton1x">
                       
-                      <label for="boton4">
-                      <i class="fas fa-flushed"></i>
+                      <label  for="boton4" class="container button">Clic Aqui
+                      <!-- <input type="checkbox" checked="checked">
+                      <span class="checkmark"></span> -->
                       </label>
                     </div>
                   </div>
-                  <div class="d">
-                  <input type="checkbox" id="boton4" name="menuadsasd">
+                  <div class="b"><i class="fas fa-arrow-right"></i></div>
+                  <div class="container">
+                  <input type="checkbox" id="boton4" name="factura" value="1">
+                    <span class="checkmark"></span>
+                  </div>
+                  <input type="text" name="boton44" class="form-control" id="boton44" value="0" style="display: none;">
+                </div>
+                <div class="menufactura">
+                  <!-- <div class="nombrefactura">
+                    <p>Nombre</p>
+                  </div>
+                  <div class="inputnombre">
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre">
+                  </div> -->
+                  <div class="partext">
+                    <p>RFC <i class="fas fa-arrow-right"></i></p>
+                  </div>
+                  <div class="partinput">
+                    <input type="text" id="rfc" name="rfc" placeholder="RFC">
+                  </div>
+                  <div class="partext">
+                    <p>CFDI <i class="fas fa-arrow-right"></i></p>
+                  </div>
+                  <div class="partinput">
+                    <input type="text" id="cfdi" name="cfdi" placeholder="CFDI">
+                  </div>
+                  <div class="partext">
+                    <p>Domicilio Fiscal <i class="fas fa-arrow-right"></i></p>
+                  </div>
+                  <div class="partinput">
+                    <input type="text" id="domiciliof" name="domiciliof" placeholder="Domicilio Fiscal">
                   </div>
                 </div>
+                <div class="upload">
+                  <label for="">Sube una foto <br>
+                  Requisito: ¡Foto formal tamaño infantil!, escaneada con impresora/escáner o dispositivo móvil.   
+                </label>
+                  <input type="file">
+                </div>
                 <div class="contenedornew__boton">
-                  <input id="btninscripcio" type="submit" value="Inscribirme al Diplomado" class="button">
+                  <input id="btninscripcion" type="submit" value="Inscribirme al diplomado" class="button">
                 </div>
               </form>
             </div>
