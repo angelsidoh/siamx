@@ -22,6 +22,7 @@
                 );
                 $_SESSION['usuario'] = $resultado['nombre_usuario'];
                 $_SESSION['tipo'] = $resultado['tipo_usuario'];
+                $_SESSION['correo'] = $resultado['correo_usuario']; 
             }else{
                 $respuesta = array(
                     'Estado'=> 'Incorrecto'

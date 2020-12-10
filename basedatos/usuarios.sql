@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-12-2020 a las 16:26:46
+-- Tiempo de generación: 10-12-2020 a las 13:46:29
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.2
 
@@ -34,38 +34,40 @@ CREATE TABLE `usuarios` (
   `apellido_usuario` varchar(16) NOT NULL,
   `pass_usuario` varchar(16) NOT NULL,
   `foto_usuario` varchar(200) NOT NULL,
-  `fecha_usuario` date NOT NULL,
+  `fecha_usuario` datetime NOT NULL,
   `correo_usuario` varchar(50) NOT NULL,
   `telefono_usuario` varchar(15) NOT NULL,
-  `qr_usuario` varchar(200) NOT NULL,
-  `pedidos_usuario` varchar(200) NOT NULL,
-  `tipo_usuario` int(1) NOT NULL
+  `estado_usuario` int(1) NOT NULL,
+  `tiked_usuario` varchar(200) NOT NULL,
+  `tipo_usuario` int(1) NOT NULL,
+  `inscripcion_usuario` int(1) NOT NULL,
+  `deposito_usuario` int(1) NOT NULL,
+  `transferencia_usuario` int(1) NOT NULL,
+  `factura_usuario` int(1) NOT NULL,
+  `estadofactura_usuario` int(1) NOT NULL,
+  `rfc_usuario` varchar(20) NOT NULL,
+  `cfdi_usuario` varchar(50) NOT NULL,
+  `domiciliofiscal_usuario` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `apellido_usuario`, `pass_usuario`, `foto_usuario`, `fecha_usuario`, `correo_usuario`, `telefono_usuario`, `qr_usuario`, `pedidos_usuario`, `tipo_usuario`) VALUES
-(1, 'José Angel', 'Ruiz Chávez', 'hyok5', 'aa', '2020-11-30', 'angelsidohpubg@gmail.com', '0', 'a', 'inscripcion a pagina pruebas', 1),
-(3, 'aB', '', '', '', '0000-00-00', '', '0', '', '', 0),
-(4, 'aB', '', '', '', '0000-00-00', '', '0', '', '', 0),
-(5, 'aB', '', '', '', '0000-00-00', '', '0', '', '', 0),
-(6, 'aB', '', 'YCe0!u6Z', '', '2020-12-02', 'angel._ruiz@hotmail.com', '0', '', '', 0),
-(7, 'aB', '', 'YNBQ$d+I', '', '2020-12-02', 'angel._ruizA@hotmail.com', '0', '', '', 0),
-(8, 'aB', '', 'Nm&apdTh', '', '2020-12-02', 'angel._ruizAA@hotmail.com', '0', '', '', 0),
-(9, 'ac', '', 'qNXsMXEb', '', '2020-12-03', 'angell._ruiz@hotmail.com', '0', '', '', 0),
-(10, 'angel', '', 'ZVfCP/ka', '', '2020-12-03', 'angel._rssuiz@hotmail.com', '0', '', '', 0),
-(11, 'angel', 'ruiz', 'ptO&t-y%', '', '2020-12-03', 'angel._rauiz@hotmail.com', '0', '', '', 0),
-(12, 'angel', 'ruiz', 'a(270(0v', '', '2020-12-03', 'angel._raauiz@hotmail.com', '0', '', '', 0),
-(13, 'angel', 'ruiz', '%vHm#z7n', '', '2020-12-03', 'angel._raaauiz@hotmail.com', '4521441688', '', '', 0),
-(14, 'angel', 'ruiz', 'OTldg6M(', '', '2020-12-03', 'angel._raaaauiz@hotmail.com', '4521441689', '', '', 0),
-(15, 'angel', 'ruiz', 'u#8Bsx1P', '', '2020-12-03', 'angel._raaaauiz@gmail.com', '4521441689', '', '', 0),
-(16, 'angel', 'ruiz', 'TCSuo6uf', '', '2020-12-03', 'angel._raaaauiz@outlook.com', '4521441689', '', '', 0),
-(17, 'angel', 'ruiz', '2Ag&co1L', '', '2020-12-03', 'angel._raaaaauiz@gmail.com', '4521441689', '', '', 0),
-(18, 'angel', 'ruiz', 'v)YNs&5R', '', '2020-12-03', 'angel._raaaaz@gmail.com', '4521441689', '', '', 0),
-(19, 'José Angel', 'Ruiz Chávez', 'pHp1/PcI', '', '2020-12-03', 'angel@gmail.com', '', '', '', 0),
-(20, 'José Angel', 'Ruiz Chávez', '0!d4NT-s', '', '2020-12-03', 'aaangel@gmail.com', '4521121232', '', '', 0);
+INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `apellido_usuario`, `pass_usuario`, `foto_usuario`, `fecha_usuario`, `correo_usuario`, `telefono_usuario`, `estado_usuario`, `tiked_usuario`, `tipo_usuario`, `inscripcion_usuario`, `deposito_usuario`, `transferencia_usuario`, `factura_usuario`, `estadofactura_usuario`, `rfc_usuario`, `cfdi_usuario`, `domiciliofiscal_usuario`) VALUES
+(1, 'Bles', 'Mar', 'x', '', '2020-12-05 13:49:04', 'x@gmail.com', '4514848451', 0, '', 1, 0, 0, 0, 0, 0, '', '', ''),
+(2, 'Pedro', 'AB', 'p', '', '2020-12-05 13:50:20', 'p@gmail.com', '454545454545', 1, '4541', 2, 0, 0, 0, 0, 0, '', '', ''),
+(3, 'Angel', 'Rz', 'a', '', '2020-12-05 13:50:48', 'a@gmail.com', '54685456465', 3, '8451', 99, 0, 0, 0, 0, 0, '', '', ''),
+(4, 'David', 'Marez Cazarez', 'd', 'https://sociedadintelectualdelaguacatemexicano.com/upload/David-gTU09December2020152238119403493_3413678911988392_8248441450573387682_o.jpg', '2020-12-05 13:51:38', 'd@gmail.com', '415465456156', 1, '4812', 0, 1, 0, 1, 1, 1, '451da1', 'dasd', 'dadssd'),
+(5, 'Ana', 'AB', '%~fDc(VJ', '', '2020-12-05 13:50:20', 'p_@gmail.com', '454545454545', 1, '4512', 0, 0, 0, 0, 0, 0, '', '', ''),
+(6, 'Diana', 'Rz', 'sXeP=U09', '', '2020-12-05 13:50:48', 'Rz@gmail.com', '54685456465', 1, '548515', 0, 1, 1, 0, 0, 0, '', '', ''),
+(7, 'Tania', 'Marez Cazarez', 'q)I2gEel', '', '2020-12-05 13:51:38', 'MC@gmail.com', '415465456156', 1, '54451', 0, 0, 0, 0, 0, 0, '', '', ''),
+(8, 'asdadas', 'adad', 'O/dH6%qe', '', '2020-12-06 13:56:10', 'asd@gmail.com', '23123123', 0, '', 0, 0, 0, 0, 0, 0, '', '', ''),
+(9, 'David', 'Marez Cazarez', 'd', '', '2020-12-05 13:51:38', 'da@gmail.com', '415465456156', 1, '4451', 0, 0, 0, 0, 0, 0, '', '', ''),
+(10, 'Ana', 'AB', '%~fDc(VJ', '', '2020-12-05 13:50:20', 'p_@gmail.com', '454545454545', 1, '4512', 0, 0, 0, 0, 0, 0, '', '', ''),
+(11, 'Diana', 'Rz', 'sXeP=U09', '', '2020-12-05 13:50:48', 'Rz@gmail.com', '54685456465', 3, '5412', 0, 0, 0, 0, 0, 0, '', '', ''),
+(12, 'Tania', 'Marez Cazarez', 'q)I2gEel', '', '2020-12-05 13:51:38', 'MC@gmail.com', '415465456156', 1, '54451', 0, 0, 0, 0, 0, 0, '', '', ''),
+(13, 'asdadas', 'adad', 'O/dH6%qe', '', '2020-12-06 13:56:10', 'asd@gmail.com', '23123123', 0, '', 0, 0, 0, 0, 0, 0, '', '', '');
 
 --
 -- Índices para tablas volcadas
@@ -85,7 +87,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

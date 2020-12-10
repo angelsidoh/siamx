@@ -214,7 +214,7 @@ function leerInscripcion(e) {
             if (this.status === 200) {
                 const respuesta = JSON.parse(xhr.responseText); 
                 console.log(respuesta);
-                if(respuesta === 'correcto'){
+                if(respuesta.estado === 'correoexiste'){
                     // upload
                     var file = up("foto1file").files[0];
                     // alert(file.name+" | "+file.size+" | "+file.type);
@@ -225,12 +225,42 @@ function leerInscripcion(e) {
                     ajax.addEventListener("load", completeHandler, false);
                     ajax.addEventListener("error", errorHandler, false);
                     ajax.addEventListener("abort", abortHandler, false);
-                    ajax.open("POST", "upload4.php");
+                    ajax.open("POST", "includes/modelos/upload4.php");
                     ajax.onload = function(){
                         if(this.status === 200){
                             // console.log(JSON.parse(ajax.responseText));
                             const respuesta = JSON.parse(ajax.responseText);
                             console.log('->->'+respuesta);
+                            if(respuesta.estado === 'errorfotonoselect'){
+                                swal({
+                                    content: "",
+                                    text: '¡Por Favor! Seleccione una foto con las características que se piden en las instrucciones.',
+                                    icon: "error",
+                                    button: {
+                                        text: "Continuar",
+                                        closeModal: true,
+                                    },
+                                }); 
+                            }
+                            if(respuesta.estado === 'uploadsuccess'){
+                                swal({        
+                                    content: "",
+                                    text: '¡Tu ficha de inscripción está lista!',
+                                    icon: "success",
+                                    buttons: {
+                                        defeat: "¡Continuar!",
+                                      },
+                                })
+                                .then((value) => {
+                                    switch (value) {
+                                      default:
+                                        window.location.href = 'ficha.php';
+                                    }
+                                  });
+                                setTimeout(() => {
+                                    window.location.href = 'ficha.php';
+                                 }, 3200); 
+                            }
                         }
                     }
                     ajax.send(formdata);
@@ -244,10 +274,10 @@ function leerInscripcion(e) {
 // 
 
 function progressHandler(event){
-	up("loaded_n_total").innerHTML = "Subiendo Foto del Boleto "+event.loaded+" bytes of "+event.total;
+	up("loaded_n_total").innerHTML = "Subiendo Foto "+event.loaded+" bytes of "+event.total;
 	var percent = (event.loaded / event.total) * 100;
 	up("progressBar").value = Math.round(percent);
-	up("status").innerHTML = Math.round(percent)+"% Subiendo foto Boleto... ¡Espera hasta que el proceso termine!";
+	
 }
 function completeHandler(event){
 	up("status").innerHTML = event.target.responseText;

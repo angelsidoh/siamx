@@ -51,39 +51,95 @@
          }
          ?>">
     </div>
-    <div class = "campoadmin">
+    <div class="datosfactura">
+    <div class="menufacturax">
+                  <!-- <div class="nombrefactura">
+                    <p>Nombre</p>
+                  </div>
+                  <div class="inputnombre">
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre">
+                  </div> -->
+                  <div class="partext">
+                    <p>RFC <i class="fas fa-arrow-right"></i></p>
+                  </div>
+                  <div class="partinput">
+                    <input type="text" id="rfc" name="rfc" placeholder="RFC" readonly value="<?php if($contacto['rfc_usuario']!=''){
+                            echo $contacto['rfc_usuario'];
+                        }?>">
+                  </div>
+                  <div class="partext">
+                    <p>CFDI <i class="fas fa-arrow-right"></i></p>
+                  </div>
+                  <div class="partinput">
+                    <input type="text" id="cfdi" name="cfdi" placeholder="CFDI" readonly value="<?php if($contacto['cfdi_usuario']!=''){
+                            echo $contacto['cfdi_usuario'];
+                        }?>">
+                  </div>
+                  <div class="partext">
+                    <p>Domicilio Fiscal <i class="fas fa-arrow-right"></i></p>
+                  </div>
+                  <div class="partinput">
+                    <input type="text" id="domiciliof" name="domiciliof" placeholder="Domicilio Fiscal" readonly value="<?php if($contacto['domiciliofiscal_usuario']!=''){
+                            echo $contacto['domiciliofiscal_usuario'];
+                        }?>">
+                  </div>
+                </div>
+         </div>
+    <div class = "campoadminx">
         <label 
         class = "<?php  if($_SESSION['tipo'] == '1'){
                         echo 'blinkVerde';
                     }else{
                         echo 'sin'.$_SESSION['tipo'];
-                    }?>"for="pago">Estado de Pago:</label>
+                    }?>"for="pago">Estado de Pago:&nbsp;</label>
        
          <select name="pago" id="pago" 
          class="<?php
-                if($contacto['estado_usuario']==1||$contacto['estado_usuario']==3){
+                if($contacto['estado_usuario']=='1'||$contacto['estado_usuario']=='3'){
                     echo 'verde';
                 }
-                elseif($contacto['estado_usuario']==2){
+                elseif($contacto['estado_usuario']=='2'){
                     echo 'amarillo';
                 }else{
                     echo 'rojo';
                 }
          ?>">
+         
          <!-- <option value="opciones"selected disabled>Selecciona el estado de Pago</option>  -->
-         <option value="0" >No a Pagado</option>
-  <option value="1" <?php if($contacto['estado_usuario']== 1){
+        <option value="0" >No a Pagado</option>
+        <option value="1" <?php if($contacto['estado_usuario']== 1){
                             ?> selected <?php }
                             ?>>Pagado</option>
-  <option value="2"<?php if($contacto['estado_usuario']== 2){
-                            ?> selected <?php }
-                            ?>>Requiere Factura</option>
-                            <option value="3"<?php if($contacto['estado_usuario']== 3){
-                            ?> selected <?php }
-                            ?>>Factura Enviada</option>
+ 
 
          </select>
+         <label  class = "<?php  if($_SESSION['tipo'] == '1'){
+                        echo 'blinkVerde';
+                    }
+                   
+                    ?>" for="facturaestado" >&nbsp;&nbsp;Estado de factura: &nbsp;</label>
+         <select name="facturaestado" id="facturaestado" 
+         class="<?php
+                if($contacto['estadofactura_usuario']=='1'){
+                    echo 'verde';
+                }
+                else{
+                    echo 'rojo';
+                }
+         ?>">
+         
+         <!-- <option value="opciones"selected disabled>Selecciona el estado de Pago</option>  -->
+        <option value="0" >No enviada</option>
+        <option value="1" <?php if($contacto['estadofactura_usuario']== 1){
+                            ?> selected <?php }
+                            ?>>Enviada</option>
+ 
+
+         </select>
+         
+         
     </div>
+    
     <div class="campoadmin enviar">
          <?php
             

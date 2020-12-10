@@ -141,23 +141,14 @@
        width: 98%;
        margin: 0 auto;
      }
-     @media only screen and (min-width:480px){
-      .contenedor{
-        width: 95%;
-      }
-    }
+     
      @media only screen and (min-width:768px){
        .contenedor{
-         width: 90%;
+         width: 95%;
        }
      }
-     @media only screen and (min-width:992px){
-      .contenedor{
-        
-        width: 85%;
-        
-      }
-    }
+     
+    
     .seccion{
       padding: 30px 0;
     }
@@ -274,7 +265,7 @@
     }
     .tarjeta_registrox{
       width: 100%;
-      height: 1400px;
+      height: 1650px;
      
       border-radius: 25px;
      
@@ -288,7 +279,7 @@
     @media only screen and (min-width:768px){
       .tarjeta_registrox{
         width: 100%;
-        height: 900px;
+        height: 1200px;
         
         border-radius: 25px;
        
@@ -532,15 +523,52 @@
       border: 1px solid var(--ColorByL);
     }
     .upload{
-      width: 70%;
-      height: 150px;
+      width: 300%;
+      height: 100px;
       margin: 0 auto;
-      background-color: red;
+      margin-top: 30px;
       display:  grid;
       grid-template-columns: repeat(1, 1fr);
-      grid-template-rows: repeat(2,1fr);
+      grid-template-rows: repeat(1, 40% 25% 15% 5%);
       text-align: center;
+      overflow: hidden;
+      
     }
+    .upload label{
+      width: 100%;
+      height: 100%;
+      
+    }
+    .upload input{
+      height: 45px;
+      font-size: 16px!important;
+      margin: 0 auto;
+     
+      
+    }
+    .upload progress{
+      width: 50%;
+      height: auto;
+      margin-left: 25%;
+      
+    }
+    
+    .upload p{
+      width: 100%;
+      height: 100%;
+      padding: 0 0;
+      
+      margin: 0 auto;
+    }
+    
+    @media only screen and (min-width:768px){
+    .upload{
+      width: 70%;
+      height: 230px;
+      overflow: hidden;
+    }
+  }
+    
     .upload input{
       text-align: center;
     }
@@ -982,6 +1010,14 @@
     .rojo{
       background-color: red;
     }
+    .negro{
+      background-color: rgb(77, 77, 77);
+      text-decoration: line-through;
+      
+    }
+    .transpa{
+      display: none;
+    }
     .marcaRoja{
       border: 4px solid red;
       
@@ -995,7 +1031,7 @@
     @keyframes blink-animationRojo {
       0% {background-color: #ffffff}
 
-      50%{background-color: rgba(255, 0, 0, 0.2);}
+      50%{background-color: rgba(255, 0, 0, 0.5);}
     }
     .blinkAmarillo{
       animation: blink-animationAmarillo 3s infinite;
@@ -1003,7 +1039,7 @@
     @keyframes blink-animationAmarillo {
       0% {background-color: #ffffff}
 
-      50%{background-color: rgba(255, 255, 0, 0.2);}
+      50%{background-color: rgba(255, 255, 0, 0.5);}
     }
     .blinkVerde{
       animation: blink-animationVerde 3s infinite;
@@ -2248,7 +2284,26 @@ table{
   box-shadow: 14px 11px 10px -9px rgba(0,0,0,0.55);
   border-radius: .3rem;
 }
+
+/* formulario */
+.datosfactura{
+  width: 60%;
+  height: 120px;
+  
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
 @media (min-width:768px){
+  .campoadminx{
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    margin: 0 auto;
+  }
   .camposadmin{
       
       justify-content: space-between;
@@ -2442,11 +2497,7 @@ table{
  }
   
 }
-div.a:nth-child(9),div.c:nth-child(10),div.b:nth-child(11),
-div.a:nth-child(5),div.c:nth-child(6),div.b:nth-child(7)
-{
-  background-color: rgb(0, 15, 221)!important;
-}
+
 .menufactura{
   width: 65%;
   margin: 0 auto;
@@ -2457,8 +2508,20 @@ div.a:nth-child(5),div.c:nth-child(6),div.b:nth-child(7)
   grid-template-rows: repeat(3, 1fr);
   font-size: 10px;
   margin-bottom: 60px;
+  margin-top: 50px;
 }
-.menufactura .partext{
+.menufacturax{
+  width: 100%;
+  margin: 0 auto;
+  height: 90px;
+  
+  display: grid;
+  grid-template-columns: repeat(1, 10% 90% );
+  grid-template-rows: repeat(3, 1fr);
+  font-size: 10px;
+  
+}
+.menufactura .partext,.menufacturax .partext{
   border-top-left-radius: 10px;
       border-bottom-left-radius: 10px;
       box-shadow: -1px -1px 5px rgb(255, 255, 255, 0.1),
@@ -2468,7 +2531,7 @@ div.a:nth-child(5),div.c:nth-child(6),div.b:nth-child(7)
       background-color: transparent;
       position: relative;
 }
-.menufactura .partinput input{
+.menufactura .partinput input,.menufacturax .partinput input{
       width: 100%;
       height: 100%;
       border-top-right-radius: 10px;
@@ -2482,6 +2545,7 @@ div.a:nth-child(5),div.c:nth-child(6),div.b:nth-child(7)
       color: #000000;
       text-align: center;
       border: 1px solid #000000;
+      font-size: 16px;
 }
 /* Customize the label (the container) */
 

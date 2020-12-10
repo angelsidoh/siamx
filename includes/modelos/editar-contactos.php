@@ -11,13 +11,14 @@ if($_POST['accion'] == 'editar'){
     $tiket = filter_var($_POST['tiket'], FILTER_SANITIZE_STRING);
     $pago = filter_var($_POST['pago'],FILTER_SANITIZE_NUMBER_INT);
     $id = filter_var($_POST['id'],FILTER_SANITIZE_NUMBER_INT);
+    $factura = filter_var($_POST['facturaestado'],FILTER_SANITIZE_NUMBER_INT);
     // echo json_encode($tiket.$pago.$id);
     
     try{
         
-        $stmt = $connf->prepare("UPDATE usuarios SET tiked_usuario = ?, estado_usuario = ? WHERE id_usuario = ?");
+        $stmt = $connf->prepare("UPDATE usuarios SET tiked_usuario = ?, estado_usuario = ?, estadofactura_usuario = ? WHERE id_usuario = ?");
         
-        $stmt->bind_param("sii", $tiket, $pago, $id);
+        $stmt->bind_param("siii", $tiket, $pago, $factura, $id);
         
         $stmt->execute();
         

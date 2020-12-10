@@ -8,7 +8,7 @@ if (!isset($_SESSION['usuario']) || $_SESSION['tipo'] != '0') {
   session_destroy();
   
   // header('location:logout.php');
-  ?><META HTTP-EQUIV="REFRESH" CONTENT=".1;URL=http://localhost/0SIAM/logout.php"><?php
+  ?><META HTTP-EQUIV="REFRESH" CONTENT=".1;URL=https://sociedadintelectualdelaguacatemexicano.com/logout.php"><?php
 
   
 } else {
@@ -211,11 +211,11 @@ if (!isset($_SESSION['usuario']) || $_SESSION['tipo'] != '0') {
                 </div>
                 <div class="upload">
                   <label for="">Sube una foto <br>
-                  Requisito: ¡Foto formal tamaño infantil!, escaneada con impresora/escáner o dispositivo móvil.   
-                </label>
-                  <input type="file" id="foto1file" name= "foto1file">
-                  <progress id="progressBar" value="0" max="100" style="width:100%;"></progress>
-                  <h3 id="status"></h3>
+                  Requisito: ¡Foto formal tamaño infantil!, escaneada con impresora/escáner o telefono inteligente.   
+                  </label>
+                  <input class="button"  type="file" id="foto1file" name= "foto1file">
+                  <progress id="progressBar" value="0" max="100"></progress>
+                  <h3 id="status" style="display: none;"></h3>
 	                <p id="loaded_n_total"></p>
                 </div>
                 <div class="contenedornew__boton">

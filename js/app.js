@@ -35,6 +35,7 @@ function leerFormulario(e){
           telefono = document.querySelector('#telefono').value,
           tiket = document.querySelector('#tiket').value,
           pago = document.querySelector('#pago').value,
+          facturaestado = document.querySelector('#facturaestado').value,
           accion = document.querySelector('#accion').value;
            
             
@@ -46,6 +47,7 @@ function leerFormulario(e){
             infoContacto.append('telefono', telefono);
             infoContacto.append('tiket', tiket);
             infoContacto.append('pago', pago);
+            infoContacto.append('facturaestado', facturaestado);
             infoContacto.append('accion', accion);
             console.log(...infoContacto);
            

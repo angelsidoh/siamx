@@ -13,7 +13,7 @@
             $pass .= substr($str, rand(0, 74), 1);
         }
         $errores ='';
-        $imguserdefaut = 'http://localhost/0SIAM/img/Avatars/avatar3.jpg';
+        $imguserdefaut = 'https://sociedadintelectualdelaguacatemexicano.com/img/avatars/avatar3.JPG';
         try{
             require('../../basedatos/bd.php');
             $stmt = $conn->prepare('SELECT * FROM usuarios WHERE correo_usuario = :correo_usuario LIMIT 1');
