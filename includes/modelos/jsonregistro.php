@@ -1,6 +1,8 @@
 <?php
     session_start();
-    require '../../send-mail.php';
+    // echo json_encode($_POST);
+    require_once '../../send-mail.php';
+    
     if ($_POST['accion'] == 'Crear cuenta SIAM'){
         $usuario = filter_var($_POST['usuario'],FILTER_SANITIZE_STRING);
         $apellido = filter_var($_POST['apellido'],FILTER_SANITIZE_STRING);

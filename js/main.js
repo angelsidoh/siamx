@@ -687,15 +687,7 @@ function insertarDB(dato) {
     xhr.onload = function () {
         if (this.status === 200) {
             const respuesta = JSON.parse(xhr.responseText);
-            swal({
-                content: "",
-                text: 'Espera un momento...',
-                icon: "error",
-                button: {
-                    text: "Continuar",
-                    closeModal: true,
-                },
-            });
+            console.log(respuesta);
             if(respuesta.estado === 'correoexiste'){
                 swal({
                     content: "",

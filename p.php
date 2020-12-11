@@ -1,52 +1,154 @@
 <?php
 
-// Import PHPMailer classes into the global namespace
-// These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
 
-// Load Composer's autoloader
 require './vendor/autoload.php';
 
+date_default_timezone_set('Etc/UTC');
+
+//Create a new PHPMailer instance
+$mail = new PHPMailer();
+
+//Tell PHPMailer to use SMTP
+$mail->isSMTP();
+
+//Enable SMTP debugging
+// SMTP::DEBUG_OFF = off (for production use)
+// SMTP::DEBUG_CLIENT = client messages
+// SMTP::DEBUG_SERVER = client and server messages
+// $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+$mail->SMTPDebug = 2;
+//Set the hostname of the mail server
+$mail->Host = 'smtp.gmail.com';
+// use
+// $mail->Host = gethostbyname('smtp.gmail.com');
+// if your network does not support SMTP over IPv6
+
+//Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
+$mail->Port = 587;
+
+//Set the encryption mechanism to use - STARTTLS or SMTPS
+$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+
+//Whether to use SMTP authentication
+$mail->SMTPAuth = true;
+
+//Username to use for SMTP authentication - use full email address for gmail
+$mail->Username = 'congresoaguacate2020@gmail.com';
+
+//Password to use for SMTP authentication
+$mail->Password = 'heladio2016';
+
+//Set who the message is to be sent from
+$mail->setFrom('congresoaguacate2020@gmail.com', 'CongresoPrueba');
+
+//Set an alternative reply-to address
+// $mail->addReplyTo('ibauruapanmichoacan@gmail.com', 'Diplomado');
+$mail->addCC('ibauruapanmichoacan@gmail.com');
+
+//Set who the message is to be sent to
+$mail->addAddress('joseangelruizchavez@gmail.com', 'Jose Angel');
+
+//Set the subject line
+$mail->Subject = utf8_decode('Datos de tu inscripción Diplomado SIAM AC.');
+
+//Read an HTML message body from an external file, convert referenced images to embedded,
+//convert HTML into a basic plain-text alternative body
+$mail->Body = utf8_decode('
+<div style="
+    position: relative;
+    background-color: #56ae4d;
+                width:600px;
+                height:900px;
+                margin:0 auto;
+                box-shadow: -1px -1px 5px rgb(255, 255, 255, 0.1),
+                1px 1px 20px rgba(0,0,0,0.7),
+                inset 1px -1px 5px rgb(255, 255, 255, 0.1),
+                inset 1px 1px 5px rgba(0,0,0,0.7);" class="header">
+        <div style="
+                width:550px;
+                
+                margin: 0 auto;
+               " class="imagen">
+            <img style="
+                width:550px;
+                height:150px;
+                margin: 0 auto;
+               " src="https://sociedadintelectualdelaguacatemexicano.com/img/bannercorreo.jpg" alt="imagen">
+        </div>
+        <div style="
+                position: absolute;
+                top:0;
+                left:0;
+                text-align: center;
+                
+                color:#ffffff;
+                " class="textbienvenida">
+            <h1 style="color:#f5d108; font-size:45px;">Bienvenido(a)</h1>
+            <h2>Tu registro fue exitoso</h2>
+            <h3>Puedes iniciar sesión con los siguientes datos:</h3>
+
+            <h2>Ingresa tu correo</h2>
+            <h1 style="color:#000000;">angel._ruiz@hotmail.com</h1>
+            <h2>Tu contraseña es</h2>
+            <h1 style="color:#000000;">4745asdad</h1>
+            <a 
+            style="
+            background-color: #fe4918;
+            padding: 1px 40px;
+            color: #ffffff;
+            text-transform: uppercase;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 20px;
+            border-radius:12px;
+            display: inline-block;
+            transition: all .1s ease;
+            border: 2px solid #fe4918;
+            "href="https://sociedadintelectualdelaguacatemexicano.com/login.php#ini"><p>IR A SIAM A.C</p>
+            </a>
+
+        </div>
 
 
-// Instantiation and passing `true` enables exceptions
-$mail = new PHPMailer(true);
 
-try {
-    //Server settings
-    $mail->SMTPDebug = 1;                      // Enable verbose debug output
-    $mail->isSMTP();                                            // Send using SMTP
-    
-    $mail->Host       = 'z';                    // Set the SMTP server to send through
-    $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-    $mail->Username   = 'info@z';                     // SMTP username
-    $mail->Password   = '>1kb612Dm%d1';                               // SMTP password
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
-    $mail->Port       = 465;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+    </div>
+');
 
-    //Recipients
-    $mail->setFrom('info@z', 'SIAM AC');
-    $mail->addAddress('angel._ruiz@hotmail.com', 'José Angel');     // Add a recipient
-    // $mail->addAddress('ellen@example.com');               // Name is optional
-    // $mail->addReplyTo('info@example.com', 'Information');
-    // $mail->addCC('cc@example.com');
-    // $mail->addBCC('bcc@example.com');
+//Replace the plain text body with one created manually
+$mail->AltBody = 'This is a plain-text message body';
 
-    // Attachments
-    // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-    // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+//Attach an image file
+// $mail->addAttachment('images/phpmailer_mini.png');
 
-    // Content
-    $mail->isHTML(true);                                  // Set email format to HTML
-    $mail->Subject = 'Here is the subject';
-    $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
-    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-
-    $mail->send();
-    echo 'Message has been sent';
-} catch (Exception $e) {
-    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+//send the message, check for errors
+if (!$mail->send()) {
+    echo 'Mailer Error: ' . $mail->ErrorInfo;
+} else {
+    echo 'Message sent!';
+    //Section 2: IMAP
+    //Uncomment these to save your message in the 'Sent Mail' folder.
+    #if (save_mail($mail)) {
+    #    echo "Message saved!";
+    #}
 }
-?>
+
+//Section 2: IMAP
+//IMAP commands requires the PHP IMAP Extension, found at: https://php.net/manual/en/imap.setup.php
+//Function to call which uses the PHP imap_*() functions to save messages: https://php.net/manual/en/book.imap.php
+//You can use imap_getmailboxes($imapStream, '/imap/ssl', '*' ) to get a list of available folders or labels, this can
+//be useful if you are trying to get this working on a non-Gmail IMAP server.
+function save_mail($mail)
+{
+    //You can change 'Sent Mail' to any other folder or tag
+    $path = '{imap.gmail.com:993/imap/ssl}[Gmail]/Sent Mail';
+
+    //Tell your server to open an IMAP connection using the same username and password as you used for SMTP
+    $imapStream = imap_open($path, $mail->Username, $mail->Password);
+
+    $result = imap_append($imapStream, $path, $mail->getSentMIMEMessage());
+    imap_close($imapStream);
+
+    return $result;
+}

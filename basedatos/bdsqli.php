@@ -21,7 +21,7 @@
     $username="root";
 $password="";
 //     $username="uvq976vkwkacr";
-// $password="josehyo2002k5angelruiz";
+// $password="oe>m5c1w4:31";
     $database="dbkwkacrwe84ac";
     $connf = new mysqli("localhost",$username, $password, $database);
      //echo $connf->ping();
