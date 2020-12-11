@@ -14,7 +14,9 @@
       
     } else {
         ?>
-        <section class="global">
+      <section class="global">
+      <?php echo $_SESSION['correo'];?>  
+      </section>
         <?php
         require_once('includes/templates/footer.php');
     }

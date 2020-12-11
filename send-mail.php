@@ -54,7 +54,7 @@ function enviar_correo($nombre,$apellido,$pass,$correo){
         $mail->addCC('ibauruapanmichoacan@gmail.com');
         
         //Set who the message is to be sent to
-        $mail->addAddress($correo, $nombreutf.$apellidoutf);
+        $mail->addAddress($correo, $nombreutf.' '.$apellidoutf);
         //Set the subject line
 $mail->Subject = utf8_decode('Datos de tu inscripción Diplomado SIAM AC.');
 

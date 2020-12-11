@@ -180,7 +180,15 @@ function leerInscripcion(e) {
                     }
             }
         }else{
-            // cuando requieres llenar solo los datos sin factura
+            const infoinscrip = new FormData();
+                    infoinscrip.append('inscripcion', inscripcion);
+                    infoinscrip.append('deposito', deposito);
+                    infoinscrip.append('trasnferencia', trasnferencia);
+                    infoinscrip.append('factura', factura);
+                    infoinscrip.append('accionx', accionx);
+                    if (accionx === 'Inscribirme al diplomado') {
+                        inscripcionDip(infoinscrip);
+                    }
         }
      }else{
         swal({
