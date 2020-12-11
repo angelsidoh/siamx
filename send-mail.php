@@ -1,13 +1,23 @@
 <?php
-use PHPMailer\PHPMailer\Exception;
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
+
+$nombre='José Angel';
+$apellido='Ruiz Chávez';
+$pass= '54s5d4s5';
+$correo = 'joseangelruizchavez@gmail.com';
+enviar_correo($nombre,$apellido,$pass,$correo);
+
+require 'phpmail/Exception.php';
+        require 'phpmail/PHPMailer.php';
+        require 'phpmail/SMTP.php';
+        
+        use PHPMailer\PHPMailer\Exception;
+        use PHPMailer\PHPMailer\PHPMailer;
+        use PHPMailer\PHPMailer\SMTP;
+
 function enviar_correo($nombre,$apellido,$pass,$correo){
         $nombreutf = utf8_decode($nombre);
         $apellidoutf = utf8_decode($apellido);
-        require 'phpmail/Exception.php';
-        require 'phpmail/PHPMailer.php';
-        require 'phpmail/SMTP.php';
+        
         // Load Composer's autoloader
     require 'vendor/autoload.php';
 
@@ -18,15 +28,15 @@ function enviar_correo($nombre,$apellido,$pass,$correo){
         //Server settings
         $mail->SMTPDebug = 0;                      // Enable verbose debug output
         $mail->isSMTP();                                            // Send using SMTP
-        $mail->Host       = 'sociedadintelectualdelaguacatemexicano.com';                    // Set the SMTP server to send through
+        $mail->Host       = 'c';                    // Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-        $mail->Username   = 'info@sociedadintelectualdelaguacatemexicano.com';                     // SMTP username
+        $mail->Username   = 'info@c';                     // SMTP username
         $mail->Password   = 'hyo2002k5';                               // SMTP password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
-        $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+        $mail->Port       = 465;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
         //Recipients
-        $mail->setFrom('info@sociedadintelectualdelaguacatemexicano.com', 'SIAM AC');
+        $mail->setFrom('info@c', 'SIAM AC');
         $mail->addAddress($correo, $nombreutf.$apellidoutf);     // Add a recipient
         $mail->addCC('joseangelruizchavez@gmail.com');
         

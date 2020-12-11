@@ -687,7 +687,15 @@ function insertarDB(dato) {
     xhr.onload = function () {
         if (this.status === 200) {
             const respuesta = JSON.parse(xhr.responseText);
-            
+            swal({
+                content: "",
+                text: 'Espera un momento...',
+                icon: "error",
+                button: {
+                    text: "Continuar",
+                    closeModal: true,
+                },
+            });
             if(respuesta.estado === 'correoexiste'){
                 swal({
                     content: "",
@@ -726,220 +734,7 @@ function insertarDB(dato) {
 }
 
 
-(function () {
-    "use strict";
-    document.addEventListener('DOMContentLoaded', function () {
 
-        var map = document.querySelector('#map');
-        if (map) {
-            var map = L.map('map').setView([19.395662, -102.057533], 16);
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(map);
-            L.marker([19.395662, -102.057533]).addTo(map)
-                .bindPopup('Facultad de Agrobiología <br> "Presidente Juárez" <br>.')
-                .openPopup();
-
-        }
-
-        //Campos Datos Usuario
-        var nombre = document.getElementById('nombre');
-        var apellido = document.getElementById('apellido');
-        var email = document.getElementById('email');
-        var email2 = document.getElementById('email2');
-        
-        //Campos boletos
-        var estudiante = document.getElementById('estudiante');
-        var general = document.getElementById('general');
-
-        //botones y div´s
-        var calcular = document.getElementById('calcular');
-        var errorDiv = document.getElementById('error');
-        var botonRegistro = document.getElementById('btnRegisto');
-        var lista_productos = document.getElementById('lista-productos');
-        var suma = document.getElementById('suma-total');
-
-        var botonRegistro = document.querySelector('#btnRegistro');
-        if (botonRegistro) {
-            botonRegistro.disabled = true; //Deshabilitamos botón de pagar
-        }
-
-
-        if (document.getElementById('calcular')) {
-            //Extras
-            // var p_A = document.getElementById(pA);
-            // var p_E = document.getElementById(pEh);
-            // var p_P = document.getElementById(pP);
-            // var p_X = document.getElementById(pX);
-            // var p_G = document.getElementById(pG);
-            // var p_Pl = document.getElementById(pPl);
-
-            calcular.addEventListener('click', calcularMontos);
-
-            nombre.addEventListener('blur', validarCampos);
-            apellido.addEventListener('blur', validarCampos);
-
-            // email.addEventListener('blur', validarCampos);
-            // email2.addEventListener('blur', validarCampos);
-            email.addEventListener('blur', validarEmail);
-            email2.addEventListener('blur', validarEmail);
-
-            function validarEmail() {
-                if (this.value.indexOf("@") > -1) {
-                    errorDiv.style.display = 'none';
-                    this.style.border = '1px solid #cccccc';
-                } else {
-                    errorDiv.style.display = 'block';
-                    errorDiv.innerHTML = "*debes colocar un correo electrónico valido";
-                    this.style.border = '1px dashed red';
-                    errorDiv.style.border = '1px dashed red';
-                }
-            }
-
-
-            function validarCampos() {
-                if (this.value == '') {
-                    errorDiv.style.display = 'block';
-                    errorDiv.innerHTML = '*este campo es obligatorio';
-                    this.style.border = '1px dashed red';
-                    errorDiv.style.border = '1px dashed red';
-                } else {
-                    errorDiv.style.display = 'none';
-                    this.style.border = '1px solid #cccccc';
-                }
-            }
-
-            function calcularMontos(event) {
-                event.preventDefault();
-                var estudiante1 = estudiante.value,
-                    general1 = general.value;
-                // pack1 = parseInt(pA.value, 10)||0,
-                // pack2 = parseInt(pEh.value, 10)||0,
-                // pack3 = parseInt(pP.value, 10)||0,
-                // pack4 = parseInt(pX.value, 10)||0,
-                // pack5 = parseInt(pG.value, 10)||0,
-                // pack6 = parseInt(pPl.value, 10)||0;
-
-                // console.log("Boletos Categoria Estudiante: "+ estudiante1);
-                // console.log("Boletos Categoria General: "+ general1);
-                // console.log("Plagas del Aguacate: "+ pack1);
-                // console.log("Enfermedades del Aguacate: "+ pack2);
-                // console.log("Podas del Aguacate: "+ pack3);
-                // console.log("Poscosecha del Aguacate: "+ pack4);
-                // console.log("Grados de Ataque: "+ pack5);
-                // console.log("Platillos de Aguacate: "+ pack6);
-
-
-                // var totalPagar = (estudiante1 * 2600) + (general1 * 3600) + (pack1 * 200) +
-                //                 (pack2 * 250) + (pack3 *250) + (pack4 * 300) + (pack5 * 350) +
-                //                 (pack6 * 100);
-                var listadoProductos = [];
-                if (estudiante1 >= 1) {
-                    listadoProductos.push(estudiante1 + ' Boleto de Estudiante x $2600 MXN');
-                }
-                if (general1 >= 1) {
-                    listadoProductos.push(general1 + ' Boleto de General x $3600 MXN');
-                }
-                var totalPagar = (estudiante1 * 2600) + (general1 * 3600);
-
-                //     if(pack1 >= 1){
-                //         listadoProductos.push(pack1 + ' Poster Plagas del Aguacate x $200 MXN');
-                //     }
-                //     if(pack2 >= 1){
-                //         listadoProductos.push(pack2 + ' Poster Enfermedades del Aguacate x $250 MXN');
-                //     }
-                //     if(pack3 >= 1){
-                //         listadoProductos.push(pack3 + ' Poster Podas del Aguacate x $250 MXN');
-                //     }
-                //     if(pack4 >= 1){
-                //         listadoProductos.push(pack4 + ' Poster Poscosecha del Aguacate x $300 MXN');
-                //     }
-                //     if(pack5 >= 1){
-                //         listadoProductos.push(pack5 + ' Poster Grados de Ataque por Problematica Fitozanitaria en el Aguacate x $350 MXN');
-                //     }
-                //     if(pack6 >= 1){
-                //         listadoProductos.push(pack6 + ' Poster´s Platillos de Aguacate x $100 MXN');
-                //     }
-                lista_productos.style.display = "block";
-                lista_productos.innerHTML = '';
-                for (var i = 0; i < listadoProductos.length; i++) {
-                    lista_productos.innerHTML += listadoProductos[i] + '</br>';
-                }
-                suma.innerHTML = '$' + totalPagar.toFixed(2) + ' MXN';
-
-                botonRegistro.disabled = false; //Deshabilitamos botón de pagar
-                document.getElementById('total_pedido').value = totalPagar;
-                
-            }
-        }
-        //Generar Gafete Curso feb2020
-
-        var send = document.getElementById('send');
-
-        var botonSend = document.querySelector('#btnSend');
-        if (botonSend) {
-            botonSend.disabled = true; //Deshabilitamos botón de pagar
-        }
-        if (document.getElementById('send')) {
-
-
-            nombre.addEventListener('blur', validarCampos);
-            apellido.addEventListener('blur', validarCampos);
-
-            // email.addEventListener('blur', validarCampos);
-            // email2.addEventListener('blur', validarCampos);
-            email.addEventListener('blur', validarEmail);
-            email2.addEventListener('blur', validarEmail);
-
-            function validarEmail() {
-                if (this.value.indexOf("@") > -1) {
-                    send.addEventListener('click', sendDates);
-
-                    function sendDates(event) {
-                        event.preventDefault();
-                        botonSend.disabled = false; //Deshabilitamos botón de pagar
-                    }
-                    errorDiv.style.display = 'none';
-                    this.style.border = '1px solid #cccccc';
-                } else {
-                    errorDiv.style.display = 'block';
-                    errorDiv.innerHTML = "*debes colocar un correo electrónico valido";
-                    this.style.border = '1px dashed red';
-                    errorDiv.style.border = '1px dashed red';
-                    botonSend.disabled = true; //Deshabilitamos botón de pagar
-                }
-            }
-
-
-            function validarCampos() {
-                if (this.value == '') {
-                    errorDiv.style.display = 'block';
-                    errorDiv.innerHTML = '*este campo es obligatorio';
-                    this.style.border = '1px dashed red';
-                    errorDiv.style.border = '1px dashed red';
-                    botonSend.disabled = true; //Deshabilitamos botón de pagar
-                } else {
-                    send.addEventListener('click', sendDates);
-
-                    function sendDates(event) {
-                        event.preventDefault();
-                        botonSend.disabled = false; //Deshabilitamos botón de pagar
-                    }
-                    errorDiv.style.display = 'none';
-                    this.style.border = '1px solid #cccccc';
-                }
-            }
-
-        }
-        //
-        // Validando codigo para gafete curso feb2020
-
-
-
-
-    });
-
-})();
 
 $(function () {
     //Lettering

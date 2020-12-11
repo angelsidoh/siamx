@@ -47,7 +47,7 @@
                     );  
                     session_destroy();
                 }
-                enviar_correo($usuario,$apellido,$pass,$mail);
+                 enviar_correo($usuario,$apellido,$pass,$mail);
 
                 
             }
