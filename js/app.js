@@ -28,33 +28,71 @@ function leerFormulario(e){
     
 
     //leer datos de los imputs
-    const nombre = document.querySelector('#nombre').value,
-          apellido = document.querySelector('#apellido').value,
-          email = document.querySelector('#email').value,
-          
-          telefono = document.querySelector('#telefono').value,
-          tiket = document.querySelector('#tiket').value,
-          pago = document.querySelector('#pago').value,
-          facturaestado = document.querySelector('#facturaestado').value,
-          accion = document.querySelector('#accion').value;
+    const accion = document.querySelector('#accion').value;
+    const infoContacto = new FormData();
+    if(accion === 'editar'){
+        const nombre = document.querySelector('#nombre').value,
+    
+        apellido = document.querySelector('#apellido').value,
+        email = document.querySelector('#email').value,
+        banco = document.querySelector('#banco').value,
+        telefono = document.querySelector('#telefono').value,
+        tiket = document.querySelector('#tiket').value,
+        pago = document.querySelector('#pago').value,
+        facturaestado = document.querySelector('#facturaestado').value;
+
+             
+             infoContacto.append('nombre', nombre);
+             infoContacto.append('apellido', apellido);
+             infoContacto.append('email', email);
+             infoContacto.append('banco', banco);
+             infoContacto.append('telefono', telefono);
+             infoContacto.append('tiket', tiket);
+             infoContacto.append('pago', pago);
+             infoContacto.append('facturaestado', facturaestado);
+             infoContacto.append('accion', accion);
+            console.log(...infoContacto);
+    }
+    if(accion === 'pago'){
+        const nombre = document.querySelector('#nombre').value,
+    
+        apellido = document.querySelector('#apellido').value,
+        email = document.querySelector('#email').value,
+        banco = document.querySelector('#banco').value,
+        telefono = document.querySelector('#telefono').value,
+        tiket = document.querySelector('#tiket').value
+       
+        
+
+             
+             infoContacto.append('nombre', nombre);
+             infoContacto.append('apellido', apellido);
+             infoContacto.append('email', email);
+             infoContacto.append('banco', banco);
+             infoContacto.append('telefono', telefono);
+             infoContacto.append('tiket', tiket);
+            
+             infoContacto.append('accion', accion);
+            console.log(...infoContacto);
+
+    }
+   
            
             
             
-            const infoContacto = new FormData();
-            infoContacto.append('nombre', nombre);
-            infoContacto.append('apellido', apellido);
-            infoContacto.append('email', email);
-            infoContacto.append('telefono', telefono);
-            infoContacto.append('tiket', tiket);
-            infoContacto.append('pago', pago);
-            infoContacto.append('facturaestado', facturaestado);
-            infoContacto.append('accion', accion);
-            console.log(...infoContacto);
+          
+            
+           
+            
+            
            
             if(accion === 'editar'){
                 //editar contacto
                 const idRegistro = document.querySelector('#id').value;
                       infoContacto.append('id', idRegistro);
+                actulizarRegistro(infoContacto);
+            }
+            if(accion === 'pago'){
                 actulizarRegistro(infoContacto);
             }
 
@@ -63,98 +101,98 @@ function leerFormulario(e){
     
 }
 
-function insertarBD(datos){
-    //llamando AJAX
+// function insertarBD(datos){
+//     //llamando AJAX
 
-    //crear objeto
-    const xhr = new XMLHttpRequest();
+//     //crear objeto
+//     const xhr = new XMLHttpRequest();
 
-    //abrir conexion
-    xhr.open('POST', 'includes/modelos/modelo-contactos.php', true);
+//     //abrir conexion
+//     xhr.open('POST', 'includes/modelos/modelo-contactos.php', true);
 
-    //pasar datos
-    xhr.onload = function(){
-        if(this.status === 200){
-            console.log(JSON.parse(xhr.responseText));
-            const respuesta = JSON.parse(xhr.responseText);
-            console.log('holanosesion');
-            //console.log(respuesta);
-            //Inserta un nuevo elemento a la tabla
-            const nuevoContacto = document.createElement('tr');
+//     //pasar datos
+//     xhr.onload = function(){
+//         if(this.status === 200){
+//             console.log(JSON.parse(xhr.responseText));
+//             const respuesta = JSON.parse(xhr.responseText);
+//             console.log('holanosesion');
+//             //console.log(respuesta);
+//             //Inserta un nuevo elemento a la tabla
+//             const nuevoContacto = document.createElement('tr');
 
-            nuevoContacto.innerHTML = `
-                <td>${respuesta.datos.nombre}</td>
-                <td>${respuesta.datos.apellido}</td>
-                <td>${respuesta.datos.email}</td>
-                <td>${respuesta.datos.telefono}</td>
-                <td>${respuesta.datos.boleto}</td>
-                <td>${respuesta.datos.codigo}</td>
-                <td>${respuesta.datos.fecha}</td>
-            `;
-            //Crear contenedor para los botones
-            const contenedorAcciones = document.createElement('td');
+//             nuevoContacto.innerHTML = `
+//                 <td>${respuesta.datos.nombre}</td>
+//                 <td>${respuesta.datos.apellido}</td>
+//                 <td>${respuesta.datos.email}</td>
+//                 <td>${respuesta.datos.telefono}</td>
+//                 <td>${respuesta.datos.boleto}</td>
+//                 <td>${respuesta.datos.codigo}</td>
+//                 <td>${respuesta.datos.fecha}</td>
+//             `;
+//             //Crear contenedor para los botones
+//             const contenedorAcciones = document.createElement('td');
 
-            //Crear el icono de Editar
-            const iconoEditar = document.createElement('i');
-            iconoEditar.classList.add('fas', 'fa-pen-square');
+//             //Crear el icono de Editar
+//             const iconoEditar = document.createElement('i');
+//             iconoEditar.classList.add('fas', 'fa-pen-square');
 
-            //Crear el enlace de Editar
-            const btnEditar = document.createElement('a');
-            btnEditar.appendChild(iconoEditar);
-            btnEditar.href = `editar.php?id=${respuesta.datos.id_insertado}`;
-            btnEditar.classList.add('btn', 'btn-editar');
+//             //Crear el enlace de Editar
+//             const btnEditar = document.createElement('a');
+//             btnEditar.appendChild(iconoEditar);
+//             btnEditar.href = `editar.php?id=${respuesta.datos.id_insertado}`;
+//             btnEditar.classList.add('btn', 'btn-editar');
 
-            //agregarlo al padre
-            contenedorAcciones.appendChild(btnEditar);
+//             //agregarlo al padre
+//             contenedorAcciones.appendChild(btnEditar);
             
-            //PDF
-            //Crear el icono de Pdf
-            const iconoPdf = document.createElement('i');
-            iconoPdf.classList.add('far', 'fa-file-pdf');
+//             //PDF
+//             //Crear el icono de Pdf
+//             const iconoPdf = document.createElement('i');
+//             iconoPdf.classList.add('far', 'fa-file-pdf');
 
-            //Crear el enlace de Pdf
-            const btnPdf = document.createElement('a');
-            btnPdf.appendChild(iconoPdf);
-            btnPdf.href = `pdf.php?id=${respuesta.datos.id_insertado}`;
-            btnPdf.classList.add('btn', 'btn-editar');
+//             //Crear el enlace de Pdf
+//             const btnPdf = document.createElement('a');
+//             btnPdf.appendChild(iconoPdf);
+//             btnPdf.href = `pdf.php?id=${respuesta.datos.id_insertado}`;
+//             btnPdf.classList.add('btn', 'btn-editar');
 
-            //agregarlo al padre
-            contenedorAcciones.appendChild(btnPdf);
-            //PDF
+//             //agregarlo al padre
+//             contenedorAcciones.appendChild(btnPdf);
+//             //PDF
 
-            //Crear el icono eliminar
-            const iconoEliminar = document.createElement('i');
-            iconoEliminar.classList.add('fas', 'fa-trash');
+//             //Crear el icono eliminar
+//             const iconoEliminar = document.createElement('i');
+//             iconoEliminar.classList.add('fas', 'fa-trash');
 
-            //Crear el boton eliminar
-            const btnEliminar = document.createElement('button');
-            btnEliminar.appendChild(iconoEliminar);
-            btnEliminar.setAttribute('data-id', respuesta.datos.id_insertado);
-            btnEliminar.classList.add('btn', 'btn-borrar');
+//             //Crear el boton eliminar
+//             const btnEliminar = document.createElement('button');
+//             btnEliminar.appendChild(iconoEliminar);
+//             btnEliminar.setAttribute('data-id', respuesta.datos.id_insertado);
+//             btnEliminar.classList.add('btn', 'btn-borrar');
             
-            //agregarlo al padre
-            contenedorAcciones.appendChild(btnEliminar);
+//             //agregarlo al padre
+//             contenedorAcciones.appendChild(btnEliminar);
 
-            //Agregar al tr
-            nuevoContacto.appendChild(contenedorAcciones);
+//             //Agregar al tr
+//             nuevoContacto.appendChild(contenedorAcciones);
 
-            //Agregarlo con los contactos
-            listadoContactos.appendChild(nuevoContacto);
+//             //Agregarlo con los contactos
+//             listadoContactos.appendChild(nuevoContacto);
 
-            //Resetear el formulario
-            document.querySelector('form').reset();
+//             //Resetear el formulario
+//             document.querySelector('form').reset();
 
-            //Mostrar notificación
-            mostrarNotificacion('Contacto Creado', 'correcto');
+//             //Mostrar notificación
+//             mostrarNotificacion('Contacto Creado', 'correcto');
 
-            //Actulizar Contactos
-            numeroContactos();
-        }
-    }
+//             //Actulizar Contactos
+//             numeroContactos();
+//         }
+//     }
 
-    //enviar datos
-    xhr.send(datos);
-}
+//     //enviar datos
+//     xhr.send(datos);
+// }
 
 function actulizarRegistro(datos){
     //console.log(...datos);

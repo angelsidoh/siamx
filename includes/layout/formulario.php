@@ -32,7 +32,23 @@
          }
          ?>"readonly>
     </div>
-    
+    <div class = "campoadmin">
+        <label  class = "<?php  if($contacto['banco'] == ''){
+                        echo 'blinkVerde';
+                    }else{
+                        echo 'sin'.$_SESSION['tipo'];
+                    }?>" for="banco">Banco:</label>
+        <input class = "<?php  if($contacto['banco'] == ''){
+                        echo 'blink2Verde';
+                    }else{
+                        echo 'sin'.$_SESSION['tipo'];
+                    }?>" type="text" id="banco" placeholder="Banco"
+        value = "<?php if($contacto['banco_usuario'] != ''){
+            echo $contacto['banco_usuario'];} ?>" <?php if($contacto['tiked_usuario'] != ''){?> 
+        readonly <?php } ?> >
+    </div>
+
+    <?php if($contacto['deposito_usuario'] == 1){ ?>
     <div class = "campoadmin">
         <label 
         class = "<?php  if($_SESSION['tipo'] == '1'){
@@ -41,8 +57,8 @@
                         echo 'sin'.$_SESSION['tipo'];
                     }?>"
         for="tiket">FOLIO:Tiket/Voucher:</label>
-        <input class = "<?php  if($_SESSION['tipo'] == '1'){
-                        echo 'blink2Verde';
+        <input class = "<?php  if($_SESSION['tipo'] == '1' || $_SESSION['tipo'] == '0'){
+                        echo 'blinkVerde';
                     }else{
                         echo 'sin'.$_SESSION['tipo'];
                     }?>"type="num" id="tiket" placeholder="Tiket/Voucher"
@@ -51,6 +67,26 @@
          }
          ?>">
     </div>
+        <?php }if($contacto['transferencia_usuario'] == 1){?>
+            <div class = "campoadmin">
+                <label 
+                class = "<?php  if($_SESSION['tipo'] == '1'){
+                echo 'blinkVerde';
+                }else{
+                echo 'sin'.$_SESSION['tipo'];
+                }?>"
+                for="tiket">Número de transferencia Bancaria</label>
+                <input class = "<?php  if($_SESSION['tipo'] == '1' || $_SESSION['tipo'] == '0'){
+                echo 'blink2Verde';
+                }else{
+                echo 'sin'.$_SESSION['tipo'];
+                }?>"type="num" id="tiket" placeholder="Tiket/Voucher"
+                value = "<?php if(isset($contacto['tiked_usuario'])){
+                echo $contacto['tiked_usuario'];
+                }
+                ?>">
+            </div>
+        <?php }?>
     <div class="datosfactura">
     <div class="menufacturax">
                   <!-- <div class="nombrefactura">
@@ -85,6 +121,7 @@
                   </div>
                 </div>
          </div>
+         <?php if($_SESSION['tipo'] == 1){ ?>
     <div class = "campoadminx">
         <label 
         class = "<?php  if($_SESSION['tipo'] == '1'){
@@ -139,16 +176,20 @@
          
          
     </div>
-    
+        <?php }
+        ?>
+
     <div class="campoadmin enviar">
          <?php
             
-            if(isset($contacto['estado_usuario'])){
+            if(isset($contacto['estado_usuario']) && $_SESSION['tipo']== 1){
                 $textBtn = 'Guardar';
                 $accion =  'editar';
-            }else{
-                $textBtn = 'Añadir';
-                $accion =   'crear';
+            }
+            
+            if($_SESSION['tipo'] == 0 && isset($_SESSION['correo'])){
+                $textBtn = 'Enviar Notificación de Pago al Sistema';
+                $accion =   'pago';
             }
             // $textBtn = ($contacto['telefono']) ? 'Guardar' : 'Añadir';
             //echo $textBtn;
