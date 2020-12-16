@@ -7,7 +7,7 @@
         session_destroy();
   
         // header('location:logout.php');
-        ?><META HTTP-EQUIV="REFRESH" CONTENT="1;URL=http://localhost/0SIAM/logout.php"><?php
+        ?><META HTTP-EQUIV="REFRESH" CONTENT="1;URL=https://sociedadintelectualdelaguacatemexicano.com/logout.php"><?php
     }else{
          
 ?>
@@ -49,8 +49,10 @@
                                 <?php endif; ?>
                             </div>
                         <div class="recordatorio">
-                            <p>Te recordamos que la contraseña se envió a tu correo electrónico</p>
-                            <p>Si, has perdido tu contraseña da clic <a href="#">Aquí</a> </p>
+                            <p>Te recordamos que la contraseña se envió al correo electrónico que ingresaste en tu registro</p>
+                            <p>Si aún no has revido un correo con tus datos de registro. Por favor contáctese al correo: <a href="mailto:siam.profordivs@gmail.com">siam.profordivs@gmail.com</a>
+
+</p>
                         </div>
                         </div> <!-- rnormal__tarjeta -->
                             <div class="contenedornew__boton">

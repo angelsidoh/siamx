@@ -107,6 +107,7 @@
        background-color: #ffffff;
        font-family: 'Open Sans', sans-serif;
        
+       
      }
      /*Global*/
      .swal-modal{
@@ -138,13 +139,15 @@
       text-align: center;
     }
      .contenedor{
-       width: 98%;
+       width: 100%;
        margin: 0 auto;
      }
      
      @media only screen and (min-width:768px){
        .contenedor{
-         width: 95%;
+        width: 100%;
+        
+         
        }
      }
      
@@ -523,13 +526,13 @@
       border: 1px solid var(--ColorByL);
     }
     .upload{
-      width: 300%;
-      height: 100px;
+      width: 100%;
+      height: 230px;
       margin: 0 auto;
       margin-top: 30px;
       display:  grid;
       grid-template-columns: repeat(1, 1fr);
-      grid-template-rows: repeat(1, 40% 25% 15% 5%);
+      grid-template-rows: repeat(1, 50% 25% 10% 5%);
       text-align: center;
       overflow: hidden;
       
@@ -566,6 +569,8 @@
       width: 70%;
       height: 230px;
       overflow: hidden;
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(1, 40% 25% 15% 5%);
     }
   }
     
@@ -777,7 +782,7 @@
      }
      .logo_barra{
        grid-row: 1 / 1;
-       grid-column: 1 / 5;
+       grid-column: 1 / 9;
        background-image: url(../img/siam/logohoirizontalwhiteEXT.png);
        background-repeat: no-repeat;
        background-size: contain;
@@ -822,7 +827,7 @@
       color: #fe4918;
     
     }
-    .hotcall{
+    .hotcall,.hotcalluser{
       
       display: none;
       color: #ffffff;
@@ -846,6 +851,7 @@
         margin-left: calc(50% - 110px);
       }
       .hotcalluser{
+        display: inline;
         color:#ffffff;
         width: 100%;
         height: auto;
@@ -942,8 +948,16 @@
       text-align: center;
     
     }
+    .infosiam{
+        grid-row: 8 / 9 ;
+        grid-column: 1 / 2;
+        text-align: center;
+        color: white;
+        width: 100%;
+        height: 100%;
+      }
     .contacto{
-      grid-row: 5 / 6;
+      grid-row: 1 / 2;
       grid-column: 1 / 1;
       
       width: 100%;
@@ -1004,6 +1018,12 @@
     .verde{
       background-color: green;
     }
+    .verde2{
+      background-color: rgba(0, 255, 0, 0.527)!important;
+      background-color: rgba(0, 255, 0, 0.205);
+        box-shadow: 1px 1px 5px rgba(250, 4, 4, 0.1),
+        1px 1px 50px #353535;
+    }
     .amarillo{
       background-color: yellow;
     }
@@ -1030,7 +1050,7 @@
       animation: blink-animationRojo 3s infinite;
     }
     @keyframes blink-animationRojo {
-      0% {background-color: #ffffff}
+      0% {background-color: #ffffff00}
 
       50%{background-color: rgba(255, 0, 0, 0.5);}
     }
@@ -1038,9 +1058,21 @@
       animation: blink-animationAmarillo 3s infinite;
     }
     @keyframes blink-animationAmarillo {
-      0% {background-color: #ffffff}
+      0% {background-color: #ffffff00}
 
-      50%{background-color: rgba(255, 255, 0, 0.5);}
+      50%{background-color: rgba(255, 255, 0, 0.808);}
+    }
+    .blink2Amarillo{
+      animation: blink-animation2Amarillo 3s infinite;
+    }
+    @keyframes blink-animation2Amarillo {
+      0% {background-color: #ffffff00}
+
+      50%{background-color: rgba(0, 255, 0, 0.205);
+        box-shadow: 1px 1px 5px rgba(250, 4, 4, 0.1),
+        1px 1px 50px #353535;
+        
+      }
     }
     .blinkVerde{
       animation: blink-animationVerde 3s infinite;
@@ -1054,7 +1086,7 @@
       animation: blink-animationVerde2 3s infinite;
     }
     @keyframes blink-animationVerde2 {
-      0% {background-color: #ffffff}
+      0% {background-color: #ffffff00}
 
       50%{background-color: rgb(60, 255, 0);}
     }
@@ -1297,21 +1329,21 @@
        position: relative;
      }
      div.contenedor-video{
-       max-width: 100%;
+       width: 100%;
        height: 920px;
       
        overflow: hidden;
        
      }
      div.contenedor-video video{
-     width: 1980px;
+     width: 100%;
      height: auto;
-     margin-left: -735px;
+     margin-left: 0px;
     }
     @media only screen and (min-width:1260px){
       div.contenedor-video video{
         
-        margin-left: -200px;
+        margin-left: 0px;
        }
     }
     @media only screen and (min-width:1400px){
@@ -1467,6 +1499,7 @@
       background-attachment: fixed;
       -webkit-filter: brightness(.8);
       filter: brightness(.8);
+      
     }
     div.contador{
       position: relative;
@@ -1479,6 +1512,8 @@
     ul.resumen-evento{
       position: relative;
       padding: 120px 0;
+      
+      overflow: hidden;
     }
     ul.resumen-evento li{
       width: 100%;
@@ -1495,6 +1530,7 @@
       margin: 0 auto;
       margin-top: 80px;
       text-align: center;
+      
       
     }
     .resumen-evento h3{
@@ -1531,12 +1567,14 @@
     /*Tabla de precios*/
     ul.lista-precios > li{
       padding: 10px;
+      
     }
 
     @media only screen and (min-width:768px){
       ul.lista-precios > li{
-        float: left;
-        width: 100%
+        
+        width: 65%;
+        margin: 0 auto;
       }
     }
 
@@ -1544,6 +1582,9 @@
       border: 1px solid #e1e1e1;
       background-color: #ffffff;
       padding: 40px;
+    
+      margin: 0 auto;
+     
       text-align: center;
       transition: all 350ms ease;
     }
@@ -1979,8 +2020,12 @@
     }
     /*tablas*/
     table {
+      
       width: 100%;
-      border: 2px solid #999;
+      box-shadow: 10px 10px 20px rgba(250, 4, 4, 0.1),
+      2px 2px 10px #353535,
+      inset 10px 15px 20px rgb(255, 255, 255, 0.1),
+      inset 2px 2px 20px #353535;
       text-align: left;
       border-collapse: collapse;
       margin: 0 0 1em 0;
@@ -2105,6 +2150,17 @@ form legend{
     font-family: 'Oswald', sans-serif;
     font-size: 2rem;
     text-align: center;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+@media only screen and (min-width:768px){
+form legend{
+    display: block;
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    text-align: center;
+    margin:0 auto;
+}
 }
 legend span{
     font-size: 1rem;
@@ -2204,6 +2260,89 @@ legend span{
     font-weight: 700;
     padding: .5rem;
 }
+
+/* Instrucciones de pago */
+
+.instruccionpago{
+  width: 100%;
+  height: auto;
+  background-color: transparent;
+  margin: 0 auto;
+  
+  
+}
+.instruccionpago #mensajetramite{
+  color: #FFFFFF;
+  background: #333333;
+  
+  color: #FFFFFF;
+  background: #333333;
+  width: 50%;
+  margin: 0 auto;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  text-align: center;
+}
+
+
+.blinkmensajetramite{
+  animation: blink-mensajetramite 3s infinite;
+}
+@keyframes blink-mensajetramite{
+  0% {}
+
+  80%{
+    -webkit-box-shadow: 0px 0px 91px 2px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 91px 2px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 91px 2px rgba(0,0,0,0.75);
+text-shadow: 0 -1px 4px #FFF, 0 -2px 5px #fe4918, 0 -5px 20px #ff8000, 0 -3px 10px #F00;
+}
+}
+.instruccionpago ul{
+  width: 100%;
+  
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(1, 15% 70% 15%);
+  grid-template-rows: repeat(1, 27% 46% 27%);
+  grid-row-gap: 10px;
+  text-align: center!important;
+  
+  
+}
+.instruccionpago ul li{
+  grid-column: 2 / 3;
+  margin: 0 auto;
+  text-align: center!important;
+  margin-bottom: 50px;
+  border-bottom: 10px double black;
+  
+  
+  
+}
+.instruccionpago ul li p{
+  text-align: center!important;
+  
+}
+
+.blinkCheckBorder{
+  animation: blink-CheckBoder 3s infinite;
+}
+@keyframes blink-CheckBoder{
+  0% {-webkit-box-shadow: inset 0px 0px 24px 13px red;
+    -moz-box-shadow: inset 0px 0px 24px 13px red;
+    box-shadow: inset 0px 0px 24px 13px red;}
+
+  20%{-webkit-box-shadow: inset 0px 0px 24px 13px green;
+    -moz-box-shadow: inset 0px 0px 24px 13px green;
+    box-shadow: inset 0px 0px 24px 13px green;}
+}
+.instruccionpago .container{
+  grid-column: 1 / 2;
+  margin-bottom: 0;
+  
+}
+
 /* Listado de contactos*/
 .contactos{
   padding: 2rem;
@@ -2233,8 +2372,7 @@ legend span{
 }
 .contendor-tabla{
   max-height: auto;
-  width: 100%;
-  margin: 0 auto;
+
   /* overflow: scroll; */
 }
 .contenedor1{
@@ -2245,7 +2383,11 @@ legend span{
 table{
   width: 100%;
   margin-top: 1rem;
-  border-collapse: collapse;
+  border: 4px solid yellow;
+  
+}
+.listado-contacto{
+  width: 100%;
 }
 .listado-contacto thead{
   background-color: #fe4918;
@@ -2288,6 +2430,7 @@ table{
 
 /* formulario */
 .datosfactura{
+ 
   width: 60%;
   height: 120px;
   
@@ -2295,18 +2438,64 @@ table{
   margin-top: 30px;
   margin-bottom: 30px;
 }
+.fotoficha{
+  width: 80px;
+  height: 100px;
+  box-shadow: -1px -1px 5px rgb(255, 255, 255, 0.1),
+        1px 1px 20px rgba(0,0,0,0.7),
+        inset 1px -1px 5px rgb(255, 255, 255, 0.1),
+        inset 1px 1px 20px rgba(0,0,0,0.7);
+  position: absolute;
+  top: 0px;
+  right: 0px;
 
-@media (min-width:768px){
+}
+.fotoficha img{
+  width: 100%;
+  height: 100%;
+}
+ @media only screen and (min-width:768px){
+   .fotoficha{
+  
+  
+  top: 30px;
+  right: 20px;
+
+}
+ }
+ @media only screen and (min-width:1200px){
+   .fotoficha{
+  
+  width: 180px;
+  height: 200px;
+  top: 30px;
+  right: 20px;
+
+}
+ }
+ .campoadminx{
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 80px; 
+  }
+
+ @media only screen and (min-width:768px){
   .campoadminx{
     
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 80%;
+    width: 75%;
     margin: 0 auto;
   }
   .camposadmin{
-      
+      width: 65%;
+      margin: 0 auto;
       justify-content: space-between;
   }
   .campoadmin{
@@ -2340,7 +2529,9 @@ table{
     }
   }
   .contendor-tabla{
+    
     max-height: auto;
+   
     
   }
   table{
@@ -2366,10 +2557,28 @@ table{
     background-color: transparent!important;
     border: none;
   }
-  
   .contenedor1{
-    max-width: 85%;
+    max-width: 100%;
     margin: 10px auto;
+    position: relative;
+    overflow: hidden;
+    
+  }
+  @media only screen and (min-width:768px){
+    .contenedor1{
+    max-width: 65%;
+    margin: 10px auto;
+    position: relative;
+    overflow: hidden;
+    
+  }
+  }
+  
+  
+  .contenedor3{
+    max-width: 45%;
+    margin: 10px auto;
+    position: relative;
     
   }
   .bg-amarillo{
@@ -2398,6 +2607,16 @@ table{
  .programaevento img{
    width: 100%;
    height: auto;
+   box-shadow: -1px -1px 5px rgb(255, 255, 255, 0.1),
+   1px 1px 20px rgba(0,0,0,0.7),
+   inset 1px -1px 5px rgb(255, 255, 255, 0.1),
+   inset 1px 1px 20px rgba(0,0,0,0.7);
+ }
+ @media only screen and (min-width:768px){
+ .programaevento img{
+   width: 59%;
+   
+ }
  }
  .botoncliente{
    max-width: 1200px;
@@ -2605,6 +2824,15 @@ table{
       background-color: red;
       
 }
+.blinkCheck{
+  animation: blink-Check 3s infinite;
+}
+@keyframes blink-Check {
+  0% {background-color: red}
+
+  20%{background-color: green;}
+}
+
 
 /* On mouse-over, add a grey background color */
 .container:hover input ~ .checkmark {

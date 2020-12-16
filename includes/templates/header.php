@@ -87,8 +87,8 @@
       
         <div class = "menu-hambur">
           <input type = "checkbox" id = "check" name = "menu">
-            <label for = "check">
-              <i class = "fas fa-bars" id = "btn"></i>
+            <label for = "check" >
+              <i class = "fas fa-bars" id = "btn"><span style="font-size: 30px;">Menú</span> </i>
               <i class = "fas fa-window-close" id = "clc" style = "display:none"></i>
             </label>
         </div>
@@ -142,7 +142,7 @@
       <p><?php
            if(isset($_SESSION['usuario'])){
             if ($_SESSION['tipo']== 0){
-              ?> <a href="bienvenida.php">Tu Sección Usaurio SIAM</a><?php
+              ?> <a href="bienvenida.php">Tu cuenta SIAM</a><?php
               
               
 

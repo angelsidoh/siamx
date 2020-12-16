@@ -49,7 +49,15 @@
       </div><!--.contenedor-->
     </div><!--.contenido-programa-->
   </section><!--Programa-->
-
+  <?php 
+  if(isset($_SESSION['correo'])){
+  require_once('includes/funciones/funcionestwo.php');
+       $resultado = obtenerFicha($_SESSION['correo']);
+       $contacto = $resultado->fetch_assoc();
+  }
+      //  var_dump($contacto);
+      require_once('includes/layout/instrucciones.php');
+      ?>  
   <section  class="precios seccion">
     <h2>Precio</h2>
     <div class="contenedor">
@@ -60,19 +68,21 @@
             <h2>Público General</h2><br>
             
             <p class="numero">$5,500 MXN</p>
+            <p style="font-size: 14px; color:#fe4918;">Si requiere factura, pregunte por el precio que genera <br> Telefóno: 452 1146696  <br> Correo:santacruzulibarry58@hotmail.com <br> Con el M.C. HELADIO SANTACRUZ ULIBARRI </p>
             <ul>
               <li>Acceso al contenido de aprendizaje del diplomado</li>
               <li>Acceso a la sala de reunión en Meet</li>
               <li>Derecho al examen final de conociminto</li>
               
             </ul>
-            <a href="bienvenida.php#verenmicuenta" id="irmapa"  class="button">Ver en mi cuenta</a>
+            <a href="index.php#lugar2" id="irmapa"  class="button">Ver Instrucciones</a>
            
           </div>
         </li>
       </ul>
     </div>
   </section>
+  
   <section class="seccion">
     <h2>Faltan</h2>
     <div class="cuenta-regresiva contenedor">
@@ -134,9 +144,7 @@
   </section> -->
   <div id= "newslatter"class="newsletter parallax">
     <div class="contenido contenedor">
-      <p>Subscripción a Noticias</p>
-      <h3>SIAM A.C.</h3>
-      <a href="#mc_embed_signup" class="btn_newletter button transparente">Registro</a>
+      
     </div><!--.contenido-->
   </div>
 

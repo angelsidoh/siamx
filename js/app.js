@@ -225,6 +225,25 @@ function actulizarRegistro(datos){
                     window.location.href = 'adminpagos.php#listado-contacto';
                  }, 3200);
             }
+            if(respuesta.respuesta === 'correctousuario'){
+                swal({        
+                    content: "",
+                    text: '¡Estado de pago Actualizado',
+                    icon: "success",
+                    buttons: {
+                        defeat: "¡Continuar!",
+                      },
+                })
+                .then((value) => {
+                    switch (value) {
+                      default:
+                        window.location.href = 'bienvenida.php#lugar2';
+                    }
+                  });
+                setTimeout(() => {
+                    window.location.href = 'bienvenida.php#lugar2';
+                 }, 3200);
+            }
         }
     }
     //enviar la petición

@@ -33,15 +33,15 @@
          ?>"readonly>
     </div>
     <div class = "campoadmin">
-        <label  class = "<?php  if($contacto['banco'] == ''){
+        <label  class = "<?php  if($contacto['banco_usuario'] == ''){
                         echo 'blinkVerde';
                     }else{
-                        echo 'sin'.$_SESSION['tipo'];
+                        echo '';
                     }?>" for="banco">Banco:</label>
-        <input class = "<?php  if($contacto['banco'] == ''){
+        <input class = "<?php  if($contacto['banco_usuario'] == ''){
                         echo 'blink2Verde';
                     }else{
-                        echo 'sin'.$_SESSION['tipo'];
+                        echo '';
                     }?>" type="text" id="banco" placeholder="Banco"
         value = "<?php if($contacto['banco_usuario'] != ''){
             echo $contacto['banco_usuario'];} ?>" <?php if($contacto['tiked_usuario'] != ''){?> 
@@ -58,7 +58,7 @@
                     }?>"
         for="tiket">FOLIO:Tiket/Voucher:</label>
         <input class = "<?php  if($_SESSION['tipo'] == '1' || $_SESSION['tipo'] == '0'){
-                        echo 'blinkVerde';
+                        echo 'blink2Verde';
                     }else{
                         echo 'sin'.$_SESSION['tipo'];
                     }?>"type="num" id="tiket" placeholder="Tiket/Voucher"
@@ -80,7 +80,7 @@
                 echo 'blink2Verde';
                 }else{
                 echo 'sin'.$_SESSION['tipo'];
-                }?>"type="num" id="tiket" placeholder="Tiket/Voucher"
+                }?>"type="num" id="tiket" placeholder="Número de transferencia Bancaria"
                 value = "<?php if(isset($contacto['tiked_usuario'])){
                 echo $contacto['tiked_usuario'];
                 }
@@ -88,7 +88,7 @@
             </div>
         <?php }?>
     <div class="datosfactura">
-    <div class="menufacturax">
+    <div class="menufacturax" style="<?php if($contacto['factura_usuario']==0){ echo "display: none;";}?>">
                   <!-- <div class="nombrefactura">
                     <p>Nombre</p>
                   </div>
@@ -150,12 +150,12 @@
  
 
          </select>
-         <label  class = "<?php  if($_SESSION['tipo'] == '1'){
+         <label style="<?php if($contacto['factura_usuario']==0){ echo "display: none;";}?>"  class = "<?php  if($_SESSION['tipo'] == '1'){
                         echo 'blinkVerde';
                     }
                    
                     ?>" for="facturaestado" >&nbsp;&nbsp;Estado de factura: &nbsp;</label>
-         <select name="facturaestado" id="facturaestado" 
+         <select style="<?php if($contacto['factura_usuario']==0){ echo "display: none;";}?>" name="facturaestado" id="facturaestado" 
          class="<?php
                 if($contacto['estadofactura_usuario']=='1'){
                     echo 'verde';
@@ -203,4 +203,9 @@
         
         
     </div>
+    <div class = "fotoficha">
+            <img src="<?php if(isset($_SESSION['usuario'])){
+                    echo $contacto['foto_usuario'];
+                }?>" alt="">
+        </div>
 </div>

@@ -1,20 +1,17 @@
 <?php
 include_once 'includes/templates/header.php';
+require_once('includes/funciones/funcionestwo.php');
 
 
 if (!isset($_SESSION['usuario']) || $_SESSION['tipo'] != '0') {
- 
+
 
   session_destroy();
-  
+
   // header('location:logout.php');
-  ?><META HTTP-EQUIV="REFRESH" CONTENT=".1;URL=https://sociedadintelectualdelaguacatemexicano.com/logout.php"><?php
-
-  
-} else {
-  
-
-
+?>
+  <META HTTP-EQUIV="REFRESH" CONTENT=".1;URL=https://sociedadintelectualdelaguacatemexicano.com/logout.php"><?php
+  }else{                                                                                       $resultado = obtenerFicha($_SESSION['correo']);                                                                                        $contacto = $resultado->fetch_assoc();
 ?>
   <section class="global">
     <section class="seccion ">
@@ -51,7 +48,7 @@ if (!isset($_SESSION['usuario']) || $_SESSION['tipo'] != '0') {
 
       </div>
       <!--contenedorparallax-->
-      <div id="verenmicuenta" class="text_inicia">
+      <div class="text_inicia">
         <h2>Fecha de inicio del Diplomado</h2>
         <h1 class="fecha"> &nbsp;<i class="fas fa-calendar-alt"></i>&nbsp;Inicio 8 de Enero del 2021</h1>
       </div>
@@ -60,19 +57,15 @@ if (!isset($_SESSION['usuario']) || $_SESSION['tipo'] != '0') {
         <div class="contenedor">
           <ul class="lista-precios clearfix">
             <li>
-
               <div class="tabla-precios">
                 <h2>Público General</h2><br>
-
                 <p class="numero">$5,500 MXN</p>
+                <p style="font-size: 14px; color:#fe4918;">Si requiere factura, pregunte por el precio que genera <br> Telefóno: 452 1146696  <br> Correo:santacruzulibarry58@hotmail.com <br> Con el M.C. HELADIO SANTACRUZ ULIBARRI </p>
                 <ul>
                   <li>Acceso al contenido de aprendizaje del diplomado</li>
                   <li>Acceso a la sala de reunión en Meet</li>
                   <li>Derecho al examen final de conociminto</li>
-
                 </ul>
-
-
               </div>
             </li>
           </ul>
@@ -80,7 +73,7 @@ if (!isset($_SESSION['usuario']) || $_SESSION['tipo'] != '0') {
       </section>
       <section class="seccion">
         <h2>Faltan</h2>
-        <div class="cuenta-regresiva contenedor">
+        <div id="verenmicuenta" class="cuenta-regresiva contenedor">
           <ul class="clearfix">
             <li>
               <p id="dias" class="numero"></p>Días
@@ -97,160 +90,185 @@ if (!isset($_SESSION['usuario']) || $_SESSION['tipo'] != '0') {
           </ul>
         </div>
       </section>
-      <div class="tarjeta">
-        <div class="tarjeta_registrox">
-          <div class="sub_tarjetaregistroxx">
-            <div class="botoncliente">
-              <h2>Formulario de Inscripción <br>
-                <h3> Diplomado para Profesionalización Del cultivo del Aguacate</h3>
-              </h2>
-              <form id="inscripcion" action="#">
-                <ul>
-                  <h4>Instrucciones:</h4>
-                  <li>1.- Llene las casillas siguientes dando clic en el botón indicado.</li>
-                  <li>2.- Asegúrese, que los datos estén correctos antes de enviar el formulario.</li>
-                  <li>3.- Puede marcar la casilla de pago por transferencia o depósito en ventanilla, en automático se desmarca la opción si decides cambiar a la otra.</li>
-                </ul>
-                <div class="recuadro">
-                  <div class="a">¡Quiero <span>inscribirme</span>  al Diplomado!</div>
-                 
-                  <div class="c">
-                    <div class="boton1x">
-                      
-                      <label  for="boton1" class="container button">Clic Aqui
-                      <!-- <input type="checkbox" checked="checked">
-                      <span class="checkmark"></span> -->
-                      </label>
-                    </div>
-                  </div>
-                  <div class="b"><i class="fas fa-arrow-right"></i></div>
-                  <div class="container">
-                    <input type="checkbox" id="boton1" checked="checked" name="Inscripción" value = "1">
+      
+      <?php
+      
+      require_once('includes/layout/instrucciones.php');
+      if ($contacto['inscripcion_usuario'] == 1 && $contacto['foto_usuario'] != '') { ?>
+
+
+
+
+        <div style="margin-top: 100px;" class="bg-amarillo contenedor1 sombra">
+          <form id="contacto" action="#">
+            <legend >Ficha de Inscripción para: <br> <?php echo $contacto['nombre_usuario']." ".$contacto['apellido_usuario'];?><span>Diplomado para Profesionalización Del cultivo del Aguacate</span></legend>
+            <?php include 'includes/layout/formularioficha.php' ?>
+            <br>
+            <?php if($contacto['banco_usuario'] == '' || $contacto['tiked_usuario'] == ''){?>
+            <a class="button" href="ficha.php#contacto">Editar Mi Ficha</a>
+            <?php }?>
+          </form>
+        </div>
+
+      <?php } else { ?>
+        
+        <div class="tarjeta"  id = "lugar1">
+          <div class="tarjeta_registrox">
+            <div class="sub_tarjetaregistroxx">
+
+              <div class="botoncliente">
+                <h2>Formulario de  PRE-Inscripción <br>
+                  <h3> Diplomado para Profesionalización Del cultivo del Aguacate</h3>
+                </h2>
+                <p><?php echo $contacto['nombre_usuario']." ".$contacto['apellido_usuario'];?></p>
+                <form id="inscripcion" action="#">
+                  <ul>
+                    <h4>Instrucciones:</h4>
+                    <li>1.- Llene las casillas siguientes dando clic en el botón que le corresponda.</li>
+                    <li>2.- Asegúrese, que los datos estén correctos antes de enviar el formulario.</li>
                     
-                    <span class="checkmark"></span>
-                  </div>
-                  <input type="text" name="boton11" class="form-control" id="boton11" value="1" style="display: none;">
-                  <div class="a">¡Quiero hacer mi pago por: <br><span>Depósito en ventanilla Bancaria!</span> </div>
-                 
-                  <div class="c">
-                    <div class="boton1x">
-                      
-                      <label  for="boton3" class="container button">Clic Aqui
-                      <!-- <input type="checkbox" checked="checked">
+                  </ul>
+                  <div class="recuadro">
+                    <div class="a">¡Quiero <span>inscribirme</span> al Diplomado!</div>
+
+                    <div class="c">
+                      <div class="boton1x">
+
+                        <label for="boton1" class="container button">Clic Aqui
+                          <!-- <input type="checkbox" checked="checked">
                       <span class="checkmark"></span> -->
-                      </label>
+                        </label>
+                      </div>
                     </div>
-                  </div>
-                  <div class="b"><i class="fas fa-arrow-right"></i></div>
-                  <div class="container">
-                    <input  type="checkbox" id="boton3" checked="checked" name="Depocito" value = "1">
-                    <span class="checkmark"></span>
-                   
-                  </div>
-                  <input type="text" name="boton33" class="form-control" id="boton33" value="1" style="display: none;">
-                  <div class="a">¡Quiero hacer mi pago por: <br> <span> Transferencia Bancaria!</span></div>
-                 
-                  <div class="c">
-                    <div class="boton1x">
-                      
-                       <label  for="boton2" class="container button">Clic Aqui
-                      <!-- <input type="checkbox" checked="checked">
+                    <div class="b"></div>
+                    <div class="container">
+                      <input type="checkbox" id="boton1" checked="checked" name="Inscripción" value="1">
+
+                      <span class="checkmark"></span>
+                    </div>
+                    <input type="text" name="boton11" class="form-control" id="boton11" value="1" style="display: none;">
+                    <div class="a">¡Hice mi pago por: <br><span>Depósito en ventanilla Bancaria!</span> </div>
+
+                    <div class="c">
+                      <div class="boton1x">
+
+                        <label for="boton3" class="container button">Clic Aqui
+                          <!-- <input type="checkbox" checked="checked">
                       <span class="checkmark"></span> -->
-                      </label>
+                        </label>
+                      </div>
                     </div>
-                  </div>
-                  <div class="b"><i class="fas fa-arrow-right"></i></div>
-                  <div class="container">
-                  <input  type="checkbox" id="boton2" name="Transferencia" value = "1" checked="checked">
-                    <span class="checkmark"></span>
-                  </div>
-                  <input type="text" name="boton22" class="form-control" id="boton22" value="0" style="display: none;">
-                  <div class="a">¡Quiero <span>Factura</span> de mi pago!</div>
-                  
-                  <div class="c">
-                    <div class="boton1x">
-                      
-                      <label  for="boton4" class="container button">Clic Aqui
-                      <!-- <input type="checkbox" checked="checked">
+                    <div class="b"></div>
+                    <div class="container">
+                      <input type="checkbox" id="boton3" checked="checked" name="Depocito" value="1">
+                      <span class="checkmark"></span>
+
+                    </div>
+                    <input type="text" name="boton33" class="form-control" id="boton33" value="1" style="display: none;">
+                    <div class="a">¡Hice mi pago por: <br> <span> Transferencia Bancaria!</span></div>
+
+                    <div class="c">
+                      <div class="boton1x">
+
+                        <label for="boton2" class="container button">Clic Aqui
+                          <!-- <input type="checkbox" checked="checked">
                       <span class="checkmark"></span> -->
-                      </label>
+                        </label>
+                      </div>
                     </div>
+                    <div class="b"></div>
+                    <div class="container">
+                      <input type="checkbox" id="boton2" name="Transferencia" value="1" checked="checked">
+                      <span class="checkmark"></span>
+                    </div>
+                    <input type="text" name="boton22" class="form-control" id="boton22" value="0" style="display: none;">
+                    <div class="a">¡Quiero <span>Factura</span> de mi pago!</div>
+
+                    <div class="c">
+                      <div class="boton1x">
+
+                        <label for="boton4" class="container button">Clic Aqui
+                          <!-- <input type="checkbox" checked="checked">
+                      <span class="checkmark"></span> -->
+                        </label>
+                      </div>
+                    </div>
+                    <div class="b"></div>
+                    <div class="container">
+                      <input type="checkbox" id="boton4" name="factura" value="1">
+                      <span class="checkmark"></span>
+                    </div>
+                    <input type="text" name="boton44" class="form-control" id="boton44" value="0" style="display: none;">
                   </div>
-                  <div class="b"><i class="fas fa-arrow-right"></i></div>
-                  <div class="container">
-                  <input type="checkbox" id="boton4" name="factura" value="1">
-                    <span class="checkmark"></span>
-                  </div>
-                  <input type="text" name="boton44" class="form-control" id="boton44" value="0" style="display: none;">
-                </div>
-                <div class="menufactura">
-                  <!-- <div class="nombrefactura">
+                  <div class="menufactura">
+                    <!-- <div class="nombrefactura">
                     <p>Nombre</p>
                   </div>
                   <div class="inputnombre">
                     <input type="text" id="nombre" name="nombre" placeholder="Nombre">
                   </div> -->
-                  <div class="partext">
-                    <p>RFC <i class="fas fa-arrow-right"></i></p>
+                    <div class="partext">
+                      <p>RFC <i class="fas fa-arrow-right"></i></p>
+                    </div>
+                    <div class="partinput">
+                      <input type="text" id="rfc" name="rfc" placeholder="RFC">
+                    </div>
+                    <div class="partext">
+                      <p>CFDI <i class="fas fa-arrow-right"></i></p>
+                    </div>
+                    <div class="partinput">
+                      <input type="text" id="cfdi" name="cfdi" placeholder="CFDI">
+                    </div>
+                    <div class="partext">
+                      <p>Domicilio Fiscal <i class="fas fa-arrow-right"></i></p>
+                    </div>
+                    <div class="partinput">
+                      <input type="text" id="domiciliof" name="domiciliof" placeholder="Domicilio Fiscal">
+                    </div>
                   </div>
-                  <div class="partinput">
-                    <input type="text" id="rfc" name="rfc" placeholder="RFC">
+                  <div class="upload">
+                    <label for="">Sube una foto <br>
+                      Requisito: ¡Foto formal tamaño infantil!, escaneada con impresora/escáner o telefono inteligente.
+                    </label>
+                    <input class="button" type="file" id="foto1file" name="foto1file">
+                    <progress id="progressBar" value="0" max="100"></progress>
+                    <h3 id="status" style="display: none;"></h3>
+                    <p id="loaded_n_total"></p>
                   </div>
-                  <div class="partext">
-                    <p>CFDI <i class="fas fa-arrow-right"></i></p>
+                  <div class="contenedornew__boton">
+                    <input id="btninscripcion" type="submit" value="Inscribirme al diplomado" class="button">
                   </div>
-                  <div class="partinput">
-                    <input type="text" id="cfdi" name="cfdi" placeholder="CFDI">
-                  </div>
-                  <div class="partext">
-                    <p>Domicilio Fiscal <i class="fas fa-arrow-right"></i></p>
-                  </div>
-                  <div class="partinput">
-                    <input type="text" id="domiciliof" name="domiciliof" placeholder="Domicilio Fiscal">
-                  </div>
-                </div>
-                <div class="upload">
-                  <label for="">Sube una foto <br>
-                  Requisito: ¡Foto formal tamaño infantil!, escaneada con impresora/escáner o telefono inteligente.   
-                  </label>
-                  <input class="button"  type="file" id="foto1file" name= "foto1file">
-                  <progress id="progressBar" value="0" max="100"></progress>
-                  <h3 id="status" style="display: none;"></h3>
-	                <p id="loaded_n_total"></p>
-                </div>
-                <div class="contenedornew__boton">
-                  <input id="btninscripcion" type="submit" value="Inscribirme al diplomado" class="button">
-                </div>
-              </form>
+                </form>
+              </div>
+
             </div>
           </div>
         </div>
-      </div>
-
+      <?php } ?>
       <div class="contenedor">
         <div class="programaevento">
           <h3>Programa</h3>
           <?php
-          $titles = [
-            '',
-            'Manejo de viveros y sistemas de Producción',
-            'Fertilización, uso de agua y suelo; y agricultura de precisión',
-            'Práctica de campo a la huerta de aguacate “HUERTA SANTA MARÍA 1” en Toreo El Alto Mich, Municipio de Uruapan, Michoacán.',
-            'Práctica de campo a la huerta de aguacate “HUERTA VIEJO CUCHATÁCUARO” en Tiamba, Mich, Municipio de Uruapan, Michoacán.',
-            'Fertilización, uso de agua y suelo; y agricultura de precisión.',
-            'Podas; manejo de estrés y floración.',
-            'Control de plagas enfermedades y malezas.',
-            'Cosecha y comercialización.',
-            'Inocuidad y producción sostenible en el rendimiento del aguacate.',
-            'Inocuidad y producción sostenible en el rendimiento del aguacate.',
-            'La tesis profesional y titulación en la Facultad de Agrobiologia.',
-            'Examen general  de conocimientos del primer diplomado para la profesionalización del cultivo del aguacate. Y Clausura del diplomado'
+                                                                                                            $titles = [
+                                                                                                              '',
+                                                                                                              'Manejo de viveros y sistemas de Producción',
+                                                                                                              'Fertilización, uso de agua y suelo; y agricultura de precisión',
+                                                                                                              'Práctica de campo a la huerta de aguacate “HUERTA SANTA MARÍA 1” en Toreo El Alto Mich, Municipio de Uruapan, Michoacán.',
+                                                                                                              'Práctica de campo a la huerta de aguacate “HUERTA VIEJO CUCHATÁCUARO” en Tiamba, Mich, Municipio de Uruapan, Michoacán.',
+                                                                                                              'Fertilización, uso de agua y suelo; y agricultura de precisión.',
+                                                                                                              'Podas; manejo de estrés y floración.',
+                                                                                                              'Control de plagas enfermedades y malezas.',
+                                                                                                              'Cosecha y comercialización.',
+                                                                                                              'Inocuidad y producción sostenible en el rendimiento del aguacate.',
+                                                                                                              'Inocuidad y producción sostenible en el rendimiento del aguacate.',
+                                                                                                              'La tesis profesional y titulación en la Facultad de Agrobiologia.',
+                                                                                                              'Examen general  de conocimientos del primer diplomado para la profesionalización del cultivo del aguacate. Y Clausura del diplomado'
 
-          ];
+                                                                                                            ];
 
 
 
-          for ($i = 1; $i < 13; $i++) {
+                                                                                                            for ($i = 1; $i < 13; $i++) {
           ?><img src="img/programacompleto/modulo<?php echo $i; ?>-min.jpg" alt="<?php echo $titles[$i]; ?>"><?php
                                                                                                             } ?>
         </div>
@@ -258,6 +276,6 @@ if (!isset($_SESSION['usuario']) || $_SESSION['tipo'] != '0') {
     </section>
   </section>
 <?php
-}
-require_once('includes/templates/footer.php');
+                                                                                                          }
+                                                                                                          require_once('includes/templates/footer.php');
 ?>

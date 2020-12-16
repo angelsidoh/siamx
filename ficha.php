@@ -22,17 +22,18 @@
        $resultado = obtenerFicha($_SESSION['correo']);
        $contacto = $resultado->fetch_assoc();
 
-       var_dump($contacto);
-      
+      //  var_dump($contacto);
+      require_once('includes/layout/instrucciones.php');
       ?>  
+      
         <div class="bg-amarillo contenedor1 sombra">
-    <form id="contacto" action="#">
+        <form id="contacto" action="#">
         <legend>Ficha de Inscripción<span>Diplomado para Profesionalización Del cultivo del Aguacate</span></legend>
         <?php include 'includes/layout/formulario.php' ?>
         <br>
-        <a class="btn volver" href="adminpagos.php#listado-contacto">Volver</a>
-    </form>
-</div>
+        <a class="btn volver" href="bienvenida.php#contacto">Volver</a>
+        </form>
+        </div>
       </section>
       <script src="js/app.js?v=<?php echo time(); ?>"></script>
         <?php

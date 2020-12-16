@@ -1,3 +1,21 @@
+
+(function(){
+    "use strict";
+    document.addEventListener('DOMContentLoaded', function(){
+        var map = document.querySelector('#map');
+        if(map) {
+            var map = L.map('map').setView([19.395662, -102.057533], 16);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        L.marker([19.395662, -102.057533]).addTo(map)
+        .bindPopup('Facultad de Agrobiología <br> "Presidente Juárez" <br>2° Congreso Mexicano del Aguacate<br>  29 a 31 de Octubre 2020.')
+        .openPopup(); 
+        }
+    });
+    
+})();
+    
 // Notificaiones Programadas
 function mostrarNotificacion(mensaje, clase) {
 
@@ -303,8 +321,31 @@ $('#boton22').val("0");
 $('#boton33').val("1");
 $('#boton44').val("0");
 
+let URLactual = window.location.href;
+var cadena = URLactual;
+cadena = cadena.replace(/\//g, " ");
+cadena =  cadena.replace(/\./g, "-");
+cadena= cadena.replace(/\:/g, " ");
+
+console.log(cadena);
+    // esta es la palabra a buscar
+    let termino = "index-php";
+    // para buscar la palabra hacemos
+    let posicion = cadena.indexOf(termino);
+    if (posicion !== -1){
+        console.log("La palabra está en la posición " + posicion);
+        
+    }else{
+       
+    }
+
 $(document).on('change','input[type="checkbox"]' ,function(e) {
+    
     if(this.id=="boton1") {
+        if(this.checked) $('#boton11').val(this.value);
+        else $('#boton11').val("0");
+    }
+    if(this.id=="botonx1") {
         if(this.checked) $('#boton11').val(this.value);
         else $('#boton11').val("0");
     }
@@ -474,11 +515,11 @@ function consultaBD(dato) {
                 .then((value) => {
                     switch (value) {
                       default:
-                        window.location.href = 'bienvenida.php';
+                        window.location.href = 'bienvenida.php#lugar2';
                     }
                   });
                 setTimeout(() => {
-                    window.location.href = 'Bienvenida.php';
+                    window.location.href = 'bienvenida.php#lugar2';
                  }, 3200);
                 }
                 if(tipo === '99'){
@@ -995,6 +1036,9 @@ $('input:checkbox').removeAttr('checked');
 $('input[type=checkbox]').prop('checked', false);
 $("#boton3").prop("checked", true);
 $("#boton1").prop("checked", true);
+$("#botonx1").prop("checked", true);
+$("#botonx2").prop("checked", true);
+$("#botonx3").prop("checked", true);
 
 $("#boton2").click(function () {
     if ($(this).is(":checked")) {

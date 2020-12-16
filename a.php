@@ -1,15 +1,9 @@
 
 <?php
-    ini_set( 'display_errors', 1 );
-    error_reporting( E_ALL );
-    $from = "angel._ruiz@hotmail.com
-    .com";
-    $to = "angelsidohpubg@gmail.com
-    ";
-    $subject = "Datos inportantes de cuenta SIAM";
-    $message = "Tus datos serán generados automaticamente podras verlos desde la tu acceso";
-    $headers = "From:" . $from;
-    
-    mail($to,$subject,$message, $headers);
-    echo "The email message was sent.";
+    $str = ("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!#$%&/()=+-~1234567890");
+    $pass = "";
+    for($i=0; $i < 8 ; $i++ ){
+        $pass .= substr($str, rand(0, 74), 1);
+    }
+    echo $pass;
 ?>
