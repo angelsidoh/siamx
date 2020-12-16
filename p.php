@@ -17,8 +17,8 @@ $mail->isSMTP();
 // SMTP::DEBUG_OFF = off (for production use)
 // SMTP::DEBUG_CLIENT = client messages
 // SMTP::DEBUG_SERVER = client and server messages
-// $mail->SMTPDebug = SMTP::DEBUG_SERVER;
-$mail->SMTPDebug = 2;
+$mail->SMTPDebug = SMTP::DEBUG_SERVER;
+// $mail->SMTPDebug = 2;
 //Set the hostname of the mail server
 $mail->Host = 'smtp.gmail.com';
 // use
@@ -45,7 +45,8 @@ $mail->setFrom('congresoaguacate2020@gmail.com', 'CongresoPrueba');
 
 //Set an alternative reply-to address
 // $mail->addReplyTo('ibauruapanmichoacan@gmail.com', 'Diplomado');
-$mail->addCC('ibauruapanmichoacan@gmail.com');
+$mail->addCC('siam.profordivs@gmail.com');
+$mail->addBCC('ibauruapanmichoacan@gmail.com');
 
 //Set who the message is to be sent to
 $mail->addAddress('joseangelruizchavez@gmail.com', 'Jose Angel');

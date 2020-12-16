@@ -56,7 +56,8 @@ $mail->setFrom('congresoaguacate2020@gmail.com', 'Sociedad Intelectual Del Aguac
 
 //Set an alternative reply-to address
 // $mail->addReplyTo('replyto@example.com', 'First Last');
-$mail->addCC('ibauruapanmichoacan@gmail.com');
+$mail->addCC('siam.profordivs@gmail.com');
+$mail->addBCC('ibauruapanmichoacan@gmail.com');
 
 //Set who the message is to be sent to
 $mail->addAddress($correo, $nombreTo.' '.$apellidoTo);

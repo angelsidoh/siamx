@@ -32,4 +32,20 @@ function obtenerFicha($correo){
             return false;
         }
     }
+
+function obtenerPrograma(){
+
+    try{
+        require('basedatos/bdsqli.php');
+        
+            
+            return $connf->query("SELECT id_programa, modulo_programa, tema_programa, subtema_programa, dia_programa, hora_programa, finhora_programa, fecha_programa, ponente_programa  FROM programa");
+            
+    }catch(Exception $e){
+        echo "Error!!" . $e->getMessage() . "<br>";
+        return false;
+    }
+}
 ?>
+
+

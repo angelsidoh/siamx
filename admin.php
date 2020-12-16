@@ -8,7 +8,7 @@ if(!isset($_SESSION['usuario']) || $_SESSION['tipo'] != '99'){
     session_destroy();
   
     // header('location:logout.php');
-    ?><META HTTP-EQUIV="REFRESH" CONTENT=".1;URL=http://localhost/0SIAM/logout.php"><?php
+    ?><META HTTP-EQUIV="REFRESH" CONTENT=".1;URL=https://sociedadintelectualdelaguacatemexicano.com/logout.php"><?php
     }else{
         
 ?>
@@ -105,6 +105,34 @@ if(!isset($_SESSION['usuario']) || $_SESSION['tipo'] != '99'){
         </div>
     </div>
 </section>
+<div class="contenedor">
+        <div class="programaevento">
+          <h3>Programa</h3>
+          <?php
+                $titles = [
+                    '',
+                    'Manejo de viveros y sistemas de Producción',
+                    'Fertilización, uso de agua y suelo; y agricultura de precisión',
+                    'Práctica de campo a la huerta de aguacate “HUERTA SANTA MARÍA 1” en Toreo El Alto Mich, Municipio de Uruapan, Michoacán.',
+                    'Práctica de campo a la huerta de aguacate “HUERTA VIEJO CUCHATÁCUARO” en Tiamba, Mich, Municipio de Uruapan, Michoacán.',
+                    'Fertilización, uso de agua y suelo; y agricultura de precisión.',
+                    'Podas; manejo de estrés y floración.',
+                    'Control de plagas enfermedades y malezas.',
+                    'Cosecha y comercialización.',
+                    'Inocuidad y producción sostenible en el rendimiento del aguacate.',
+                    'Inocuidad y producción sostenible en el rendimiento del aguacate.',
+                    'La tesis profesional y titulación en la Facultad de Agrobiologia.',
+                    'Examen general  de conocimientos del primer diplomado para la profesionalización del cultivo del aguacate. Y Clausura del diplomado'
+
+                  ];
+
+
+
+                  for ($i = 1; $i < 13; $i++) {
+          ?><img src="img/programacompleto/modulo<?php echo $i; ?>-min.jpg" alt="<?php echo $titles[$i]; ?>"><?php
+                                                                                                            } ?>
+        </div>
+      </div>
                     <?php  }
 require_once('includes/templates/footer.php');
 ?>
