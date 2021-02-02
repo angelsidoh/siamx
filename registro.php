@@ -60,7 +60,7 @@ if (isset($_SESSION['usuario'])) {
                                 </div>
                                 <div class="recordatorio">
                                     <p>Tu contraseña será generada automáticamente, asegúrate que tengas acceso al correo que Ingreses. </p>
-                                    
+                                    <p>Si aún no has revido un correo con tus datos de registro. Por favor contáctese al correo: <a href="mailto:siam.profordivs@gmail.com">siam.profordivs@gmail.com</a>
                                     </div>
                                 <?php if (!empty($errores)) : ?>
                                     <div class="error">

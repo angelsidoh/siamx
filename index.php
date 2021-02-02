@@ -49,16 +49,11 @@
     </video>
   </div>
   <!--contenedor-video-->
-  <div class="contenido-programa">
-    <div class="contenedor">
-      <div class="programa-evento">
-        <h2>Programa</h2>
-        <nav class="menu-programa">
-          <?php require_once('includes/funciones/funcionestwo.php');
-          $resultadoPrograma = obtenerPrograma();
-          $contadorids = 0;
-          if ($resultadoPrograma->num_rows) {
-            foreach ($resultadoPrograma as $programa) {
+  <?php require_once('includes/funciones/funcionestwo.php');
+              $resultadoPrograma = obtenerPrograma();
+              $contadorids = 0;
+              if ($resultadoPrograma->num_rows) {
+              foreach ($resultadoPrograma as $programa) {
               date_default_timezone_set('GMT');
               $hoy = date('Y-m-d H:m:s');
               $restadia= $programa['fecha_programa'];
@@ -74,10 +69,14 @@
               $horaI[$contadorids] = $programa['hora_programa'];
               $horaF[$contadorids] = $programa['finhora_programa'];
               $ponente[$contadorids] = $programa['ponente_programa'];
-              
+
+              $contadorlis = $contadorids+1;
+              $auxcontadorlis = 1;
               // echo '<br>'.$diasx;
               $dias[$contadorids] = $diasx;
-              if($diasx <= -0){
+              $diasdxxx = $dias;
+              $diasdyyy = $dias;
+              if($diasx <= 0){
                 $dias[$contadorids] = 9999;
                 // echo  '<br>'.$dias[$contadorids];
                 // echo 'hola';
@@ -85,34 +84,81 @@
               
               
             }
-          }
-          $minimo =  min($dias);
-            // echo $minimo;
-          for ($i=1; $i <= $contadorids; $i++) { 
-            // echo $i;
-            if($minimo == $dias[$i]){
-              ?><a style="font-size: 28px;" href="#"><i class="fas fa-user-graduate" aria-hidden="true"></i><?php echo $modulo[$i];?></a><?php
-            // echo '->'. $fechasbd[$i] . '->'. $fechasactual[$i] . '->'. $dias[$i]. '<br>';
-          }
-            
-          }
+          }?>
+  <div class="contenido-programa">
+    <div class="contenedorppp">
+    
+        <ul class="slider">
+          <?php
+          for ($f=1; $f <= $contadorids; $f++) { 
+            $diasdyyy[$f-1]=9999;
+            $minimo =  min($diasdyyy);
+            $contadorlis--;
+            if($diasdyyy[$f] > $minimo){
+              // echo '>'.$minimo.'<-'.$diasdyyy[$f];
+              $contadorlis= $contadorids + 1;
+              
+            }
+            $minimof =  min($diasdyyy);
+            // echo '--x'.$contadorlis;
 
+          }
+          for ($x=$contadorlis; $x <=$contadorids ; $x++) {
+            
+            
+          ?>
+            <li>
+                
+            <div class="programa-evento">
+            <h1>Programa</h1>
+              <nav class="menu-programa">
+              <?php
+              
+          $diasdxxx[$x-1]=9999;    
+          $minimo =  min($diasdxxx);
+            // echo '->'.$minimo.'<-';
+          for ($i=$x; $i <= $contadorids; $i++) {
+            if($diasdxxx[$i] > $minimo){
+              // echo $contadorlis;
+              $contadorlis++;
+              
+              
+              if($diasdxxx[$i]==9999){
+                $auxcontadorlis=$auxcontadorlis-1;
+                
+                
+                // echo '->xx'.$diasdxxx[$i].'xx<-';
+              }
+              }else{
+                
+             
+           }
+            if($minimo == $diasdxxx[$i]){
+              ?><p style="font-size: 28px;"><i class="fas fa-user-graduate" aria-hidden="true"></i><?php echo $modulo[$i];?></p><?php
+            // echo '->'. $fechasbd[$i] . '->'. $fechasactual[$i] . '->'. $dias[$i]. '<br>';
+            } 
+          }
           
+         
           ?>
          
         </nav>
-        <?php for ($i=1; $i <= $contadorids ; $i++) { 
+        <?php 
+         
+        for ($i=$x; $i <= $contadorids ; $i++) { 
+       
+          
           if($minimo == $dias[$i]){
+            // echo '->'.$minimo.'<-' . $dias[$i];
             ?>
-              <div id="talleres" class="info-curso ocultar clearfix">
+              <div id="talleres" class="">
               <div class="detalle-evento">
 
               <h3><?php echo $tema[$i].'.'; ?></h3>
               <p style="color: #FFFFFF;
-
-text-shadow: 3px 4px 3px #474747;
-color: #FFFFFF;
-"><?php echo $subtemas[$i]. '.'?></p>
+                        text-shadow: 3px 4px 3px #474747;
+                        color: #FFFFFF;
+                        "><?php echo $subtemas[$i]. '.'?></p>
               <div class="contenedor_actividad">
                 <p>Grupo A <br><?php
                 $diasr = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
@@ -131,26 +177,34 @@ color: #FFFFFF;
             <?php
           }
         }?>
-        <?php
-
-        ?>
-        <nav class="menu-programa">
-
-        </nav>
-
-        <?php
-        ?>
-
+      
 
 
       </div>
-      <!--.programa-evento-->
+            </li>
+           <?php
+           
+          }?>
+            
+
+        </ul>
+        <ol class="paginacion">
+            
+        </ol>
+        <div class="right">
+            <span><i class="fas fa-angle-right"></i></span>
+        </div>
+        <div class="left">
+            <span><i class="fas fa-angle-left"></i></span>
+        </div>
+   
     </div>
     <!--.contenedor-->
   </div>
   <!--.contenido-programa-->
 </section>
 <!--Programa-->
+
 <?php
 if (isset($_SESSION['correo'])) {
   require_once('includes/funciones/funcionestwo.php');
@@ -254,7 +308,23 @@ require_once('includes/layout/instrucciones.php');
   </section> -->
 <div id="newslatter" class="newsletter parallax">
   <div class="contenido contenedor">
-
+  <div class="contenedorppp1">
+    
+  <ul class="slider1">
+  <li>hola</li>
+  <li>hola1</li>
+  <li>hola2</li>
+  </ul>
+  <ol class="paginacion1">
+            
+        </ol>
+        <div class="right1">
+            <span><i class="fas fa-angle-right"></i></span>
+        </div>
+        <div class="left1">
+            <span><i class="fas fa-angle-left"></i></span>
+        </div>
+  </div>
   </div>
   <!--.contenido-->
 </div>

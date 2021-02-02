@@ -19,14 +19,14 @@
   <meta http-equiv="Pragma" content="no-cache">
   
  <!-- Global site tag (gtag.js) - Google Analytics -->
-<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-153405260-1"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KGRX4HBN4Q"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'UA-153405260-1');
-</script> -->
+  gtag('config', 'G-KGRX4HBN4Q');
+</script>
 
 
 

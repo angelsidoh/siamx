@@ -116,7 +116,7 @@
     if (isset($_SESSION['correo']) && $contacto['inscripcion_usuario'] == 1 && $contacto['banco_usuario'] != '' && $contacto['tiked_usuario'] != '') {
       echo ' Tu tramité a finalizado con exito en tu cuenta SIAM, una vez se cumplan las fechas designadas por la administración, será notificado por correo electrónico con instrucciones para tomar la primera sesión del Diplomado.';
     } else {
-      echo 'Aún no completas tu tramité';
+      echo 'Aún no completas tu tramité. <br> ¿Porque es importante hacer este trámite? <br> Debido a que es un diplomado en línea, y para su acceso, este sitio web generará una contraseña única para cada usuario, al completar su trámite. Recuerde, este trámite es individual.';
     } ?>
 
   </p><?php
