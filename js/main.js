@@ -1,152 +1,156 @@
 
-$(document).ready(function(){
+
+
+$(document).ready(function () {
+
+
 
     var imgItems1 = $('.slider1 li').length;
     var imgPos1 = 1;
 
-    for( i=1; i<=imgItems1; i++){
+    for (i = 1; i <= imgItems1; i++) {
         $('.paginacion1').append('<li><span><i class="fa fa-circle"></i></span></li>');
     }
-    
+
 
     $('.slider1 li').hide();
     $('.slider1 li:first').show();
-    $('.paginacion1 li:first').css({'text-shadow': '0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #fe4918, 0 0 30px #fe4918, 0 0 40px #fe4918, 0 0 55px #fe4918, 0 0 75px #fe4918'});
+    $('.paginacion1 li:first').css({ 'text-shadow': '0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #fe4918, 0 0 30px #fe4918, 0 0 40px #fe4918, 0 0 55px #fe4918, 0 0 75px #fe4918' });
 
     $('.paginacion1 li').click(paginacion1);
     $('.right1 span').click(nextSlider);
     $('.left1 span').click(prevSlider);
 
     // setInterval(function(){
-        // nextSlider();
+    // nextSlider();
     // }, 3500);
 
-    function paginacion1(){
-        var  paginacionPos1 = $(this).index();
+    function paginacion1() {
+        var paginacionPos1 = $(this).index();
         paginacionPos1 = paginacionPos1 + 1;
         console.log(paginacionPos1);
 
         $('.slider1 li').hide();
-        $('.slider1 li:nth-child('+ paginacionPos1 +')').fadeIn();
+        $('.slider1 li:nth-child(' + paginacionPos1 + ')').fadeIn();
 
-        $('.paginacion1 li').css({'text-shadow': '0 0 0px #ffffff'});
-        $(this).css({'text-shadow': '0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #fe4918, 0 0 30px #fe4918, 0 0 40px #fe4918, 0 0 55px #fe4918, 0 0 75px #fe4918'});
+        $('.paginacion1 li').css({ 'text-shadow': '0 0 0px #ffffff' });
+        $(this).css({ 'text-shadow': '0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #fe4918, 0 0 30px #fe4918, 0 0 40px #fe4918, 0 0 55px #fe4918, 0 0 75px #fe4918' });
 
         imgPos1 = paginacionPos1;
     }
-    function nextSlider(){
-        if(imgPos1>=imgItems1){
+    function nextSlider() {
+        if (imgPos1 >= imgItems1) {
             imgPos1 = 1;
-        }else{
+        } else {
             imgPos1++;
         }
-        
+
         console.log(imgPos1);
         $('.slider li').hide();
-        $('.slider li:nth-child('+ imgPos1 +')').fadeIn();
+        $('.slider li:nth-child(' + imgPos1 + ')').fadeIn();
 
-        $('.paginacion li').css({'text-shadow': '0 0 0px #ffffff'});
-        $('.paginacion li:nth-child('+ imgPos1 +')').css({'text-shadow': '0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #fe4918, 0 0 30px #fe4918, 0 0 40px #fe4918, 0 0 55px #fe4918, 0 0 75px #fe4918'});
-        
+        $('.paginacion li').css({ 'text-shadow': '0 0 0px #ffffff' });
+        $('.paginacion li:nth-child(' + imgPos1 + ')').css({ 'text-shadow': '0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #fe4918, 0 0 30px #fe4918, 0 0 40px #fe4918, 0 0 55px #fe4918, 0 0 75px #fe4918' });
+
     }
-    function prevSlider(){
-        if(imgPos1<=1){
+    function prevSlider() {
+        if (imgPos1 <= 1) {
             imgPos1 = imgItems;
-        }else{
+        } else {
             imgPos1--;
         }
         console.log(imgPos1);
         $('.slider li').hide();
-        $('.slider li:nth-child('+ imgPos1 +')').fadeIn();
+        $('.slider li:nth-child(' + imgPos1 + ')').fadeIn();
 
-        $('.paginacion li').css({'text-shadow': '0 0 0px #ffffff'});
-        $('.paginacion li:nth-child('+ imgPos1 +')').css({'text-shadow': '0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #fe4918, 0 0 30px #fe4918, 0 0 40px #fe4918, 0 0 55px #fe4918, 0 0 75px #fe4918'});
-        
+        $('.paginacion li').css({ 'text-shadow': '0 0 0px #ffffff' });
+        $('.paginacion li:nth-child(' + imgPos1 + ')').css({ 'text-shadow': '0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #fe4918, 0 0 30px #fe4918, 0 0 40px #fe4918, 0 0 55px #fe4918, 0 0 75px #fe4918' });
+
     }
 });
-$(document).ready(function(){
+$(document).ready(function () {
 
     var imgItems = $('.slider li').length;
     var imgPos = 1;
 
-    for( i=1; i<=imgItems; i++){
+    for (i = 1; i <= imgItems; i++) {
         $('.paginacion').append('<li><span><i class="fa fa-circle"></i></span></li>');
     }
-    
+
 
     $('.slider li').hide();
     $('.slider li:first').show();
-    $('.paginacion li:first').css({'text-shadow': '0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #fe4918, 0 0 30px #fe4918, 0 0 40px #fe4918, 0 0 55px #fe4918, 0 0 75px #fe4918'});
+    $('.paginacion li:first').css({ 'text-shadow': '0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #fe4918, 0 0 30px #fe4918, 0 0 40px #fe4918, 0 0 55px #fe4918, 0 0 75px #fe4918' });
 
     $('.paginacion li').click(paginacion);
     $('.right span').click(nextSlider);
     $('.left span').click(prevSlider);
 
     // setInterval(function(){
-        // nextSlider();
+    // nextSlider();
     // }, 3500);
 
-    function paginacion(){
-        var  paginacionPos = $(this).index();
+    function paginacion() {
+        var paginacionPos = $(this).index();
         paginacionPos = paginacionPos + 1;
         console.log(paginacionPos);
 
         $('.slider li').hide();
-        $('.slider li:nth-child('+ paginacionPos +')').fadeIn();
+        $('.slider li:nth-child(' + paginacionPos + ')').fadeIn();
 
-        $('.paginacion li').css({'text-shadow': '0 0 0px #ffffff'});
-        $(this).css({'text-shadow': '0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #fe4918, 0 0 30px #fe4918, 0 0 40px #fe4918, 0 0 55px #fe4918, 0 0 75px #fe4918'});
+        $('.paginacion li').css({ 'text-shadow': '0 0 0px #ffffff' });
+        $(this).css({ 'text-shadow': '0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #fe4918, 0 0 30px #fe4918, 0 0 40px #fe4918, 0 0 55px #fe4918, 0 0 75px #fe4918' });
 
         imgPos = paginacionPos;
     }
-    function nextSlider(){
-        if(imgPos>=imgItems){
+    function nextSlider() {
+        if (imgPos >= imgItems) {
             imgPos = 1;
-        }else{
+        } else {
             imgPos++;
         }
-        
+
         console.log(imgPos);
         $('.slider li').hide();
-        $('.slider li:nth-child('+ imgPos +')').fadeIn();
+        $('.slider li:nth-child(' + imgPos + ')').fadeIn();
 
-        $('.paginacion li').css({'text-shadow': '0 0 0px #ffffff'});
-        $('.paginacion li:nth-child('+ imgPos +')').css({'text-shadow': '0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #fe4918, 0 0 30px #fe4918, 0 0 40px #fe4918, 0 0 55px #fe4918, 0 0 75px #fe4918'});
-        
+        $('.paginacion li').css({ 'text-shadow': '0 0 0px #ffffff' });
+        $('.paginacion li:nth-child(' + imgPos + ')').css({ 'text-shadow': '0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #fe4918, 0 0 30px #fe4918, 0 0 40px #fe4918, 0 0 55px #fe4918, 0 0 75px #fe4918' });
+
     }
-    function prevSlider(){
-        if(imgPos<=1){
+    function prevSlider() {
+        if (imgPos <= 1) {
             imgPos = imgItems;
-        }else{
+        } else {
             imgPos--;
         }
         console.log(imgPos);
         $('.slider li').hide();
-        $('.slider li:nth-child('+ imgPos +')').fadeIn();
+        $('.slider li:nth-child(' + imgPos + ')').fadeIn();
 
-        $('.paginacion li').css({'text-shadow': '0 0 0px #ffffff'});
-        $('.paginacion li:nth-child('+ imgPos +')').css({'text-shadow': '0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #fe4918, 0 0 30px #fe4918, 0 0 40px #fe4918, 0 0 55px #fe4918, 0 0 75px #fe4918'});
-        
+        $('.paginacion li').css({ 'text-shadow': '0 0 0px #ffffff' });
+        $('.paginacion li:nth-child(' + imgPos + ')').css({ 'text-shadow': '0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #fe4918, 0 0 30px #fe4918, 0 0 40px #fe4918, 0 0 55px #fe4918, 0 0 75px #fe4918' });
+
     }
 });
 
-(function(){
+(function () {
     "use strict";
-    document.addEventListener('DOMContentLoaded', function(){
+    document.addEventListener('DOMContentLoaded', function () {
         var map = document.querySelector('#map');
-        if(map) {
+        if (map) {
             var map = L.map('map').setView([19.395662, -102.057533], 16);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-        L.marker([19.395662, -102.057533]).addTo(map)
-        .bindPopup('Facultad de Agrobiología <br> "Presidente Juárez" <br>2° Congreso Mexicano del Aguacate<br>  29 a 31 de Octubre 2020.')
-        .openPopup(); 
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            L.marker([19.395662, -102.057533]).addTo(map)
+                .bindPopup('Facultad de Agrobiología <br> "Presidente Juárez" <br>2° Congreso Mexicano del Aguacate<br>  29 a 31 de Octubre 2020.')
+                .openPopup();
         }
     });
-    
+
 })();
-    
+
 // Notificaiones Programadas
 function mostrarNotificacion(mensaje, clase) {
 
@@ -254,15 +258,15 @@ const texto = quitarAcentos(text);
 // tratatndo de subir por lo que asi funciona en todas las paginas donde
 // quiera subir un archivo ;D
 
-function up(el){
-	return document.getElementById(el);
+function up(el) {
+    return document.getElementById(el);
 }
 
 
 // fin upload fotos
 // formulario inscripción
 const formInscripcion = document.querySelector('#inscripcion');
-if ($("#inscripcion").length){
+if ($("#inscripcion").length) {
     eventListeners2();
     function eventListeners2() {
         formInscripcion.addEventListener('submit', leerInscripcion);
@@ -270,16 +274,16 @@ if ($("#inscripcion").length){
 }
 function leerInscripcion(e) {
     e.preventDefault();
-     
 
-    $(document).ready(function(){
-       
-        $("#boton1").change(function(){
-                alert
+
+    $(document).ready(function () {
+
+        $("#boton1").change(function () {
+            alert
         });
-        $(".ejemplo3").change(function(){
-                alert($('select[class=ejemplo3]').val());
-                $('.valor3').val($(this).val());
+        $(".ejemplo3").change(function () {
+            alert($('select[class=ejemplo3]').val());
+            $('.valor3').val($(this).val());
         });
     });
     const inscripcion = document.querySelector('#boton11').value;
@@ -291,55 +295,55 @@ function leerInscripcion(e) {
     const domiciliof = document.querySelector('#domiciliof').value;
     const accionx = document.querySelector('#btninscripcion').value;
 
-    
 
-     if(inscripcion === '1'){
-        if(factura === '1'){
+
+    if (inscripcion === '1') {
+        if (factura === '1') {
             console.log(
-               "rfc= "+rfc,
-               "cfdi=" + cfdi,
-               "domicilio= " + domiciliof
+                "rfc= " + rfc,
+                "cfdi=" + cfdi,
+                "domicilio= " + domiciliof
             );
             if (rfc === '') {
-               $('#correo').css({
-                   'background': 'red'
-               });
-               swal({
-                   content: "",
-                   text: 'Hay campos vacios en los datos para factura.',
-                   icon: "error",
-                   button: {
-                       text: "Continuar",
-                       closeModal: true,
-                   },
-               });
-            }else{
+                $('#correo').css({
+                    'background': 'red'
+                });
+                swal({
+                    content: "",
+                    text: 'Hay campos vacios en los datos para factura.',
+                    icon: "error",
+                    button: {
+                        text: "Continuar",
+                        closeModal: true,
+                    },
+                });
+            } else {
                 // cuando requieres llenar todos los datos con factura
                 const infoinscrip = new FormData();
-                    infoinscrip.append('inscripcion', inscripcion);
-                    infoinscrip.append('deposito', deposito);
-                    infoinscrip.append('trasnferencia', trasnferencia);
-                    infoinscrip.append('factura', factura);
-                    infoinscrip.append('rfc', rfc);
-                    infoinscrip.append('cfdi', cfdi);
-                    infoinscrip.append('domiciliof', domiciliof);
-                    infoinscrip.append('accionx', accionx);
-                    if (accionx === 'Inscribirme al diplomado') {
-                        inscripcionDip(infoinscrip);
-                    }
+                infoinscrip.append('inscripcion', inscripcion);
+                infoinscrip.append('deposito', deposito);
+                infoinscrip.append('trasnferencia', trasnferencia);
+                infoinscrip.append('factura', factura);
+                infoinscrip.append('rfc', rfc);
+                infoinscrip.append('cfdi', cfdi);
+                infoinscrip.append('domiciliof', domiciliof);
+                infoinscrip.append('accionx', accionx);
+                if (accionx === 'Inscribirme al diplomado') {
+                    inscripcionDip(infoinscrip);
+                }
             }
-        }else{
+        } else {
             const infoinscrip = new FormData();
-                    infoinscrip.append('inscripcion', inscripcion);
-                    infoinscrip.append('deposito', deposito);
-                    infoinscrip.append('trasnferencia', trasnferencia);
-                    infoinscrip.append('factura', factura);
-                    infoinscrip.append('accionx', accionx);
-                    if (accionx === 'Inscribirme al diplomado') {
-                        inscripcionDip(infoinscrip);
-                    }
+            infoinscrip.append('inscripcion', inscripcion);
+            infoinscrip.append('deposito', deposito);
+            infoinscrip.append('trasnferencia', trasnferencia);
+            infoinscrip.append('factura', factura);
+            infoinscrip.append('accionx', accionx);
+            if (accionx === 'Inscribirme al diplomado') {
+                inscripcionDip(infoinscrip);
+            }
         }
-     }else{
+    } else {
         swal({
             content: "",
             text: 'Es necesario que marques la casilla de: ¡Quiero inscribirme al Diplomado!',
@@ -349,102 +353,102 @@ function leerInscripcion(e) {
                 closeModal: true,
             },
         });
-        
-     }
-     console.log(
-         "inscripcion= "+inscripcion,
-         "deposito= "+deposito,
-         "trasferencia= "+trasnferencia,
-         "factura= "+factura,
-         "accion= " +accionx
-         );  
+
     }
-    function inscripcionDip(dato) {
-        // llamado de ajax
-        // crear objeto
-        
-        const xhr = new XMLHttpRequest();
-        // abrir conexion
-        xhr.open('POST', 'includes/modelos/inscripciondiplomado.php', true);
-        // pasar datos
-        xhr.onload = function () {
-            if (this.status === 200) {
-                const respuesta = JSON.parse(xhr.responseText); 
-                console.log(respuesta);
-                if(respuesta.estado === 'correoexiste'){
-                    // upload
-                    var file = up("foto1file").files[0];
-                    // alert(file.name+" | "+file.size+" | "+file.type);
-                    var formdata = new FormData();
-                    formdata.append("foto1file", file);
-                    var ajax = new XMLHttpRequest();
-                    ajax.upload.addEventListener("progress", progressHandler, false);
-                    ajax.addEventListener("load", completeHandler, false);
-                    ajax.addEventListener("error", errorHandler, false);
-                    ajax.addEventListener("abort", abortHandler, false);
-                    ajax.open("POST", "includes/modelos/upload4.php");
-                    ajax.onload = function(){
-                        if(this.status === 200){
-                            // console.log(JSON.parse(ajax.responseText));
-                            const respuesta = JSON.parse(ajax.responseText);
-                            console.log('->->'+respuesta);
-                            if(respuesta.estado === 'errorfotonoselect'){
-                                swal({
-                                    content: "",
-                                    text: '¡Por Favor! Seleccione una foto con las características que se piden en las instrucciones.',
-                                    icon: "error",
-                                    button: {
-                                        text: "Continuar",
-                                        closeModal: true,
-                                    },
-                                }); 
-                            }
-                            if(respuesta.estado === 'uploadsuccess'){
-                                swal({        
-                                    content: "",
-                                    text: '¡Tu ficha de inscripción está lista!',
-                                    icon: "success",
-                                    buttons: {
-                                        defeat: "¡Continuar!",
-                                      },
-                                })
+    console.log(
+        "inscripcion= " + inscripcion,
+        "deposito= " + deposito,
+        "trasferencia= " + trasnferencia,
+        "factura= " + factura,
+        "accion= " + accionx
+    );
+}
+function inscripcionDip(dato) {
+    // llamado de ajax
+    // crear objeto
+
+    const xhr = new XMLHttpRequest();
+    // abrir conexion
+    xhr.open('POST', 'includes/modelos/inscripciondiplomado.php', true);
+    // pasar datos
+    xhr.onload = function () {
+        if (this.status === 200) {
+            const respuesta = JSON.parse(xhr.responseText);
+            console.log(respuesta);
+            if (respuesta.estado === 'correoexiste') {
+                // upload
+                var file = up("foto1file").files[0];
+                // alert(file.name+" | "+file.size+" | "+file.type);
+                var formdata = new FormData();
+                formdata.append("foto1file", file);
+                var ajax = new XMLHttpRequest();
+                ajax.upload.addEventListener("progress", progressHandler, false);
+                ajax.addEventListener("load", completeHandler, false);
+                ajax.addEventListener("error", errorHandler, false);
+                ajax.addEventListener("abort", abortHandler, false);
+                ajax.open("POST", "includes/modelos/upload4.php");
+                ajax.onload = function () {
+                    if (this.status === 200) {
+                        // console.log(JSON.parse(ajax.responseText));
+                        const respuesta = JSON.parse(ajax.responseText);
+                        console.log('->->' + respuesta);
+                        if (respuesta.estado === 'errorfotonoselect') {
+                            swal({
+                                content: "",
+                                text: '¡Por Favor! Seleccione una foto con las características que se piden en las instrucciones.',
+                                icon: "error",
+                                button: {
+                                    text: "Continuar",
+                                    closeModal: true,
+                                },
+                            });
+                        }
+                        if (respuesta.estado === 'uploadsuccess') {
+                            swal({
+                                content: "",
+                                text: '¡Tu ficha de inscripción está lista!',
+                                icon: "success",
+                                buttons: {
+                                    defeat: "¡Continuar!",
+                                },
+                            })
                                 .then((value) => {
                                     switch (value) {
-                                      default:
-                                        window.location.href = 'ficha.php';
+                                        default:
+                                            window.location.href = 'ficha.php';
                                     }
-                                  });
-                                setTimeout(() => {
-                                    window.location.href = 'ficha.php';
-                                 }, 3200); 
-                            }
+                                });
+                            setTimeout(() => {
+                                window.location.href = 'ficha.php';
+                            }, 3200);
                         }
                     }
-                    ajax.send(formdata);
-                    // 
                 }
+                ajax.send(formdata);
+                // 
             }
         }
-        // enviar datos
-        xhr.send(dato);
     }
+    // enviar datos
+    xhr.send(dato);
+}
 // 
 
-function progressHandler(event){
-	up("loaded_n_total").innerHTML = "Subiendo Foto "+event.loaded+" bytes of "+event.total;
-	var percent = (event.loaded / event.total) * 100;
-	up("progressBar").value = Math.round(percent);
-	
+function progressHandler(event) {
+    up("loaded_n_total").innerHTML = "Subiendo Foto " + event.loaded + " bytes of " + event.total;
+    var percent = (event.loaded / event.total) * 100;
+    up("progressBar").value = Math.round(percent);
+
 }
-function completeHandler(event){
-	up("status").innerHTML = event.target.responseText;
-	up("progressBar").value = 0;
+function completeHandler(event) {
+    up("status").innerHTML = event.target.responseText;
+    up("progressBar").value = 0;
 }
-function errorHandler(event){
-	up("status").innerHTML = "Upload Failed";
+function errorHandler(event) {
+    up("status").innerHTML = "Upload Failed";
 }
-function abortHandler(event){
-	up("status").innerHTML = "Upload Aborted";
+function abortHandler(event) {
+    up("status").innerHTML = "Upload Aborted";
 }
 // 
 $('#boton11').val("1");
@@ -455,65 +459,65 @@ $('#boton44').val("0");
 let URLactual = window.location.href;
 var cadena = URLactual;
 cadena = cadena.replace(/\//g, " ");
-cadena =  cadena.replace(/\./g, "-");
-cadena= cadena.replace(/\:/g, " ");
+cadena = cadena.replace(/\./g, "-");
+cadena = cadena.replace(/\:/g, " ");
 
-console.log(cadena);
-    // esta es la palabra a buscar
-    let termino = "index-php";
-    // para buscar la palabra hacemos
-    let posicion = cadena.indexOf(termino);
-    if (posicion !== -1){
-        console.log("La palabra está en la posición " + posicion);
-        
-    }else{
-       
-    }
+// console.log(cadena);
+// esta es la palabra a buscar
+let termino = "index-php";
+// para buscar la palabra hacemos
+let posicion = cadena.indexOf(termino);
+if (posicion !== -1) {
+    console.log("La palabra está en la posición " + posicion);
 
-$(document).on('change','input[type="checkbox"]' ,function(e) {
-    
-    if(this.id=="boton1") {
-        if(this.checked) $('#boton11').val(this.value);
+} else {
+
+}
+
+$(document).on('change', 'input[type="checkbox"]', function (e) {
+
+    if (this.id == "boton1") {
+        if (this.checked) $('#boton11').val(this.value);
         else $('#boton11').val("0");
     }
-    if(this.id=="botonx1") {
-        if(this.checked) $('#boton11').val(this.value);
+    if (this.id == "botonx1") {
+        if (this.checked) $('#boton11').val(this.value);
         else $('#boton11').val("0");
     }
-    if(this.id=="boton3") {
-        if(this.checked){ 
+    if (this.id == "boton3") {
+        if (this.checked) {
             $('#boton33').val(this.value);
             $('#boton22').val("0");
-        }else {
-        $('#boton33').val("0");
-        $('#boton22').val("1");
+        } else {
+            $('#boton33').val("0");
+            $('#boton22').val("1");
         }
     }
-    if(this.id=="boton2") {
-        if(this.checked){
-             $('#boton22').val(this.value);
-             $('#boton33').val("0");
+    if (this.id == "boton2") {
+        if (this.checked) {
+            $('#boton22').val(this.value);
+            $('#boton33').val("0");
         }
         else {
             $('#boton22').val("0");
             $('#boton33').val("1");
         }
     }
-    if(this.id=="boton4") {
-        if(this.checked){
-             $('#boton44').val(this.value);
-             
+    if (this.id == "boton4") {
+        if (this.checked) {
+            $('#boton44').val(this.value);
+
         }
         else {
             $('#boton44').val("0");
-           
+
         }
     }
-   
+
 });
 // Sesiones
 const formLoginUser = document.querySelector('#login');
-if ($("#login").length){
+if ($("#login").length) {
     eventListeners();
     function eventListeners() {
         formLoginUser.addEventListener('submit', leerLogin);
@@ -523,7 +527,7 @@ function leerLogin(e) {
     e.preventDefault();
     const mail = document.querySelector('#correo').value;
     const pass = document.querySelector('#pass').value;
-    
+
     validarString(mail);
     if (caracteresCorreoValido(mail) === false) {
         swal({
@@ -543,13 +547,13 @@ function leerLogin(e) {
     let termino = "@gmail";
     // para buscar la palabra hacemos
     let posicion = cadena.indexOf(termino);
-    if (posicion !== -1){
+    if (posicion !== -1) {
         //console.log("La palabra está en la posición " + posicion);
         $('#correo').css({
             'background': '#ffffff'
         });
     }
-    else{
+    else {
         $('#correo').css({
             'background': 'yellow'
         });
@@ -561,7 +565,8 @@ function leerLogin(e) {
                 text: "Continuar",
                 closeModal: true,
             },
-        });}
+        });
+    }
     if (mail === '') {
         $('#correo').css({
             'background': 'red'
@@ -590,26 +595,26 @@ function leerLogin(e) {
             },
         });
     } else {
-        $('#pass').css({'background': '#ffffff'});
+        $('#pass').css({ 'background': '#ffffff' });
     }
     if (posicion !== -1) {
         if (mail != '') {
             const ifouser = new FormData();
-            
+
             ifouser.append('correo', mail);
             ifouser.append('pass', pass);
             ifouser.append('accion', accionrep);
-            if (accion === 'Iniciar Sesión'){
+            if (accion === 'Iniciar Sesión') {
                 consultaBD(ifouser);
             }
         }
     }
-    
+
 }
 function consultaBD(dato) {
     // llamado de ajax
     // crear objeto
-    
+
     const xhr = new XMLHttpRequest();
     // abrir conexion
     xhr.open('POST', 'includes/modelos/jsonlogin.php', true);
@@ -618,7 +623,7 @@ function consultaBD(dato) {
         if (this.status === 200) {
             const respuesta = JSON.parse(xhr.responseText);
             console.log(respuesta);
-            if(respuesta.Estado === 'Incorrecto'){
+            if (respuesta.Estado === 'Incorrecto') {
                 swal({
                     content: "",
                     text: 'Los datos son incorrectos.¡Por favor Verificalos!',
@@ -629,86 +634,86 @@ function consultaBD(dato) {
                     },
                 });
             }
-            if(respuesta.Estado === 'Correcto'){
+            if (respuesta.Estado === 'Correcto') {
                 let nombre = respuesta.Usuario;
                 let tipo = respuesta.Tipo;
-                
-                if(tipo === '0'){
-                    
-                swal({        
-                    content: "",
-                    text: '¡Bienvenido ' +nombre + '!',
-                    icon: "success",
-                    buttons: {
-                        defeat: "¡Continuar!",
-                      },
-                })
-                .then((value) => {
-                    switch (value) {
-                      default:
-                        window.location.href = 'bienvenida.php#lugar2';
-                    }
-                  });
-                setTimeout(() => {
-                    window.location.href = 'bienvenida.php#lugar2';
-                 }, 3200);
-                }
-                if(tipo === '99'){
-                    swal({        
+
+                if (tipo === '0') {
+
+                    swal({
                         content: "",
-                        text: '¡Bienvenido Admin ' +nombre + '!',
+                        text: '¡Bienvenido ' + nombre + '!',
                         icon: "success",
                         buttons: {
                             defeat: "¡Continuar!",
-                          },
+                        },
                     })
-                    .then((value) => {
-                        switch (value) {
-                          default:
-                            window.location.href = 'admin.php';
-                        }
-                      });
+                        .then((value) => {
+                            switch (value) {
+                                default:
+                                    window.location.href = 'bienvenida.php#lugar2';
+                            }
+                        });
+                    setTimeout(() => {
+                        window.location.href = 'bienvenida.php#lugar2';
+                    }, 3200);
+                }
+                if (tipo === '99') {
+                    swal({
+                        content: "",
+                        text: '¡Bienvenido Admin ' + nombre + '!',
+                        icon: "success",
+                        buttons: {
+                            defeat: "¡Continuar!",
+                        },
+                    })
+                        .then((value) => {
+                            switch (value) {
+                                default:
+                                    window.location.href = 'admin.php';
+                            }
+                        });
                     setTimeout(() => {
                         window.location.href = 'admin.php';
-                     }, 3200);
+                    }, 3200);
                 }
-                if(tipo === '1'){
-                    swal({        
+                if (tipo === '1') {
+                    swal({
                         content: "",
-                        text: '¡Bienvenido a Pagos ' +nombre + '!',
+                        text: '¡Bienvenido a Pagos ' + nombre + '!',
                         icon: "success",
                         buttons: {
                             defeat: "¡Continuar!",
-                          },
+                        },
                     })
-                    .then((value) => {
-                        switch (value) {
-                          default:
-                            window.location.href = 'adminpagos.php';
-                        }
-                      });
+                        .then((value) => {
+                            switch (value) {
+                                default:
+                                    window.location.href = 'adminpagos.php';
+                            }
+                        });
                     setTimeout(() => {
                         window.location.href = 'adminpagos.php';
-                     }, 3200);
+                    }, 3200);
                 }
-                if(tipo === '2'){
-                    swal({        
+                if (tipo === '2') {
+                    swal({
                         content: "",
-                        text: '¡Bienvenido a Ponente: ' +nombre + '!',
+                        text: '¡Bienvenido a Ponente: ' + nombre + '!',
                         icon: "success",
                         buttons: {
                             defeat: "¡Continuar!",
-                          },
+                        },
                     })
-                    .then((value) => {
-                        switch (value) {
-                          default:
-                            window.location.href = 'ponentes.php';
-                        }
-                      });
+                        .then((value) => {
+                            switch (value) {
+                                default:
+                                    window.location.href = 'ponentes.php';
+                            }
+                        });
                     setTimeout(() => {
                         window.location.href = 'ponentes.php';
-                     }, 3200);
+                    }, 3200);
                 }
             }
         }
@@ -754,13 +759,13 @@ function leerRegistro(e) {
     let termino = "@gmail.com";
     // para buscar la palabra hacemos
     let posicion = cadena.indexOf(termino);
-    if (posicion !== -1){
+    if (posicion !== -1) {
         console.log("La palabra está en la posición " + posicion);
         $('#correo').css({
             'background': '#ffffff'
         });
     }
-    else{
+    else {
         $('#correo').css({
             'background': 'yellow'
         });
@@ -772,7 +777,8 @@ function leerRegistro(e) {
                 text: "Continuar",
                 closeModal: true,
             },
-        });}
+        });
+    }
     if (mail === '') {
         $('#correo').css({
             'background': 'red'
@@ -803,7 +809,7 @@ function leerRegistro(e) {
         });
     } else {
 
-        $('#user').css({'background': '#ffffff'});
+        $('#user').css({ 'background': '#ffffff' });
     }
     if (number === '') {
         $('#number').css({
@@ -820,7 +826,7 @@ function leerRegistro(e) {
         });
     } else {
 
-        $('#number').css({'background': '#ffffff'});
+        $('#number').css({ 'background': '#ffffff' });
     }
     if (apellido === '') {
         $('#apellido').css({
@@ -837,7 +843,7 @@ function leerRegistro(e) {
         });
     } else {
 
-        $('#apellido').css({'background': '#ffffff'});
+        $('#apellido').css({ 'background': '#ffffff' });
     }
 
     if (posicion !== -1) {
@@ -859,7 +865,7 @@ function leerRegistro(e) {
 function insertarDB(dato) {
     // llamado de ajax
     // crear objeto
-    
+
     const xhr = new XMLHttpRequest();
     // abrir conexion
     xhr.open('POST', 'includes/modelos/jsonregistro.php', true);
@@ -868,7 +874,7 @@ function insertarDB(dato) {
         if (this.status === 200) {
             const respuesta = JSON.parse(xhr.responseText);
             console.log(respuesta);
-            if(respuesta.estado === 'correoexiste'){
+            if (respuesta.estado === 'correoexiste') {
                 swal({
                     content: "",
                     text: 'El correo que Ingresaste, ¡Ya está en uso! Por favor, Intenta con otro correo.',
@@ -879,25 +885,25 @@ function insertarDB(dato) {
                     },
                 });
             }
-            if(respuesta.estado === 'disponible'){
-                
-                swal({        
+            if (respuesta.estado === 'disponible') {
+
+                swal({
                     content: "",
                     text: '¡Registro Exitoso!',
                     icon: "success",
                     buttons: {
                         defeat: "¡Continuar!",
-                      },
+                    },
                 })
-                .then((value) => {
-                    switch (value) {
-                      default:
-                        window.location.href = 'logout.php';
-                    }
-                  });
+                    .then((value) => {
+                        switch (value) {
+                            default:
+                                window.location.href = 'logout.php';
+                        }
+                    });
                 setTimeout(() => {
                     window.location.href = 'logout.php';
-                 }, 3200);
+                }, 3200);
             }
         }
     }
@@ -937,13 +943,13 @@ $(function () {
     var suma = sitioAltura;
     var scrollbefore = 0;
     var scrollafter = 0;
-        scroling();
-    function scroling(){
+    scroling();
+    function scroling() {
         var scroll = $(window).scrollTop();
         var scrollLeft = $(window).scrollLeft();
         var scrollTop = $(window).scrollTop();
-        console.log("Vertical "+scrollTop);
-        console.log("Horizontal "+scrollLeft);
+        console.log("Vertical " + scrollTop);
+        console.log("Horizontal " + scrollLeft);
         if (scroll - (header + barraAltura) > scrollbefore) {
 
             scrollbefore = scroll - (header + barraAltura);
@@ -1043,7 +1049,7 @@ $(function () {
             }
 
         }
-       
+
     });
 
     //menu reponsive
@@ -1052,7 +1058,7 @@ $(function () {
         $('.navegacion-principal').slideToggle();
 
     });
-    
+
     //programa de conferencias
     $('.programa-evento .info-curso:first').show();
     $('.menu-programa a:first').addClass('activo');
@@ -1093,7 +1099,7 @@ $(function () {
 
 
 
-    $('.cuenta-regresiva').countdown('2022/01/08 17:00:00', function (event) {
+    $('.cuenta-regresiva').countdown('2022/10/23 17:00:00', function (event) {
         $('#dias').html(event.strftime('%D'));
         $('#horas').html(event.strftime('%H'));
         $('#minutos').html(event.strftime('%M'));
@@ -1252,15 +1258,158 @@ window.addEventListener("orientationchange", function () {
 
 // Haz cosas con los datos de orientación nuevoss
 function validaNumericos(event) {
-    if(event.charCode >= 48 && event.charCode <= 57){
-      return true;
-     }
-     return false;        
+    if (event.charCode >= 48 && event.charCode <= 57) {
+        return true;
+    }
+    return false;
 }
-var input=  document.getElementById('number');
-input.addEventListener('input',function(){
-  if (this.value.length > 12) 
-     this.value = this.value.slice(0,12); 
-})
+// var input=  document.getElementById('number');
+// input.addEventListener('input',function(){
+//   if (this.value.length > 12) 
+//      this.value = this.value.slice(0,12); 
+// })
 
-   
+var logox = "";
+var selector = "";
+for (let a = 1; a <= 4; a++) {
+    selector = ".now-container .logo .contenedor-logo .forma:nth-child(" + a + ") .logoproto";
+    if (a == 1) {
+        logox = "url(https://sociedadintelectualdelaguacatemexicano.com/img/logo.png"
+    }
+    if (a == 2) {
+
+        logox = "url(https://sociedadintelectualdelaguacatemexicano.com/img/logo.png"
+    }
+    if (a == 3) {
+        logox = "url(https://sociedadintelectualdelaguacatemexicano.com/img/LOGOFACULT2.png"
+    }
+    if (a == 4) {
+        logox = "url(https://sociedadintelectualdelaguacatemexicano.com/img/LOGOFACULT1.png";
+    }
+
+    $(selector).css({
+        "background-image": logox,
+        "background-size": "contain",
+        "background-position": "center",
+        "background-repeat": "no-repeat"
+    }
+    );
+
+}
+var contador = 0;
+var oper = 0;
+var grados = "";
+var mostrando = 1;
+$('.evento-now').click(function () {
+    contador++;
+    
+        rotacionespart1(contador);
+        rotacionespart2(contador);
+    
+});
+var idleTime = 0;
+var idleInterval = setInterval(timerIncrement, 5000); // 1 minute
+
+//Zero the idle timer on mouse movement.
+$(this).mousemove(function (e) {
+    idleTime = 0;
+
+});
+$(this).keypress(function (e) {
+    idleTime = 0;
+
+});
+function timerIncrement() {
+    idleTime = idleTime + 1;
+    if (idleTime > 1) { // 20 minutes
+        if(mostrando == 1){
+        contador++;
+       
+            rotacionespart1(contador);
+            rotacionespart2(contador);
+        }
+    }
+}
+function rotacionespart1(contador) {
+    oper = (90 * contador);
+    grados = "rotate(" + oper + "deg)";
+    console.log(contador, grados);
+    document.getElementById("forma-medl").style.transform = grados;
+    document.getElementById("forma-medl").style.transitionDuration = "2.2s";
+    document.getElementById("forma-medl").style.transitionTimingFunction = "ease-in-out";
+
+};
+function rotacionespart2(contador) {
+    oper = (-360 * contador);
+    grados = "rotate(" + oper + "deg)";
+    console.log(contador, grados);
+    document.getElementById("circulo-presentacion").style.transform = grados;
+    document.getElementById("circulo-presentacion").style.transitionDuration = "2.2s";
+    document.getElementById("circulo-presentacion").style.transitionTimingFunction = "ease-in-out";
+
+};
+
+// Las imagenes tiene que ser inyectadas con jquery o javascript desde la base de datos
+
+var perfilponente = "";
+var selectorponente1 = "";
+
+for (let a = 1; a <= 2; a++) {
+    selectorponente1 = ".circulo-presentacion .elem:nth-child(" + a + ") .forma-elem";
+    if(a==1){
+        logox = "url(https://sociedadintelectualdelaguacatemexicano.com/img/heladiofotoperfil.jpg"
+    }
+    if(a==2){
+        logox = "url(https://sociedadintelectualdelaguacatemexicano.com/img/Feb02.png"
+    }
+    
+
+    $(selectorponente1).css({
+        "background-image": logox,
+        "background-size": "contain",
+        "background-position": "center",
+        "background-repeat": "no-repeat"
+    }
+    );
+}
+
+var cuenta = 0;
+var idTimer = 0;
+var log = "";
+empezarContador();
+function empezarContador() {
+    //Compruebo si está soportada la API de visibilidad
+    if (typeof (document.hidden) != undefined) {
+        //defino un manejador para el evento visibilitychange
+        document.addEventListener("visibilitychange", cambiaVisibilidad, false);
+        //Comenzamos a contar
+        tick();
+    }
+    else
+        document.getElementById("contador").textContent = "¡¡Este navegador no soporta la API de visibilidad!!";
+}
+
+function cambiaVisibilidad() {
+    if (document.hidden) {
+        clearTimeout(idTimer);
+        log += "Se ha OCULTADO a las: " + new Date().toLocaleTimeString() + "<br/>";
+        mostrando = 0;
+    }
+    else {
+        log += "Se ha MOSTRADO a las: " + new Date().toLocaleTimeString() + "<br/>";
+        mostrando = 1;
+        tick();
+
+    }
+    console.log( log);
+}
+
+function tick() {
+    cuenta++;
+   console.log(cuenta);
+    if (!document.hidden)
+        idTimer = setTimeout(tick, 1000);
+}
+
+
+

@@ -1,27 +1,5 @@
 <footer class="site-footer">
-    <div class="contenedor clearfix">
-      <div class="footer-informacion">
-        <h3>Sobre <span>Sociedad Intelectual del Aguacate Mexicano</span></h3>
-        <p>Reunimos a los expertos, para así brindar su conocimiento y experiencia en el cuidado y mejora de la salud del árbol de aguacate.</p>
-      </div>
-      <div class="ultimos-tweets">
-        <h3>Últimos <span>Tweets</span></h3>
-        <ul>
-          <li>.</li>
-          <li>.</li>
-          <li>.</li>
-        </ul>
-      </div>
-      <div class="menu">
-        <h3>Redes <span>Sociales</span></h3>
-        <nav class="redes-sociales">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-          </nav>
-      </div>
-    </div>
+    
    
     <p class="copyright">Todos los derechos Reservados Sociedad Intelectual del Aguacate Mexicano SIAM A.C. &copy;</p>
   </body> 
