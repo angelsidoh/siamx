@@ -40,7 +40,7 @@
         <div class="contenedor-text">
           <div class="texto">
             <h1><span>2° Congreso</span>
-              Méxicano del Aguacate</h1>
+              Mexicano del Aguacate</h1>
             <h5>TE INVITAN</h5>
             <p>SOCIEDAD INTELECTUAL DEL AGUACATE MEXICANO (SIAM) A.C. Y
               LA FACULTAD DE AGROBIOLOGÍA “PRESIDENTE JUÁREZ” U.M.S.N.H.
@@ -50,7 +50,18 @@
       </div>
       <div class="iconos"></div>
       <div class="imagenes"></div>
-      <div class="desing">
+      <div class="desing" id ="actuador4">
+        <div class="lateral" id="actuador">
+          <div class="contenedor-lateral">
+            <div class="elementlat"><img src="img/reshot-icon-meeting-presentation-V42B53MFNJ.png" alt="insertar SVG con la etiqueta image">
+          <p>FISIOLOGÍA Y GENÉTICA</p></div>
+          
+           
+           
+           
+          </div>
+        
+        </div>
         <div class="circulo-presentacion" id="circulo-presentacion">
           <div class="presentacion-contain">
             <div class="elem">
@@ -59,10 +70,38 @@
             <div class="elem">
               <div class="forma-elem" id="inicioperfilponente2"></div>
             </div>
-            
+            <div class="elem">
+              
+                <div class="text-elem" id = "actuador2">
+                  <h3 id="nombre-ponente"></h3>
+                  <p id="titulo-ponente"></p>
+                  
+                  
+                 
+                </div>
+              
+              
+            </div>
+           
           </div>
         </div>
+       
+        <div class="lateral" id="actuador1">
+          <div class="contenedor-lateral">
+
+          <!-- <div class="elementlat"><i class="far fa-calendar-alt"></i>
+          <p>Lunes 24 de Octubre del 2022</p></div> -->
+            <div class="elementlat">
+            <i class="fas fa-university"></i>
+            <p>FACULTAD DE AGROBIOLOGÍA "PRESIDENTE JUÁREZ" U.M.S.N.H</p>
+            </div>
+            
+           
+          </div>
+        
+        </div> 
       </div>
+
     </div>
 
   </div>

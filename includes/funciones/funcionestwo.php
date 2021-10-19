@@ -1,5 +1,17 @@
 <?php
-
+function vistasusuarios(){  
+    try{
+        require('basedatos/bdsqli.php');
+            
+            
+            return $connf->query("SELECT id_invitados, nombre_invitado, apellido_invitado, email_invitado, tel_invitado, tipo_invitado,  foto_invitado, descripcion_invitado, especialidad_invitado  FROM invitados");
+            
+    }catch(Exception $e){
+        echo "Error!!" . $e->getMessage() . "<br>";
+        return false;
+    }
+    
+}
 function obtenerContacto($id){
     include 'basedatos/bdsqli.php';
     try{
@@ -46,6 +58,3 @@ function obtenerPrograma(){
         return false;
     }
 }
-?>
-
-

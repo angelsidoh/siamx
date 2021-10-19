@@ -1248,6 +1248,7 @@ window.addEventListener("orientationchange", function () {
 window.addEventListener("orientationchange", function () {
     if (window.orientation == 90 || window.orientation == -90) {
         console.log('landscape mode');
+        location.reload();
     } else {
         console.log('portrait mode');
         location.reload();
@@ -1268,6 +1269,50 @@ function validaNumericos(event) {
 //   if (this.value.length > 12) 
 //      this.value = this.value.slice(0,12); 
 // })
+
+var pathname = window.location.pathname;
+
+
+if (pathname == '/index.php') {
+    var panel = document.getElementById("programa-evento");
+    panel = ((panel.clientHeight / 2) - 10) + "px";
+    console.log(panel);
+    $('.right').css({
+        "top": panel
+
+    }
+    );
+    $('.left').css({
+        "top": panel
+
+    }
+    );
+}
+
+var resultado = "";
+
+// Las imagenes tiene que ser inyectadas con jquery o javascript desde la base de datos
+const url = 'reposiciondedatos.php';
+const http = new XMLHttpRequest();
+
+
+http.open("POST", url, false, 'html');
+http.onreadystatechange = function () {
+
+    if (this.readyState == 4 && this.status == 200) {
+        resultado = JSON.parse(this.responseText);
+
+
+
+
+    }
+}
+http.send();
+var count_Res = Object.keys(resultado).length;
+
+
+
+
 
 var logox = "";
 var selector = "";
@@ -1301,15 +1346,58 @@ var oper = 0;
 var grados = "";
 var mostrando = 1;
 $('.evento-now').click(function () {
+
     contador++;
-    
-        rotacionespart1(contador);
-        rotacionespart2(contador);
-    
+
+    if (contador >= count_Res) {
+        contador = 0;
+        document.getElementById("actuador4").style.opacity = 0;
+        document.getElementById("actuador4").style.transitionDuration = "0.5s";
+        document.getElementById("actuador4").style.transitionTimingFunction = "ease-in-out";
+    }
+
+    rotacionespart1(contador);
+    rotacionespart2(contador);
+
+
 });
 var idleTime = 0;
 var idleInterval = setInterval(timerIncrement, 5000); // 1 minute
+document.getElementById('nombre-ponente').innerHTML = resultado["factor" + 0].nombre + " " + resultado["factor" + 0].apellidos;
+document.getElementById('titulo-ponente').innerHTML = resultado["factor" + 0].especialidad;
+let a = document.createElement("a");
+a.setAttribute("href", resultado["factor"+0].foto);
+let aTexto = document.createTextNode("Ver");
+a.appendChild(aTexto);
+document.getElementById('actuador2').appendChild(a);
+$('#actuador2 a').addClass('button');
 
+for (let a = 1; a <= 2; a++) {
+    selectorponente1 = ".circulo-presentacion .elem:nth-child(" + a + ") .forma-elem";
+    if (a == 1) {
+        logox = "url(" + resultado["factor" + 0].foto + ")";
+    }
+    if (a == 2) {
+        logox = "url(https://sociedadintelectualdelaguacatemexicano.com/img/Feb02.png"
+    }
+
+
+    // for (let z = 0; z < count_Res; z++) {
+
+    //     console.log(count_Res);
+    //     console.log(resultado["factor"+z].nombre, z);
+    //     document.getElementById('nombre-ponente').innerHTML = resultado["factor"+z].nombre;
+    // }
+
+    // document.getElementById('nombre-ponente').innerHTML = 'Heladio Santacruz Ulibarri';
+    $(selectorponente1).css({
+        "background-image": logox,
+        "background-size": "contain",
+        "background-position": "center",
+        "background-repeat": "no-repeat"
+    }
+    );
+}
 //Zero the idle timer on mouse movement.
 $(this).mousemove(function (e) {
     idleTime = 0;
@@ -1320,59 +1408,151 @@ $(this).keypress(function (e) {
 
 });
 function timerIncrement() {
+
     idleTime = idleTime + 1;
     if (idleTime > 1) { // 20 minutes
-        if(mostrando == 1){
-        contador++;
-       
+        if (mostrando == 1) {
+
+            contador++;
+            if (contador >= count_Res) {
+                contador = 0;
+                document.getElementById("actuador4").style.opacity = 0;
+                document.getElementById("actuador4").style.transitionDuration = "0.5s";
+                document.getElementById("actuador4").style.transitionTimingFunction = "ease-in-out";
+            }
+            // console.log(contador);
+
             rotacionespart1(contador);
             rotacionespart2(contador);
+
+
         }
     }
 }
 function rotacionespart1(contador) {
     oper = (90 * contador);
     grados = "rotate(" + oper + "deg)";
-    console.log(contador, grados);
+
     document.getElementById("forma-medl").style.transform = grados;
     document.getElementById("forma-medl").style.transitionDuration = "2.2s";
     document.getElementById("forma-medl").style.transitionTimingFunction = "ease-in-out";
 
 };
 function rotacionespart2(contador) {
+
     oper = (-360 * contador);
     grados = "rotate(" + oper + "deg)";
-    console.log(contador, grados);
+
+
+
+
+
     document.getElementById("circulo-presentacion").style.transform = grados;
     document.getElementById("circulo-presentacion").style.transitionDuration = "2.2s";
     document.getElementById("circulo-presentacion").style.transitionTimingFunction = "ease-in-out";
+    document.getElementById("actuador").style.opacity = 0;
+    document.getElementById("actuador").style.transitionDuration = "1.1s";
+    document.getElementById("actuador").style.transitionTimingFunction = "ease-in-out";
+    document.getElementById("actuador1").style.opacity = 0;
+    document.getElementById("actuador1").style.transitionDuration = "1.1s";
+    document.getElementById("actuador1").style.transitionTimingFunction = "ease-in-out";
+    document.getElementById("actuador2").style.opacity = 0;
+    document.getElementById("actuador2").style.transitionDuration = "1.1s";
+    document.getElementById("actuador2").style.transitionTimingFunction = "ease-in-out";
+    
+
+
+
+
 
 };
+$("#circulo-presentacion").on('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd',
+    function () {
+        document.getElementById('nombre-ponente').innerHTML = resultado["factor" + contador].nombre + " " + resultado["factor" + contador].apellidos;
+        document.getElementById('titulo-ponente').innerHTML = resultado["factor" + contador].especialidad;
+      
+a.setAttribute("href", resultado["factor"+contador].foto);
 
-// Las imagenes tiene que ser inyectadas con jquery o javascript desde la base de datos
+        for (let a = 1; a <= 2; a++) {
+            selectorponente1 = ".circulo-presentacion .elem:nth-child(" + a + ") .forma-elem";
+            if (a == 1) {
+                logox = "url(" + resultado["factor" + contador].foto + ")";
+            }
+            if (a == 2) {
+                logox = "url(https://sociedadintelectualdelaguacatemexicano.com/img/Feb02.png"
+            }
+
+
+            // for (let z = 0; z < count_Res; z++) {
+
+            //     console.log(count_Res);
+            //     console.log(resultado["factor"+z].nombre, z);
+            //     document.getElementById('nombre-ponente').innerHTML = resultado["factor"+z].nombre;
+            // }
+
+            // document.getElementById('nombre-ponente').innerHTML = 'Heladio Santacruz Ulibarri';
+            $(selectorponente1).css({
+                "background-image": logox,
+                "background-size": "contain",
+                "background-position": "center",
+                "background-repeat": "no-repeat"
+            }
+            );
+        }
+        console.log()
+        document.getElementById("actuador").style.opacity = 1;
+        document.getElementById("actuador").style.transitionDuration = "1.1s";
+        document.getElementById("actuador").style.transitionTimingFunction = "ease-in-out";
+        document.getElementById("actuador1").style.opacity = 1;
+        document.getElementById("actuador1").style.transitionDuration = "1.1s";
+        document.getElementById("actuador1").style.transitionTimingFunction = "ease-in-out";
+        document.getElementById("actuador2").style.opacity = 1;
+        document.getElementById("actuador2").style.transitionDuration = "1.1s";
+        document.getElementById("actuador2").style.transitionTimingFunction = "ease-in-out";
+        document.getElementById("actuador4").style.opacity = 1;
+        document.getElementById("actuador4").style.transitionDuration = "0.5s";
+        document.getElementById("actuador4").style.transitionTimingFunction = "ease-out";
+    });
+
+
+
+
 
 var perfilponente = "";
 var selectorponente1 = "";
 
-for (let a = 1; a <= 2; a++) {
-    selectorponente1 = ".circulo-presentacion .elem:nth-child(" + a + ") .forma-elem";
-    if(a==1){
-        logox = "url(https://sociedadintelectualdelaguacatemexicano.com/img/heladiofotoperfil.jpg"
-    }
-    if(a==2){
-        logox = "url(https://sociedadintelectualdelaguacatemexicano.com/img/Feb02.png"
-    }
-    
 
-    $(selectorponente1).css({
-        "background-image": logox,
-        "background-size": "contain",
-        "background-position": "center",
-        "background-repeat": "no-repeat"
-    }
-    );
+
+// var resultadosfactores = "";
+// function consultaponentes(){
+//     $.ajax({
+//         url: 'reposiciondedatos.php',
+//         type: 'POST',
+//         async:false,
+//         success: function (vector) {
+//             var vectorx = JSON.parse(vector);
+
+//             // console.log(vectorx["factor0"].name);
+//             resultadosfactores = vectorx;
+
+//         },
+//         error: function () {
+//             console.error("No es posible completar la operación");
+//         }
+
+//     });
+//     return resultadosfactores;
+// }
+// var resultadoconsulta = consultaponentes();
+// console.log(resultadoconsulta);
+
+
+function unicodeToChar(text) {
+    return text.replace(/\\u[\dA-F]{4}/gi,
+        function (match) {
+            return String.fromCharCode(parseInt(match.replace(/\\u/g, ''), 16));
+        });
 }
-
 var cuenta = 0;
 var idTimer = 0;
 var log = "";
@@ -1401,12 +1581,12 @@ function cambiaVisibilidad() {
         tick();
 
     }
-    console.log( log);
+    console.log(log);
 }
 
 function tick() {
     cuenta++;
-   console.log(cuenta);
+
     if (!document.hidden)
         idTimer = setTimeout(tick, 1000);
 }

@@ -52,6 +52,7 @@
   <?php require_once('includes/funciones/funcionestwo.php');
   $resultadoPrograma = obtenerPrograma();
   $contadorids = 0;
+
   if ($resultadoPrograma->num_rows) {
     foreach ($resultadoPrograma as $programa) {
       date_default_timezone_set('GMT');
@@ -85,7 +86,7 @@
   } ?>
   <div class="contenido-programa">
     <div class="contenedorppp">
-
+      <div class="elemtos-programa">
       <ul class="slider">
         <?php
         for ($f = 1; $f <= $contadorids; $f++) {
@@ -102,11 +103,10 @@
         }
         for ($x = $contadorlis; $x <= $contadorids; $x++) {
 
-
         ?>
           <li>
 
-            <div class="programa-evento">
+            <div class="programa-evento" id="programa-evento">
               <h1>Programa</h1>
               <nav class="menu-programa">
                 <?php
@@ -119,10 +119,8 @@
                     // echo $contadorlis;
                     $contadorlis++;
 
-
                     if ($diasdxxx[$i] == 9999) {
                       $auxcontadorlis = $auxcontadorlis - 1;
-
 
                       // echo '->xx'.$diasdxxx[$i].'xx<-';
                     }
@@ -134,14 +132,12 @@
                                                                                                                               }
                                                                                                                             }
 
-
                                                                                                                                 ?>
 
               </nav>
               <?php
 
               for ($i = $x; $i <= $contadorids; $i++) {
-
 
                 if ($minimo == $dias[$i]) {
                   // echo '->'.$minimo.'<-' . $dias[$i];
@@ -163,7 +159,8 @@
                                         $diamuestra[$i] = $diasr[date("w", $fechaextra[$i])];
                                         $diamuestra2[$i] = date("d", $fechaextra[$i]);
                                         $mes[$i] = $mesesr[date("n", $fechaextra[$i]) - 1];
-                                        echo $diamuestra[$i] . ', ' . $diamuestra2[$i] . ' ' . $mes[$i] . ' del ' . $anio[$i] . '<br>' . $horaI[$i] . ' - ' . $horaF[$i] . '<br> Por: ' . $ponente[$i]; ?></h3>
+                                        echo "Próximamente";
+                                        // echo $diamuestra[$i] . ', ' . $diamuestra2[$i] . ' ' . $mes[$i] . ' del ' . $anio[$i] . '<br>' . $horaI[$i] . ' - ' . $horaF[$i] . '<br> Por: ' . $ponente[$i]; ?></h3>
                         </p>
                       </div>
                       <?php
@@ -175,24 +172,30 @@
               } ?>
 
 
-
             </div>
           </li>
         <?php
 
         } ?>
 
-
       </ul>
-      <ol class="paginacion">
 
-      </ol>
+      </div>
+      <div class="elemtos-programa"><ol class="paginacion">
+
+</ol>
+</div>
+      <div class="elemtos-programa">
       <div class="right">
         <span><i class="fas fa-angle-right"></i></span>
       </div>
       <div class="left">
         <span><i class="fas fa-angle-left"></i></span>
       </div>
+
+      </div>
+    
+      
 
     </div>
     <!--.contenedor-->
