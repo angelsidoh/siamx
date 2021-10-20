@@ -11,7 +11,12 @@ if($contactos->num_rows){
             'tipo' =>  $contacto['tipo_invitado'],
             'foto' =>  $contacto['foto_invitado'],
             'descripcion' =>  $contacto['descripcion_invitado'],
-            'especialidad' =>  $contacto['especialidad_invitado']
+            'especialidad' =>  $contacto['especialidad_invitado'],
+            'fecha' =>  $contacto['fecha_invitado'],
+            'hora' =>  $contacto['hora_invitado'],
+            'tema' =>  $contacto['tema_invitado'],
+            'subtema' =>  $contacto['subtema_invitado'],
+            'lugar'=> $contacto['lugar_invitado']
             
         );
         $vector["factor".$contador] = $invitado;

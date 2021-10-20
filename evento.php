@@ -54,7 +54,7 @@
         <div class="lateral" id="actuador">
           <div class="contenedor-lateral">
             <div class="elementlat"><img src="img/reshot-icon-meeting-presentation-V42B53MFNJ.png" alt="insertar SVG con la etiqueta image">
-          <p>FISIOLOGÍA Y GENÉTICA</p></div>
+          <p id = "tema-ponente">FISIOLOGÍA Y GENÉTICA</p></div>
           
            
            
@@ -93,7 +93,7 @@
           <p>Lunes 24 de Octubre del 2022</p></div> -->
             <div class="elementlat">
             <i class="fas fa-university"></i>
-            <p>FACULTAD DE AGROBIOLOGÍA "PRESIDENTE JUÁREZ" U.M.S.N.H</p>
+            <p id="lugar-ponente"></p>
             </div>
             
            

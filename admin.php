@@ -16,7 +16,7 @@ if(!isset($_SESSION['usuario']) || $_SESSION['tipo'] != '99'){
 <section class="global">
     <div class="contenedor">
     
-<div class="contendor-tabla">
+<div style="display: none;" class="contendor-tabla">
             <table id="listado-contacto" class="listado-contacto">
                 <thead>
                     <tr>
@@ -133,6 +133,10 @@ if(!isset($_SESSION['usuario']) || $_SESSION['tipo'] != '99'){
                                                                                                             } ?>
         </div>
       </div>
+      <div class="contenedor">
+          <?php require 'agregarmiembroshe.php';?>
+      </div>
                     <?php  }
+                    
 require_once('includes/templates/footer.php');
 ?>

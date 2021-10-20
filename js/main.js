@@ -721,7 +721,390 @@ function consultaBD(dato) {
     // enviar datos
     xhr.send(dato);
 }
+$("#filesx").change(function () {
+    var file = up("filesx").files[0];
+    // console.log(file);
+    $('.progrss').removeClass('hidden');
+    var formdata = new FormData();
+    formdata.append("filesx", file);
+    var ajax = new XMLHttpRequest();
+    ajax.upload.addEventListener("progress", progressHandler, false);
+    ajax.addEventListener("load", completeHandler, false);
+    ajax.addEventListener("error", errorHandler, false);
+    ajax.addEventListener("abort", abortHandler, false);
+    ajax.open("POST", "includes/modelos/upload0.php");
+    ajax.onload = function () {
+        if (this.status === 200) {
+            // //console.log(JSON.parse(ajax.responseText));
+            const respuesta = JSON.parse(ajax.responseText);
+            // //console.log('->->' + respuesta.estado);
+            if (respuesta.estado === 'uploadsuccess') {
+                $('#urlfoto').val(respuesta.url);
+                $('.progrss').addClass('hidden');
+                swal({
+                    content: "",
+                    text: 'Foto cargada',
+                    icon: "success",
+                    button: {
+                        text: "Continuar",
+                        closeModal: true,
+                    },
+                })
+            }
+            if (respuesta.estado === 'fotoformatoerror') {
+                swal({
+                    content: "",
+                    text: 'El archivo seleccionado no es una foto. ¡Por favor selecciona otro archivo e intentalo de nuevo!',
+                    icon: "info",
+                    button: {
+                        text: "Continuar",
+                        closeModal: true,
+                    },
+                })
+            }
 
+
+        }
+    }
+    ajax.send(formdata);
+});
+function _(el) {
+    return document.getElementById(el);
+}
+function progressHandler(event) {
+    _("loaded_n_total").innerHTML = "¡Subiendo Foto!";
+    var percent = (event.loaded / event.total) * 100;
+    _("progressBar").value = Math.round(percent);
+    _("status").innerHTML = Math.round(percent) + "%¡Espera!";
+}
+function completeHandler(event) {
+    _("status").innerHTML = event.target.responseText;
+    _("progressBar").value = 0;
+}
+function errorHandler(event) {
+    _("status").innerHTML = "Upload Failed";
+}
+function abortHandler(event) {
+    _("status").innerHTML = "Upload Aborted";
+}
+const formUp_PonenteUser = document.querySelector('#up-invitados');
+if ($("#up-invitados").length) {
+    eventListeners3();
+
+    function eventListeners3() {
+        formUp_PonenteUser.addEventListener('submit', leerUpPonente);
+    }
+}
+function leerUpPonente(e) {
+
+    e.preventDefault();
+    const nombre = document.querySelector('#nombre').value;
+    const apellido = document.querySelector('#apellido').value;
+    const profesion = document.querySelector('#profesion').value;
+    const fecha = document.querySelector('#fecha').value;
+    const hora = document.querySelector('#hora').value;
+    const descripcion = document.querySelector('#descripcion').value;
+    const tema = document.querySelector('#tema').value;
+    const subtema = document.querySelector('#subtema').value;
+    const lugar = document.querySelector('#lugar').value;
+    const number = document.querySelector('#number').value;
+    const mail = document.querySelector('#correo').value;
+    const file = document.querySelector('#filesx').value;
+    const urlfoto = document.querySelector('#urlfoto').value;
+    const accion = document.querySelector('#btnform').value;
+    if (nombre === '') {
+        $('#nombre').css({
+            'background': 'red'
+        });
+        swal({
+            content: "",
+            text: 'Hay campos vacíos.',
+            icon: "error",
+            button: {
+                text: "Continuar",
+                closeModal: true,
+            },
+        });
+    } else {
+
+        $('#nombre').css({ 'background': '#ffffff' });
+    }
+    if (apellido === '') {
+        $('#apellido').css({
+            'background': 'red'
+        });
+        swal({
+            content: "",
+            text: 'Hay campos vacíos.',
+            icon: "error",
+            button: {
+                text: "Continuar",
+                closeModal: true,
+            },
+        });
+    } else {
+
+        $('#apellido').css({ 'background': '#ffffff' });
+    }
+    if (profesion === '') {
+        $('#profesion').css({
+            'background': 'red'
+        });
+        swal({
+            content: "",
+            text: 'Hay campos vacíos.',
+            icon: "error",
+            button: {
+                text: "Continuar",
+                closeModal: true,
+            },
+        });
+    } else {
+
+        $('#profesion').css({ 'background': '#ffffff' });
+    }
+    if (fecha === '') {
+        $('#fecha').css({
+            'background': 'red'
+        });
+        swal({
+            content: "",
+            text: 'Hay campos vacíos.',
+            icon: "error",
+            button: {
+                text: "Continuar",
+                closeModal: true,
+            },
+        });
+    } else {
+
+        $('#fecha').css({ 'background': '#ffffff' });
+    }
+    if (hora === '') {
+        $('#hora').css({
+            'background': 'red'
+        });
+        swal({
+            content: "",
+            text: 'Hay campos vacíos.',
+            icon: "error",
+            button: {
+                text: "Continuar",
+                closeModal: true,
+            },
+        });
+    } else {
+
+        $('#hora').css({ 'background': '#ffffff' });
+    }
+    if (descripcion === '') {
+        $('#descripcion').css({
+            'background': 'red'
+        });
+        swal({
+            content: "",
+            text: 'Hay campos vacíos.',
+            icon: "error",
+            button: {
+                text: "Continuar",
+                closeModal: true,
+            },
+        });
+    } else {
+
+        $('#descripcion').css({ 'background': '#ffffff' });
+    }
+    // número de teléfono
+    if (number === '') {
+        $('#number').css({
+            'background': 'red'
+        });
+        swal({
+            content: "",
+            text: 'Hay campos vacíos.',
+            icon: "error",
+            button: {
+                text: "Continuar",
+                closeModal: true,
+            },
+        });
+    } else {
+
+        $('#number').css({ 'background': '#ffffff' });
+    }
+    if (mail === '') {
+        $('#correo').css({
+            'background': 'red'
+        });
+        swal({
+            content: "",
+            text: 'Hay campos vacíos.',
+            icon: "error",
+            button: {
+                text: "Continuar",
+                closeModal: true,
+            },
+        });
+    } else {
+
+        $('#correo').css({ 'background': '#ffffff' });
+    }
+    if (file === '') {
+        $('#filesx').css({
+            'background': 'red'
+        });
+        swal({
+            content: "",
+            text: 'Hay campos vacíos.',
+            icon: "error",
+            button: {
+                text: "Continuar",
+                closeModal: true,
+            },
+        });
+    } else {
+
+        $('#filesx').css({ 'background': '#ffffff' });
+    }
+    if (urlfoto === '') {
+        $('#urlfoto').css({
+            'background': 'red'
+        });
+        swal({
+            content: "",
+            text: 'Hay campos vacíos.',
+            icon: "error",
+            button: {
+                text: "Continuar",
+                closeModal: true,
+            },
+        });
+    }
+    if (tema === '') {
+        $('#tema').css({
+            'background': 'red'
+        });
+        swal({
+            content: "",
+            text: 'Hay campos vacíos.',
+            icon: "error",
+            button: {
+                text: "Continuar",
+                closeModal: true,
+            },
+        });
+    } else {
+
+        $('#tema').css({ 'background': '#ffffff' });
+    }
+    if (subtema === '') {
+        $('#subtema').css({
+            'background': 'red'
+        });
+        swal({
+            content: "",
+            text: 'Hay campos vacíos.',
+            icon: "error",
+            button: {
+                text: "Continuar",
+                closeModal: true,
+            },
+        });
+    } else {
+
+        $('#subtema').css({ 'background': '#ffffff' });
+    }
+    if (lugar === '') {
+        $('#lugar').css({
+            'background': 'red'
+        });
+        swal({
+            content: "",
+            text: 'Hay campos vacíos.',
+            icon: "error",
+            button: {
+                text: "Continuar",
+                closeModal: true,
+            },
+        });
+    } else {
+
+        $('#lugar').css({ 'background': '#ffffff' });
+    }
+    if (accion == "Up SiamGrup") {
+        const infoinvitados = new FormData();
+        infoinvitados.append('nombre', nombre);
+        infoinvitados.append('apellido', apellido);
+        infoinvitados.append('tel', number);
+        infoinvitados.append('profesion', profesion);
+        infoinvitados.append('descripcion', descripcion);
+        infoinvitados.append('fecha', fecha);
+        infoinvitados.append('hora', hora);
+        infoinvitados.append('correo', mail);
+        infoinvitados.append('urlfoto', urlfoto);
+        infoinvitados.append('tema', tema);
+        infoinvitados.append('subtema', subtema);
+        infoinvitados.append('lugar', lugar);
+        infoinvitados.append('accion', accion);
+        console.log(urlfoto);
+        if (file != '' && nombre != '' && apellido != '' && number != '' && profesion != '' && descripcion != '' && fecha != '' && hora != '' && mail != '' && urlfoto != '' && tema != '' && subtema != '' && lugar != '') {
+            insertarInvitadosDB(infoinvitados);
+        }
+
+
+    }
+
+}
+function insertarInvitadosDB(dato) {
+    // llamado de ajax
+    // crear objeto
+
+    const xhr = new XMLHttpRequest();
+    // abrir conexion
+    xhr.open('POST', 'includes/modelos/invitados2congreso.php', true);
+    // pasar datos
+    xhr.onload = function () {
+        if (this.status === 200) {
+            const respuesta = JSON.parse(xhr.responseText);
+            console.log(respuesta);
+            if (respuesta.estado === 'correo existe') {
+                swal({
+                    content: "",
+                    text: 'El correo que Ingresaste, ¡Ya está en uso! Por favor, Intenta con otro correo.',
+                    icon: "error",
+                    button: {
+                        text: "Continuar",
+                        closeModal: true,
+                    },
+                });
+            }
+            if (respuesta.estado === 'disponible') {
+
+                swal({
+                    content: "",
+                    text: '¡Registro Exitoso!',
+                    icon: "success",
+                    buttons: {
+                        defeat: "¡Continuar!",
+                    },
+                })
+                    .then((value) => {
+                        switch (value) {
+                            default:
+                                location.reload();
+                        }
+                    });
+                setTimeout(() => {
+                    location.reload();
+                }, 3200);
+            }
+
+
+        }
+    }
+    // enviar datos
+    xhr.send(dato);
+}
 const formRegistroUser = document.querySelector('#registro');
 if ($("#registro").length) {
     eventListeners1();
@@ -738,7 +1121,7 @@ function leerRegistro(e) {
     const number = document.querySelector('#number').value;
     const mail = document.querySelector('#correo').value;
     validarString(mail);
-    console.log(user, apellido, number, mail);
+    // console.log(user, apellido, number, mail);
     if (caracteresCorreoValido(mail) === false) {
         swal({
             content: "",
@@ -1365,8 +1748,10 @@ var idleTime = 0;
 var idleInterval = setInterval(timerIncrement, 5000); // 1 minute
 document.getElementById('nombre-ponente').innerHTML = resultado["factor" + 0].nombre + " " + resultado["factor" + 0].apellidos;
 document.getElementById('titulo-ponente').innerHTML = resultado["factor" + 0].especialidad;
+document.getElementById('tema-ponente').innerHTML = resultado["factor" + 0].tema;
+document.getElementById('lugar-ponente').innerHTML = resultado["factor" + 0].lugar;
 let a = document.createElement("a");
-a.setAttribute("href", resultado["factor"+0].foto);
+a.setAttribute("href", resultado["factor" + 0].foto);
 let aTexto = document.createTextNode("Ver");
 a.appendChild(aTexto);
 document.getElementById('actuador2').appendChild(a);
@@ -1459,7 +1844,7 @@ function rotacionespart2(contador) {
     document.getElementById("actuador2").style.opacity = 0;
     document.getElementById("actuador2").style.transitionDuration = "1.1s";
     document.getElementById("actuador2").style.transitionTimingFunction = "ease-in-out";
-    
+
 
 
 
@@ -1470,8 +1855,10 @@ $("#circulo-presentacion").on('transitionend webkitTransitionEnd oTransitionEnd 
     function () {
         document.getElementById('nombre-ponente').innerHTML = resultado["factor" + contador].nombre + " " + resultado["factor" + contador].apellidos;
         document.getElementById('titulo-ponente').innerHTML = resultado["factor" + contador].especialidad;
-      
-a.setAttribute("href", resultado["factor"+contador].foto);
+        document.getElementById('tema-ponente').innerHTML = resultado["factor" + contador].tema;
+        document.getElementById('lugar-ponente').innerHTML = resultado["factor" + contador].lugar;
+
+        a.setAttribute("href", resultado["factor" + contador].foto);
 
         for (let a = 1; a <= 2; a++) {
             selectorponente1 = ".circulo-presentacion .elem:nth-child(" + a + ") .forma-elem";
