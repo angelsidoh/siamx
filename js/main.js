@@ -5,6 +5,8 @@ $(document).ready(function () {
 
 
 
+
+
     var imgItems1 = $('.slider1 li').length;
     var imgPos1 = 1;
 
@@ -71,7 +73,18 @@ $(document).ready(function () {
 $(document).ready(function () {
 
 
+    
+    
 
+    // alert(mobile); #contendedor-programa > div.video
+    // alert("Mobile: " + detector.mobile());
+    // alert("Phone: " + detector.phone());
+    // alert("Tablet: " + detector.tablet());
+    // alert("OS: " + detector.os());
+    // alert("userAgent: " + detector.userAgent());
+    // if( mobile != "null" && detector.phone() != "null"&& detector.tablet() != "null"&& detector.os() != "null"&& detector.userAgent() != "null"){
+    //     alert('Windows');
+    // }
 
 
     var imgItems = $('.slider li').length;
@@ -97,24 +110,88 @@ $(document).ready(function () {
 
 
     var video = "myVideo" + imgPos;
-    var partprogra = "#programa-evento" + imgPos
-    var bttonvideo = "#reproducir" + imgPos;
-    console.log(video, bttonvideo);
-    var media = document.getElementById(video);
-    $(bttonvideo).click(function (e) {
-        $(partprogra).hide();
-        document.getElementById(video).play();
-    });
-
-
-    // Pause event
-    media.addEventListener("pause", function () {
-        $(partprogra).show();
-    });
     var v = document.getElementById(video);
     v.addEventListener("timeupdate", function (ev) {
         console.log(v.currentTime)
     }, true);
+    v.currentTime = 5;
+    var partprogra = "#programa-evento" + imgPos
+    var bttonvideo = "#reproducir" + imgPos;
+    console.log(video, bttonvideo);
+    var media = document.getElementById(video);
+    var bloqueodevideo = "#blocker"+imgPos;
+    // DETECTAR DISPOCITIVO
+    var detector = new MobileDetect(window.navigator.userAgent);
+    var mobile = detector.mobile();
+    var phone = detector.phone();
+    var tablet = detector.tablet();
+    var os = detector.os();
+    var userAgent = detector.userAgent();
+    
+    
+    if(mobile != null || phone != null || tablet != null || os != null){
+        $(bloqueodevideo).hide();
+    }else{
+        $(bloqueodevideo).show();
+    }
+  
+    $(bttonvideo).click(function (e) {
+        $(partprogra).hide();
+        getFullscreen(document.getElementById(elementx));
+        $(bloqueodevideo).show();
+        document.getElementById(video).play();
+        v.currentTime = 0;
+    });
+    // Pause event
+    media.addEventListener("pause", function () {
+        $(partprogra).show();
+        
+        exitFullscreen();
+        $(bloqueodevideo).hide();
+    });
+
+
+    // full screen
+    var elementx = video;
+
+    document.addEventListener("fullscreenchange", cambioPantalla, true);
+    document.addEventListener("webkitfullscreenchange", cambioPantalla, true);
+    document.addEventListener("mozfullscreenchange", cambioPantalla, true);
+    document.addEventListener("MSFullscreenchange", cambioPantalla, true);
+    function cambioPantalla(event) {
+        var fullscreenElement = document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement;
+        var condicionfullscreen = 'element:' + fullscreenElement;
+        var condiciontrue_fullscreen = "element:null"
+        if (condiciontrue_fullscreen == condicionfullscreen) {
+            console.log('Salio de pantalla completa');
+            v.currentTime = 5;
+            $(partprogra).show();
+            document.getElementById(video).pause();
+            $(bloqueodevideo).hide();
+        }
+
+    }
+
+    function getFullscreen(element) {
+        if (element.requestFullscreen) {
+            element.requestFullscreen();
+        } else if (element.mozRequestFullScreen) {
+            element.mozRequestFullScreen();
+        } else if (element.webkitRequestFullscreen) {
+            element.webkitRequestFullscreen();
+        } else if (element.msRequestFullscreen) {
+            element.msRequestFullscreen();
+        }
+    }
+    function exitFullscreen() {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        }
+    }
 
     function paginacion() {
         var paginacionPos = $(this).index();
@@ -135,30 +212,66 @@ $(document).ready(function () {
         } else {
             imgPos++;
         }
-        var pausex = imgPos-1;
+        var pausex = imgPos - 1;
+        if (imgPos == 1) {
+            pausex = imgItems;
+        }
         var videopause = "myVideo" + pausex;;
         document.getElementById(videopause).pause();
         var video = "myVideo" + imgPos;
-        var partprogra = "#programa-evento" + imgPos
-        var bttonvideo = "#reproducir" + imgPos;
-        console.log(video, bttonvideo);
-        var media = document.getElementById(video);
-        $(bttonvideo).click(function (e) {
-            $(partprogra).hide();
-            document.getElementById(video).play();
-        });
-    
-    
-        // Pause event
-        media.addEventListener("pause", function () {
-            $(partprogra).show();
-        });
         var v = document.getElementById(video);
         v.addEventListener("timeupdate", function (ev) {
             console.log(v.currentTime);
-           
+
         }, true);
-        console.log(imgPos);
+        var partprogra = "#programa-evento" + imgPos
+        var bttonvideo = "#reproducir" + imgPos;
+        // console.log(video, bttonvideo, videopause, imgPos, pausex, imgItems);
+        var media = document.getElementById(video);
+        var bloqueodevideo = "#blocker"+imgPos;
+        if(mobile != null || phone != null || tablet != null || os != null){
+            $(bloqueodevideo).hide();
+        }else{
+            $(bloqueodevideo).show();
+        }
+        console.log(bloqueodevideo);
+        $(bttonvideo).click(function (e) {
+            $(partprogra).hide();
+            document.getElementById(video).play();
+            $(bloqueodevideo).show();
+            getFullscreen(document.getElementById(elementx));
+            v.currentTime = 0;
+        });
+
+
+        // Pause event
+        media.addEventListener("pause", function () {
+            $(partprogra).show();
+            exitFullscreen();
+            $(bloqueodevideo).hide();
+        });
+
+        // full screen
+        var elementx = video;
+
+        document.addEventListener("fullscreenchange", cambioPantalla, true);
+        document.addEventListener("webkitfullscreenchange", cambioPantalla, true);
+        document.addEventListener("mozfullscreenchange", cambioPantalla, true);
+        document.addEventListener("MSFullscreenchange", cambioPantalla, true);
+        function cambioPantalla(event) {
+            var fullscreenElement = document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement;
+            var condicionfullscreen = 'element:' + fullscreenElement;
+            var condiciontrue_fullscreen = "element:null"
+            if (condiciontrue_fullscreen == condicionfullscreen) {
+                console.log('Salio de pantalla completa');
+                v.currentTime = 5;
+                $(partprogra).show();
+                document.getElementById(video).pause();
+                $(bloqueodevideo).hide();
+            }
+
+        }
+       
         $('.slider li').hide();
         $('.slider li:nth-child(' + imgPos + ')').fadeIn();
 
@@ -172,28 +285,64 @@ $(document).ready(function () {
         } else {
             imgPos--;
         }
-        var pausex = imgPos+1;
+
+        var pausex = imgPos + 1;
+        if (imgPos == imgItems) {
+            pausex = 1;
+        }
         var videopause = "myVideo" + pausex;;
         document.getElementById(videopause).pause();
         var video = "myVideo" + imgPos;
-        var partprogra = "#programa-evento" + imgPos
-        var bttonvideo = "#reproducir" + imgPos;
-        console.log(video, bttonvideo);
-        var media = document.getElementById(video);
-        $(bttonvideo).click(function (e) {
-            $(partprogra).hide();
-            document.getElementById(video).play();
-        });
-    
-    
-        // Pause event
-        media.addEventListener("pause", function () {
-            $(partprogra).show();
-        });
         var v = document.getElementById(video);
         v.addEventListener("timeupdate", function (ev) {
             console.log(v.currentTime)
         }, true);
+        var partprogra = "#programa-evento" + imgPos
+        var bttonvideo = "#reproducir" + imgPos;
+        console.log(video, bttonvideo);
+        var media = document.getElementById(video);
+        var bloqueodevideo = "#blocker"+imgPos;
+        if(mobile != null || phone != null || tablet != null || os != null){
+            $(bloqueodevideo).hide();
+        }else{
+            $(bloqueodevideo).show();
+        }
+        $(bttonvideo).click(function (e) {
+            $(partprogra).hide();
+            document.getElementById(video).play();
+            $(bloqueodevideo).show();
+            getFullscreen(document.getElementById(elementx));
+            v.currentTime = 0;
+        });
+
+
+        // Pause event
+        media.addEventListener("pause", function () {
+            $(partprogra).show();
+            exitFullscreen();
+            $(bloqueodevideo).hide();
+        });
+
+        // full screen
+        var elementx = video;
+
+        document.addEventListener("fullscreenchange", cambioPantalla, true);
+        document.addEventListener("webkitfullscreenchange", cambioPantalla, true);
+        document.addEventListener("mozfullscreenchange", cambioPantalla, true);
+        document.addEventListener("MSFullscreenchange", cambioPantalla, true);
+        function cambioPantalla(event) {
+            var fullscreenElement = document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement;
+            var condicionfullscreen = 'element:' + fullscreenElement;
+            var condiciontrue_fullscreen = "element:null"
+            if (condiciontrue_fullscreen == condicionfullscreen) {
+                console.log('Salio de pantalla completa');
+                v.currentTime = 5;
+                $(partprogra).show();
+                document.getElementById(video).pause();
+                $(bloqueodevideo).hide();
+            }
+
+        }
         console.log(imgPos);
         $('.slider li').hide();
         $('.slider li:nth-child(' + imgPos + ')').fadeIn();
@@ -1759,11 +1908,11 @@ window.addEventListener("orientationchange", function () {
     if (window.orientation == 90 || window.orientation == -90) {
 
         // alert('landscape mode ');
-        location.reload();
+        // location.reload();
 
     } else {
         // alert('portrait mode');
-        location.reload();
+        // location.reload();
 
 
     }

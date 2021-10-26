@@ -27,7 +27,7 @@ if (isset($_SESSION['correo'])) {
           <h2>Público General</h2><br>
 
           <p class="numero">$2,800 MXN</p>
-          <p style="font-size: 14px; color:#fe4918;">Si requiere factura, pregunte contactando al <br> Teléfono: 452 114 66 96 <br> Correo:santacruzulibarry58@hotmail.com <br> Con el M.C. HELADIO SANTACRUZ ULIBARRI </p>
+          <p>Si requiere factura, pregunte contactando al <br> Teléfono: 452 114 66 96 <br> Correo: santacruzulibarry58@hotmail.com <br> Con el M.C. HELADIO SANTACRUZ ULIBARRI </p>
           <ul>
             <li>Acceso al contenido de aprendizaje del diplomado</li>
             <li>Acceso a la sala de reunión en Meet</li>
@@ -44,7 +44,8 @@ if (isset($_SESSION['correo'])) {
           <h2>Estudiantes</h2><br>
 
           <p class="numero">$1,400 MXN</p>
-          <p style="font-size: 14px; color:#fe4918;">Si requiere factura, pregunte contactando al <br> Teléfono: 452 114 66 96 <br> Correo:santacruzulibarry58@hotmail.com <br> Con el M.C. HELADIO SANTACRUZ ULIBARRI </p>
+          <p>Si requiere factura, pregunte contactando al <br> Teléfono: 452 114 66 96 <br> Correo: santacruzulibarry58@hotmail.com <br> Con el M.C. HELADIO SANTACRUZ ULIBARRI </p>
+          
           <ul>
             <li>Acceso al contenido de aprendizaje del diplomado</li>
             <li>Acceso a la sala de reunión en Meet</li>
@@ -174,14 +175,15 @@ if (isset($_SESSION['correo'])) {
             // echo '--x'.$contadorlis;
 
           }
-          for ($x = $contadorlis; $x <= $contadorids; $x++) {
+          for ($x = $contadorlis; $x <= 3; $x++) {
+          // for ($x = $contadorlis; $x <= $contadorids; $x++) {
 
           ?>
             <li>
 
               <div id="contendedor-programa" class="contendedor-programa">
 
-                <div class="video">
+                <div id= "blocker<?php echo $x;?>" class="video">
                   <video id="myVideo<?php echo $x;?>" preload="auto" draggable="true">
                     <source src="<?php echo "video/edit" . $x . ".mp4"; ?>" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
 
