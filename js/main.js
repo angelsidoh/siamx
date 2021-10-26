@@ -70,6 +70,10 @@ $(document).ready(function () {
 });
 $(document).ready(function () {
 
+
+
+
+
     var imgItems = $('.slider li').length;
     var imgPos = 1;
 
@@ -80,7 +84,7 @@ $(document).ready(function () {
 
     $('.slider li').hide();
     $('.slider li:first').show();
-    $('.paginacion li:first').css({ 'text-shadow': '0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #fe4918, 0 0 30px #fe4918, 0 0 40px #fe4918, 0 0 55px #fe4918, 0 0 75px #fe4918' });
+    $('.paginacion li:first').css({ 'text-shadow': '0 0 5px #FFF, 0 0 10px #FFF, 0 0 200px #FFF, 0 0 20px #fe4918, 0 0 30px #fe4918, 0 0 40px #fe4918, 0 0 55px #fe4918, 0 0 300px #fe4918' });
 
     $('.paginacion li').click(paginacion);
     $('.right span').click(nextSlider);
@@ -88,7 +92,29 @@ $(document).ready(function () {
 
     // setInterval(function(){
     // nextSlider();
-    // }, 3500);
+    // }, 20000);
+
+
+
+    var video = "myVideo" + imgPos;
+    var partprogra = "#programa-evento" + imgPos
+    var bttonvideo = "#reproducir" + imgPos;
+    console.log(video, bttonvideo);
+    var media = document.getElementById(video);
+    $(bttonvideo).click(function (e) {
+        $(partprogra).hide();
+        document.getElementById(video).play();
+    });
+
+
+    // Pause event
+    media.addEventListener("pause", function () {
+        $(partprogra).show();
+    });
+    var v = document.getElementById(video);
+    v.addEventListener("timeupdate", function (ev) {
+        console.log(v.currentTime)
+    }, true);
 
     function paginacion() {
         var paginacionPos = $(this).index();
@@ -109,7 +135,29 @@ $(document).ready(function () {
         } else {
             imgPos++;
         }
-
+        var pausex = imgPos-1;
+        var videopause = "myVideo" + pausex;;
+        document.getElementById(videopause).pause();
+        var video = "myVideo" + imgPos;
+        var partprogra = "#programa-evento" + imgPos
+        var bttonvideo = "#reproducir" + imgPos;
+        console.log(video, bttonvideo);
+        var media = document.getElementById(video);
+        $(bttonvideo).click(function (e) {
+            $(partprogra).hide();
+            document.getElementById(video).play();
+        });
+    
+    
+        // Pause event
+        media.addEventListener("pause", function () {
+            $(partprogra).show();
+        });
+        var v = document.getElementById(video);
+        v.addEventListener("timeupdate", function (ev) {
+            console.log(v.currentTime);
+           
+        }, true);
         console.log(imgPos);
         $('.slider li').hide();
         $('.slider li:nth-child(' + imgPos + ')').fadeIn();
@@ -124,6 +172,28 @@ $(document).ready(function () {
         } else {
             imgPos--;
         }
+        var pausex = imgPos+1;
+        var videopause = "myVideo" + pausex;;
+        document.getElementById(videopause).pause();
+        var video = "myVideo" + imgPos;
+        var partprogra = "#programa-evento" + imgPos
+        var bttonvideo = "#reproducir" + imgPos;
+        console.log(video, bttonvideo);
+        var media = document.getElementById(video);
+        $(bttonvideo).click(function (e) {
+            $(partprogra).hide();
+            document.getElementById(video).play();
+        });
+    
+    
+        // Pause event
+        media.addEventListener("pause", function () {
+            $(partprogra).show();
+        });
+        var v = document.getElementById(video);
+        v.addEventListener("timeupdate", function (ev) {
+            console.log(v.currentTime)
+        }, true);
         console.log(imgPos);
         $('.slider li').hide();
         $('.slider li:nth-child(' + imgPos + ')').fadeIn();
@@ -468,7 +538,7 @@ let termino = "index-php";
 // para buscar la palabra hacemos
 let posicion = cadena.indexOf(termino);
 if (posicion !== -1) {
-    console.log("La palabra está en la posición " + posicion);
+    // console.log("La palabra está en la posición " + posicion);
 
 } else {
 
@@ -1331,8 +1401,8 @@ $(function () {
         var scroll = $(window).scrollTop();
         var scrollLeft = $(window).scrollLeft();
         var scrollTop = $(window).scrollTop();
-        console.log("Vertical " + scrollTop);
-        console.log("Horizontal " + scrollLeft);
+        // console.log("Vertical " + scrollTop);
+        // console.log("Horizontal " + scrollLeft);
         if (scroll - (header + barraAltura) > scrollbefore) {
 
             scrollbefore = scroll - (header + barraAltura);
@@ -1384,6 +1454,8 @@ $(function () {
         var scroll = $(window).scrollTop();
         var scrollLeft = $(window).scrollLeft();
         var scrollTop = $(window).scrollTop();
+
+
         // console.log("Vertical "+scrollTop);
         // console.log("Horizontal "+scrollLeft);
         if (scroll - (header + barraAltura) > scrollbefore) {
@@ -1495,25 +1567,77 @@ $(function () {
     //     width: "100%"
     // });
 });
-$('#btonmaps').addClass('btonmaps');
+$('.mapa').css({
+
+    "z-index": '2'
+
+}
+);
+$('.mapsss').css({
+    "z-index": '3'
+
+
+}
+);
 $('#btonmaps').css({
-    'display': 'none'
-});
+
+    "z-index": '1'
+
+}
+);
+
 $("#mapps").click(function () {
+    var rect = document.getElementById("btonmaps").getBoundingClientRect();
 
-    $('#mapps').removeClass('mapsss');
-    $('#btonmaps').removeClass('btonmaps');
+    var topbtn = "calc(100% - " + rect.height + "px)";
+    var leftbtn = "calc(50% - " + (rect.width / 2) + "px)";
 
+    $('.mapa').css({
+
+        "z-index": '2'
+
+    }
+    );
+    $('.mapsss').css({
+        "z-index": '1'
+
+
+    }
+    );
     $('#btonmaps').css({
-        'display': 'inline'
-    });
+
+        "z-index": '3'
+
+    }
+    );
+    $('.contenedorbtn #btonmaps').css({
+
+        "top": topbtn,
+        "left": leftbtn
+
+
+    }
+    );
 });
 $("#btonmaps").click(function () {
-    $('#mapps').addClass('mapsss');
-    $('#btonmaps').addClass('btonmaps');
+    $('.mapa').css({
+
+        "z-index": '2'
+
+    }
+    );
+    $('.mapsss').css({
+        "z-index": '3'
+
+
+    }
+    );
     $('#btonmaps').css({
-        'display': 'none'
-    });
+
+        "z-index": '1'
+
+    }
+    );
 });
 $("#logo_barra").click(function () {
     window.location.href = 'index.php';
@@ -1628,16 +1752,36 @@ window.addEventListener("orientationchange", function () {
     console.log("the orientation of the device is now " + screen.orientation.angle);
 });
 
+
+
+// posfooter(difespecificaciones0_2top+especificaciones2.height);
 window.addEventListener("orientationchange", function () {
     if (window.orientation == 90 || window.orientation == -90) {
-        console.log('landscape mode');
+
+        // alert('landscape mode ');
         location.reload();
+
     } else {
-        console.log('portrait mode');
+        // alert('portrait mode');
         location.reload();
+
+
     }
 });
-
+// function posfooter(dato) {
+//   alert(dato);
+//     var selectorposfooter = '.site-footer'
+//     $(selectorposfooter).css({
+//         "width":" 100%",
+//   "height":" auto",
+//   "background-color":" #353535",
+//   "margin":" 0 auto",
+//   "position":" absolute",
+//   "top":dato,
+//   "left":"0"
+//     }
+//     );
+// }
 
 
 // Haz cosas con los datos de orientación nuevoss
@@ -1656,20 +1800,33 @@ function validaNumericos(event) {
 var pathname = window.location.pathname;
 
 
-if (pathname == '/index.php') {
-    var panel = document.getElementById("programa-evento");
+
+if (pathname != '/index.php' || pathname != '/') {
+
+    $('.hero').css({
+        "display": 'none'
+
+    });
+    var panel = document.getElementById("contendedor-programa");
     panel = ((panel.clientHeight / 2) - 10) + "px";
     console.log(panel);
     $('.right').css({
-        "top": panel
+        "top": "0px"
 
     }
     );
     $('.left').css({
-        "top": panel
+        "top": "0px"
 
     }
     );
+}
+if (pathname == '/index.php' || pathname == '/') {
+    $('.hero').css({
+        "display": 'block'
+
+    });
+
 }
 
 var resultado = "";
@@ -1751,11 +1908,28 @@ document.getElementById('titulo-ponente').innerHTML = resultado["factor" + 0].es
 document.getElementById('tema-ponente').innerHTML = resultado["factor" + 0].tema;
 document.getElementById('lugar-ponente').innerHTML = resultado["factor" + 0].lugar;
 let a = document.createElement("a");
-a.setAttribute("href", resultado["factor" + 0].foto);
+var urlponentereview = "https://sociedadintelectualdelaguacatemexicano.com/reviewponente.php?identi=" + resultado["factor" + 0].email;
+a.setAttribute("href", urlponentereview
+    , 'target', '_blank');
+a.setAttribute("id", "link-ponente");
 let aTexto = document.createTextNode("Ver");
 a.appendChild(aTexto);
 document.getElementById('actuador2').appendChild(a);
+
+let bux = document.getElementById("link-ponente");
+bux.onmouseover = muestraAlerta;
+function muestraAlerta(evento) {
+    newTab();
+}
+function newTab() {
+    var els = document.getElementById('link-ponente');
+    els.setAttribute('target', '_blank');
+}
+
 $('#actuador2 a').addClass('button');
+var cssfotoreview = "url(" + resultado["factor" + 0].foto + ")";
+
+
 
 for (let a = 1; a <= 2; a++) {
     selectorponente1 = ".circulo-presentacion .elem:nth-child(" + a + ") .forma-elem";
@@ -1857,8 +2031,8 @@ $("#circulo-presentacion").on('transitionend webkitTransitionEnd oTransitionEnd 
         document.getElementById('titulo-ponente').innerHTML = resultado["factor" + contador].especialidad;
         document.getElementById('tema-ponente').innerHTML = resultado["factor" + contador].tema;
         document.getElementById('lugar-ponente').innerHTML = resultado["factor" + contador].lugar;
-
-        a.setAttribute("href", resultado["factor" + contador].foto);
+        urlponentereview = "https://sociedadintelectualdelaguacatemexicano.com/reviewponente.php?identi=" + resultado["factor" + contador].email;
+        a.setAttribute("href", urlponentereview);
 
         for (let a = 1; a <= 2; a++) {
             selectorponente1 = ".circulo-presentacion .elem:nth-child(" + a + ") .forma-elem";
@@ -1977,6 +2151,9 @@ function tick() {
     if (!document.hidden)
         idTimer = setTimeout(tick, 1000);
 }
+
+
+
 
 
 

@@ -1,208 +1,11 @@
 <?php include_once 'includes/templates/header.php' ?>
 <section class="seccion contenedor">
-  <h2>Sociedad Intelectual del Aguacate Mexicano A.C</h2>
+  <h2 id="sobrenosotros">Sociedad Intelectual del Aguacate Mexicano A.C</h2>
   <p> Es un organismo que conjunta a Ingenieros, Técnicos y Profesionistas que estudian el cultivo del aguacate en la República Mexicana; Y permiten dar a conocer las novedades técnicas científicas a toda la comunidad del presente frutal. Busca en todo momento fortalecer los principios básicos para mejorar la producción, fito-sanidad, inocuidad y de las buenas prácticas del cultivo. De no contaminación al medio ambiente por el uso de agro-insumos para el combate de plagas y enfermedades. Busca realizar un congreso mexicano del Aguacate cada dos años. Así como diplomados, cursos de actualización y la difusión de novedades científicas nacionales y mundiales del Aguacate.
   </p>
 </section>
 <!--Seccion-->
-<div class="contador parallax">
-  <div class="contenedor">
 
-    <ul id="infodiplomado" class="resumen-evento clearfix">
-      <li>
-        <h3 class="evento_r">Diplomado para Profesionalización Del cultivo del Aguacate
-          <br>
-          <p style="color:red; font-size :24px;">IMPARTIDO EN LINEA</p>
-        </h3>
-      </li>
-      <li>
-        <p class="numero"></p>Modulos de Aprendizaje
-      </li>
-      <li>
-        <p class="numero"></p>Conferencias
-      </li>
-      <li>
-        <p class="numero"></p>Horas
-      </li>
-      <li>
-        <p class="numero"></p>Examen de Conocimiento
-      </li>
-      <li>
-        <p class="numero"></p>Ponentes Invitados
-      </li>
-      <!-- <a href="#" class="button">Ver Detalles</a> -->
-    </ul>
-    <!--Resumen-Evento-->
-
-  </div>
-
-</div>
-<!--contenedorparallax-->
-
-
-<section class="programa">
-  <div class="contenedor-video">
-    <video autoplay muted loop poster="img/books-min.jpg">
-      <source id="center" src="video/AthensEdit2.mp4" type="video/mp4">
-
-
-    </video>
-  </div>
-  <!--contenedor-video-->
-  <?php require_once('includes/funciones/funcionestwo.php');
-  $resultadoPrograma = obtenerPrograma();
-  $contadorids = 0;
-
-  if ($resultadoPrograma->num_rows) {
-    foreach ($resultadoPrograma as $programa) {
-      date_default_timezone_set('GMT');
-      $hoy = date('Y-m-d H:m:s');
-      $restadia = $programa['fecha_programa'];
-      $dias1 = (strtotime($hoy) - strtotime($restadia)) / 86400;
-      $contadorids++;
-      $fechasbd[$contadorids] = $programa['dia_programa'];
-      $modulo[$contadorids] = $programa['modulo_programa'];
-      $fechasactual[$contadorids] = $hoy;
-      $diasx = $dias1 * -1;
-      $subtemas[$contadorids] = $programa['subtema_programa'];
-      $tema[$contadorids] = $programa['tema_programa'];
-      $dia[$contadorids] = $programa['dia_programa'];
-      $horaI[$contadorids] = $programa['hora_programa'];
-      $horaF[$contadorids] = $programa['finhora_programa'];
-      $ponente[$contadorids] = $programa['ponente_programa'];
-
-      $contadorlis = $contadorids + 1;
-      $auxcontadorlis = 1;
-      // echo '<br>'.$diasx;
-      $dias[$contadorids] = $diasx;
-      $diasdxxx = $dias;
-      $diasdyyy = $dias;
-      if ($diasx <= 0) {
-        $dias[$contadorids] = 9999;
-        // echo  '<br>'.$dias[$contadorids];
-        // echo 'hola';
-      }
-    }
-  } ?>
-  <div class="contenido-programa">
-    <div class="contenedorppp">
-      <div class="elemtos-programa">
-      <ul class="slider">
-        <?php
-        for ($f = 1; $f <= $contadorids; $f++) {
-          $diasdyyy[$f - 1] = 9999;
-          $minimo =  min($diasdyyy);
-          $contadorlis--;
-          if ($diasdyyy[$f] > $minimo) {
-            // echo '>'.$minimo.'<-'.$diasdyyy[$f];
-            $contadorlis = $contadorids + 1;
-          }
-          $minimof =  min($diasdyyy);
-          // echo '--x'.$contadorlis;
-
-        }
-        for ($x = $contadorlis; $x <= $contadorids; $x++) {
-
-        ?>
-          <li>
-
-            <div class="programa-evento" id="programa-evento">
-              <h1>Programa</h1>
-              <nav class="menu-programa">
-                <?php
-
-                $diasdxxx[$x - 1] = 9999;
-                $minimo =  min($diasdxxx);
-                // echo '->'.$minimo.'<-';
-                for ($i = $x; $i <= $contadorids; $i++) {
-                  if ($diasdxxx[$i] > $minimo) {
-                    // echo $contadorlis;
-                    $contadorlis++;
-
-                    if ($diasdxxx[$i] == 9999) {
-                      $auxcontadorlis = $auxcontadorlis - 1;
-
-                      // echo '->xx'.$diasdxxx[$i].'xx<-';
-                    }
-                  } else {
-                  }
-                  if ($minimo == $diasdxxx[$i]) {
-                ?><p style="font-size: 28px;"><i class="fas fa-user-graduate" aria-hidden="true"></i><?php echo $modulo[$i]; ?></p><?php
-                                                                                                                                // echo '->'. $fechasbd[$i] . '->'. $fechasactual[$i] . '->'. $dias[$i]. '<br>';
-                                                                                                                              }
-                                                                                                                            }
-
-                                                                                                                                ?>
-
-              </nav>
-              <?php
-
-              for ($i = $x; $i <= $contadorids; $i++) {
-
-                if ($minimo == $dias[$i]) {
-                  // echo '->'.$minimo.'<-' . $dias[$i];
-              ?>
-                  <div id="talleres" class="">
-                    <div class="detalle-evento">
-
-                      <h3><?php echo $tema[$i] . '.'; ?></h3>
-                      <p style="color: #FFFFFF;
-                        text-shadow: 3px 4px 3px #474747;
-                        color: #FFFFFF;
-                        "><?php echo $subtemas[$i] . '.' ?></p>
-                      <div class="contenedor_actividad">
-                        <p>Grupo A <br><?php
-                                        $diasr = array("Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado");
-                                        $mesesr = array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
-                                        $fechaextra[$i] = strtotime($fechasbd[$i]);
-                                        $anio[$i] = date("Y", $fechaextra[$i]);
-                                        $diamuestra[$i] = $diasr[date("w", $fechaextra[$i])];
-                                        $diamuestra2[$i] = date("d", $fechaextra[$i]);
-                                        $mes[$i] = $mesesr[date("n", $fechaextra[$i]) - 1];
-                                        echo "Próximamente";
-                                        // echo $diamuestra[$i] . ', ' . $diamuestra2[$i] . ' ' . $mes[$i] . ' del ' . $anio[$i] . '<br>' . $horaI[$i] . ' - ' . $horaF[$i] . '<br> Por: ' . $ponente[$i]; ?></h3>
-                        </p>
-                      </div>
-                      <?php
-                      ?>
-                    </div>
-                  </div>
-              <?php
-                }
-              } ?>
-
-
-            </div>
-          </li>
-        <?php
-
-        } ?>
-
-      </ul>
-
-      </div>
-      <div class="elemtos-programa"><ol class="paginacion">
-
-</ol>
-</div>
-      <div class="elemtos-programa">
-      <div class="right">
-        <span><i class="fas fa-angle-right"></i></span>
-      </div>
-      <div class="left">
-        <span><i class="fas fa-angle-left"></i></span>
-      </div>
-
-      </div>
-    
-      
-
-    </div>
-    <!--.contenedor-->
-  </div>
-  <!--.contenido-programa-->
-</section>
-<!--Programa-->
 
 <?php
 if (isset($_SESSION['correo'])) {
@@ -214,7 +17,8 @@ if (isset($_SESSION['correo'])) {
 
 ?>
 <section class="precios seccion">
-  <h2>Precios</h2>
+  <h2>Precios </h2>
+  <p>2° Congreso Mexicano del Aguacate</p>
   <div class="contenedor">
     <ul class="lista-precios clearfix">
       <li>
@@ -257,6 +61,7 @@ if (isset($_SESSION['correo'])) {
 
 <section class="seccion">
   <h2>Faltan</h2>
+  <p>Para que iniciar el 2° Congreso Mexicano del Aguacate</p>
   <div class="cuenta-regresiva contenedor">
     <ul class="clearfix">
       <li>
@@ -274,23 +79,268 @@ if (isset($_SESSION['correo'])) {
     </ul>
   </div>
 </section>
+<div class="contador parallax">
+  <div class="contenedor">
+
+    <ul id="infodiplomado" class="resumen-evento clearfix">
+      <li>
+        <h3 class="evento_r">Diplomado para Profesionalización Del cultivo del Aguacate
+          <br>
+          <p style="color:red; font-size :24px;">Contenido en USB</p>
+          <a href="#comprarusb" class="button" style="color:yellow;">¿Como comprar?</a>
+          <a href="#verusb" class="button">ver USB</a>
+        </h3>
+      </li>
+      <li>
+        <p class="numero"></p>Modulos de Aprendizaje
+      </li>
+      <li>
+        <p class="numero"></p>Conferencias
+      </li>
+      <li>
+        <p class="numero"></p>Horas
+      </li>
+      <li>
+        <p class="numero"></p>Examen de Conocimiento
+      </li>
+      <li>
+        <p class="numero"></p>Ponentes Invitados
+      </li>
+      <!-- <a href="#" class="button">Ver Detalles</a> -->
+    </ul>
+    <!--Resumen-Evento-->
+
+  </div>
+
+</div>
+<!--contenedorparallax-->
+
+
+<section id="verusb" class="programa">
+
+
+  <?php require_once('includes/funciones/funcionestwo.php');
+  $resultadoPrograma = obtenerPrograma();
+  $contadorids = 0;
+
+  if ($resultadoPrograma->num_rows) {
+    foreach ($resultadoPrograma as $programa) {
+      date_default_timezone_set('GMT');
+      $hoy = date('Y-m-d H:m:s');
+      $restadia = $programa['fecha_programa'];
+      $dias1 = (strtotime($hoy) - strtotime($restadia)) / 86400;
+      $contadorids++;
+      $fechasbd[$contadorids] = $programa['dia_programa'];
+      $modulo[$contadorids] = $programa['modulo_programa'];
+      $fechasactual[$contadorids] = $hoy;
+      $diasx = $dias1 * -1;
+      $subtemas[$contadorids] = $programa['subtema_programa'];
+      $tema[$contadorids] = $programa['tema_programa'];
+      $dia[$contadorids] = $programa['dia_programa'];
+      $horaI[$contadorids] = $programa['hora_programa'];
+      $horaF[$contadorids] = $programa['finhora_programa'];
+      $ponente[$contadorids] = $programa['ponente_programa'];
+
+      $contadorlis = $contadorids + 1;
+      $auxcontadorlis = 1;
+      // echo '<br>'.$diasx;
+      $dias[$contadorids] = $diasx;
+      $diasdxxx = $dias;
+      $diasdyyy = $dias;
+      if ($diasx <= 0) {
+        $dias[$contadorids] = 9999;
+        // echo  '<br>'.$dias[$contadorids];
+        // echo 'hola';
+      }
+    }
+  } ?>
+
+
+
+  <div class="contenido-programa">
+    <div class="contenedorppp">
+      <div class="elemtos-programa">
+        <ul class="slider">
+          <?php
+          for ($f = 1; $f <= $contadorids; $f++) {
+            $diasdyyy[$f - 1] = 9999;
+            $minimo =  min($diasdyyy);
+            $contadorlis--;
+            if ($diasdyyy[$f] > $minimo) {
+              // echo '>'.$minimo.'<-'.$diasdyyy[$f];
+              $contadorlis = $contadorids + 1;
+            }
+            $minimof =  min($diasdyyy);
+            // echo '--x'.$contadorlis;
+
+          }
+          for ($x = $contadorlis; $x <= $contadorids; $x++) {
+
+          ?>
+            <li>
+
+              <div id="contendedor-programa" class="contendedor-programa">
+
+                <div class="video">
+                  <video id="myVideo<?php echo $x;?>" preload="auto" draggable="true">
+                    <source src="<?php echo "video/edit" . $x . ".mp4"; ?>" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+
+                  </video>
+                </div>
+                <div class="programa-evento" id="programa-evento<?php echo $x;?>">
+
+                  <h1>Programa</h1>
+                  <h3 style="text-align: center;" class="evento_r">Diplomado para Profesionalización Del cultivo del Aguacate</h3>
+                  <div class="contenido-usb">
+                    <div class="imagen-usb"></div>
+                    <div class="textusb">
+                      <p>El curso se vende en Memoria USB</p>
+                      <p>Las carpetas contienen los siguientes modulos</p>
+                    </div>
+                  </div>
+
+                  <nav class="menu-programa">
+                    <?php
+
+                    $diasdxxx[$x - 1] = 9999;
+                    $minimo =  min($diasdxxx);
+                    // echo '->'.$minimo.'<-';
+                    for ($i = $x; $i <= $contadorids; $i++) {
+                      if ($diasdxxx[$i] > $minimo) {
+                        // echo $contadorlis;
+                        $contadorlis++;
+
+                        if ($diasdxxx[$i] == 9999) {
+                          $auxcontadorlis = $auxcontadorlis - 1;
+
+                          // echo '->xx'.$diasdxxx[$i].'xx<-';
+                        }
+                      } else {
+                      }
+                      if ($minimo == $diasdxxx[$i]) {
+                    ?>
+
+                        <p style="font-size: 28px;"><i class="fas fa-user-graduate" aria-hidden="true"></i><?php echo $modulo[$i]; ?></p><?php }
+                                                                                                                                      } ?>
+
+                  </nav>
+                  <?php
+
+                  for ($i = $x; $i <= $contadorids; $i++) {
+
+                    if ($minimo == $dias[$i]) {
+                      // echo '->'.$minimo.'<-' . $dias[$i];
+                  ?>
+                      <div class="caja-detalle">
+
+                        <div id="talleres" class="">
+                          <div class="detalle-evento">
+
+
+                            <h3><?php echo $tema[$i] . '.'; ?></h3>
+                            <BR></BR>
+                            <p><?php echo $subtemas[$i] . '.' ?></p>
+                            <br>
+                            <p><?php echo $ponente[$i] ?></p>
+                            <div class="botonesrepoductor">
+                              
+                            </div>
+                            <button id="reproducir<?php echo $x;?>" class="button">Reproducir</button>
+                            
+
+                            <div class="contenedor_actividad">
+                              <!-- <p>Grupo A  -->
+                              <br><?php
+                                  // $diasr = array("Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado");
+                                  // $mesesr = array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
+                                  // $fechaextra[$i] = strtotime($fechasbd[$i]);
+                                  // $anio[$i] = date("Y", $fechaextra[$i]);
+                                  // $diamuestra[$i] = $diasr[date("w", $fechaextra[$i])];
+                                  // $diamuestra2[$i] = date("d", $fechaextra[$i]);
+                                  // $mes[$i] = $mesesr[date("n", $fechaextra[$i]) - 1];
+                                  // echo "Próximamente";
+                                  // echo $diamuestra[$i] . ', ' . $diamuestra2[$i] . ' ' . $mes[$i] . ' del ' . $anio[$i] . '<br>' . $horaI[$i] . ' - ' . $horaF[$i] . '<br> Por: ' . $ponente[$i]; 
+                                  ?>
+                              </h3>
+                              </p>
+                            </div>
+
+
+
+                            <?php
+                            ?>
+
+
+
+                          </div>
+                        </div>
+                      </div>
+
+                  <?php
+                    }
+                  } ?>
+
+
+                </div>
+
+              </div>
+
+            </li>
+          <?php
+
+          } ?>
+
+        </ul>
+
+      </div>
+      <div class="elemtos-programa">
+        <ol class="paginacion">
+
+        </ol>
+      </div>
+      <div class="elemtos-programa">
+        <div id="right" class="right">
+          <div class="posx"> <span><i class="fas fa-angle-right"></i></span></div>
+
+        </div>
+        <div class="left">
+          <div class="posx"><span><i class="fas fa-angle-left"></i></span></div>
+        </div>
+
+      </div>
+
+
+
+    </div>
+    <!--.contenedor-->
+  </div>
+  <!--.contenido-programa-->
+</section>
+<!--Programa-->
 
 <!-- Add your site or application content here -->
+<div class="contenedor-mapa">
+  <div id="map" class="mapa">
 
-<div id="map" class="mapa">
 
-</div>
-<div id="mapps" class="mapsss">
-
-</div>
-<div class="contenedorbtn">
-  <div id="btonmaps" class="salirmapps">
-    <a href="#newsletter">Salir del Mapa</a>
   </div>
-</div>
+  <div id="mapps" class="mapsss">
+
+  </div>
+  <div class="contenedorbtn">
+    <div id="btonmaps" class="button">Cerrar</a>
+
+    </div>
+  </div>
 
 
 
 
 
-<?php include_once 'includes/templates/footer.php' ?>
+
+
+
+
+
+
+  <?php include_once 'includes/templates/footer.php' ?>

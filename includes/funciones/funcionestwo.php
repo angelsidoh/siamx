@@ -12,6 +12,19 @@ function vistasusuarios(){
     }
     
 }
+function reviewUsuarios($dato){  
+    try{
+        require('basedatos/bdsqli.php');
+            
+            
+            return $connf->query("SELECT id_invitados, nombre_invitado, apellido_invitado, email_invitado, tel_invitado, tipo_invitado,  foto_invitado, descripcion_invitado, especialidad_invitado, fecha_invitado, hora_invitado, tema_invitado,subtema_invitado, lugar_invitado  FROM invitados WHERE email_invitado = '$dato'");
+            
+    }catch(Exception $e){
+        echo "Error!!" . $e->getMessage() . "<br>";
+        return false;
+    }
+    
+}
 function obtenerContacto($id){
     include 'basedatos/bdsqli.php';
     try{
