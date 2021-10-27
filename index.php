@@ -45,7 +45,7 @@ if (isset($_SESSION['correo'])) {
 
           <p class="numero">$1,400 MXN</p>
           <p>Si requiere factura, pregunte contactando al <br> Teléfono: 452 114 66 96 <br> Correo: santacruzulibarry58@hotmail.com <br> Con el M.C. HELADIO SANTACRUZ ULIBARRI </p>
-          
+
           <ul>
             <li>Acceso al contenido de aprendizaje del diplomado</li>
             <li>Acceso a la sala de reunión en Meet</li>
@@ -80,11 +80,15 @@ if (isset($_SESSION['correo'])) {
     </ul>
   </div>
 </section>
+
 <div class="contador parallax">
+
   <div class="contenedor">
 
     <ul id="infodiplomado" class="resumen-evento clearfix">
+
       <li>
+
         <h3 class="evento_r">Diplomado para Profesionalización Del cultivo del Aguacate
           <br>
           <p style="color:red; font-size :24px;">Contenido en USB</p>
@@ -96,7 +100,7 @@ if (isset($_SESSION['correo'])) {
         <p class="numero"></p>Modulos de Aprendizaje
       </li>
       <li>
-        <p class="numero"></p>Conferencias
+        <p  class="numero"></p>Conferencias
       </li>
       <li>
         <p class="numero"></p>Horas
@@ -117,7 +121,7 @@ if (isset($_SESSION['correo'])) {
 <!--contenedorparallax-->
 
 
-<section id="verusb" class="programa">
+<section class="programa">
 
 
   <?php require_once('includes/funciones/funcionestwo.php');
@@ -156,9 +160,49 @@ if (isset($_SESSION['correo'])) {
     }
   } ?>
 
+  <div  id="comprarusb"  class="inbox_comocomprar">
+    <div class="presentacioncompra">
+      <div class="forma-compra"></div>
+      <div class="marcoimagen">
+        <div class="fotodel"></div>
+
+      </div>
+      <div class="forma-compra2"></div>
+    </div>
+    <div class="texto-compra">
+      <div class="nombrecontacto">
+        <p>Heldio Santacruz Ulibarri</p>
+        <p>Experto en Aguacate</p>
+        <p>¿Desea comprar este Diplomado? Comunicate al:</p>
+        
+      </div>
+      <div class="datoscontacto">
+        <div class="iconos">
+          <i class="fas fa-phone-square-alt"></i>
+
+          <i class="fas fa-envelope"></i>
+        </div>
+        <div class="datos">
+
+          <a href="tel:+524521146696">
+            <p>+52(452)114 6696</p>
+          </a>
+          <a href="mailto:santacruzulibarry58@hotmail.com">santacruzulibarry58@hotmail.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="iconos-inbox">
+      <a href="https://www.facebook.com/heladio.santacruz.1/"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+
+    </div>
 
 
-  <div class="contenido-programa">
+  </div>
+
+  <div   class="contenido-programa">
     <div class="contenedorppp">
       <div class="elemtos-programa">
         <ul class="slider">
@@ -176,27 +220,27 @@ if (isset($_SESSION['correo'])) {
 
           }
           for ($x = $contadorlis; $x <= 3; $x++) {
-          // for ($x = $contadorlis; $x <= $contadorids; $x++) {
+            // for ($x = $contadorlis; $x <= $contadorids; $x++) {
 
           ?>
             <li>
 
               <div id="contendedor-programa" class="contendedor-programa">
 
-                <div id= "blocker<?php echo $x;?>" class="video">
-                  <video id="myVideo<?php echo $x;?>" draggable="true">
+                <div id="blocker<?php echo $x; ?>" class="video">
+                  <video id="myVideo<?php echo $x; ?>" draggable="true">
                     <source src="<?php echo "video/edit" . $x . ".mp4"; ?>" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
 
                   </video>
                 </div>
-                <div class="programa-evento" id="programa-evento<?php echo $x;?>">
+                <div class="programa-evento" id="programa-evento<?php echo $x; ?>">
 
                   <h1>Programa</h1>
                   <h3 style="text-align: center;" class="evento_r">Diplomado para Profesionalización Del cultivo del Aguacate</h3>
                   <div class="contenido-usb">
                     <div class="imagen-usb"></div>
                     <div class="textusb">
-                      <p>El curso se vende en Memoria USB</p>
+                      <p  >El curso se vende en Memoria USB</p>
                       <p>Las carpetas contienen los siguientes modulos</p>
                     </div>
                   </div>
@@ -233,10 +277,10 @@ if (isset($_SESSION['correo'])) {
                     if ($minimo == $dias[$i]) {
                       // echo '->'.$minimo.'<-' . $dias[$i];
                   ?>
-                      <div class="caja-detalle">
+                      <div  class="caja-detalle">
 
                         <div id="talleres" class="">
-                          <div class="detalle-evento">
+                          <div  id="verusb" class="detalle-evento">
 
 
                             <h3><?php echo $tema[$i] . '.'; ?></h3>
@@ -244,11 +288,9 @@ if (isset($_SESSION['correo'])) {
                             <p><?php echo $subtemas[$i] . '.' ?></p>
                             <br>
                             <p><?php echo $ponente[$i] ?></p>
-                            <div class="botonesrepoductor">
-                              
-                            </div>
-                            <button id="reproducir<?php echo $x;?>" class="button">Ver</button>
                             
+                            <button id="reproducir<?php echo $x; ?>" class="button">Ver</button>
+
 
                             <div class="contenedor_actividad">
                               <!-- <p>Grupo A  -->

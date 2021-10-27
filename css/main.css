@@ -1379,7 +1379,6 @@ div.contenedor-video {
 .contendedor-programa {
   width: 100%;
   height: 1444px;
-  
 }
 
 .contendedor-programa .programa-evento {
@@ -1402,10 +1401,7 @@ div.contenedor-video {
     width: 100%;
     height: 1080px;
   }
-  
 }
-
-
 
 .video video {
   width: 1920px;
@@ -1654,6 +1650,190 @@ ul.resumen-evento li {
 
 .resumen-evento h3 {
   color: #ffffff;
+  font-size: 14px;
+}
+@media only screen and (min-width:350px) {
+  .resumen-evento h3 {
+    font-size: 24px;
+  }
+}
+.inbox_comocomprar {
+  width: 100%;
+  margin: 0 auto;
+  height: 800px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  background-color: #ffffff;
+  box-shadow: 18px 17px 36px 1px rgba(0,0,0,0.75);
+  margin-bottom: 50px;
+}
+.presentacioncompra{
+  width: 100%;
+  height: auto;
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+
+}
+.forma-compra{
+  max-width: 100px;
+  width: 33%;
+  height: 100%;
+  background-color: rgb(19, 19, 19);
+}
+.marcoimagen{
+  width: 140px;
+  height: 100%;
+  
+}
+.forma-compra2{
+  max-width: 80px;
+  width: 100%;
+  height: 50%;
+  background-color: #f5d108;
+}
+.marcoimagen .fotodel{
+  
+  
+  width: 100%;
+  height: 160px;
+ margin-top: 80px;
+  background-image: url(../img/heladiofotoperfil.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.texto-compra {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.nombrecontacto{
+  font-size: 24px;
+  font-weight: 100;
+  color: #000;
+  border-bottom: 3px solid #f5d108;;
+  padding: 10px 20px;
+}
+.nombrecontacto p:nth-child(1){
+  font-size: 35px;
+  font-weight: 900;
+}
+.datoscontacto {
+  max-width: 350px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+.datoscontacto  .iconos{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+ 
+}
+.datoscontacto  .iconos i{
+  font-size: 35px;
+  color: #f5d108;
+
+}
+.datoscontacto .datos a{
+  font-size: 12px;
+  text-decoration: none;
+  color: #000;
+}
+.datoscontacto .datos a:hover{
+  color: #fe4918;
+}
+.iconos-inbox{
+  
+  width: 100%;
+  height: 50px;
+  background-color: #6d6d6d;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  
+  
+
+}
+.iconos-inbox a{
+
+  width: 100%;
+  height: 50px;
+  text-align: center;
+margin-top: 10px;
+}
+.iconos-inbox i{
+  font-size: 24px;
+  color: #000000;
+  text-align: center;
+}
+.iconos-inbox i:hover{
+  color: #fe4918;
+}
+@media only screen and (min-width:350px) {
+  .datoscontacto .datos a{
+    font-size: 18px;
+  }
+}
+@media only screen and (min-width:768px) {
+  .datoscontacto .datos a{
+    font-size: 20px;
+  }
+  .datoscontacto {
+    width: 350px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+  
+  .iconos-inbox{
+    max-width: 100px;
+    width: 100%;
+    height: auto;
+    background-color: #6d6d6d;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+  
+  }
+  .inbox_comocomprar {
+    width: 95%;
+    height: 450px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    background-color: rgb(228, 228, 228);
+  }
+  .presentacioncompra{
+    width: 30%;
+    height: auto;
+  }
+  
+  .texto-compra {
+    width: 40%;
+    text-align: center;
+    justify-content: space-around;
+  }
+  .iconos-inbox{
+    width: 30%;
+    height: auto;
+  }
+}
+@media only screen and (min-width:1170px) {
+  .inbox_comocomprar {
+   
+    height: 350px;
+   
+  }
 }
 
 @media only screen and (min-width:768px) {
@@ -1696,7 +1876,6 @@ div.tabla-precios {
   padding: 40px;
   text-align: center;
   transition: all 350ms ease;
-  
 }
 
 div.tabla-precios:hover {
@@ -1737,11 +1916,10 @@ div.tabla-precios p.numero {
   font-weight: bold;
 }
 
-.tabla-precios p:nth-child(4){
+.tabla-precios p:nth-child(4) {
   font-size: 14px;
-  color:#fe4918;
+  color: #fe4918;
 }
-
 
 /*Mapa*/
 
