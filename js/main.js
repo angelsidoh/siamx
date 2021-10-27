@@ -117,6 +117,7 @@ $(document).ready(function () {
     v.currentTime = 5;
     var partprogra = "#programa-evento" + imgPos
     var bttonvideo = "#reproducir" + imgPos;
+    var bttonvideop = "#pause" + imgPos;
     console.log(video, bttonvideo);
     var media = document.getElementById(video);
     var bloqueodevideo = "#blocker"+imgPos;
@@ -136,14 +137,17 @@ $(document).ready(function () {
     }
   
     $(bttonvideo).click(function (e) {
+        v.currentTime = 0;
         $(partprogra).hide();
         getFullscreen(document.getElementById(elementx));
         $(bloqueodevideo).show();
+        
         document.getElementById(video).play();
-        v.currentTime = 0;
+        
     });
     // Pause event
-    media.addEventListener("pause", function () {
+    $(bttonvideop).click(function (e)  {
+        alert('pause');
         $(partprogra).show();
         
         exitFullscreen();
@@ -234,7 +238,7 @@ $(document).ready(function () {
         }else{
             $(bloqueodevideo).show();
         }
-        console.log(bloqueodevideo);
+        
         $(bttonvideo).click(function (e) {
             $(partprogra).hide();
             document.getElementById(video).play();

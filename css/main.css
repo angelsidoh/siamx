@@ -103,7 +103,10 @@ html {
 }
 
 body {
-  background-color: #ffffff;
+  background-image: url(../img/hand31.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -1376,10 +1379,7 @@ div.contenedor-video {
 .contendedor-programa {
   width: 100%;
   height: 1444px;
-  background-image: url(../img/hand3.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
+  
 }
 
 .contendedor-programa .programa-evento {

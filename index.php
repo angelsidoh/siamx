@@ -184,7 +184,7 @@ if (isset($_SESSION['correo'])) {
               <div id="contendedor-programa" class="contendedor-programa">
 
                 <div id= "blocker<?php echo $x;?>" class="video">
-                  <video id="myVideo<?php echo $x;?>" preload="auto" draggable="true">
+                  <video id="myVideo<?php echo $x;?>" draggable="true">
                     <source src="<?php echo "video/edit" . $x . ".mp4"; ?>" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
 
                   </video>
@@ -247,7 +247,7 @@ if (isset($_SESSION['correo'])) {
                             <div class="botonesrepoductor">
                               
                             </div>
-                            <button id="reproducir<?php echo $x;?>" class="button">Reproducir</button>
+                            <button id="reproducir<?php echo $x;?>" class="button">Ver</button>
                             
 
                             <div class="contenedor_actividad">
