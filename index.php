@@ -27,14 +27,14 @@ if (isset($_SESSION['correo'])) {
           <h2>Público General</h2><br>
 
           <p class="numero">$2,800 MXN</p>
-          <p>Si requiere factura, pregunte contactando al <br> Teléfono: 452 114 66 96 <br> Correo: santacruzulibarry58@hotmail.com <br> Con el M.C. HELADIO SANTACRUZ ULIBARRI </p>
+          <p>Compre al <br> Teléfono: 452 114 66 96 <br> Correo: santacruzulibarry58@hotmail.com <br> Con el M.C. HELADIO SANTACRUZ ULIBARRI </p>
           <ul>
             <li>Acceso al contenido de aprendizaje del diplomado</li>
             <li>Acceso a la sala de reunión en Meet</li>
             <li>Derecho al examen final de conociminto</li>
 
           </ul>
-          <a href="index.php#lugar2" id="irmapa" class="button">Ver Instrucciones</a>
+          <!-- <a href="index.php#lugar2" id="irmapa" class="button">Ver Instrucciones</a> -->
 
         </div>
       </li>
@@ -44,7 +44,7 @@ if (isset($_SESSION['correo'])) {
           <h2>Estudiantes</h2><br>
 
           <p class="numero">$1,400 MXN</p>
-          <p>Si requiere factura, pregunte contactando al <br> Teléfono: 452 114 66 96 <br> Correo: santacruzulibarry58@hotmail.com <br> Con el M.C. HELADIO SANTACRUZ ULIBARRI </p>
+          <p>Compre al <br> Teléfono: 452 114 66 96 <br> Correo: santacruzulibarry58@hotmail.com <br> Con el M.C. HELADIO SANTACRUZ ULIBARRI </p>
 
           <ul>
             <li>Acceso al contenido de aprendizaje del diplomado</li>
@@ -52,7 +52,7 @@ if (isset($_SESSION['correo'])) {
             <li>Derecho al examen final de conociminto</li>
 
           </ul>
-          <a href="index.php#lugar2" id="irmapa" class="button">Ver Instrucciones</a>
+          <!-- <a href="index.php#lugar2" id="irmapa" class="button">Ver Instrucciones</a> -->
 
         </div>
       </li>
@@ -92,7 +92,7 @@ if (isset($_SESSION['correo'])) {
         <h3 class="evento_r">Diplomado para Profesionalización Del cultivo del Aguacate
           <br>
           <p style="color:red; font-size :24px;">Contenido en USB</p>
-          <a href="#comprarusb" class="button" style="color:yellow;">¿Como comprar?</a>
+          <a href="#comprarusb" class="button" style="color:yellow; margin-bottom:10px;">¿Como comprar?</a>
           <a href="#verusb" class="button">ver USB</a>
         </h3>
       </li>

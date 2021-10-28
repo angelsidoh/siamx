@@ -2,6 +2,7 @@
 require_once('includes/funciones/funcionestwo.php');
 ?>
 <?php
+
 $invitado = $_GET['identi'];
 
 
@@ -25,7 +26,19 @@ if ($contactos->num_rows) {
         );
     }
 } ?>
-
+<title>Invitados</title>
+<meta name="description" content="<?php echo $invitado['descripcion']?>">
+<meta name="title" content="2do congreso mexicano del aguacate">
+<meta name="keywords" content="2do congreso mexicano del aguacate, <?php echo $invitado['nombre'] . " " . $invitado['apellidos']; ?>,<?php 
+            echo $invitado['tema'];
+            ?>,
+            <?php 
+            echo $invitado['subtema'];
+            ?>,
+            <?php echo $invitado['descripcion'];?>
+            " />
+<meta name="author" content="SIAM. A.C." />
+<meta name="copyright" content="SIAM. A.C." />
 
 <div class="sectionpress" id="ultimo-elemt">
     <div class="contenedor-forma1">
@@ -50,6 +63,10 @@ if ($contactos->num_rows) {
     </div>
     <div class="contenedor-forma5">
         <div class="forma-forma5">
+            <p>En el 2° Congreso Mexicano del Aguacate:</p>
+            <p><?php 
+            echo $invitado['tema'];
+            ?></p>
             <p><?php 
             echo $invitado['subtema'];
             ?></p>

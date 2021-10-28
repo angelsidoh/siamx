@@ -4,7 +4,7 @@ function vistasusuarios(){
         require('basedatos/bdsqli.php');
             
             
-            return $connf->query("SELECT id_invitados, nombre_invitado, apellido_invitado, email_invitado, tel_invitado, tipo_invitado,  foto_invitado, descripcion_invitado, especialidad_invitado, fecha_invitado, hora_invitado, tema_invitado,subtema_invitado, lugar_invitado  FROM invitados");
+            return $connf->query("SELECT id_invitados, nombre_invitado, apellido_invitado, email_invitado, tel_invitado, tipo_invitado,  foto_invitado, descripcion_invitado, especialidad_invitado, fecha_invitado, hora_invitado, tema_invitado,subtema_invitado, lugar_invitado,identi_invitado  FROM invitados");
             
     }catch(Exception $e){
         echo "Error!!" . $e->getMessage() . "<br>";
@@ -17,7 +17,7 @@ function reviewUsuarios($dato){
         require('basedatos/bdsqli.php');
             
             
-            return $connf->query("SELECT id_invitados, nombre_invitado, apellido_invitado, email_invitado, tel_invitado, tipo_invitado,  foto_invitado, descripcion_invitado, especialidad_invitado, fecha_invitado, hora_invitado, tema_invitado,subtema_invitado, lugar_invitado  FROM invitados WHERE email_invitado = '$dato'");
+            return $connf->query("SELECT id_invitados, nombre_invitado, apellido_invitado, email_invitado, tel_invitado, tipo_invitado,  foto_invitado, descripcion_invitado, especialidad_invitado, fecha_invitado, hora_invitado, tema_invitado,subtema_invitado, lugar_invitado,identi_invitado  FROM invitados WHERE identi_invitado = '$dato'");
             
     }catch(Exception $e){
         echo "Error!!" . $e->getMessage() . "<br>";

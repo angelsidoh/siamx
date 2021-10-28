@@ -264,7 +264,8 @@ h1.nombre-sitio span {
 }
 
 .tarjeta_registro {
-  width: 100%;
+  width: 90%;
+  margin: 0 auto;
   height: 800px;
   border-radius: 25px;
   grid-row: 1 / 1;
@@ -566,6 +567,7 @@ form {
 
 .contenedornew__boton {
   text-align: center;
+  
 }
 
 /* FIN seccion registro */
@@ -1652,11 +1654,13 @@ ul.resumen-evento li {
   color: #ffffff;
   font-size: 14px;
 }
+
 @media only screen and (min-width:350px) {
   .resumen-evento h3 {
     font-size: 24px;
   }
 }
+
 .inbox_comocomprar {
   width: 100%;
   margin: 0 auto;
@@ -1665,46 +1669,47 @@ ul.resumen-evento li {
   justify-content: space-around;
   flex-direction: column;
   background-color: #ffffff;
-  box-shadow: 18px 17px 36px 1px rgba(0,0,0,0.75);
+  box-shadow: 18px 17px 36px 1px rgba(0, 0, 0, 0.75);
   margin-bottom: 50px;
 }
-.presentacioncompra{
+
+.presentacioncompra {
   width: 100%;
   height: auto;
-  
   display: flex;
   flex-direction: row;
   justify-content: start;
-
 }
-.forma-compra{
+
+.forma-compra {
   max-width: 100px;
   width: 33%;
   height: 100%;
-  background-color: rgb(19, 19, 19);
+  background-color: #353535;
 }
-.marcoimagen{
+
+.marcoimagen {
   width: 140px;
   height: 100%;
-  
 }
-.forma-compra2{
+
+.forma-compra2 {
   max-width: 80px;
   width: 100%;
   height: 50%;
   background-color: #f5d108;
 }
-.marcoimagen .fotodel{
-  
-  
+
+.marcoimagen .fotodel {
   width: 100%;
   height: 160px;
- margin-top: 80px;
+  margin-top: 80px;
   background-image: url(../img/heladiofotoperfil.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 .texto-compra {
   width: 100%;
   margin: 0 auto;
@@ -1712,17 +1717,21 @@ ul.resumen-evento li {
   justify-content: space-between;
   flex-direction: column;
 }
-.nombrecontacto{
+
+.nombrecontacto {
   font-size: 24px;
   font-weight: 100;
   color: #000;
-  border-bottom: 3px solid #f5d108;;
+  border-bottom: 3px solid #f5d108;
+  ;
   padding: 10px 20px;
 }
-.nombrecontacto p:nth-child(1){
+
+.nombrecontacto p:nth-child(1) {
   font-size: 35px;
   font-weight: 900;
 }
+
 .datoscontacto {
   max-width: 350px;
   width: 100%;
@@ -1731,59 +1740,62 @@ ul.resumen-evento li {
   justify-content: center;
   flex-direction: row;
 }
-.datoscontacto  .iconos{
+
+.datoscontacto .iconos {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
- 
 }
-.datoscontacto  .iconos i{
+
+.datoscontacto .iconos i {
   font-size: 35px;
   color: #f5d108;
-
 }
-.datoscontacto .datos a{
+
+.datoscontacto .datos a {
   font-size: 12px;
   text-decoration: none;
   color: #000;
 }
-.datoscontacto .datos a:hover{
+
+.datoscontacto .datos a:hover {
   color: #fe4918;
 }
-.iconos-inbox{
-  
+
+.iconos-inbox {
   width: 100%;
   height: 50px;
   background-color: #6d6d6d;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  
-  
-
 }
-.iconos-inbox a{
 
+.iconos-inbox a {
   width: 100%;
   height: 50px;
   text-align: center;
-margin-top: 10px;
+  margin-top: 10px;
 }
-.iconos-inbox i{
+
+.iconos-inbox i {
   font-size: 24px;
   color: #000000;
   text-align: center;
 }
-.iconos-inbox i:hover{
+
+.iconos-inbox i:hover {
   color: #fe4918;
 }
+
 @media only screen and (min-width:350px) {
-  .datoscontacto .datos a{
+  .datoscontacto .datos a {
     font-size: 18px;
   }
 }
+
 @media only screen and (min-width:768px) {
-  .datoscontacto .datos a{
+  .datoscontacto .datos a {
     font-size: 20px;
   }
   .datoscontacto {
@@ -1793,8 +1805,7 @@ margin-top: 10px;
     justify-content: space-between;
     flex-direction: row;
   }
-  
-  .iconos-inbox{
+  .iconos-inbox {
     max-width: 100px;
     width: 100%;
     height: auto;
@@ -1802,8 +1813,6 @@ margin-top: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
-  
   }
   .inbox_comocomprar {
     width: 95%;
@@ -1813,26 +1822,24 @@ margin-top: 10px;
     flex-direction: row;
     background-color: rgb(228, 228, 228);
   }
-  .presentacioncompra{
+  .presentacioncompra {
     width: 30%;
     height: auto;
   }
-  
   .texto-compra {
     width: 40%;
     text-align: center;
     justify-content: space-around;
   }
-  .iconos-inbox{
+  .iconos-inbox {
     width: 30%;
     height: auto;
   }
 }
+
 @media only screen and (min-width:1170px) {
   .inbox_comocomprar {
-   
     height: 350px;
-   
   }
 }
 
@@ -3943,8 +3950,109 @@ ul, ol {
 }
 
 .sectionpress {
-  width: 803;
-  height: 899px;
+  width: 90%;
+  min-height: 866px;
+  height: auto;
+  position: relative;
+  margin: 0 auto;
+}
+
+.contenedor-forma1 {
+  width: 250px;
+  height: 275px;
+  border: 2px solid #000000;
+  position: absolute;
+  top: -200px;
+  right: 10%;
+  z-index: 2;
+}
+.contenedor-forma2 {
+  width: 250px;
+  height: 250px;
+  top: -200px;
+  right: 15%;
+  position: absolute;
+  z-index: 1;
+}
+.forma1 {
+  width: 250px;
+  height: 275px;
+  margin: 0 auto;
+  margin-left: 6px;
+  margin-top: 6px;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
+.forma1 img {
+  width: 100%;
+  height: 100%;
+  background-color: grey;
+}
+.circulo1 {
+  width: 330px;
+  height: 330px;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  background: #f5d108;
+}
+
+.circulo2 {
+  width: 342px;
+  height: 342px;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  border: 2px solid #f5d108;
+  position: absolute;
+  top: -6px;
+  left: -6px;
+}
+.contenedor-forma3 {
+  width: 100%;
+  height: auto;
+  color: #000000;
+  margin: 0 auto;
+  text-align: justify;
+  font-family: 'Rubik', sans-serif;
+  font-size: 26px;
+  margin-top: 220px;
+}
+.contenedor-forma4 {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  text-align: start;
+  font-family: 'Rubik', sans-serif;
+  font-weight: bold;
+  color: #fe4918;
+  font-size: 42px;
+}
+div.contenedor-forma4>div>p:nth-child(2) {
+  text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, .1), 0 0 5px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px rgba(0, 0, 0, .2), 0 5px 10px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15);
+}
+
+div.contenedor-forma4>div>p:nth-child(3), div.contenedor-forma4>div>p:nth-child(1) {
+  color: #000;
+  font-size: 24px;
+  font-weight: 300;
+  text-align: justify;
+  font-style: italic;
+}
+.contenedor-forma5 {
+  width: 100%;
+  height: auto;
+ 
+  margin: 0 auto;
+  text-align: start;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 600;
+  color: #000000;
+  font-size: 34px;
+  overflow: hidden;
+}
+/* .sectionpress {
+  width: 100%;
+  height: auto;
   display: grid;
   grid-column-gap: 2px;
   grid-row-gap: 2px;
@@ -3968,9 +4076,9 @@ ul, ol {
   border: 2px solid #000000;
   z-index: 2;
   margin: 0 auto;
-}
+} */
 
-.contenedor-forma2 {
+/* .contenedor-forma2 {
   width: 100%;
   height: 100%;
   grid-column: 8 / 16;
@@ -4350,7 +4458,7 @@ div.contenedor-forma4>div>p:nth-child(3), div.contenedor-forma4>div>p:nth-child(
   .contenedor-forma5 {
     font-size: 36px;
   }
-}
+} */
 
 /* footer */
 

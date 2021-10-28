@@ -50,17 +50,19 @@
       </div>
       <div class="iconos"></div>
       <div class="imagenes"></div>
-      <div class="desing" id ="actuador4">
+      <div class="desing" id="actuador4">
         <div class="lateral" id="actuador">
           <div class="contenedor-lateral">
             <div class="elementlat"><img src="img/reshot-icon-meeting-presentation-V42B53MFNJ.png" alt="insertar SVG con la etiqueta image">
-          <p id = "tema-ponente">FISIOLOGÍA Y GENÉTICA</p></div>
-          
-           
-           
-           
+              <p id="tema-ponente"></p>
+              <p id="subtema-ponente"></p>    
+            </div>
+
+
+
+
           </div>
-        
+
         </div>
         <div class="circulo-presentacion" id="circulo-presentacion">
           <div class="presentacion-contain">
@@ -71,35 +73,35 @@
               <div class="forma-elem" id="inicioperfilponente2"></div>
             </div>
             <div class="elem">
-              
-                <div class="text-elem" id = "actuador2">
-                  <h3 id="nombre-ponente"></h3>
-                  <p id="titulo-ponente"></p>
-                  
-                  
-                 
-                </div>
-              
-              
+
+              <div class="text-elem" id="actuador2">
+                <h3 id="nombre-ponente"></h3>
+                <p id="titulo-ponente"></p>
+
+
+
+              </div>
+
+
             </div>
-           
+
           </div>
         </div>
-       
+
         <div class="lateral" id="actuador1">
           <div class="contenedor-lateral">
 
-          <!-- <div class="elementlat"><i class="far fa-calendar-alt"></i>
+            <!-- <div class="elementlat"><i class="far fa-calendar-alt"></i>
           <p>Lunes 24 de Octubre del 2022</p></div> -->
             <div class="elementlat">
-            <i class="fas fa-university"></i>
-            <p id="lugar-ponente"></p>
+              <i class="fas fa-university"></i>
+              <p id="lugar-ponente"></p>
             </div>
-            
-           
+
+
           </div>
-        
-        </div> 
+
+        </div>
       </div>
 
     </div>

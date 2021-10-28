@@ -1030,8 +1030,8 @@ function leerUpPonente(e) {
     const tema = document.querySelector('#tema').value;
     const subtema = document.querySelector('#subtema').value;
     const lugar = document.querySelector('#lugar').value;
-    const number = document.querySelector('#number').value;
-    const mail = document.querySelector('#correo').value;
+    // const number = document.querySelector('#number').value;
+    // const mail = document.querySelector('#correo').value;
     const file = document.querySelector('#filesx').value;
     const urlfoto = document.querySelector('#urlfoto').value;
     const accion = document.querySelector('#btnform').value;
@@ -1138,40 +1138,40 @@ function leerUpPonente(e) {
         $('#descripcion').css({ 'background': '#ffffff' });
     }
     // número de teléfono
-    if (number === '') {
-        $('#number').css({
-            'background': 'red'
-        });
-        swal({
-            content: "",
-            text: 'Hay campos vacíos.',
-            icon: "error",
-            button: {
-                text: "Continuar",
-                closeModal: true,
-            },
-        });
-    } else {
+    // if (number === '') {
+    //     $('#number').css({
+    //         'background': 'red'
+    //     });
+    //     swal({
+    //         content: "",
+    //         text: 'Hay campos vacíos.',
+    //         icon: "error",
+    //         button: {
+    //             text: "Continuar",
+    //             closeModal: true,
+    //         },
+    //     });
+    // } else {
 
-        $('#number').css({ 'background': '#ffffff' });
-    }
-    if (mail === '') {
-        $('#correo').css({
-            'background': 'red'
-        });
-        swal({
-            content: "",
-            text: 'Hay campos vacíos.',
-            icon: "error",
-            button: {
-                text: "Continuar",
-                closeModal: true,
-            },
-        });
-    } else {
+    //     $('#number').css({ 'background': '#ffffff' });
+    // }
+    // if (mail === '') {
+    //     $('#correo').css({
+    //         'background': 'red'
+    //     });
+    //     swal({
+    //         content: "",
+    //         text: 'Hay campos vacíos.',
+    //         icon: "error",
+    //         button: {
+    //             text: "Continuar",
+    //             closeModal: true,
+    //         },
+    //     });
+    // } else {
 
-        $('#correo').css({ 'background': '#ffffff' });
-    }
+    //     $('#correo').css({ 'background': '#ffffff' });
+    // }
     if (file === '') {
         $('#filesx').css({
             'background': 'red'
@@ -1258,19 +1258,19 @@ function leerUpPonente(e) {
         const infoinvitados = new FormData();
         infoinvitados.append('nombre', nombre);
         infoinvitados.append('apellido', apellido);
-        infoinvitados.append('tel', number);
+        // infoinvitados.append('tel', number);
         infoinvitados.append('profesion', profesion);
         infoinvitados.append('descripcion', descripcion);
         infoinvitados.append('fecha', fecha);
         infoinvitados.append('hora', hora);
-        infoinvitados.append('correo', mail);
+        // infoinvitados.append('correo', mail);
         infoinvitados.append('urlfoto', urlfoto);
         infoinvitados.append('tema', tema);
         infoinvitados.append('subtema', subtema);
         infoinvitados.append('lugar', lugar);
         infoinvitados.append('accion', accion);
         console.log(urlfoto);
-        if (file != '' && nombre != '' && apellido != '' && number != '' && profesion != '' && descripcion != '' && fecha != '' && hora != '' && mail != '' && urlfoto != '' && tema != '' && subtema != '' && lugar != '') {
+        if (file != '' && nombre != '' && apellido != '' && profesion != '' && descripcion != '' && fecha != '' && hora != '' && urlfoto != '' && tema != '' && subtema != '' && lugar != '') {
             insertarInvitadosDB(infoinvitados);
         }
 
@@ -1994,7 +1994,7 @@ http.onreadystatechange = function () {
 
     if (this.readyState == 4 && this.status == 200) {
         resultado = JSON.parse(this.responseText);
-
+console.log(resultado);
 
 
 
@@ -2059,9 +2059,10 @@ var idleInterval = setInterval(timerIncrement, 5000); // 1 minute
 document.getElementById('nombre-ponente').innerHTML = resultado["factor" + 0].nombre + " " + resultado["factor" + 0].apellidos;
 document.getElementById('titulo-ponente').innerHTML = resultado["factor" + 0].especialidad;
 document.getElementById('tema-ponente').innerHTML = resultado["factor" + 0].tema;
+document.getElementById('subtema-ponente').innerHTML = resultado["factor" + 0].subtema;
 document.getElementById('lugar-ponente').innerHTML = resultado["factor" + 0].lugar;
 let a = document.createElement("a");
-var urlponentereview = "https://sociedadintelectualdelaguacatemexicano.com/reviewponente.php?identi=" + resultado["factor" + 0].email;
+var urlponentereview = "https://sociedadintelectualdelaguacatemexicano.com/reviewponente.php?identi=" + resultado["factor" + 0].identi;
 a.setAttribute("href", urlponentereview
     , 'target', '_blank');
 a.setAttribute("id", "link-ponente");
@@ -2184,7 +2185,7 @@ $("#circulo-presentacion").on('transitionend webkitTransitionEnd oTransitionEnd 
         document.getElementById('titulo-ponente').innerHTML = resultado["factor" + contador].especialidad;
         document.getElementById('tema-ponente').innerHTML = resultado["factor" + contador].tema;
         document.getElementById('lugar-ponente').innerHTML = resultado["factor" + contador].lugar;
-        urlponentereview = "https://sociedadintelectualdelaguacatemexicano.com/reviewponente.php?identi=" + resultado["factor" + contador].email;
+        urlponentereview = "https://sociedadintelectualdelaguacatemexicano.com/reviewponente.php?identi=" + resultado["factor" + contador].identi;
         a.setAttribute("href", urlponentereview);
 
         for (let a = 1; a <= 2; a++) {
