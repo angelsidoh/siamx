@@ -70,22 +70,101 @@ $(document).ready(function () {
 
     }
 });
+(function ($) {
+    "use strict";
+
+
+    /*==================================================================
+   [ Focus input ]*/
+    $('.input100').each(function () {
+        $(this).on('blur', function () {
+            if ($(this).val().trim() != "") {
+                $(this).addClass('has-val');
+            }
+            else {
+                $(this).removeClass('has-val');
+            }
+        })
+    })
+
+
+    /*==================================================================
+    [ Validate ]*/
+    var input = $('.validate-input .input100');
+
+    $('.validate-form').on('submit', function () {
+        var check = true;
+
+        for (var i = 0; i < input.length; i++) {
+            if (validate(input[i]) == false) {
+                showValidate(input[i]);
+                check = false;
+            }
+        }
+
+        return check;
+    });
+
+
+    $('.validate-form .input100').each(function () {
+        $(this).focus(function () {
+            hideValidate(this);
+        });
+    });
+
+    function validate(input) {
+        if ($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
+            if ($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
+                return false;
+            }
+        }
+        else {
+            if ($(input).val().trim() == '') {
+                return false;
+            }
+        }
+    }
+
+    function showValidate(input) {
+        var thisAlert = $(input).parent();
+
+        $(thisAlert).addClass('alert-validate');
+    }
+
+    function hideValidate(input) {
+        var thisAlert = $(input).parent();
+
+        $(thisAlert).removeClass('alert-validate');
+    }
+
+
+
+})(jQuery);
 $(document).ready(function () {
+    $("#ventana-sesion").hide();
+    var botoniniciodesesion = "#iniciodesision";
+    var contadoriniciosesion = 0;
+    $(botoniniciodesesion).click(function (e) {
 
 
-    
-    
+        if (contadoriniciosesion == 0) {
+            $("#ventana-sesion").show();
+            $('#iniciodesision').css({'color': '#fe1848'});
+            $('#iniciodesision').css({'font-weight': '900'});
+            $('#iniciodesision').css({'text-shadow': '0px 0px 12px rgba(255, 255, 255, 0.61)'});
+        } else {
+            $("#ventana-sesion").hide();
+            $('#iniciodesision').css({'color': '#ffffff'});
+            $('#iniciodesision').css({'font-weight': '300'});
+            $('#iniciodesision').css({'text-shadow': '0px 0px 12px rgba(255, 255, 255, 0)'});
+        }
 
-    // alert(mobile); #contendedor-programa > div.video
-    // alert("Mobile: " + detector.mobile());
-    // alert("Phone: " + detector.phone());
-    // alert("Tablet: " + detector.tablet());
-    // alert("OS: " + detector.os());
-    // alert("userAgent: " + detector.userAgent());
-    // if( mobile != "null" && detector.phone() != "null"&& detector.tablet() != "null"&& detector.os() != "null"&& detector.userAgent() != "null"){
-    //     alert('Windows');
-    // }
-
+        contadoriniciosesion++;
+        if (contadoriniciosesion >= 2) {
+            contadoriniciosesion = 0;
+        }
+    }
+    );
 
     var imgItems = $('.slider li').length;
     var imgPos = 1;
@@ -120,7 +199,7 @@ $(document).ready(function () {
     var bttonvideop = "#pause" + imgPos;
     console.log(video, bttonvideo);
     var media = document.getElementById(video);
-    var bloqueodevideo = "#blocker"+imgPos;
+    var bloqueodevideo = "#blocker" + imgPos;
     // DETECTAR DISPOCITIVO
     var detector = new MobileDetect(window.navigator.userAgent);
     var mobile = detector.mobile();
@@ -128,28 +207,28 @@ $(document).ready(function () {
     var tablet = detector.tablet();
     var os = detector.os();
     var userAgent = detector.userAgent();
-    
-    
-    if(mobile != null || phone != null || tablet != null || os != null){
+
+
+    if (mobile != null || phone != null || tablet != null || os != null) {
         $(bloqueodevideo).hide();
-    }else{
+    } else {
         $(bloqueodevideo).show();
     }
-  
+
     $(bttonvideo).click(function (e) {
         v.currentTime = 0;
         $(partprogra).hide();
         getFullscreen(document.getElementById(elementx));
         $(bloqueodevideo).show();
-        
+
         document.getElementById(video).play();
-        
+
     });
     // Pause event
-    $(bttonvideop).click(function (e)  {
+    $(bttonvideop).click(function (e) {
         alert('pause');
         $(partprogra).show();
-        
+
         exitFullscreen();
         $(bloqueodevideo).hide();
     });
@@ -232,13 +311,13 @@ $(document).ready(function () {
         var bttonvideo = "#reproducir" + imgPos;
         // console.log(video, bttonvideo, videopause, imgPos, pausex, imgItems);
         var media = document.getElementById(video);
-        var bloqueodevideo = "#blocker"+imgPos;
-        if(mobile != null || phone != null || tablet != null || os != null){
+        var bloqueodevideo = "#blocker" + imgPos;
+        if (mobile != null || phone != null || tablet != null || os != null) {
             $(bloqueodevideo).hide();
-        }else{
+        } else {
             $(bloqueodevideo).show();
         }
-        
+
         $(bttonvideo).click(function (e) {
             $(partprogra).hide();
             document.getElementById(video).play();
@@ -275,7 +354,7 @@ $(document).ready(function () {
             }
 
         }
-       
+
         $('.slider li').hide();
         $('.slider li:nth-child(' + imgPos + ')').fadeIn();
 
@@ -305,10 +384,10 @@ $(document).ready(function () {
         var bttonvideo = "#reproducir" + imgPos;
         console.log(video, bttonvideo);
         var media = document.getElementById(video);
-        var bloqueodevideo = "#blocker"+imgPos;
-        if(mobile != null || phone != null || tablet != null || os != null){
+        var bloqueodevideo = "#blocker" + imgPos;
+        if (mobile != null || phone != null || tablet != null || os != null) {
             $(bloqueodevideo).hide();
-        }else{
+        } else {
             $(bloqueodevideo).show();
         }
         $(bttonvideo).click(function (e) {
@@ -1994,7 +2073,7 @@ http.onreadystatechange = function () {
 
     if (this.readyState == 4 && this.status == 200) {
         resultado = JSON.parse(this.responseText);
-console.log(resultado);
+        console.log(resultado);
 
 
 

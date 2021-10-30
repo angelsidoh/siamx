@@ -5,7 +5,7 @@ session_start();
 <html class="no-js" lang="">
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta charset="utf-8">
   <title></title>
   <meta name="description" content="">
@@ -39,6 +39,19 @@ session_start();
   header("Expires: Sat, 1 Jul 2000 05:00:00 GMT"); // Fecha en el pasado
   ?>
 
+  <link rel="stylesheet" type="text/css" href="logininstall/bootstrap/css/bootstrap.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="logininstall/animate/animate.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="logininstall/css-hamburgers/hamburgers.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="logininstall/animsition/css/animsition.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="logininstall/select2/select2.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="logininstall/daterangepicker/daterangepicker.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/all.min.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans|Oswald|PT+Sans|family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -48,6 +61,7 @@ session_start();
   <!-- BOOSTRAP -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/util.css?v=<?php echo time(); ?>">
   <link rel="stylesheet" href="css/main.css?v=<?php echo time(); ?>">
 
   <meta name="theme-color" content="#fafafa">
@@ -61,9 +75,9 @@ session_start();
 
 
 
-  <div  id="hero" class="hero">
-   
-      <!-- <nav class="redes-sociales">
+  <div id="hero" class="hero">
+
+    <!-- <nav class="redes-sociales">
 
       </nav>
       <div class="informacion-evento">
@@ -78,11 +92,11 @@ session_start();
           <h1 class="nombre-sitio">Sociedad Intelectual del Aguacate Mexicano</h1>
           <h1 class="nombre-sitio">SIAM A.C.</h1>
         </div> -->
-        <div class="evento-sitio">
-          <?php include_once 'evento.php' ?>
-        </div>
-    
-    
+    <div class="evento-sitio">
+      <?php include_once 'evento.php' ?>
+    </div>
+
+
   </div>
   <!--.hero-->
 
@@ -92,7 +106,7 @@ session_start();
 
       </div>
 
-      
+
       <div class="hotcalluser">
         <p>
           <?php
@@ -106,23 +120,78 @@ session_start();
       <div class="hotcall">
         <?php if (isset($_SESSION['usuario'])) {
 
-        ?> <a href="logout.php">Cerrar Sesión</a><?php
-                                                      } else {
-                                                        ?> <a href="login.php#ini">Iniciar Sesión</a><?php
+        ?> <a href="logout2.php">Cerrar Sesión</a><?php
+                                                } else {
+                                                  ?>
+          <p id="iniciodesision">Iniciar Sesión</p>
+        <?php
 
-                                                          } ?>
+                                                } ?>
+        <div id="ventana-sesion" class="ventana-sesion">
+          <form class="login100-form validate-form">
+            <span class="login100-form-title p-b-49">
+              Iniciar sesión
+            </span>
+
+            <div class="wrap-input100 validate-input m-b-23" data-validate="Username is reauired">
+              <span class="label-input100">Username</span>
+              <input class="input100" type="text" name="username" placeholder="Type your username">
+              <span class="focus-input100" data-icon="&#xf007;"></span>
+            </div>
+
+            <div class="wrap-input100 validate-input" data-validate="Password is required">
+              <span class="label-input100">Password</span>
+              <input class="input100" type="password" name="pass" placeholder="Type your password">
+              <span class="focus-input100" data-icon="&#xf023;"></span>
+            </div>
+
+            <div class="text-right p-t-8 p-b-31">
+              <a href="#">
+                ¿Olvidaste tu contraseña?
+              </a>
+            </div>
+
+            <div class="container-login100-form-btn">
+              <div class="wrap-login100-form-btn">
+                <div class="login100-form-bgbtn"></div>
+                <button class="login100-form-btn">
+                  Iniciar sesión
+                </button>
+              </div>
+            </div>
+
+            <div class="txt1 text-center p-t-54 p-b-20">
+              <span>
+                O Accede Usando
+              </span>
+            </div>
+
+            <div class="flex-c-m">
+
+
+              <a href="#" class="login100-social-item bg3">
+                <i class="fab fa-google"></i>
+              </a>
+            </div>
+
+
+          </form>
+        </div>
       </div>
       <div class="menu-hambur">
         <input type="checkbox" id="check" name="menu">
         <label for="check">
-          <i class="fas fa-bars" id="btn"><span style="font-size: 30px;">Menú</span> </i>
+          <i class="fas fa-bars" id="btn"> </i>
           <i class="fas fa-window-close" id="clc" style="display:none"></i>
         </label>
       </div>
     </div>
+    <!-- inicio de sesion -->
+
+    <!--.Barra-->
 
   </div>
-  <!--.Barra-->
+
 
   <div class="contenedor_menu " id="global" style="display: none;">
     <div class="infosiam">
@@ -155,38 +224,38 @@ session_start();
 
 
 
-                                                          }
-                                                          if ($_SESSION['tipo'] == 99) {
-                                                            ?> <a href="admin.php">Tu Sección Rey SIAM</a><?php
+                                                      }
+                                                      if ($_SESSION['tipo'] == 99) {
+                                                        ?> <a href="admin.php">Tu Sección Rey SIAM</a><?php
 
 
 
-                                                          }
-                                                          if ($_SESSION['tipo'] == 1) {
-                                                            ?> <a href="adminpagos.php">Tu Sección Admin-Pagos SIAM</a><?php
+                                                                                                    }
+                                                                                                    if ($_SESSION['tipo'] == 1) {
+                                                                                                      ?> <a href="adminpagos.php">Tu Sección Admin-Pagos SIAM</a><?php
 
 
 
-                                                                        }
-                                                                        if ($_SESSION['tipo'] == 2) {
-                                                                          ?> <a href="ponentes.php">Tu Sección Ponente SIAM</a><?php
+                                                                                                                                                                }
+                                                                                                                                                                if ($_SESSION['tipo'] == 2) {
+                                                                                                                                                                  ?> <a href="ponentes.php">Tu Sección Ponente SIAM</a><?php
 
 
 
-                                                                        }
-                                                                      } else { ?> <a href="login.php#ini">Tu Sección SIAM</a><?php
+                                                                                                                                                                                                                      }
+                                                                                                                                                                                                                    } else { ?> <a href="#">Tu Sección SIAM</a><?php
 
-                                                                      }
+                                                                                                                                                                                                                                                                  }
 
-                                                                  ?> </p>
-      <p><?php if (isset($_SESSION['usuario'])) {
+                                                                                                                                                                                                                                                                    ?> </p>
+      <!-- <p><?php if (isset($_SESSION['usuario'])) {
             echo $_SESSION['usuario'];
-          ?> <br><a href="logout.php">Cerrar Sesión</a><?php
-                                                          } else {
-                                                            ?> <a href="login.php#ini">Iniciar Sesión</a><?php
+          ?> <br><a href="logout2.php">Cerrar Sesión</a><?php
+                                                      } else {
+                                                        ?> <a href="#">Iniciar Sesión</a><?php
 
-                                                          } ?></p>
-      <p><a href="registro.php#reg45821">Registrarse</a></p>
+                                                                                        } ?></p> -->
+      <!-- <p><a href="registro.php#reg45821">Registrarse</a></p> -->
       <p><a href="#">Subscripción a Noticias</a></p>
       <p><a href="#">Contacto</a></p>
     </div>
