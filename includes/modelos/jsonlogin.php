@@ -1,6 +1,6 @@
 <?php 
  session_start();
-     if ($_POST['accion'] == 'Iniciar Sesion'){
+     if ($_POST['accion'] == 'iniciar sesion'){
         $mail = filter_var($_POST['correo'],FILTER_SANITIZE_STRING);
         $pass = filter_var($_POST['pass'],FILTER_SANITIZE_STRING);
         try{

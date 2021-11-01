@@ -128,20 +128,20 @@ session_start();
 
                                                 } ?>
         <div id="ventana-sesion" class="ventana-sesion">
-          <form class="login100-form validate-form">
+          <form id="loginx" class="login100-form validate-form">
             <span class="login100-form-title p-b-49">
               Iniciar sesión
             </span>
 
             <div class="wrap-input100 validate-input m-b-23" data-validate="Username is reauired">
-              <span class="label-input100">Username</span>
-              <input class="input100" type="text" name="username" placeholder="Type your username">
+              <span class="label-input100">Usuario</span>
+              <input class="input100" type="text" name="username" placeholder="Tu cuenta de usuario" id="correo">
               <span class="focus-input100" data-icon="&#xf007;"></span>
             </div>
 
             <div class="wrap-input100 validate-input" data-validate="Password is required">
-              <span class="label-input100">Password</span>
-              <input class="input100" type="password" name="pass" placeholder="Type your password">
+              <span class="label-input100">Contraseña</span>
+              <input class="input100" type="password" id="pass" name="pass" placeholder="Tu constraseña">
               <span class="focus-input100" data-icon="&#xf023;"></span>
             </div>
 
@@ -154,15 +154,29 @@ session_start();
             <div class="container-login100-form-btn">
               <div class="wrap-login100-form-btn">
                 <div class="login100-form-bgbtn"></div>
-                <button class="login100-form-btn">
+                <button id="accioninix1" value="iniciar sesion" class="login100-form-btn">
                   Iniciar sesión
                 </button>
+              </div>
+            </div>
+            <div class="text-right p-t-8 p-b-31">
+             
+                <p> ¿No tienes una cuenta SIAM?</p>
+               
+              
+            </div>
+            <div class="container-login100-form-btn">
+              <div class="wrap-login100-form-btn">
+                <div class="login100-form-bgbtn"></div>
+                <a href="registro.php"id="accionregx1" class="login100-form-btn" >
+                  Registrate
+                                              </a>
               </div>
             </div>
 
             <div class="txt1 text-center p-t-54 p-b-20">
               <span>
-                O Accede Usando
+                O Accede Usando tu Cuenta
               </span>
             </div>
 

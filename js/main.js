@@ -149,10 +149,14 @@ $(document).ready(function () {
 
         if (contadoriniciosesion == 0) {
             $("#ventana-sesion").show();
+            $('.tarjeta_registro').css({'z-index': '-99'});
+            $('.sub_tarjetaregistro').css({'z-index': '-99'});
             $('#iniciodesision').css({'color': '#fe1848'});
             $('#iniciodesision').css({'font-weight': '900'});
             $('#iniciodesision').css({'text-shadow': '0px 0px 12px rgba(255, 255, 255, 0.61)'});
         } else {
+            $('.tarjeta_registro').css({'z-index': '1'});
+            $('.sub_tarjetaregistro').css({'z-index': '1'});
             $("#ventana-sesion").hide();
             $('#iniciodesision').css({'color': '#ffffff'});
             $('#iniciodesision').css({'font-weight': '300'});
@@ -818,8 +822,9 @@ $(document).on('change', 'input[type="checkbox"]', function (e) {
 
 });
 // Sesiones
-const formLoginUser = document.querySelector('#login');
-if ($("#login").length) {
+
+const formLoginUser = document.querySelector('#loginx');
+if ($("#loginx").length) {
     eventListeners();
     function eventListeners() {
         formLoginUser.addEventListener('submit', leerLogin);
@@ -827,8 +832,13 @@ if ($("#login").length) {
 }
 function leerLogin(e) {
     e.preventDefault();
+     
+    const accioninix1 = document.querySelector('#accioninix1').value;
     const mail = document.querySelector('#correo').value;
     const pass = document.querySelector('#pass').value;
+   
+    // console.log(accioninix1, mail, pass);
+ 
 
     validarString(mail);
     if (caracteresCorreoValido(mail) === false) {
@@ -842,13 +852,14 @@ function leerLogin(e) {
             },
         });
     }
-    const accion = document.querySelector('#btnlogin').value;
-    const accionrep = quitarAcentos(accion);
+   
+    
     let cadena = mail;
     // esta es la palabra a buscar
     let termino = "@gmail";
     // para buscar la palabra hacemos
     let posicion = cadena.indexOf(termino);
+   
     if (posicion !== -1) {
         //console.log("La palabra está en la posición " + posicion);
         $('#correo').css({
@@ -857,7 +868,7 @@ function leerLogin(e) {
     }
     else {
         $('#correo').css({
-            'background': 'yellow'
+            'border': '2px solid red'
         });
         swal({
             content: "",
@@ -869,10 +880,9 @@ function leerLogin(e) {
             },
         });
     }
+    console.log(posicion);
     if (mail === '') {
-        $('#correo').css({
-            'background': 'red'
-        });
+       
         swal({
             content: "",
             text: 'Hay campos vacíos.',
@@ -884,9 +894,7 @@ function leerLogin(e) {
         });
     }
     if (pass === '') {
-        $('#pass').css({
-            'background': 'red'
-        });
+        
         swal({
             content: "",
             text: 'Hay campos vacíos.',
@@ -900,13 +908,16 @@ function leerLogin(e) {
         $('#pass').css({ 'background': '#ffffff' });
     }
     if (posicion !== -1) {
+       
         if (mail != '') {
             const ifouser = new FormData();
 
             ifouser.append('correo', mail);
             ifouser.append('pass', pass);
-            ifouser.append('accion', accionrep);
-            if (accion === 'Iniciar Sesión') {
+            ifouser.append('accion', accioninix1);
+           
+            if (accioninix1 === 'iniciar sesion') {
+               
                 consultaBD(ifouser);
             }
         }
@@ -1417,11 +1428,12 @@ if ($("#registro").length) {
 }
 
 function leerRegistro(e) {
+    
     e.preventDefault();
     const user = document.querySelector('#user').value;
     const apellido = document.querySelector('#apellido').value;
     const number = document.querySelector('#number').value;
-    const mail = document.querySelector('#correo').value;
+    const mail = document.querySelector('#correox12').value;
     validarString(mail);
     // console.log(user, apellido, number, mail);
     if (caracteresCorreoValido(mail) === false) {
@@ -1574,7 +1586,7 @@ function insertarDB(dato) {
 
                 swal({
                     content: "",
-                    text: '¡Registro Exitoso!',
+                    text: '¡Registro Exitoso! Hemos enviado un email a tu cuenta de Google, donde encontrarás los datos para iniciar sesión *Importante: Sino has recibido el email después de 10 minutos, revisa la carpeta de spam o correo no deseado o ponte en contacto al: WhatsApp: 452 179 8410',
                     icon: "success",
                     buttons: {
                         defeat: "¡Continuar!",
@@ -1583,12 +1595,12 @@ function insertarDB(dato) {
                     .then((value) => {
                         switch (value) {
                             default:
-                                window.location.href = 'logout.php';
+                                window.location.href = 'logout2.php';
                         }
                     });
-                setTimeout(() => {
-                    window.location.href = 'logout.php';
-                }, 3200);
+                // setTimeout(() => {
+                //     window.location.href = 'logout2.php';
+                // }, 3200);
             }
         }
     }

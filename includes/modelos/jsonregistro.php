@@ -1,7 +1,7 @@
 <?php
     session_start();
     // echo json_encode($_POST);
-    require_once '../../send-mail.php';
+    require_once '../../sendmailbyabgek/mail/enviarx.php';
     
     if ($_POST['accion'] == 'Crear cuenta SIAM'){
         $usuario = filter_var($_POST['usuario'],FILTER_SANITIZE_STRING);
@@ -58,4 +58,3 @@
                  echo json_encode("Error: " .$e->getMessage());
             }
         }
-?>
